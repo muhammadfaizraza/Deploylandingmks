@@ -1,8 +1,10 @@
 {
-  "logo": "MKS Racing",
+  "app_title":"MKS Racing",
+  "logo": "../../../Group.png",
   "about":"About",
   "statistics": "statistics",
   "race_card": "race card",
+  "result": "Result",
   "race_course":"race course",
   "competition":"competition",
   "sponsors":"sponsors",

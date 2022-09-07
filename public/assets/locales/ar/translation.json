@@ -1,8 +1,10 @@
 {
-  "logo": "MKS Racing",
+  "app_title":"السباق",
+  "logo": "../../../Group.png",
   "about":"حول",
   "statistics": "الإحصاء",
   "race_card": "بطاقة السباق",
+  "result": "نتيجة",
   "race_course":"دورة السباق",
   "competition":"منافسة",
   "sponsors":"الرعاة",

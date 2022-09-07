@@ -1,0 +1,152 @@
+.RaceCardSection{
+    margin-top: 19px;
+    display: grid;
+    grid-template-columns: auto 20%;
+    column-gap: 1.1rem;
+}
+.RaceCardSlider{
+height: 158px;
+left: 18px;
+overflow: hidden;
+display: flex;
+justify-content: space-evenly;
+}
+.slidercards{
+    width: 90%;
+    margin-inline: auto;
+}
+
+.singleracecard{
+    box-sizing: border-box;
+    width: 260px !important;
+    height: 124px;
+    background: #FFFFFF;
+    border: 2px solid #DFDFDF;
+    border-radius: 20px;
+    transition: 0.4s linear all;
+}
+.singleracecardbtn{
+    display: none;
+}
+.singleracecard:hover{
+    height: 154px;
+}
+.singleracecard:hover > .singleracecardbtn{
+    display: block;
+}
+.racecardrow{
+    display: flex;
+    justify-content: space-evenly;
+}
+.clubname{
+font-family: 'Inter';
+font-style: normal;
+ font-weight: 400;
+font-size: 15px;
+line-height: 7px;
+color: #000000;
+padding: 1.5rem 0rem 0rem 1rem;
+}
+.owner{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 8px;
+padding-left: 1rem;
+}
+.raceNo{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    
+    
+    color: rgba(0, 0, 0, 0.5);
+}
+.racedistance{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    
+    
+    color: rgba(0, 0, 0, 0.5);
+}
+.racetime{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 23.4333px;
+line-height: 28px;
+
+color: #FF9900;
+}
+
+button.slick-arrow.slick-prev.slick-disabled {
+    width: 25px;
+    height: 124px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+
+button.slick-arrow.slick-next.slick-disabled {
+    width: 25px;
+    height: 124px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    margin-right: -10px;
+}
+button.slick-arrow.slick-next{
+    width: 25px;
+    height: 124px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    margin-right: -10px;
+}
+button.slick-arrow.slick-prev{
+    width: 25px;
+    height: 124px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+/* -------------------Addington CSS ------------------*/
+
+.Addington{
+    flex: 1;
+}
+.AddingtonStyle{
+    width: 118px;
+    height: 148px;
+    margin: auto;
+}
+.AddingtonStyle img{
+    width: 84px;
+height: 101.9px;
+}
+.Addingtontimer{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21.4118px;
+    line-height: 6px;
+    color: #19469D;
+
+}
+.Addingtonname{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 2px;
+color: #000000;
+/* margin: 1.1rem; */
+}

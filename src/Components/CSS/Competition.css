@@ -1,0 +1,58 @@
+.HomeRightSection{
+    height: fit-content;
+    background: #EFEFEF;
+    border-radius: 20px;
+}
+.Competition{
+    margin: auto;
+}
+.CompetitionHeader{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.CompetitionHeader h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(1rem, 10vw, 2rem); 
+}
+.CompetitionHeader img{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(1rem, 10vw, 2rem); 
+    line-height: 24px;
+}
+.AccordionHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.accordion-button::after{
+    display: none !important;
+}
+
+.CompetitionData{
+    width: 100%;
+    margin: auto;
+}
+.Competitionitem{
+    border-radius: 21px;
+    margin: 8px;
+}
+.Competition_Matches{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+.accordion-body {    
+background: #19469D;
+border-radius: 0 0 20px 20px;
+}
+.accordion-item {
+    background-color: #EFEFEF ; 
+     border: none; 
+}

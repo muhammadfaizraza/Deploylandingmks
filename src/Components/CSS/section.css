@@ -1,0 +1,45 @@
+.bannerHome{
+    background: linear-gradient(180deg, #078BE6 0%, #19469D 100%);
+    border-radius: 20px;
+    height: min(20rem,40rem);
+}
+.bannerCard > img{
+    float: right;
+    margin: 2rem;
+}
+
+.chartPrediction{
+    display: flex;
+    gap: 1.1rem;
+    margin-top: 1.1rem;
+}
+.GraphCard{
+    flex:1 ;
+    height: min(22rem,40rem);
+    background: linear-gradient(180deg, rgba(7, 139, 230, 0.1) 0%, rgba(25, 70, 157, 0.1) 100%);
+    background-blend-mode: luminosity;
+    border-radius: 20px;
+}
+.PredictionCard{
+    flex:1 ;
+    height: min(22rem,40rem);
+    background: linear-gradient(180deg, rgba(7, 139, 230, 0.1) 0%, rgba(25, 70, 157, 0.1) 100%);
+    background-blend-mode: luminosity;
+    border-radius: 20px;
+}
+.endsection{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.1rem;
+    width: 96%;
+    margin-inline: auto;
+}
+.AdsCard{
+    background: #C4C4C4;
+    width: 25%;
+    height: 510px;
+
+}
+.AdsCard h1{
+    text-align: center;
+}
