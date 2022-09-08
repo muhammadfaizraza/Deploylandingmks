@@ -238,6 +238,7 @@ export const MatchData = [
         totalRunner:'09',
         distance:'340 m',
         offtime:'20:23:08 h',
+        time:'25',
         surface:'Truf',
         flat:'Flat',
         going:'Good',
@@ -247,7 +248,7 @@ export const MatchData = [
                 position:'1',
                 name:'abc',
                 win:'14:00',
-                place:'2',
+                place:'2.6',
                 
             },
             {
@@ -255,7 +256,7 @@ export const MatchData = [
                 position:'1',
                 name:'abc',
                 win:'14',
-                place:'2',
+                place:'4.2',
                 
             },
             {
@@ -267,5 +268,28 @@ export const MatchData = [
                 
             }
         ]
+    }
+]
+export const CurrentData = [
+    {
+        id:"1",
+        countryName : "United Arab Emirates",
+        match1:"UAE result match # 1",
+        match2:"UAE result match # 2",
+        match3:"UAE result match # 3",
+    },
+    {
+        id:"2",
+        countryName : "United State of America",
+        match1:"USA result match # 1",
+        match2:"USA result match # 2",
+        match3:"USA result match # 3",
+    },
+    {
+        id:"3",
+        countryName : "Kingdom of Saudia",
+        match1:"KSA result match # 1",
+        match2:"KSA result match # 2",
+        match3:"KSA result match # 3",
     }
 ]

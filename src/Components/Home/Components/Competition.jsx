@@ -2,7 +2,6 @@ import '../../CSS/Competition.css';
 import {RaceCourse} from '../../../data/data'
 import flag from '../../../assets/United Arab Emirates.png'
 import Accordion from 'react-bootstrap/Accordion';
-import ListGroup from 'react-bootstrap/ListGroup';
 
 const Competition = () => {
   return (

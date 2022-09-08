@@ -99,9 +99,9 @@ border-radius: 0px 20px 0px 0px;
 
 }
 .HomeLeftSection{
-    height: 500px;
-    background-color: #C4C4C4;
-    border-radius: 20px;
+    height: fit-content;
+    background: #19469D;
+border-radius: 0px 20px 20px 0px;
 }
 .HomeCenterSection{
     height: auto;
@@ -112,6 +112,7 @@ border-radius: 0px 20px 0px 0px;
 
 .bannerText {
     padding: 7rem 5rem;
+    position: absolute;
 }
 .registerbtn{
     width: 162px;

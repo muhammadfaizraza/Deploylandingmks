@@ -1,4 +1,4 @@
-.footer{
+.footer1{
     height: 435px;
     width: 100%;
     background-image: url('../../assets/Rectangle\ 17.png');
@@ -12,3 +12,21 @@
     height: 50px;
     background: #19469D;
 }
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 90%;
+}
+.footertext1{
+    padding: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14.6133px;
+    line-height: 18px;
+    color: #000000;
+}
+
+
+
+
+
+
+

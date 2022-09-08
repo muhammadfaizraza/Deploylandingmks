@@ -25,6 +25,28 @@ const Result = () => {
                 <p>{item.going}</p>
                 </span>
                 </div>
+                <table className="customers">
+                <tr>
+                    <th>Positions</th>
+                    <th>Win</th>
+                    <th>Place</th>
+                    <th>Off Time {item.offtime}</th>
+                  </tr>
+                  {
+                    item.player.map((data) => {
+                      return(
+                        <tr key={data.id}>
+                        <td>{data.position}</td>
+                        <td>{data.name}</td>
+                        <td>{data.win}</td>
+                        <td>{data.place}</td>
+                      </tr>
+                      )
+                    })
+                  }
+                 
+                </table>
+
               </div>
             )
           })

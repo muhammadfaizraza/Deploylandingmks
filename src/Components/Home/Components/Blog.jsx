@@ -13,7 +13,7 @@ const Blog = () => {
             BlogData.map((item) => {
               return(
                 <div className='singleCardBlogs'>
-                   <img src={item.image} />
+                   <img src={item.image} alt="" />
                    <h2>{item.title}</h2>
                    <h3>{item.subtitle}</h3>
                 </div>

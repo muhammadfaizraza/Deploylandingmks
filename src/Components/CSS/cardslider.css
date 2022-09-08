@@ -27,12 +27,26 @@ justify-content: space-evenly;
 }
 .singleracecardbtn{
     display: none;
+    transition: 0.4s linear all;
+
+}
+.singleracecardbtn button{
+    border: none;
+    background: #19469D;
+    margin-left: 20px;
+    color: #fff;
+    height: 30px;
+    width: 60px;
+    border-radius: 10px;
 }
 .singleracecard:hover{
-    height: 154px;
+    height: 144px;
 }
 .singleracecard:hover > .singleracecardbtn{
+    margin-top: -15px;
     display: block;
+    transition: 0.4s linear all;
+
 }
 .racecardrow{
     display: flex;
