@@ -1,0 +1,20 @@
+{
+  "app_title":"MKS Racing",
+  "logo": "../../../Group.png",
+  "about":"About",
+  "statistics": "statistics",
+  "race_card": "race card",
+  "result": "Result",
+  "race_course":"race course",
+  "competition":"competition",
+  "sponsors":"sponsors",
+  "addington":"addington",
+  "current":"current",
+  "ante_post":"ante post",
+  "live":"live",
+  "due":"due",
+  "end":"end",
+  "cancel":"can",
+  "chart":"chart / gragh",
+  "live_prediction":"live prediction"
+}

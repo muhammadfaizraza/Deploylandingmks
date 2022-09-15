@@ -1,0 +1,20 @@
+{
+  "app_title":"السباق",
+  "logo": "../../../Group.png",
+  "about":"حول",
+  "statistics": "الإحصاء",
+  "race_card": "بطاقة السباق",
+  "result": "نتيجة",
+  "race_course":"دورة السباق",
+  "competition":"منافسة",
+  "sponsors":"الرعاة",
+  "addington":"ادينجتون",
+  "current":"تيار",
+  "ante_post":"ما قبل آخر",
+  "live":"يعيش",
+  "due":"بسبب",
+  "end":"نهاية",
+  "cancel":"إلغاء",
+  "chart":"رسم بياني",
+  "live_prediction":"التنبؤ المباشر "   
+}
