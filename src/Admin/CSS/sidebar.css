@@ -1,0 +1,10 @@
+.homedashboard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+/* .homedashboard h1{
+  text-align: center;
+  margin-top: 5rem;
+} */

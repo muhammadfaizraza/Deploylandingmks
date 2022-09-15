@@ -1,0 +1,324 @@
+.RaceCardDetail{
+    width: 100%;
+    height: fit-content;
+}
+.RaceDetailHeader{
+    width: 688px;
+    height: 514px;
+    background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
+    border-radius: 18px;
+    margin-inline:auto ;
+}
+.RaceDetailCard{
+    box-sizing: border-box;
+    width: 688px;
+    height: fit-content;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-inline: auto ;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    border-radius: 18px;
+}
+
+.racedisc{
+    width: 672px;
+height: 162px;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 18px;
+margin-inline: auto;
+}
+.prizecard{
+    box-sizing: border-box;
+width: 672px;
+height: 129px;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 18px;
+margin-inline: auto;
+margin-top: 10px;
+}
+.prizecard > p{
+    margin: 10px;
+}
+
+.profile-tabitem{
+    font-size: 14px;
+}
+
+.prizeposition{
+    display: flex;
+    justify-content: space-evenly;
+}
+.innerprize{
+    display: flex;
+}
+.itemraces{
+
+}
+.inner_itemraces{
+display: flex;
+justify-content: space-between;
+}
+.itemraces_left{
+display: flex;
+}
+.itemraces_right{
+display: flex;
+}
+.itemraces_left > .race{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+    gap: 3px;
+    width: 58px;
+    height: 77px;
+    background: #5EC40F;
+    border-radius: 12.98px;
+    margin: 17px 10px 0 16px;
+    color: #fff;
+    font-weight: 300;
+font-size: 13px;
+line-height: 16px;
+}
+.itemraces_left > .sponsor{
+    flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5.97744px 8.96617px;
+gap: 10.76px;
+width: 84px;
+height: 77px;
+
+background: #CFCFCF;
+border-radius: 12.98px;
+}
+.itemraces > p{    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12.8px;
+line-height: 17px;
+color: #000000;
+margin: 10px 10px 0 16px;
+
+}
+.itemraces_right .distance{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5.97744px 8.96617px;
+    gap: 10.76px;
+    width: 152px;
+    height: 77px;
+    left: 778px;
+    top: 307px;
+    margin: 17px 20px 0 0;
+    border: 4px solid #BA7E25;
+    border-radius: 20px;
+}
+.itemraces_right .Favourite{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 15px;
+}
+.racenameflex{
+display: flex;
+}
+.racenameflex > p{
+    margin: 17px 16px 9px 18px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.5949px;
+    line-height: 27px; 
+    color: #FFFFFF;
+}
+.racenameflex > img{
+    margin: 8px 20px 0 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.5949px;
+    line-height: 27px; 
+    color: #FFFFFF;
+}
+.itemtime{
+    margin: 0px 3px 9px 18px;
+    color: #fff;
+}
+
+.predictor{
+}
+.predict{
+    display: flex;
+    justify-content: space-between;
+    width: 688px;
+    height: 50px;
+background: #5EC40F;
+border-radius: 18px;
+margin: 5px 0 0 0px;
+
+}
+.predictdata{
+    display: flex;
+}
+.predictdata img{
+    width: 60px;
+height: 35px;
+margin-left: 20px;
+}
+.innerpredictdata h6{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 126.02%;
+margin-left: 20px;
+/* or 15px */
+
+
+color: #FFFFFF;
+}
+.innerpredictdata p{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 126.02%;
+margin-left: 20px;
+/* or 15px */
+
+
+color: #FFFFFF;
+}
+
+.predict button{
+    width: 49px;
+height: 42px;
+left: 1023px;
+top: 707px;
+background: #FF0000;
+border-radius: 18px;
+border: none;
+margin-top: 3px;
+}
+.Summary{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.SummaryDistance{
+    box-sizing: border-box;
+width: 316px;
+height: 332px;
+background: #FFFFFF;
+border: 1px solid #D9D9D9;
+border-radius: 18px;
+margin-top: 10px;
+}
+.SummaryDistance > p{
+    font-style: normal;
+font-weight: 700;
+font-size: 19.6px;
+line-height: 24px;
+color: #000000;
+margin: 17px 16px 9px 18px;
+
+}
+.Summarydata{
+    display: flex;
+    justify-content: space-evenly;
+}
+.Summarydata img{
+    width: 51px;
+    height: 37px;
+}
+.Summarydata p{
+    font-style: normal;
+font-weight: 300;
+font-size: 15px;
+line-height: 18px;
+
+color: #000000;
+}
+
+.customers {
+    margin-left: 6px;
+  }
+  
+  .customers td, .customers th {
+    border: transparent;
+    padding: 8px;
+    background-color: #5EC40F;
+    color: #fff;
+  }
+  
+  
+  .customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #fff;
+    color: #000;
+  }
+  
+.customers2 {
+    width: 95%;
+    /* margin-left: 0px; */
+    /* border-radius: 29px; */
+    margin: auto;
+  }
+  
+  .customers2 td, .customers2 th {
+    border: transparent;
+    padding: 8px;
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  
+  .customers2 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: #fff;
+  }
+  th{
+    font-size: 12px;
+  }
+  td{
+    font-size: 12px;
+  }
+
+  .drawchart{
+    width: 500px !important;
+    height: 430px;
+    margin: auto;
+  }
+  .Printout{
+    height: 500px;
+  }
+  .LinkStyle{
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+  }
+  .LinkStyle:hover{
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+  }
+  .PrintOutClass{
+    border: none;
+    width: 100%;
+    margin: auto;
+  }

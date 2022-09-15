@@ -1,0 +1,218 @@
+.RaceCard{
+    width: 688px;
+height: 647px;
+background-color: aliceblue;
+margin: auto;
+}
+.racepagehead{
+    height: 167px;
+    background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), linear-gradient(180deg, #0C7DD7 0%, rgba(12, 125, 215, 0) 100%);
+    border-radius: 18px; 
+}
+.racepagesection{
+    height: fit-content;
+background: #D9D9D9;
+border-radius: 18px;
+display: flex;
+flex-direction: column;
+margin-top: -30px;
+}
+
+.racepageitem{
+    display: flex;
+    justify-content: space-between;
+    width: 672px;
+    height: 101px;
+    background: #FFFFFF;
+    border-radius: 18px;
+    margin-inline: auto;
+    margin: 10px;
+    padding: 12px;
+    transition:0.5s linear all;
+}
+
+.racepageheadflex{
+    display: flex;
+    width: 94%;
+    align-items: center;
+    margin-inline: auto;
+    justify-content: space-between;
+}
+.raceStatus{
+    display: flex;
+    flex: 2;
+    justify-content: space-evenly;
+}
+.racepagename{
+    flex: 3;
+    margin: 30px;
+}
+
+.racepagename > span{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 22.5949px;
+line-height: 27px;
+color: #fff;
+}
+.racepagename > p{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16.5949px;
+line-height: 27px;
+color: #fff;
+}
+.raceStatusitem{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+width: 36.93px;
+height: 23.95px;
+    background: #FF9900;
+    border-radius: 5.97744px;
+    color: #fff;
+    font-size: 7.17293px;
+line-height: 9px;
+}
+.racedown{
+    display: flex;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 15px;
+gap: 10px;
+}
+.racedown > p:hover{
+    border-bottom: 2px solid #19469D;
+    cursor: pointer;
+}
+.racestatusclass{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5.97744px 8.96617px;
+gap: 10.76px;
+width: 58px;
+height: 77px;
+left: 791px;
+top: 514px;
+color:#fff;
+border-radius: 12.98px;
+}
+
+.racestatusright{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+
+.HeaderAccordion{
+box-sizing: border-box;
+width: 688px;
+height: 300px;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 18px;
+}
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: transparent;
+}
+.accordion-item {
+    background-color: #fff;
+    border: none;
+    border-radius: 20px !important;
+}
+.cardracesAccordion{
+    display: flex;
+    gap: 30px;
+}
+.cardraces1{
+    display: flex;
+    gap: 10px;
+}
+.cardraces1box{
+width: 60px;
+height: 98px;
+border: 1px dashed rgba(0, 0, 0, 0.1);
+border-radius: 8.07692px;
+font-weight: 300;
+font-size: 9.69231px;
+line-height: 12px;
+}
+.cardraces3{
+    display: flex;
+    justify-content: space-between;
+}
+.cardraces3 img{
+    width: 92px;
+height: 67px;
+object-fit: fill;
+}
+.forfexclass .accordion-button{
+display: block;
+}
+
+.pmclass{
+    margin: 10px 0 0 20px;
+display: flex;
+gap: 25px;
+}
+.pmclass > p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 11px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.uaecareer{
+    display: flex;
+    gap: 25px;
+}
+.uaecareer > p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 11px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.BodyNew{
+    height: 55px;
+left: 376px;
+top: 881px;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 18px;
+}
+.BodyNew1{
+    height: 55px;
+    left: 376px;
+    top: 881px;
+    background: #5EC40F;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.BodyNew2{
+    height: 55px;
+    left: 376px;
+    top: 881px;
+    background: #949494;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+}
+.BodyNew3{
+    height: 55px;
+    left: 376px;
+    top: 881px;
+    background: #9F5109;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+}

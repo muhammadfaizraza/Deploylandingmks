@@ -1,0 +1,43 @@
+.footer1{
+    height: 435px;
+    width: 100%;
+    background-image: url('../../assets/Rectangle\ 17.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Copyrights{
+    width: 100%;
+    height: 50px;
+    background: #19469D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.Policies{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 90%;
+}
+.footertext1{
+    padding: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14.6133px;
+    line-height: 18px;
+    color: #000000;
+}
+
+
+
+
+
+
+
