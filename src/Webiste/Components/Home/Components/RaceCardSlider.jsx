@@ -4,9 +4,45 @@ import "slick-carousel/slick/slick-theme.css";
 import { RaceCard } from '../../../data/data'
 import '../../CSS/HomeCSS/cardslider.css';
 import { Link } from "react-router-dom";
+import React,{useEffect} from 'react';
+import '../../CSS/HomeCSS/blogs.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRace, STATUSES } from "../../../redux/getReducer/getRaceCard";
 
 
 const RaceCardSlider = () => {
+
+  const dispatch = useDispatch();
+  const { data: racecard, status } = useSelector((state) => state.racecard);
+
+  
+  useEffect(() => {
+    dispatch(fetchRace());
+  },[]) 
+  
+  if (status === STATUSES.LOADING) {
+    return (
+      <h2
+        style={{
+          margin: "100px",
+        }}
+      >
+        Loading....
+      </h2>
+    );
+  }
+
+  if (status === STATUSES.ERROR) {
+    return (
+      <h2
+        style={{
+          margin: "100px",
+        }}
+      >
+        Something went wrong!
+      </h2>
+    );
+  }
   var settings = {
     dots: false,
     infinite: false,
@@ -47,15 +83,15 @@ const RaceCardSlider = () => {
       <div className="RaceCardSlider">
         <div className="slidercards">
           <Slider {...settings}>
-          {RaceCard.map((item) => {
+           {racecard.map((item) => {
             return(
-              <Link to='/racecard' className="LinkStyle" target='_blank'>
+              <Link to={`/racedetail/${item._id}`} className="LinkStyle">
                 <div className="singleracecard" key={item.key}>
-                <p className="clubname">{item.clubname}</p>
-                <p className="owner">{item.owner}</p>
+                <p className="clubname">{item.RaceCourse === null ? <></> : item.RaceCourse.TrackName}</p>
+                <p className="owner">{item.RaceCourse === null ? <></> : item.RaceCourse.Country}</p>
                 <span className="racecardrow">
-                <p className="raceNo">Race {item.raceNo} -</p>
-                <p className="racedistance">{item.distance}</p>
+                <p className="raceNo"> {item.raceName} -</p>
+                <p className="racedistance">{item.RaceCourse === null ? <></> : item.RaceCourse.TrackLength}</p>
                 <p className="racetime">{item.time}</p>
                 </span>
                <span className="singleracecardbtn">

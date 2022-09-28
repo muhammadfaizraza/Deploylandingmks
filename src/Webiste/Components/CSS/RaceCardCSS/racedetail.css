@@ -1,6 +1,7 @@
 .RaceCardDetail{
     width: 100%;
-    height: fit-content;
+
+    margin-top: 20px;
 }
 .RaceDetailHeader{
     width: 688px;
@@ -321,4 +322,7 @@ color: #000000;
     border: none;
     width: 100%;
     margin: auto;
+  }
+  .itemraces_center{
+    margin-top: 20px;
   }

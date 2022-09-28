@@ -1,4 +1,4 @@
-.auth{
+/* .auth{
     width: 15%;
     height: 96px;
     top: 0px;
@@ -6,6 +6,19 @@
     border-radius: 0px 0px 0px 20px;
     
     
+} */
+.auth1 {
+  margin-top: 30px;
+}
+.buttonSubscribe {
+  text-decoration: none;
+  color: #000;
+  padding: 30px;
+}
+.buttonLogin {
+  text-decoration: none;
+  color: #000;
+  padding: 30px;
 }
 .userprofile{
     width: 80%;

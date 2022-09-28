@@ -1,14 +1,53 @@
-import React from "react";
+import React,{useEffect} from 'react';
+import '../../CSS/HomeCSS/blogs.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRace, STATUSES } from "../../../redux/getReducer/getRaceCard";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
 import Calendar1 from "./Calendar";
 import { BsCalendarDate } from "react-icons/bs";
-import flag from '../../../assets/United Arab Emirates.png'
-import {RaceCourse} from '../../../data/data'
+import flag from "../../../assets/United Arab Emirates.png";
+import { RaceCourse } from "../../../data/data";
+import { useParams } from 'react-router-dom';
 
 const Match = () => {
-  // const [value, onChange] = useState(new Date());
+  const dispatch = useDispatch();
+  const { data: racecard, status } = useSelector((state) => state.racecard);
+
+  useEffect(() => {
+    dispatch(fetchRace());
+  },[])
+
+  // let abc = 'live'
+  // const {MyRace} = racecard.find(race => race.RaceStatus  === abc)
+
+  // console.log("aa",MyRace)
+
+
+  if (status === STATUSES.LOADING) {
+    return (
+      <h2
+        style={{
+          margin: "100px",
+        }}
+      >
+        Loading....
+      </h2>
+    );
+  }
+
+  if (status === STATUSES.ERROR) {
+    return (
+      <h2
+        style={{
+          margin: "100px",
+        }}
+      >
+        Something went wrong!
+      </h2>
+    );
+  }
 
   return (
     <div className="match">
@@ -21,54 +60,54 @@ const Match = () => {
           <Accordion defaultActiveKey="0" flush>
             <div className="Currentpostdiv">
               <div className="Currentpostheader">
-              <h2>United Arab Emirates</h2>
-               <img src={flag} alt="" />
+                <h2>United Arab Emirates</h2>
+                <img src={flag} alt="" />
               </div>
-              <div className='CompetitionData'>
-        <Accordion>
-        {
-          RaceCourse.map((item) => {
-            return(
-              <div className='Competitionitem' key={item.id}>
-              <Accordion.Item eventKey={item.id}>
-                <Accordion.Header>
-                  <div className='AccordionHeader'>
-                    <p>{item.name}</p>
-                    <p>{item.raceNo} Races</p>
-                  </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                {
-                    item.matches.map((data) => {
-                      return(
-                        <div className='Competition_Matches'>
-                          <p>{data.name}</p>
-                          <p>{data.id}</p>
-                        </div>
-                      )
-                    })
-                  }
-                </Accordion.Body>
-              </Accordion.Item>
+              <div className="CompetitionData">
+                <Accordion>
+                  {racecard.map((item) => {
+                    return (
+                      <div className="Competitionitem" key={item._id}>
+                        <Accordion.Item eventKey={item._id}>
+                          <Accordion.Header>
+                            <div className="AccordionHeader">
+                              <p>{item.RaceCourse === null ? <></> : item.RaceCourse.TrackName}</p>
+                              <p>{item.raceNo} Races</p>
+                            </div>
+                          </Accordion.Header>
+                          <Accordion.Body>
+                          <div className="Competition_Matches">
+                                  <p>{item.raceName}</p>
+                                  <p>{item.id}</p>
+                                </div>
+                            {/* {item.matches.map((data) => {
+                              return (
+                                <div className="Competition_Matches">
+                                  <p>{data.name}</p>
+                                  <p>{data.id}</p>
+                                </div>
+                              );
+                            })} */}
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </div>
+                    );
+                  })}
+                </Accordion>
               </div>
-            )
-          })
-        }
-        </Accordion>
-        </div>
             </div>
           </Accordion>
         </Tab>
         <Tab eventKey="ante" title="Ante Post" className="Ante_Post">
-        <div className="Currentpostdiv">
-          <h3>Ante Post</h3>
-            </div>
+          <div className="Currentpostdiv">
+            <h3>Ante Post</h3>
+          </div>
         </Tab>
         <Tab
           eventKey="contact"
           title={<BsCalendarDate className="calendericon" />}
         >
-            <Calendar1  />
+          <Calendar1 />
         </Tab>
       </Tabs>
     </div>

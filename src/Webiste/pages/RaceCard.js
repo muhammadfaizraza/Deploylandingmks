@@ -1,44 +1,74 @@
-import React from "react";
+import React,{useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRace, STATUSES } from "../../Webiste/redux/getReducer/getRaceCard";
 import "../Components/CSS/RaceCardCSS/racecard.css";
-import { RaceCardData } from "../data/data";
-import { Link } from "react-router-dom";
+// import { RaceCardData } from "../data/data";
+import {useParams ,Link} from "react-router-dom";
+import Layout from '../Components/Reuseable/layout';
+import Footer from '../Components/Reuseable/Footer';
+import CopyRight from '../Components/Reuseable/Copyrights';
 
 const RaceCard = () => {
   
+  const dispatch = useDispatch();
+  const { data: racecard, status } = useSelector((state) => state.racecard);
+  const {_id} = useParams();
+ 
+  useEffect(() => {
+    dispatch(fetchRace());
+  },[])
+
+  if (status === STATUSES.LOADING) {
+    return (
+      <h2
+        style={{
+          margin: "100px",
+        }}
+      >
+        Loading....
+      </h2>
+    );
+  }
+
+  if (status === STATUSES.ERROR) {
+    return (
+      <h2
+        style={{
+          margin: "100px",
+        }}
+      >
+        Something went wrong!
+      </h2>
+    );
+  }
   return (
     <>
+    <Layout />
       <div className="RaceCard">
-        {RaceCardData.map((item) => {
+        {racecard.map((item) => {
+          const {RaceStatus} = item;
           return (
             <React.Fragment key={item.id}>
               <div className="racepagehead">
                 <div className="racepageheadflex">
                   <div className="racepagename">
-                    <span>{item.racename}</span>
-                    <p>{item.time}</p>
+                    <span>{item.raceName}</span>
+                    <p>{item.DayNTime}</p>
                   </div>
                   <div className="raceStatus">
-                    {item.raceStatus.map((data) => {
-                      const { status} = data;
-                      return (
-                        <span className="raceStatusitem"
-                        style={{"backgroundColor": `${status === "due" ? '#FF9900': status === "can" ? '#FF0000' : status === "live" ? '#5EC30F': '#000'}`}}
-                         key={data.id}>
-                          {data.status}
+                  <span className="raceStatusitem"
+                        style={{"backgroundColor": `${RaceStatus === "due" ? '#FF9900': RaceStatus === "can" ? '#FF0000' : RaceStatus === "live" ? '#5EC30F': '#000'}`}}
+                         key={item.id}>
+                          {item.RaceStatus}
                         </span>
-                      );
-                    })}
                   </div>
                 </div>
               </div>
-              <Link to={`/racedetail/${item.id}`} target='_blank' className="LinkStyle">
+              <Link to={`/racedetail/${item._id}`} className="LinkStyle">
               <div className="racepagesection">
-                {item.races.map((race) => {
-                  const { status} = race;
-                  return (
-                    <div className="racepageitem"
+              <div className="racepageitem"
                     
-                    key={race.id}>
+                    key={item.id}>
                       <div>
                         <span
                           style={{
@@ -47,7 +77,7 @@ const RaceCard = () => {
                             lineHeight: "24px",
                           }}
                         >
-                          Race {race.raceNo}
+                          Race {item.raceNo}
                         </span>
                         <span>Conditions Race</span>
                         <br />
@@ -58,7 +88,7 @@ const RaceCard = () => {
                             lineHeight: "15px",
                           }}
                         >
-                          {race.owner}
+                          {item.owner}
                         </span>
                         <span
                           style={{
@@ -68,20 +98,20 @@ const RaceCard = () => {
                             color: " rgba(0, 0, 0, 0.5)",
                           }}
                         >
-                          {race.runner}
+                          {item.runner}
                         </span>
                         <br />
                         <div className="racedown">
-                          <p>Distance : {race.distance}</p>
-                          <p>Flat : {race.flat}</p>
-                          <p>Surface : {race.surface}</p>
-                          <p>Going : {race.going}</p>
+                          <p>Distance : {item.distance}</p>
+                          <p>Flat : {item.flat}</p>
+                          <p>Surface : {item.surface}</p>
+                          <p>Going : {item.going}</p>
                         </div>
                       </div>
                       <div className="racestatusright">
                         <span className="racestatusclass" 
-                        style={{"backgroundColor": `${status === "due" ? '#FF9900': status === "cancel" ? '#FF0000' : status === "live" ? '#5EC30F': '#000'}`}}
-                        >{race.time}</span>
+                        style={{"backgroundColor": `${item === "due" ? '#FF9900': item === "cancel" ? '#FF0000' : item === "live" ? '#5EC30F': '#000'}`}}
+                        >{item.time}</span>
                         <div>
                           <p style={{
                             fontStyle: 'normal',
@@ -96,7 +126,7 @@ const RaceCard = () => {
                             fontSize: '12px',
                             lineHeight: '11px',
                             color: '#000'
-                          }}>{race.Favourite}</p>
+                          }}>{item.Favourite}</p>
                         </div>
                         <div>
                           <p style={{
@@ -113,18 +143,18 @@ const RaceCard = () => {
                             fontSize: '12px',
                             lineHeight: '11px',
                             color: '#000'
-                          }}>{race.runner}</p>
+                          }}>{item.runner}</p>
                         </div>
                       </div>
                     </div>
-                  );
-                })}
               </div>
               </Link>
             </React.Fragment>
           );
         })}
       </div>
+      <Footer />
+      <CopyRight />
     </>
   );
 };

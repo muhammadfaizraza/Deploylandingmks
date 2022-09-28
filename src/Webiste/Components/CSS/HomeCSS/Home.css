@@ -71,11 +71,12 @@ border-radius: 0px 20px 0px 0px;
     margin-top: 19px;
 }
 .slider{
-    height: 510px;
+    height: 570px;
     flex: 3;
 }
 .slideimg1{
-    height: 510px; 
+    width: 100%;
+    height: 100%;
 }
 
 .sponsor{
@@ -83,9 +84,12 @@ border-radius: 0px 20px 0px 0px;
     flex: 1;
     margin-top: 19px;
 }
-.sponsor img{
-    object-fit: cover;
+.sponsor img {
+    width: 100%;
     height: 100%;
+}
+.sponsorimg{
+    object-fit: cover; 
 }
 
 .middlesection{

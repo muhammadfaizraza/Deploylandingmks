@@ -141,6 +141,7 @@ button.slick-arrow.slick-prev{
     width: 118px;
     height: 148px;
     margin: auto;
+    margin-top: -5px;
 }
 .AddingtonStyle img{
     width: 84px;

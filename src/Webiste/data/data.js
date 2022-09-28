@@ -510,5 +510,6 @@ export const RaceCardData = [
 
         } ]
         
-    }
+    },
+    
 ]
