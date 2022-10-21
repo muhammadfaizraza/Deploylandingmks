@@ -8,10 +8,12 @@ import Layout from '../Components/Reuseable/layout'
 import '../Components/CSS/registration.css'
 import Footer from '../Components/Reuseable/Footer';
 import Copyrights from '../Components/Reuseable/Copyrights';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { loading, userInfo, error ,success} = useSelector((state) => state.user)
   const dispatch = useDispatch()
+  const [customError, setCustomError] = useState(null)
 
   const { register, handleSubmit } = useForm()
 
@@ -20,13 +22,13 @@ const Login = () => {
   // redirect authenticated user to profile screen
   useEffect(() => {
     if (userInfo) {
-      navigate('/user-profile')
+      navigate('/dashboard')
     }
   }, [navigate, userInfo])
 
   const submitForm = (data) => {
-    dispatch(userLogin(data))
-    navigate('/user-profile')
+    dispatch(userLogin(data))  
+     
   }
 
   // const AllFilled = (register.Email !== '') && (register.password !== "")
@@ -36,8 +38,8 @@ const Login = () => {
     <Layout />
    <div className='registrationform'>
    <form onSubmit={handleSubmit(submitForm)}>
-      {/* {error && <Error>{error}</Error>}
-      {customError && <Error>{customError}</Error>} */}
+      {error && <Error>{error}</Error>}
+      {customError && <Error>{customError}</Error>}
       <div className='form-group'>
       
         <input

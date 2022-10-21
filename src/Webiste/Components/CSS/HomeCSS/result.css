@@ -15,7 +15,8 @@
     font-size: 17px;
     line-height: 21px;
     color: #FFFFFF;
-    padding: 24px 0 0 44px;
+    padding: 24px 0 0 24px;
+    font-family: 'Inter';
 }
 .live_result_data{
     display: flex;
@@ -41,13 +42,14 @@
 .result_match_right{
 display: flex;
 gap: 17px;
+padding-right: 24px;
 }
 .result_match_right > p{
 color: #fff;
 font-style: normal;
-font-weight: 400;
-font-size: 15.5949px;
-line-height: 19px;
+font-weight: 300;
+font-size: 13px;
+line-height: 15px;
 }
 .result_match_raceNo{
 font-style: normal;
@@ -56,6 +58,7 @@ font-size: 22.5949px;
 line-height: 17px;
 color: #FFFFFF;
 padding: 4px 0 0 24px;
+
 }
 .result_match_totalRunner{
     font-style: normal;
@@ -90,3 +93,6 @@ padding: 4px;
     color: #000;
   }
   
+  .resulttablehome{
+    height: 50px;
+  }

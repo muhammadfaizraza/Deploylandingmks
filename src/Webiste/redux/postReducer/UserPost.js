@@ -4,22 +4,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const userLogin = createAsyncThunk(
   'user/login',
-  async ({ email, password }, { rejectWithValue }) => {
+  async ({ Email, password }, { rejectWithValue }) => {
     try {
-      // configure header's Content-Type as JSON
       const config = {
         headers: {
           'Content-Type': 'application/json',
         },
       }
-
       const { data } = await axios.post(
-        '/api/user/login',
-        { email, password },
+        `${window.env.API_URL}/login`,
+        { Email, password },
         config
       )
-      Cookies.set('userToken', data.userToken)
-
+      Cookies.set('userToken', data.token)
+      Cookies.set('id', data.user._id)
+      
       return data
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -33,7 +32,7 @@ export const userLogin = createAsyncThunk(
 
 export const registerUser = createAsyncThunk(
   'user/register',
-  async ({ FirstName,LastName,PassportNo,PhoneNumber,Password,Email,PassportPicture }, { rejectWithValue }) => {
+  async ({ FirstName,LastName,PassportNo,PhoneNumber,password,Email }, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
@@ -42,11 +41,13 @@ export const registerUser = createAsyncThunk(
       }
 
       const { data } = await axios.post(
-        'https://mksbackend.herokuapp.com/api/v1/register',
-        { FirstName,LastName,PassportNo,PhoneNumber,Password,Email,PassportPicture },
+        `${window.env.API_URL}/register`,
+        { FirstName,LastName,PassportNo,PhoneNumber,password,Email },
         config
       )
       Cookies.set('userToken', data.token)
+      Cookies.set('id', data.user._id)
+      
       return data
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -72,7 +73,7 @@ export const getUserDetails = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.get(`/api/user/profile`, config)
+      const { data } = await axios.get(`${window.env.API_URL}/singlesubscriber/${Cookies.get('id')}`, config)
       return data
     } catch (error) {
       if (error.response && error.response.data.message) {

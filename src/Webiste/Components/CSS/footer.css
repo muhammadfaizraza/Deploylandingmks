@@ -1,5 +1,5 @@
 .footer1{
-    height: 435px;
+    height: 100%;
     width: 100%;
     background-image: url('../../assets/Rectangle\ 17.png');
     background-position: center;
@@ -35,9 +35,32 @@
     color: #000000;
 }
 
+.formclass1{
+    display: flex;
+}
+.formclass1 > input{
+    
+    height: 58px;
+    background: #D7D9DE;
+    border-radius: 20px;
+    border: none;
+    width: 100%;
+}
 
-
-
-
-
-
+.formclass2 > button{
+     display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px 30px;
+gap: 10px;
+color: #fff;
+width: 100%;
+height: 39px;
+left: 972px;
+top: 3038px;
+background: #19469D;
+border-radius: 20px;
+border: none;
+margin-top: 10px;
+}

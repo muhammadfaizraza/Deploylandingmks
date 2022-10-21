@@ -7,6 +7,7 @@ export const STATUSES = Object.freeze({
     LOADING: 'loading',
 });
 
+
 const getTrainerSlice = createSlice({
     name: 'trainer',
     initialState: {
@@ -33,7 +34,7 @@ export const {setTrainer , setStatus} = getTrainerSlice.actions;
 export default getTrainerSlice.reducer;
 
 export const fetchTrainer = createAsyncThunk('/trainerget/fetch', async() => {
-    const res = await axios.get(`${window.env.API_URL}/trainerget`);
+    const res = await axios.get(`${window.env.API_URL}/trainerget?keyword=&page=1`);
     const trainerData = res.data;
     return trainerData.data;
 })

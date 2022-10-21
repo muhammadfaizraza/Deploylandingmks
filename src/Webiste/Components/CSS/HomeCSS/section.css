@@ -129,11 +129,11 @@ color: #5EC40F;
     border-radius: 20px;
 }
 .Currentpostdiv{
-    width: 90%;
+    width: 95%;
     margin-inline: auto;
     height: fit-content;
     background: #EFEFEF;
-    border-radius: 0px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
 }
 .nav-tabs {
     border: none !important;
@@ -149,6 +149,7 @@ border-radius: 20px 20px 0px 0px;
 }
 .tab-content {
     margin-top: -23px;
+    margin-bottom: 25px;
 
 }
 button#uncontrolled-tab-example-tab-home {

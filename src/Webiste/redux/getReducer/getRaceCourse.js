@@ -7,8 +7,8 @@ export const STATUSES = Object.freeze({
     LOADING: 'loading',
 });
 
-const getNewsSlice = createSlice({
-    name: 'news',
+const getRaceCourse = createSlice({
+    name: 'racecourse',
     initialState: {
         data: [],
         status: STATUSES.IDLE,
@@ -16,26 +16,24 @@ const getNewsSlice = createSlice({
  
     extraReducers: (builder) => {
         builder
-            .addCase(fetchNews.pending, (state, action) => {
+            .addCase(fetchCourse.pending, (state, action) => {
                 state.status = STATUSES.LOADING;
             })
-            .addCase(fetchNews.fulfilled, (state, action) => {
+            .addCase(fetchCourse.fulfilled, (state, action) => {
                 state.data = action.payload;
                 state.status = STATUSES.IDLE;
             })
-            .addCase(fetchNews.rejected, (state, action) => {
+            .addCase(fetchCourse.rejected, (state, action) => {
                 state.status = STATUSES.ERROR;
             });
     },
 });
 
-export const { setNews, setStatus } = getNewsSlice.actions;
-export default getNewsSlice.reducer;
+export const { setRaceCourse, setStatus } = getRaceCourse.actions;
+export default getRaceCourse.reducer;
 
-// Thunks
-export const fetchNews = createAsyncThunk('newsGet/fetch', async () => {
-    // const res = await fetch('https://mksbackend.herokuapp.com/api/v1/newsget');
-    const res = await axios.get('https://mksbackend.herokuapp.com/api/v1/newsget')
+export const fetchCourse = createAsyncThunk('CourseGet/fetch', async () => {
+    const res = await axios.get(`${window.env.API_URL}/getracecourse?page=${'1'}&keyword= `)
     const data =  res.data;
     return data.data;
 });

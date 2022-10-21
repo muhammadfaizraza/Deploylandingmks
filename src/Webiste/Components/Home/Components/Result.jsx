@@ -6,7 +6,7 @@ const Result = () => {
     <>
     <div className="resultCard">
       <div className='resultCardHeader'>
-        <h2>Live Result</h2>
+        <h2>Live Results</h2>
         <div className='livedatacard'>
         {
           MatchData.map((item) => {
@@ -26,12 +26,12 @@ const Result = () => {
                 </span>
                 </div>
                 <table className="customers1">
-                <tr>
+                <thead className='resulttablehome'>
                     <th>Positions</th>
                     <th>Win</th>
                     <th>Place</th>
                     <th>Off Time {item.offtime}</th>
-                  </tr>
+                  </thead>
                   {
                     item.player.map((data) => {
                       return(

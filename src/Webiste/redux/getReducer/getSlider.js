@@ -33,7 +33,7 @@ export const { setSlider, setStatus } = getSlider.actions;
 export default getSlider.reducer;
 
 export const fetchSlider = createAsyncThunk('sliderGet/fetch', async () => {
-    const res = await axios.get(`${window.env.API_URL}/Sliderget `)
+    const res = await axios.get(`${window.env.API_URL}/Sliderget?keyword=&page=1&limit=`)
     const data =  res.data;
     return data.data;
 });

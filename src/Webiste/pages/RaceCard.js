@@ -3,27 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRace, STATUSES } from "../../Webiste/redux/getReducer/getRaceCard";
 import "../Components/CSS/RaceCardCSS/racecard.css";
 // import { RaceCardData } from "../data/data";
-import {useParams ,Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Layout from '../Components/Reuseable/layout';
 import Footer from '../Components/Reuseable/Footer';
 import CopyRight from '../Components/Reuseable/Copyrights';
+import '../Components/CSS/pagesCSS/RaceCourse.css'
 
 const RaceCard = () => {
   
   const dispatch = useDispatch();
   const { data: racecard, status } = useSelector((state) => state.racecard);
-  const {_id} = useParams();
  
   useEffect(() => {
     dispatch(fetchRace());
   },[])
-
   if (status === STATUSES.LOADING) {
     return (
       <h2
-        style={{
-          margin: "100px",
-        }}
+      className="loader"
       >
         Loading....
       </h2>
@@ -41,11 +38,20 @@ const RaceCard = () => {
       </h2>
     );
   }
+
+  console.log('racecard',racecard.length)
   return (
     <>
     <Layout />
-      <div className="RaceCard">
-        {racecard.map((item) => {
+    {
+      racecard.length === 0 ? (
+        <>
+       <h1>No Data</h1>
+        </>
+      ): (
+        <>
+        <h2> <div className="RaceCard">
+        {racecard.slice(0,1).map((item) => {
           const {RaceStatus} = item;
           return (
             <React.Fragment key={item.id}>
@@ -57,9 +63,24 @@ const RaceCard = () => {
                   </div>
                   <div className="raceStatus">
                   <span className="raceStatusitem"
-                        style={{"backgroundColor": `${RaceStatus === "due" ? '#FF9900': RaceStatus === "can" ? '#FF0000' : RaceStatus === "live" ? '#5EC30F': '#000'}`}}
-                         key={item.id}>
-                          {item.RaceStatus}
+                        style={{"backgroundColor": '#5EC30F' }}
+                     >
+                          live
+                        </span>
+                        <span className="raceStatusitem"
+                        style={{"backgroundColor": '#FF9900' }}
+                     >
+                          due
+                        </span>
+                        <span className="raceStatusitem"
+                        style={{"backgroundColor": '#FF0000' }}
+                     >
+                          end
+                        </span>
+                        <span className="raceStatusitem"
+                        style={{"backgroundColor": '#000' }}
+                     >
+                          can
                         </span>
                   </div>
                 </div>
@@ -102,16 +123,103 @@ const RaceCard = () => {
                         </span>
                         <br />
                         <div className="racedown">
-                          <p>Distance : {item.distance}</p>
+                          <p>Distance : {item.RaceCourseData === null ? <></> : <>{item.RaceCourseData.TrackLength}</>}</p>
                           <p>Flat : {item.flat}</p>
-                          <p>Surface : {item.surface}</p>
-                          <p>Going : {item.going}</p>
+                          <p>Surface : {item.Weather}</p>
+                          <p>Going : {item.RaceStatus}</p>
                         </div>
                       </div>
                       <div className="racestatusright">
                         <span className="racestatusclass" 
-                        style={{"backgroundColor": `${item === "due" ? '#FF9900': item === "cancel" ? '#FF0000' : item === "live" ? '#5EC30F': '#000'}`}}
-                        >{item.time}</span>
+                        style={{"backgroundColor": `${item === "Upcoming" ? '#FF9900': item === "cancel" ? '#FF0000' : item === "live" ? '#5EC30F': '#000'}`, fontSize:'12px'}}
+                        >{item.DayNTime}</span>
+                        <div>
+                          <p style={{
+                            fontStyle: 'normal',
+                            fontWeight: '300',
+                            fontSize: '9px',
+                            lineHeight: '11px',
+                            color: 'rgba(0, 0, 0, 0.5)'
+                          }}>Favourite</p>
+                          <p style={{
+                            fontStyle: 'normal',
+                            fontWeight: '300',
+                            fontSize: '12px',
+                            lineHeight: '11px',
+                            color: '#000'
+                          }}>{item.Favourite}</p>
+                        </div>
+                        <div>
+                          <p style={{
+                            fontStyle: 'normal',
+                            fontWeight: '300',
+                            fontSize: '9px',
+                            lineHeight: '11px',
+                            color: 'rgba(0, 0, 0, 0.5)'
+                          }}>Non-Runner</p>
+                          <p
+                          style={{
+                            fontStyle: 'normal',
+                            fontWeight: '300',
+                            fontSize: '12px',
+                            lineHeight: '11px',
+                            color: '#000'
+                          }}>{item.runner}</p>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              </Link>
+              <Link to={`/racedetail/${item._id}`} className="LinkStyle" >
+              <div className="racepagesection" style={{
+                marginTop:'1px'
+              }}>
+              <div className="racepageitem"
+                    
+                    key={item.id}>
+                      <div>
+                        <span
+                          style={{
+                            fontWeight: "300",
+                            fontSize: "20px",
+                            lineHeight: "24px",
+                          }}
+                        >
+                          Race {item.raceNo}
+                        </span>
+                        <span>Conditions Race</span>
+                        <br />
+                        <span
+                          style={{
+                            fontWeight: "300",
+                            fontSize: "12px",
+                            lineHeight: "15px",
+                          }}
+                        >
+                          {item.owner}
+                        </span>
+                        <span
+                          style={{
+                            fontWeight: "300",
+                            fontSize: "12px",
+                            lineHeight: "15px",
+                            color: " rgba(0, 0, 0, 0.5)",
+                          }}
+                        >
+                          {item.runner}
+                        </span>
+                        <br />
+                        <div className="racedown">
+                          <p>Distance : {item.RaceCourseData === null ? <></> : <>{item.RaceCourseData.TrackLength}</>}</p>
+                          <p>Flat : {item.flat}</p>
+                          <p>Surface : {item.Weather}</p>
+                          <p>Going : {item.RaceStatus}</p>
+                        </div>
+                      </div>
+                      <div className="racestatusright">
+                        <span className="racestatusclass" 
+                        style={{"backgroundColor": `${item === "Upcoming" ? '#FF9900': item === "cancel" ? '#FF0000' : item === "live" ? '#5EC30F': '#000'}`, fontSize:'12px'}}
+                        >{item.DayNTime}</span>
                         <div>
                           <p style={{
                             fontStyle: 'normal',
@@ -152,7 +260,10 @@ const RaceCard = () => {
             </React.Fragment>
           );
         })}
-      </div>
+      </div></h2></>
+      )
+    }
+      
       <Footer />
       <CopyRight />
     </>

@@ -57,7 +57,10 @@ const RaceNav = () => {
             < PrintOut />
           </div>
         </Tab>
+
+        
       </Tabs>
+    
     </div>
   );
 };

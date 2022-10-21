@@ -27,8 +27,8 @@ const RegisterScreen = () => {
   }, [navigate, userInfo, success])
 
   const submitForm = (data) => {
-    if (data.Password !== data.confirmPassword) {
-      setCustomError('Password mismatch')
+    if (data.password !== data.confirmpassword) {
+      setCustomError('password mismatch')
       return
     }
     data.Email = data.Email.toLowerCase()
@@ -101,9 +101,9 @@ const RegisterScreen = () => {
       
         <input
           type='text'
-          placeholder='Password'
+          placeholder='password'
           className='form-input'
-          {...register('Password')}
+          {...register('password')}
           required
         />
       </div>
@@ -111,13 +111,13 @@ const RegisterScreen = () => {
       
         <input
           type='text'
-          placeholder='Confirm Password'
+          placeholder='Confirm password'
           className='form-input'
-          {...register('confirmPassword')}
+          {...register('confirmpassword')}
           required
         />
       </div>
-      <div className='form-group'>
+      {/* <div className='form-group'>
       
         <input
           type='file'
@@ -125,7 +125,7 @@ const RegisterScreen = () => {
           {...register('PassportPicture')}
           required
         />
-      </div>
+      </div> */}
       <button type='submit' className='buttonRegister' 
       disabled={loading}>
         Register

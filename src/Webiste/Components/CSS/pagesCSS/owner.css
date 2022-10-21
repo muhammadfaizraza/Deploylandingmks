@@ -1,0 +1,23 @@
+.ownerdetailhead{
+    height: 104px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+.horsebodyitemfirst{
+    background: #606060;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    margin: 5px;
+}
+.ownername{
+padding: 1rem;
+}
+.ownername span{
+    padding: 10px;
+}
+.ownerimage{
+padding: 10px;
+}

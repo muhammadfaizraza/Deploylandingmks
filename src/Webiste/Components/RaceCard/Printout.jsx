@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
-import Card from './Card';
+import Card from './PrintCard';
 
 class ComponentToPrint extends React.Component {
   render() {

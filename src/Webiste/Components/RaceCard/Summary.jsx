@@ -16,7 +16,7 @@ const Summary = () => {
                     <div  className="Summarydata" key={race.id}>
                      <p>{race.raceNo}</p>
                      <img src={Shirt} alt="" />
-                     <p></p>{race.clubname}
+                     <p>{race.clubname}</p>
                     </div>
                   )
                 })
@@ -38,7 +38,7 @@ const Summary = () => {
                     <div  className="Summarydata">
                      <p>{race.raceNo}</p>
                      <img src={Shirt} alt="" />
-                     <p></p>{race.clubname}
+                     <p>{race.clubname}</p>
                     </div>
                   )
                 })
@@ -60,7 +60,7 @@ const Summary = () => {
                     <div  className="Summarydata">
                      <p>{race.raceNo}</p>
                      <img src={Shirt} alt="" />
-                     <p></p>{race.clubname}
+                     <p>{race.clubname}</p>
                     </div>
                   )
                 })
@@ -82,7 +82,7 @@ const Summary = () => {
                     <div  className="Summarydata">
                      <p>{race.raceNo}</p>
                      <img src={Shirt} alt="" />
-                     <p></p>{race.clubname}
+                     <p>{race.clubname}</p>
                     </div>
                   )
                 })
@@ -104,7 +104,7 @@ const Summary = () => {
                     <div  className="Summarydata">
                      <p>{race.raceNo}</p>
                      <img src={Shirt} alt="" />
-                     <p></p>{race.clubname}
+                     <p>{race.clubname}</p>
                     </div>
                   )
                 })
@@ -126,7 +126,7 @@ const Summary = () => {
                     <div  className="Summarydata">
                      <p>{race.raceNo}</p>
                      <img src={Shirt} alt="" />
-                     <p></p>{race.clubname}
+                     <p>{race.clubname}</p>
                     </div>
                   )
                 })

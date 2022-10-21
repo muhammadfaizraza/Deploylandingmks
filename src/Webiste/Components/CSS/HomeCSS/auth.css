@@ -7,6 +7,11 @@
     
     
 } */
+.buttonLogout{
+  align-items: center;
+  border: none;
+  margin: 30px;
+}
 .auth1 {
   margin-top: 30px;
 }
@@ -29,6 +34,7 @@
     gap: 10px;
     cursor: pointer;
     margin-inline: auto;
+    padding: 12px;
 }
 .profilepic > img{
     width: 4rem;

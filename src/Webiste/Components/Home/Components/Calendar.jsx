@@ -1,13 +1,15 @@
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import React, { useState } from "react";
+import Fade from 'react-reveal/Fade';
 
 const Calendar1 = () => {
     const [value, onChange] = useState(new Date());
   return (
     <>
+    <Fade>
        <Calendar onChange={onChange} value={value} classNam="calenderin" />
-     
+    </Fade>
     </>
   )
 }

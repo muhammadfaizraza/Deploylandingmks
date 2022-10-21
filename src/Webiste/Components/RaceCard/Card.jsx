@@ -143,8 +143,8 @@ const Card = () => {
                             display: "flex",
                           }}
                         >
-                          <button style={btnNew}>Tricast</button>
-                          <button style={btnNew1}> Pick Six</button>
+                          <button style={btnNew} onClick={() => {alert('Tricast')}}>Tricast</button>
+                          <button style={btnNew1} onClick={() => {alert('Pick Six')}}> Pick Six</button>
                         </div>
                       </Accordion.Header>
                       <Accordion.Body>

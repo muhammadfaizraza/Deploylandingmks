@@ -37,6 +37,7 @@ const TrackRecord = () => {
           <td>Miss Alice </td>
           <td>67</td>
           <td>5</td>
+          
         </tr>
         <tr>
           <td>12 Oct 22</td>

@@ -1,30 +1,34 @@
 .RaceCardDetail{
     width: 100%;
-
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 .RaceDetailHeader{
-    width: 688px;
-    height: 514px;
+    /* width: 688px;
+    height: 475px; */
     background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
     border-radius: 18px;
     margin-inline:auto ;
+    max-height: 700px;
+    margin-inline: auto;
+    overflow: auto;
 }
 .RaceDetailCard{
     box-sizing: border-box;
-    width: 688px;
+    width: 98%;
     height: fit-content;
-    background: #FFFFFF;
+    /* background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D; */
+    border-radius: 18px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-inline: auto ;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
     border-radius: 18px;
+    background: #fff;
 }
 
 .racedisc{
-    width: 672px;
+    width: 98%;
 height: 162px;
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.1);
@@ -33,7 +37,7 @@ margin-inline: auto;
 }
 .prizecard{
     box-sizing: border-box;
-width: 672px;
+    width: 98%;
 height: 129px;
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.1);
@@ -156,8 +160,7 @@ display: flex;
     color: #fff;
 }
 
-.predictor{
-}
+
 .predict{
     display: flex;
     justify-content: space-between;
@@ -165,7 +168,7 @@ display: flex;
     height: 50px;
 background: #5EC40F;
 border-radius: 18px;
-margin: 5px 0 0 0px;
+margin: 9px 0 0 0px;
 
 }
 .predictdata{
@@ -238,6 +241,7 @@ margin: 17px 16px 9px 18px;
 .Summarydata{
     display: flex;
     justify-content: space-evenly;
+    padding: 4px;
 }
 .Summarydata img{
     width: 51px;
@@ -273,7 +277,7 @@ color: #000000;
   }
   
 .customers2 {
-    width: 95%;
+    width: 98%;
     /* margin-left: 0px; */
     /* border-radius: 29px; */
     margin: auto;
@@ -326,3 +330,4 @@ color: #000000;
   .itemraces_center{
     margin-top: 20px;
   }
+

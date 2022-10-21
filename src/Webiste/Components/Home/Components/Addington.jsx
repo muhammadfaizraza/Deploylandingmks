@@ -1,4 +1,5 @@
 import horse from '../../../assets/image 4.png'
+import Counter from './Counter'
 
 const Addington = () => {
   return (
@@ -7,7 +8,9 @@ const Addington = () => {
         <div className='AddingtonStyle'>
           <img src={horse} alt='' />
           <p className='Addingtonname'>Addington</p>
-          <p  className='Addingtontimer'>08 : 42 : 28</p>
+          <p  className='Addingtontimer'>
+            <Counter />
+          </p>
         </div>
       </div>
     </>

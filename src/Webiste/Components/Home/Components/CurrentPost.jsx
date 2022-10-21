@@ -8,8 +8,8 @@ import Accordion from "react-bootstrap/Accordion";
 import Calendar1 from "./Calendar";
 import { BsCalendarDate } from "react-icons/bs";
 import flag from "../../../assets/United Arab Emirates.png";
-import { RaceCourse } from "../../../data/data";
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Match = () => {
   const dispatch = useDispatch();
@@ -67,12 +67,59 @@ const Match = () => {
                 <Accordion>
                   {racecard.map((item) => {
                     return (
+                     
                       <div className="Competitionitem" key={item._id}>
                         <Accordion.Item eventKey={item._id}>
                           <Accordion.Header>
                             <div className="AccordionHeader">
-                              <p>{item.RaceCourse === null ? <></> : item.RaceCourse.TrackName}</p>
-                              <p>{item.raceNo} Races</p>
+                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
+                              <p>{item.DayNTime}</p>
+                            </div>
+                          </Accordion.Header>
+                          <Accordion.Body>
+                          <Link to={`/racedetail/${item._id}`} className='LinkStyle'>
+                               <div className="Competition_Matches">
+                                  <p>{item.raceName}</p>
+                                  <p>{item.id}</p>
+                                </div>
+                          </Link>
+                            {/* {item.matches.map((data) => {
+                              return (
+                                <div className="Competition_Matches">
+                                  <p>{data.name}</p>
+                                  <p>{data.id}</p>
+                                </div>
+                              );
+                            })} */}
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </div>
+                    
+                    );
+                  })}
+                </Accordion>
+              </div>
+            </div>
+          </Accordion>
+        </Tab>
+        <Tab eventKey="ante" title="Ante Post" className="Ante_Post">
+          <div className="Currentpostdiv">
+          <Accordion defaultActiveKey="0" flush>
+            <div className="Currentpostdiv">
+              <div className="Currentpostheader">
+                <h2>United Arab Emirates</h2>
+                <img src={flag} alt="" />
+              </div>
+              <div className="CompetitionData">
+                <Accordion>
+                  {racecard.map((item) => {
+                    return (
+                      <div className="Competitionitem" key={item._id}>
+                        <Accordion.Item eventKey={item._id}>
+                          <Accordion.Header>
+                            <div className="AccordionHeader">
+                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
+                              <p>{item.DayNTime}</p>
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
@@ -97,10 +144,6 @@ const Match = () => {
               </div>
             </div>
           </Accordion>
-        </Tab>
-        <Tab eventKey="ante" title="Ante Post" className="Ante_Post">
-          <div className="Currentpostdiv">
-            <h3>Ante Post</h3>
           </div>
         </Tab>
         <Tab
@@ -108,6 +151,46 @@ const Match = () => {
           title={<BsCalendarDate className="calendericon" />}
         >
           <Calendar1 />
+          <Accordion defaultActiveKey="0" flush>
+            <div className="Currentpostdiv">
+              <div className="Currentpostheader">
+                <h2>United Arab Emirates</h2>
+                <img src={flag} alt="" />
+              </div>
+              <div className="CompetitionData">
+                <Accordion>
+                  {racecard.map((item) => {
+                    return (
+                      <div className="Competitionitem" key={item._id}>
+                        <Accordion.Item eventKey={item._id}>
+                          <Accordion.Header>
+                            <div className="AccordionHeader">
+                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
+                              <p>{item.DayNTime}</p>
+                            </div>
+                          </Accordion.Header>
+                          <Accordion.Body>
+                          <div className="Competition_Matches">
+                                  <p>{item.raceName}</p>
+                                  <p>{item.id}</p>
+                                </div>
+                            {/* {item.matches.map((data) => {
+                              return (
+                                <div className="Competition_Matches">
+                                  <p>{data.name}</p>
+                                  <p>{data.id}</p>
+                                </div>
+                              );
+                            })} */}
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </div>
+                    );
+                  })}
+                </Accordion>
+              </div>
+            </div>
+          </Accordion>
         </Tab>
       </Tabs>
     </div>

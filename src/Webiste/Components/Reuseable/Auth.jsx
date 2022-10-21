@@ -1,4 +1,3 @@
-import React from "react";
 import { BsCaretDownFill } from "react-icons/bs";
 import "../CSS/HomeCSS/auth.css";
 import profile from "../../assets/profile.jpg";
@@ -19,7 +18,9 @@ const Auth = () => {
     }
    
   }, [userToken, dispatch]);
-
+function Redirect(){
+  navigate('/dashboard')
+}
   const handleLogout = () => {
     dispatch(logout())
     navigate('/login')
@@ -28,28 +29,29 @@ const Auth = () => {
     <>
      
       <div className="cta">
-        {userInfo ? (
-        //   <div className="auth">
-        //   <div className="userprofile">
-        //     <span className="profilepic">
-        //       <img src={profile} alt="" />
-        //     </span>
-        //     <span className="profilename">
-        //       <p className="username">John Doe Elizebth</p>
-        //       <p className="pointuser">1000 pts</p>
-        //     </span>
-        //     <span>
-        //       <BsCaretDownFill
-        //         style={{
-        //           color: "rgba(0, 0, 0, 0.5)",
-        //         }}
-        //       />
-        //     </span>
-        //   </div>
-        // </div>
-          <button className="button"  onClick={handleLogout}>
-            Logout
+        {userInfo || userToken ? (
+          <div className="auth">
+          <div className="userprofile">
+            <span className="profilepic">
+              <img src={profile} alt=""  onClick={Redirect}/>
+            </span>
+            <span className="profilename">
+            <button className="buttonLogout"  onClick={handleLogout}>
+             Logout
           </button>
+            </span>
+            <span>
+              <BsCaretDownFill
+                style={{
+                  color: "rgba(0, 0, 0, 0.5)",
+                }}
+              />
+            </span>
+          </div>
+        </div>
+          // <button className="buttonLogout"  onClick={handleLogout}>
+          //   Logout
+          // </button>
         ) : (
           <div className="auth1 ">
             <NavLink className="buttonLogin" to="/login">

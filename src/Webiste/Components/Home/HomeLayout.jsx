@@ -14,8 +14,14 @@ import Ads from "./Components/Ads";
 import Blog from './Components/Blog'
 import '../CSS/HomeCSS/section.css';
 import '../CSS/HomeCSS/Home.css';
+import RaceCardDetail from "../../pages/RaceCardDetail";
+import { useLocation } from "react-router-dom";
+
+
 
 const HomeLayout = () => {
+const {pathname} = useLocation();
+
   return (
     <>
       <div className="Homelayout">
@@ -40,7 +46,9 @@ const HomeLayout = () => {
         </div>
         <div className="middlesection">
           <HomeLeftSection />
-          <HomeCenterSection />
+          {
+            pathname === '/' ? <HomeCenterSection /> : <RaceCardDetail/>
+          }
           <HomeRightSection />
         </div>
         <div className='endsection'>

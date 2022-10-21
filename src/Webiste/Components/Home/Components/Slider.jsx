@@ -4,7 +4,7 @@ import '../../CSS/HomeCSS/blogs.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSlider, STATUSES } from "../../../redux/getReducer/getSlider";
 import ReactImageAppear from 'react-image-appear';
-
+import img from '../../../assets/Rectangle 20.png'
 
 const Slider = () => {
   
@@ -21,7 +21,7 @@ const Slider = () => {
           margin: "100px",
         }}
       >
-        Loading....
+        
       </h2>
     );
   }
@@ -41,6 +41,17 @@ const Slider = () => {
     <>
       <div className="slider">
       <Carousel>
+      <Carousel.Item interval={1000}>
+              <ReactImageAppear 
+                className="d-block w-100 slideimg1"
+                src={img}
+                alt="First slide"
+                animation="zoomIn"
+                animationDuration="1s"
+              />
+            </Carousel.Item>
+      </Carousel>
+      {/* <Carousel>
         {
           slider.map((item) => {
             return(
@@ -56,7 +67,7 @@ const Slider = () => {
             )
           })
         }
-      </Carousel>
+      </Carousel> */}
       </div>
     </>
   )

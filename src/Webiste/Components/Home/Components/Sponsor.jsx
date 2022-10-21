@@ -1,8 +1,8 @@
-import img1 from '../../../assets/Rectangle 19.png';
 import React,{useEffect} from 'react';
 import '../../CSS/HomeCSS/blogs.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSponsor, STATUSES } from "../../../redux/getReducer/getSponsorSlice";
+import img from '../../../assets/Rectangle 19.png'
 
 const Sponsor = () => {
   const dispatch = useDispatch();
@@ -38,15 +38,20 @@ const Sponsor = () => {
   return (
     <>
       <div className="sponsor">
-      {
+      <div  className='sponsorimg'>
+                <img src={img} alt=""/>
+                <h2 className='first-txt'>Sponsored</h2>
+                </div>
+      {/* {
             sponsor.slice(0,1).map((item) => {
               return(
                 <div  className='sponsorimg'>
                 <img src={item.image} alt=""/>
+                <h2 className='first-txt'>{item.DescriptionEn}</h2>
                 </div>
               )
             })
-          }
+          } */}
       </div>  
     </>
   )

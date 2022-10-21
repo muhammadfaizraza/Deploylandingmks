@@ -1,6 +1,8 @@
 import React from 'react'
 import '../CSS/footer.css'
 import image1 from '../../assets/MKS.png'
+import {Link} from 'react-router-dom';
+
 const Footer = () => {
   return (
     <>
@@ -17,12 +19,24 @@ const Footer = () => {
                     <h5 className="text-white mb-3">Quick links</h5>
                     <ul className="list-unstyled text-muted text-bold">
                         <li ><p><b>Quicklinks</b></p></li>
+                        <Link to='/racecard' className="LinkStyle">
                         <li><p>Race Cards</p></li>
-                        <li><p>Horses</p></li>
+                        </Link>
+                        <Link to='/horse' className="LinkStyle">
+                           <li><p>Horses</p></li>
+                        </Link>
+                        <Link to='/competition' className="LinkStyle">
                         <li><p>Competition</p></li>
+                        </Link>
+                        <Link to='/jockey' className="LinkStyle">
                         <li><p>Jockey</p></li>
+                        </Link>
+                        <Link to='/trainer' className="LinkStyle">
                         <li><p>Trainer</p></li>
+                        </Link>
+                        <Link to='/mytracker' className="LinkStyle">
                         <li><p>My Tracker</p></li>
+                        </Link>
                     </ul>
                 </div>
                 <div className="col-lg-2 col-md-6">
@@ -38,9 +52,11 @@ const Footer = () => {
                 <div className="col-lg-4 col-md-6">
                     <h5 className="text-black mb-3">Subscribe to our Newsletter</h5>
                     <form action="#">
-                        <div className="input-group mb-3">
-                        <input className="form-control" type="text" placeholder="email" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                            <button className="btn btn-primary" id="button-addon2" type="button"><i className="fas fa-paper-plane">Subscribe</i></button>
+                        <div className='formclass1'>
+                        <input type='email' placeholder='email' />
+                        </div>
+                        <div className='formclass2'>
+                        <button>Submit</button>
                         </div>
                     </form>
                 </div>

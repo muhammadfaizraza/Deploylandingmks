@@ -26,7 +26,7 @@ const Predictor = () => {
                      <h6
                       
                      >{name}</h6>
-                     <p>{score}</p>
+                     <p>score {score}</p>
                      </span>
                     <img src={horse} alt="" />
                      </span>

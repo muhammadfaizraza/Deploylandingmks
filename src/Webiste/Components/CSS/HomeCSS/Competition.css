@@ -1,7 +1,8 @@
 .HomeRightSection{
-    height: fit-content;
+    height: 700px;
     background: #EFEFEF;
     border-radius: 20px;
+    overflow: auto;
 }
 .Competition{
     margin: auto;
@@ -38,6 +39,8 @@
 .CompetitionData{
     width: 100%;
     margin: auto;
+    height: fit-content;
+    overflow: auto;
 }
 .Competitionitem{
     border-radius: 21px;

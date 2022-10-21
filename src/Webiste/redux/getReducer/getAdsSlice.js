@@ -33,7 +33,7 @@ export const {setAds , setStatus} = getAdsSlice.actions;
 export default getAdsSlice.reducer;
 
 export const fetchAds = createAsyncThunk('/adsget/fetch', async() => {
-    const res = await axios.get(`${window.env.API_URL}/Adsget`);
+        const res = await axios.get(`${window.env.API_URL}/Adsget?keyword=${ '' }&page=${ '' }&limit=${'1'}`);
     const adsData = res.data;
     return adsData.data;
 })

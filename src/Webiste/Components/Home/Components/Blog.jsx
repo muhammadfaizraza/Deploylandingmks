@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import '../../CSS/HomeCSS/blogs.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchNews, STATUSES } from "../../../redux/getReducer/getNewsSlice";
+import { BlogData } from '../../../data/data';
 
 const Blog = () => {
   const dispatch = useDispatch();
@@ -41,8 +42,19 @@ const Blog = () => {
           <h1>NEWS & BLOGS</h1>
         </div>
         <div className='innerCardBlogs'>
+          {/* {
+            allnews.slice(0,4).map((item) => {
+              return(
+                <div className='singleCardBlogs'>
+                   <img src={item.image} alt="" />
+                   <h2>{item.TitleEn}</h2>
+                   <h3>{item.DescriptionEn}</h3>
+                </div>
+              )
+            })
+          } */}
           {
-            allnews.slice(-4).map((item) => {
+            BlogData.map((item) => {
               return(
                 <div className='singleCardBlogs'>
                    <img src={item.image} alt="" />
