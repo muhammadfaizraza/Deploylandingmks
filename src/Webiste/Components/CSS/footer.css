@@ -64,3 +64,12 @@ border-radius: 20px;
 border: none;
 margin-top: 10px;
 }
+.LinkStyle > li > p{
+    color: #000;
+} 
+.text-muted > li > p{
+    color: #000;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    padding-left: 20px;
+  }

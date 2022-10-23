@@ -21,8 +21,8 @@ const Result = () => {
                 <span className='result_match_right'>
                 <p >Distance: {item.distance}</p>
                 <p >{item.flat} Race</p>
-                <p >{item.surface} Surface</p>
-                <p>{item.going}</p>
+                <p >Surface {item.surface} </p>
+                <p>Going {item.going}</p>
                 </span>
                 </div>
                 <table className="customers1">

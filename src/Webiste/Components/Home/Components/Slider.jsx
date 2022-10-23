@@ -48,8 +48,10 @@ const Slider = () => {
                 alt="First slide"
                 animation="zoomIn"
                 animationDuration="1s"
+                indicators={false}
               />
             </Carousel.Item>
+            
       </Carousel>
       {/* <Carousel>
         {

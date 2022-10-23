@@ -37,16 +37,16 @@
   .sponsorimg {
     object-fit: cover;
     position: relative;
-    height: 330px;
+    height: 100%;
     color: #fff;
 }
 .sponsor {
-    height: 330px;
+    height: 390px;
     flex: 1 1;
     margin-top: 19px;
 }
 .slider {
-    height: 370px;
+    height: 390px;
     flex: 3 1;
 }
 }

@@ -10,7 +10,7 @@
     flex: 3;
 }
 .rightlayout{
-    flex: 1;
+    flex: 1.2;
 }
 .rightlayoutinner{
     display: flex;
@@ -28,7 +28,7 @@ border-radius: 0px 20px 0px 0px;
     display: flex;
     color: #fff;
     gap: 1rem;
-    padding: min(1.7rem,2rem);
+    padding: 30px 50px;
 }
 .newsflex h5{
     font-style: normal;
@@ -87,7 +87,7 @@ border-radius: 0px 20px 0px 0px;
 }
 
 .sponsor{
-    height: 510px;
+    height: 555px;
     flex: 1;
     margin-top: 19px;
 }
@@ -98,13 +98,14 @@ border-radius: 0px 20px 0px 0px;
 .sponsorimg{
     object-fit: cover; 
     position: relative;
-    height: 580px;
+    height: 555px;
     color: #fff;
 }
 .first-txt{
     position: absolute;
-    top: 17px;
-    left: 50px;
+    top: 210px;
+    left: 12rem;
+    font-weight: 700;
 }
 .middlesection{
     display: grid;
@@ -117,7 +118,8 @@ border-radius: 0px 20px 0px 0px;
 
 }
 .HomeLeftSection{
-    height: 700px;
+    height: fit-content;
+    max-height: 700px;
     background: #19469D;
     border-radius: 0px 20px 20px 0px;
     overflow: auto;
@@ -270,3 +272,36 @@ line-height: 51px;
       margin-top: 0;
     }
   }
+
+  button#uncontrolled-tab-example-tab-ante {
+    background: #a0a096;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    height: 46px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+}
+button#uncontrolled-tab-example-tab-contact {
+    background: #d1d1ce;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    height: 46px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+button#uncontrolled-tab-example-tab-home {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: #000;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    height: 46px;
+}
+button#uncontrolled-tab-example-tab-contact:active{
+    background-color: #fff;
+}

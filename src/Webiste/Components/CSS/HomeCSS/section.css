@@ -126,18 +126,18 @@ color: #5EC40F;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
     margin: auto;
-    border-radius: 20px;
+    border-radius: 0px 20px 20px 20px;
 }
 .Currentpostdiv{
     width: 95%;
     margin-inline: auto;
     height: fit-content;
     background: #EFEFEF;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 0px 20px 20px 20px;
 }
 .nav-tabs {
     border: none !important;
-    width: 90%;
+    width: 95%;
     margin-inline: auto;
     margin-top: 20px;
 }
@@ -148,17 +148,11 @@ color: #5EC40F;
 border-radius: 20px 20px 0px 0px;
 }
 .tab-content {
-    margin-top: -23px;
-    margin-bottom: 25px;
+    margin-top: -24px;
+    margin-bottom: 5px;
 
 }
-button#uncontrolled-tab-example-tab-home {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 30px;
-    color: #000;
-}
+
 .calendericon{
     color: #000;
     font-size: 18px;
