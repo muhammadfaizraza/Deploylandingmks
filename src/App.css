@@ -16,7 +16,15 @@ body::-webkit-scrollbar {
   .HomeRightSection::-webkit-scrollbar {
     width: 0.1em;
   }
-
+  .RaceDetailHeader::-webkit-scrollbar {
+    width: 0.1em;
+  }
+  .newpost::-webkit-scrollbar {
+    width: 0.1em;
+  }
+.CompetitionData::-webkit-scrollbar {
+  width: 0.1em;
+}
   .carousel-control-prev-icon{
     display: none !important;
   }

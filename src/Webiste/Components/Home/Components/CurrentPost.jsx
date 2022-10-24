@@ -10,6 +10,7 @@ import { BsCalendarDate } from "react-icons/bs";
 import flag from "../../../assets/United Arab Emirates.png";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import calenderimg from '../../../assets/Calendar 15 (Traced).png'
 
 const Match = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,9 @@ const Match = () => {
         className="mb-4 "
       >
         <Tab eventKey="home" title="Current">
+          <div className=' newpost'>
           <Accordion defaultActiveKey="0" flush>
+            
             <div className="Currentpostdiv">
               <div className="Currentpostheader">
                 <h2>United Arab Emirates</h2>
@@ -67,7 +70,6 @@ const Match = () => {
                 <Accordion>
                   {racecard.map((item) => {
                     return (
-                     
                       <div className="Competitionitem" key={item._id}>
                         <Accordion.Item eventKey={item._id}>
                           <Accordion.Header>
@@ -77,12 +79,10 @@ const Match = () => {
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
-                          <Link to={`/racedetail/${item._id}`} className='LinkStyle'>
-                               <div className="Competition_Matches">
+                          <div className="Competition_Matches">
                                   <p>{item.raceName}</p>
                                   <p>{item.id}</p>
                                 </div>
-                          </Link>
                             {/* {item.matches.map((data) => {
                               return (
                                 <div className="Competition_Matches">
@@ -94,15 +94,16 @@ const Match = () => {
                           </Accordion.Body>
                         </Accordion.Item>
                       </div>
-                    
                     );
                   })}
                 </Accordion>
               </div>
             </div>
           </Accordion>
+          </div>
         </Tab>
         <Tab eventKey="ante" title="Ante Post" className="Ante_Post">
+        <div className=' newpost'>
           <div className="Currentpostdiv">
           <Accordion defaultActiveKey="0" flush>
             <div className="Currentpostdiv">
@@ -145,11 +146,13 @@ const Match = () => {
             </div>
           </Accordion>
           </div>
+          </div>
         </Tab>
         <Tab
           eventKey="contact"
-          title={<BsCalendarDate className="calendericon" />}
+          title={<img src={calenderimg} alt='' />}
         >
+          <div className=' newpost'>
           <Calendar1 />
           <Accordion defaultActiveKey="0" flush>
             <div className="Currentpostdiv">
@@ -191,6 +194,7 @@ const Match = () => {
               </div>
             </div>
           </Accordion>
+          </div>
         </Tab>
       </Tabs>
     </div>

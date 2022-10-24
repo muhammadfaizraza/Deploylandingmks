@@ -48,35 +48,10 @@ const Language = () => {
      <>
      <div className="language">
      <div className="dropdown">
-            <button
-              className="btn btn-link dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <GlobeIcon />
-            </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              {/* <li>
-                <span className="dropdown-item-text">{t('language')}</span>
-              </li> */}
-              {languages.map(({ code, name, country_code }) => (
-                <li key={country_code}>
-                  <p
-                    className={classNames('dropdown-item lgpointer', {
-                      disabled: currentLanguageCode === code,
-                    })}
-                    onClick={() => {
-                      i18next.changeLanguage(code)
-                      window.location.reload();
-                    }}
-                  >
-                    {name}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <select className='languagedropdown'>
+              <option>EN</option>
+              <option>AR</option>
+            </select>
           </div>
      </div>
      </>
@@ -84,3 +59,33 @@ const Language = () => {
   )
 }
 export default Language
+
+// <button
+//               className="btn btn-link dropdown-toggle"
+//               type="button"
+//               id="dropdownMenuButton1"
+//               data-bs-toggle="dropdown"
+//               aria-expanded="false"
+//             >
+//               <GlobeIcon />
+//             </button>
+//             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+//               <li>
+//                 <span className="dropdown-item-text">{t('language')}</span>
+//               </li>
+//               {languages.map(({ code, name, country_code }) => (
+//                 <li key={country_code}>
+//                   <p
+//                     className={classNames('dropdown-item lgpointer', {
+//                       disabled: currentLanguageCode === code,
+//                     })}
+//                     onClick={() => {
+//                       i18next.changeLanguage(code)
+//                       window.location.reload();
+//                     }}
+//                   >
+//                     {name}
+//                   </p>
+//                 </li>
+//               ))}
+//             </ul>

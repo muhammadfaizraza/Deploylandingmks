@@ -1,7 +1,7 @@
 .RaceCardSection{
     margin-top: 19px;
     display: grid;
-    grid-template-columns: auto 15%;
+    grid-template-columns: auto 10%;
     column-gap: 1.1rem;
 }
 .RaceCardSlider{
@@ -12,13 +12,16 @@ display: flex;
 justify-content: space-evenly;
 }
 .slidercards{
-    width: 90%;
+    width: 94%;
     margin-inline: auto;
 }
-
+.slick-slide.slick-active{
+    outline: none;
+    width: 250px;
+}
 .singleracecard{
     box-sizing: border-box;
-    width: 260px !important;
+    width: 235px !important;
     height: 124px;
     background: #FFFFFF;
     border: 2px solid #DFDFDF;
@@ -102,9 +105,14 @@ font-size: 23.4333px;
 line-height: 28px;
 margin-left: -30px;
 color: #FF9900;
+width: 60px;
+height: 30px;
+overflow: hidden;
 }
 
-
+.racetime:nth-child(1){
+    color: #ff0008;
+}
 
 button.slick-arrow.slick-prev.slick-disabled {
     width: 25px;
@@ -119,14 +127,14 @@ button.slick-arrow.slick-next.slick-disabled {
     height: 124px;
     background: #D9D9D9;
     border-radius: 10px;
-    margin-right: 10px;
+    margin-right: 22px;
 }
 button.slick-arrow.slick-next{
     width: 25px;
     height: 124px;
     background: #D9D9D9;
     border-radius: 10px;
-    margin-right: 10px;
+    margin-right: 22px;
 }
 button.slick-arrow.slick-prev{
     width: 25px;
@@ -143,7 +151,7 @@ button.slick-arrow.slick-prev{
 .AddingtonStyle{
     width: 118px;
     height: 148px;
-    margin: auto;
+    /* margin: auto; */
     margin-top: -5px;
 }
 .AddingtonStyle img{

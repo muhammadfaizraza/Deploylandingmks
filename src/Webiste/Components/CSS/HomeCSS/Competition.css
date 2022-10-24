@@ -33,6 +33,29 @@
     justify-content: space-between;
     width: 100%;
 }
+.AccordionHeader > p:nth-child(1){
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15.5949px;
+    line-height: 19px;
+    color: #000000;
+    padding-top: 10px;
+}
+.AccordionHeader > p:nth-child(2){
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15.5949px;
+    line-height: 19px;
+    color: #000000;
+    padding-top: 10px;
+}
+.AccordionHeader11{
+    border-radius: 10px;
+}
+.AccordionHeader11 button{
+    border-radius: 20px !important;
+}
 .accordion-button::after{
     display: none !important;
 }
@@ -42,6 +65,15 @@
     margin: auto;
     height: fit-content;
     overflow: auto;
+    height: 475px;
+    margin-bottom: 25px;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 30px;
+    
+}
+.accordion-button{
+    border-radius: 30px;
 }
 .Competitionitem{
     border-radius: 21px;

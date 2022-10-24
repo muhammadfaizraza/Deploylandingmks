@@ -4,6 +4,7 @@ const HomeRightSection = () => {
     <>
       <div className="HomeRightSection">
         <Competition />
+        
       </div>
     </>
   )

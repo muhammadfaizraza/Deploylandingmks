@@ -73,3 +73,8 @@ margin-top: 10px;
 input::-webkit-input-placeholder { /* WebKit browsers */
     padding-left: 20px;
   }
+
+  .list-unstyled .text-muted > li >img{
+    color: #6c757d !important;
+    background-color: #6c757d!important;
+  }

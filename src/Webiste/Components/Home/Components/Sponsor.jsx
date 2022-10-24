@@ -40,7 +40,8 @@ const Sponsor = () => {
       <div className="sponsor">
       <div  className='sponsorimg'>
                 <img src={img} alt=""/>
-                <h2 className='first-txt'>Sponsored</h2>
+                <h2 className='first-txt'>SPONSOR
+BANNER</h2>
                 </div>
       {/* {
             sponsor.slice(0,1).map((item) => {

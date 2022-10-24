@@ -2,6 +2,11 @@ import React from 'react'
 import '../CSS/footer.css'
 import image1 from '../../assets/MKS.png'
 import {Link} from 'react-router-dom';
+import insta from '../../assets/Instagram.png'
+import linkedin from '../../assets/LinkedIn.png'
+import youtube from '../../assets/YouTube.png'
+import facebook from '../../assets/Facebook.png'
+import Twitter from '../../assets/Twitter Squared.png'
 
 const Footer = () => {
   return (
@@ -47,6 +52,15 @@ const Footer = () => {
                         <li><p>+971 123 456 789</p></li>
                         <li><p>info@mksracing.com</p></li>
                         <li><p>Follow us</p></li>
+                        <li style={{
+                            display:'flex'
+                        }}>
+                            <img src={Twitter} alt=''/>
+                            <img src={facebook} alt=''/>
+                            <img src={insta} alt=''/>
+                            <img src={linkedin} alt=''/>
+                            <img src={youtube} alt=''/>
+                        </li>
                     </ul>
                 </div>
                 <div className="col-lg-4 col-md-6">

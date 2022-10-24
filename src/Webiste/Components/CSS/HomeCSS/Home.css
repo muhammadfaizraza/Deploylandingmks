@@ -104,12 +104,19 @@ border-radius: 0px 20px 0px 0px;
 .first-txt{
     position: absolute;
     top: 210px;
-    left: 12rem;
+    left: 10rem;
+    width: 243px;
+    height: 120px;
+    font-family: 'Inter';
+    font-style: normal;
     font-weight: 700;
+    font-size: 49.4118px;
+    line-height: 60px;
+    text-align: center;
 }
 .middlesection{
     display: grid;
-    width: 96%;
+    width: 98%;
     margin-top: 1.1rem;
     margin-inline: auto;
     grid-template-columns: 25% auto 25%;
@@ -118,11 +125,10 @@ border-radius: 0px 20px 0px 0px;
 
 }
 .HomeLeftSection{
-    height: fit-content;
-    max-height: 700px;
-    background: #19469D;
-    border-radius: 0px 20px 20px 0px;
-    overflow: auto;
+    
+    /* background: #19469D; */
+    /* border-radius: 20px 20px 20px 0px;
+    overflow: auto; */
 }
 .HomeCenterSection{
     height: auto;
@@ -132,7 +138,7 @@ border-radius: 0px 20px 0px 0px;
 /* ----------------- Banner CSS------------------ */
 
 .bannerText {
-    padding: 7rem 5rem;
+    padding: 6rem 2rem;
     position: absolute;
 }
 .registerbtn{
@@ -182,10 +188,10 @@ line-height: 51px;
     font-weight: 700;
     font-size: 22.5949px;
     line-height: 27px;
-    margin: 10px 0 0 22px;
+    margin: 15px 0 0 22px;
 }
 .react-calendar{
-    width: 95% !important;
+    width: 90% !important;
     margin: auto;
 }
 
@@ -196,6 +202,7 @@ line-height: 51px;
     border: 1px solid #a0a096;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
+    margin-top: 30px;
 }
 
 .loader  {
@@ -274,13 +281,14 @@ line-height: 51px;
   }
 
   button#uncontrolled-tab-example-tab-ante {
-    background: #a0a096;
+    background: #B4B4B4;
     border-radius: 20px 20px 0 0;
-    color: #fff;
+    color: #000;
     height: 46px;
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
+    width: 155px;
 }
 button#uncontrolled-tab-example-tab-contact {
     background: #d1d1ce;
@@ -297,11 +305,16 @@ button#uncontrolled-tab-example-tab-home {
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
-    color: #000;
-    background: #fff;
+    color: #fff;
+    background: #a0a096;
     border-radius: 20px 20px 0 0;
     height: 46px;
+    width: 155px;
 }
-button#uncontrolled-tab-example-tab-contact:active{
-    background-color: #fff;
+button#uncontrolled-tab-example-tab-contact .nav-link:active{
+    background-color: #19469D;
+}
+
+.accordion-button .collapsed{
+    background-color: #19469D;
 }

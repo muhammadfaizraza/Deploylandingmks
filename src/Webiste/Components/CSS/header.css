@@ -1,6 +1,6 @@
 .header{
 height: 96px;
-width: 85%;
+width: 82%;
 left: 0px;
 top: 0px;
 background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
@@ -35,3 +35,23 @@ border-radius: 0px 0px 50px 0px;
     font-size: 16px;
 }
 
+.tracker > img{
+    width: 25px;
+    height: 25px;
+}
+.notification > img{
+    width: 25px;
+    height: 25px;
+}
+.languagedropdown{
+    border: none;
+    width: 45px;
+    height: 32px;
+    margin: 5px 28px 5px 0px;
+    background: #D9D9D9;
+    border-radius: 9px;
+    color: rgb(74, 72, 72);
+}
+.languagedropdown > select:active{
+border: none;
+}

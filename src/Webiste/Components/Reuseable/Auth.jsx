@@ -30,25 +30,52 @@ function Redirect(){
      
       <div className="cta">
         {userInfo || userToken ? (
-          <div className="auth">
-          <div className="userprofile">
-            <span className="profilepic">
-              <img src={profile} alt=""  onClick={Redirect}/>
-            </span>
-            <span className="profilename">
-            <button className="buttonLogout"  onClick={handleLogout}>
-             Logout
-          </button>
-            </span>
-            <span>
-              <BsCaretDownFill
-                style={{
-                  color: "rgba(0, 0, 0, 0.5)",
-                }}
-              />
-            </span>
-          </div>
-        </div>
+               <div className="auth">
+               <div className="userprofile">
+                 <span className="profilepic">
+                   <img src={profile} alt="" />
+                 </span>
+                 <span className="profilename">
+                   <p className="username">John Doe Elizebth</p>
+                   <p className="pointuser">1000 pts</p>
+                 </span>
+                 <span>
+                   <BsCaretDownFill
+                     style={{
+                       color: "rgba(0, 0, 0, 0.5)",
+                     }}
+                   />
+                 </span>
+               </div>
+               <div className="authhover">
+                <ul>
+                  <li>Dashboard</li>
+                  <li>My Tracker</li>
+                  <li>My Profile</li>
+                  <li>Setting</li>
+                  <li onClick={handleLogout}>Logout</li>
+                </ul>
+               </div>
+             </div>
+        //   <div className="auth">
+        //   <div className="userprofile">
+        //     <span className="profilepic">
+        //       <img src={profile} alt=""  onClick={Redirect}/>
+        //     </span>
+        //     <span className="profilename">
+        //     <button className="buttonLogout"  onClick={handleLogout}>
+        //      Logout
+        //   </button>
+        //     </span>
+        //     <span>
+        //       <BsCaretDownFill
+        //         style={{
+        //           color: "rgba(0, 0, 0, 0.5)",
+        //         }}
+        //       />
+        //     </span>
+        //   </div>
+        // </div>
           // <button className="buttonLogout"  onClick={handleLogout}>
           //   Logout
           // </button>

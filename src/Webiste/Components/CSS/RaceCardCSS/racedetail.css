@@ -3,14 +3,16 @@
     /* margin-top: 20px; */
 }
 .RaceDetailHeader{
-    /* width: 688px;
-    height: 475px; */
     background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
     border-radius: 18px;
-    margin-inline:auto ;
-    max-height: 700px;
+    margin-inline: auto;
+    max-height: 900px;
+    height: 900px;
     margin-inline: auto;
     overflow: auto;
+}
+.match {
+    margin-top: -17px;
 }
 .RaceDetailCard{
     box-sizing: border-box;
@@ -38,7 +40,7 @@ margin-inline: auto;
 .prizecard{
     box-sizing: border-box;
     width: 98%;
-height: 129px;
+height: 152px;
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 18px;
@@ -65,13 +67,15 @@ margin-top: 10px;
 }
 .inner_itemraces{
 display: flex;
-justify-content: space-between;
+/* justify-content: space-between; */
 }
 .itemraces_left{
 display: flex;
+
 }
 .itemraces_right{
 display: flex;
+margin: 0px 15px 0px 0px
 }
 .itemraces_left > .race{
     display: flex;
@@ -134,10 +138,12 @@ margin: 10px 10px 0 16px;
     font-style: normal;
 font-weight: 300;
 font-size: 12px;
-line-height: 15px;
+line-height: 5px;
+margin-top: 22px;
 }
 .racenameflex{
 display: flex;
+margin-left: 15px;
 }
 .racenameflex > p{
     margin: 17px 16px 9px 18px;
@@ -148,15 +154,18 @@ display: flex;
     color: #FFFFFF;
 }
 .racenameflex > img{
-    margin: 8px 20px 0 0;
+    margin: 18px 20px 0 0;
     font-style: normal;
     font-weight: 700;
     font-size: 22.5949px;
-    line-height: 27px; 
+    line-height: 27px;
     color: #FFFFFF;
+    height: 29px;
+    width: 29px;
+    
 }
 .itemtime{
-    margin: 0px 3px 9px 18px;
+    margin: 0px 3px 9px 30px;
     color: #fff;
 }
 
@@ -164,7 +173,7 @@ display: flex;
 .predict{
     display: flex;
     justify-content: space-between;
-    width: 688px;
+    /* width: 688px; */
     height: 50px;
 background: #5EC40F;
 border-radius: 18px;
@@ -178,12 +187,19 @@ margin: 9px 0 0 0px;
     width: 60px;
 height: 35px;
 margin-left: 20px;
+margin-top: 8px;
+}
+span.innerpredictdata {
+    margin-top: 10px;
+}
+.AccordionBody11{
+    background-color: #fff !important;
 }
 .innerpredictdata h6{
     font-family: 'Inter';
 font-style: normal;
 font-weight: 600;
-font-size: 14px;
+font-size: 12px;
 line-height: 126.02%;
 margin-left: 20px;
 /* or 15px */
@@ -196,7 +212,7 @@ color: #FFFFFF;
 font-style: normal;
 font-weight: 400;
 font-size: 12px;
-line-height: 126.02%;
+line-height: 24.02%;
 margin-left: 20px;
 /* or 15px */
 
@@ -329,5 +345,72 @@ color: #000000;
   }
   .itemraces_center{
     margin-top: 20px;
+    flex: 2;
+    margin-left: 20px;
   }
 
+.colorheader{
+    display: flex;
+    justify-content: space-between;
+}
+.racestatuscolor{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    width: 35%;
+}
+.racestatuscolor > li{
+    list-style: none;
+text-align: center;
+width: 22px;
+height: 25px;
+left: 799px;
+top: 238px;
+background: #5EC40F;
+border-radius: 5px;
+color: #fff;
+}
+.racestatuscolor > li:nth-child(3){
+    background: #ED6203;
+}
+.racestatuscolor > li:nth-child(7){
+    background: #FF0000;
+}
+.itemraces_center > h5{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.itemraces_center > p{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 15px;
+}
+.Trophydata_P > h6{
+    margin-top: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+}
+.prizecardheaders{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    padding-top: 15px;
+}
+.videoicon{
+    margin-top: -3px;
+    height: 11px;
+    width: 6px;
+    margin-right: 15px;
+}

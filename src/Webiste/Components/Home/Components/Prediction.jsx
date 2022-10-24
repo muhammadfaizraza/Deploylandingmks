@@ -13,8 +13,8 @@ const Prediction = () => {
                   <h3>{item.name}</h3>
                   <span className="PredictionFlex">
                     <p> Race{item.raceNo}</p>
-                    <p>{item.totalRunner}</p>
-                    <p>{item.time} m</p>
+                    <p>{item.totalRunner} Runners</p>
+                    <p>{item.time} min</p>
                   </span>
                   <div className="playerPredictTable">
                   {

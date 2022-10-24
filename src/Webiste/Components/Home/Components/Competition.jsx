@@ -18,7 +18,7 @@ const Competition = () => {
             return(
               <div className='Competitionitem' key={item.id}>
               <Accordion.Item eventKey={item.id}>
-                <Accordion.Header>
+                <Accordion.Header className='AccordionHeader11'>
                   <div className='AccordionHeader'>
                     <p>{item.name}</p>
                     <p>{item.raceNo} Races</p>
@@ -30,7 +30,7 @@ const Competition = () => {
                       return(
                         <div className='Competition_Matches'>
                           <p>{data.name}</p>
-                          <p>{data.id}</p>
+                          <p>{data.id}  R1</p>
                         </div>
                       )
                     })

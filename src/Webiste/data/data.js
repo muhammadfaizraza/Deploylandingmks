@@ -70,38 +70,38 @@ export const RaceCourse = [
         raceNo:'01',
         matches :  [
             {
-                id:'1',
+                id:'4.25',
                 name: 'Cobram'
             },
             {
-                id:'2',
+                id:'4.25 ',
                 name: 'Riverina Paceway'
             },
             {
-                id:'3',
+                id:'3.54',
                 name: 'Mildura'
             },
             {
-                id:'4',
+                id:'4.34',
                 name: 'Albion Park'
             },
             {
-                id:'5',
+                id:'5.11',
                 name: 'Dubbo'
             }
             ,
             {
-                id:'6',
+                id:'6.24',
                 name: 'Riverina Paceway'
             }
             ,
             {
-                id:'7',
+                id:'4.32',
                 name: 'Mildura'
             }
             ,
             {
-                id:'8',
+                id:'4.32',
                 name: 'Newcastle'
             }
         ]
@@ -246,24 +246,27 @@ export const MatchData = [
             {
                 id:'1',
                 position:'1',
-                name:'abc',
+                name:'   Jacovec Cavern (7)',
                 win:'14:00',
                 place:'2.6',
-                
+                win:'14.4'
+             
+
+
             },
             {
                 id:'2',
-                position:'1',
-                name:'abc',
-                win:'14',
+                position:'2',
+                name:'Lexington Knight (5)',
+               
                 place:'4.2',
                 
             },
             {
                 id:'3',
-                position:'1',
-                name:'abc',
-                win:'14',
+                position:'3',
+                name:'Amalfi Bay (1)',
+                
                 place:'2',
                 
             }
