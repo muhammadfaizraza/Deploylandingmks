@@ -84,7 +84,7 @@ margin-bottom: 0 !important;
   
 .authhover{
   height: fit-content;
-  width: 293px;
+  width: 255p;
   visibility: hidden;
   z-index: 999;
   background-color: #fff;
@@ -93,14 +93,14 @@ margin-bottom: 0 !important;
   margin-top: -10;
   transition: 1s ease-in-out all;
 	padding-left: 0;
-  border-radius: 0px 0px 0 20px;
-  height: 300px;
+  /* border-radius: 0px 0px 0 20px; */
+  height: 255px;
 }
 .userprofile:hover + .authhover{
   visibility: visible;
 }
 .authhover > ul{
-  width: 293px;
+  width: 255px;
   margin-left: -30px;
 }
 .authhover > ul > li{
@@ -120,7 +120,7 @@ line-height: 43px;
   border-radius: 0px 0px 0px 20px;
   color: #fff;
 height: 50px;
-width: 290px;
+width: 225px;
 }
 .authhover:hover{
   visibility: visible;

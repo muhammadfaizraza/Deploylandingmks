@@ -52,6 +52,9 @@ justify-content: space-evenly;
     transition: 0.4s linear all;
 
 }
+/* .singleracecard:hover .racetime{
+    padding-top: 15px;
+} */
 .racecardrow{
     display: flex;
     justify-content: space-around;

@@ -28,7 +28,7 @@ const TainerDetail = () => {
       <h2
       className="loader"
       >
-        Loading....
+      
       </h2>
     );
   }

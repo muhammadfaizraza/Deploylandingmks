@@ -51,7 +51,7 @@ const Trainer = () => {
       <h2
       className="loader"
       >
-        Loading....
+        
       </h2>
     );
   }

@@ -285,20 +285,21 @@ line-height: 51px;
     background: #B4B4B4;
     border-radius: 20px 20px 0 0;
     color: #000;
-    height: 46px;
+    height: 59px;
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
-    width: 155px;
+    width: 135px;
 }
 button#uncontrolled-tab-example-tab-contact {
     background: #d1d1ce;
     border-radius: 20px 20px 0 0;
     color: #fff;
-    height: 46px;
+    height: 59px;
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
+    width: 90px;
 }
 
 button#uncontrolled-tab-example-tab-home {
@@ -309,7 +310,7 @@ button#uncontrolled-tab-example-tab-home {
     color: #000;
     background: #a0a096;
     border-radius: 20px 20px 0 0;
-    height: 46px;
+    height: 59px;
     width: 155px;
 }
 button#uncontrolled-tab-example-tab-contact .nav-link:active{

@@ -29,7 +29,7 @@ i18next
     // react: { useSuspense: false },
 const loadingMarkup = (
   <div className="py-4 text-center">
-    <h1 data-text="Loading...">Loading...</h1>
+    <h1 data-text="Loading..."  className="loader"></h1>
   </div>
 )
 

@@ -79,10 +79,12 @@ const Match = () => {
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
+                          <Link to={`/racedetail/${item._id}`} className='LinkStyle'>
                           <div className="Competition_Matches">
                                   <p>{item.raceName}</p>
                                   <p>{item.id}</p>
                                 </div>
+                          </Link>
                             {/* {item.matches.map((data) => {
                               return (
                                 <div className="Competition_Matches">

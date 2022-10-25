@@ -129,8 +129,8 @@ const RaceCardDetail = () => {
     alignItems: "center",
     padding: "13px 10px",
     gap: "10px",
-    width: "96px",
-    height: "21px",
+    width: "112px",
+    height: "24px",
     background: "#19469D",
     borderRadius: "10px",
     border: "none",
@@ -144,8 +144,8 @@ const RaceCardDetail = () => {
     alignItems: "center",
     padding: "13px 10px",
     gap: "10px",
-    width: "96px",
-    height: "21px",
+    width: "112px",
+    height: "24px",
     background: "#FF0000",
     borderRadius: "10px",
     border: "none",
@@ -409,7 +409,7 @@ const RaceCardDetail = () => {
                                       </div>
                                     </Accordion.Header>
                                     <Accordion.Body className="AccordionBody11" >
-                                      <div className="">
+                                      <div className="mycardclass1">
                                         <div className="BodyNew">
                                           <table className="customers">
                                             <tr>

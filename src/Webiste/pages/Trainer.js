@@ -43,7 +43,7 @@ console.log(country,'trainer')
       <h2
       className="loader"
       >
-        Loading....
+        
       </h2>
     );
   }

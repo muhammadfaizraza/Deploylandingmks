@@ -143,7 +143,13 @@ margin-top: 22px;
 }
 .racenameflex{
 display: flex;
-margin-left: 15px;
+margin-left: 12px;
+margin-top: 40px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 22.5949px;
+line-height: 27px;
 }
 .racenameflex > p{
     margin: 17px 16px 9px 18px;
@@ -167,6 +173,11 @@ margin-left: 15px;
 .itemtime{
     margin: 0px 3px 9px 30px;
     color: #fff;
+    font-style: normal;
+font-weight: 400;
+font-size: 22.5949px;
+line-height: 27px;
+
 }
 
 
@@ -274,6 +285,7 @@ color: #000000;
 
 .customers {
     margin-left: 6px;
+    width: 100%;
   }
   
   .customers td, .customers th {
@@ -360,6 +372,7 @@ color: #000000;
     align-items: center;
     gap: 14px;
     width: 35%;
+    padding-top: 32px;
 }
 .racestatuscolor > li{
     list-style: none;

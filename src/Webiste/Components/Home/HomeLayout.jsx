@@ -16,6 +16,7 @@ import '../CSS/HomeCSS/section.css';
 import '../CSS/HomeCSS/Home.css';
 import RaceCardDetail from "../../pages/RaceCardDetail";
 import { useLocation } from "react-router-dom";
+import Bounce from 'react-reveal/Fade';
 
 
 
@@ -44,6 +45,7 @@ const {pathname} = useLocation();
           <RaceCardSlider />
           <Addington />
         </div>
+        <Bounce>
         <div className="middlesection">
           <HomeLeftSection />
           {
@@ -51,6 +53,7 @@ const {pathname} = useLocation();
           }
           <HomeRightSection />
         </div>
+        </Bounce>
         <div className='endsection'>
         <Ads />
         <Blog />

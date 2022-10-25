@@ -122,6 +122,9 @@ const RaceCardSlider = () => {
                     {item.raceName}
                     </p>
                     <span className="racecardrow">
+                      <div style = {{
+                        display:'flex'
+                      }}>
                       <p className="raceNo"> Race 4 -</p>
                       <p className="racedistance">
                         {item.RaceCourseData === null ? (
@@ -130,6 +133,7 @@ const RaceCardSlider = () => {
                           item.RaceCourseData.TrackLength
                         )} m
                       </p>
+                      </div>
                       <p className="racetime">{item.DayNTime} m</p>
                     </span>
                     <span className="singleracecardbtn">
