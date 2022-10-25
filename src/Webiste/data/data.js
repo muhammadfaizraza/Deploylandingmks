@@ -229,6 +229,12 @@ export const BlogData = [
         TitleEn:'Consectetur adipiscing elit, sed do eiusmod tempor.',
         DescriptionEn:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.'
     },
+    {
+        id:'5',
+        image:'https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&w=1600',
+        TitleEn:'Consectetur adipiscing elit, sed do eiusmod tempor.',
+        DescriptionEn:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.'
+    },
 ]
 export const MatchData = [
     {
@@ -368,7 +374,7 @@ export const RaceCardData = [
             },
             {
                 id:'4',
-                clubname:'Moans Cross ',
+                clubname:'Abu Dhabi Club',
                 detail:'For 4 year olds and upwards',
                 raceNo:'2',
                 distance:'3400 m',

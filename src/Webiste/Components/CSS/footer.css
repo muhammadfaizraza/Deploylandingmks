@@ -78,3 +78,12 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     color: #6c757d !important;
     background-color: #6c757d!important;
   }
+
+  .mtfooter{
+    margin-top: 45px;
+  }
+  .mtfooter1{
+    margin-top: 25px;
+    width: 310px;
+
+  }

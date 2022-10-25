@@ -72,28 +72,30 @@ const RaceCardSlider = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1280,
+        breakpoint: 1680,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
+          slidesToShow: 5,
+          slidesToScroll: 1,
           infinite: true,
           dots: false,
         },
       },
       {
-        breakpoint: 1180,
+        breakpoint: 1490,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          initialSlide: 1,
           dots: false,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 1320,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 4,
           slidesToScroll: 1,
+          initialSlide: 1,
+          dots: false,
         },
       },
     ],

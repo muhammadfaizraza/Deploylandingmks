@@ -93,13 +93,15 @@ margin-bottom: 0 !important;
   margin-top: -10;
   transition: 1s ease-in-out all;
 	padding-left: 0;
-  border-radius: 20px 20px 0 20px;
+  border-radius: 0px 0px 0 20px;
+  height: 300px;
 }
 .userprofile:hover + .authhover{
   visibility: visible;
 }
 .authhover > ul{
   width: 293px;
+  margin-left: -30px;
 }
 .authhover > ul > li{
   border-bottom: 0.5px solid rgb(125, 122, 122);
@@ -118,6 +120,7 @@ line-height: 43px;
   border-radius: 0px 0px 0px 20px;
   color: #fff;
 height: 50px;
+width: 290px;
 }
 .authhover:hover{
   visibility: visible;

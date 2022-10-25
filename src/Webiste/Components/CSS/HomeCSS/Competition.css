@@ -65,7 +65,7 @@
     margin: auto;
     height: fit-content;
     overflow: auto;
-    height: 475px;
+    height: 520px;
     margin-bottom: 25px;
 }
 .accordion-item:last-of-type .accordion-button.collapsed {

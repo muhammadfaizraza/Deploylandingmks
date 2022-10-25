@@ -75,7 +75,7 @@ const Match = () => {
                           <Accordion.Header>
                             <div className="AccordionHeader">
                               <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
-                              <p>{item.DayNTime}</p>
+                              <p>{item.DayNTime} min</p>
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
@@ -120,7 +120,7 @@ const Match = () => {
                           <Accordion.Header>
                             <div className="AccordionHeader">
                               <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
-                              <p>{item.DayNTime}</p>
+                              <p>{item.DayNTime} min</p>
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
@@ -169,7 +169,7 @@ const Match = () => {
                           <Accordion.Header>
                             <div className="AccordionHeader">
                               <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
-                              <p>{item.DayNTime}</p>
+                              <p>{item.DayNTime} min</p>
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>

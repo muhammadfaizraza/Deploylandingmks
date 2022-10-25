@@ -1,224 +1,259 @@
 @media (max-width: 1900px) and (min-width: 1600px){
-    .singleracecard {
-        box-sizing: border-box;
-        width: 180px !important;
+    button.slick-arrow.slick-next {
+        width: 25px;
         height: 124px;
-        background: #FFFFFF;
-        border: 2px solid #DFDFDF;
-        border-radius: 20px;
-        transition: 0.4s linear all;
+        background: #D9D9D9;
+        border-radius: 10px;
+        margin-right: 1px;
+    }
+    button.slick-arrow.slick-prev {
+        width: 25px;
+        height: 124px;
+        background: #D9D9D9;
+        border-radius: 10px;
+        margin-right: 1px;
     }
 }
-@media (max-width: 1600px) and (min-width: 1280px){
-    .singleracecard {
-        box-sizing: border-box;
-        width: 180px !important;
+@media (max-width: 1619px) and (min-width: 1490px){
+    button.slick-arrow.slick-next {
+        width: 25px;
         height: 124px;
-        background: #FFFFFF;
-        border: 2px solid #DFDFDF;
-        border-radius: 20px;
-        transition: 0.4s linear all;
+        background: #D9D9D9;
+        border-radius: 10px;
+        /* margin-right: 10px; */
     }
-    .clubname {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 13px;
-        line-height: 7px;
-        color: #000000;
-        padding: 1.5rem 0rem 0rem 1rem;
+    button.slick-arrow.slick-prev {
+        width: 25px;
+        height: 124px;
+        background: #D9D9D9;
+        border-radius: 10px;
+        margin-right: 12px;
+    }
+    .first-txt {
+        padding: 55px;
+        top: 25%;
+        font-size: 38.4118px;
+        line-height: 48px;
+    }
+
+    .slideimg1{
+        width: 100%;
+        height: 460px;
     }
     
-.slick-slide.slick-active.slick-current {
-    outline: none;
-      width: 195px;
-      overflow: hidden
-  }
-  .sponsorimg {
-    object-fit: cover;
-    position: relative;
-    height: 100%;
-    color: #fff;
-}
-.sponsor {
-    height: 390px;
-    flex: 1 1;
-    margin-top: 19px;
-}
-.slider {
-    height: 390px;
-    flex: 3 1;
-}
-}
-@media (max-width: 1280px) and (min-width: 980px){
-    .leftlayout {
-        flex: 2 1;
+    .sponsor{
+        height: 460px;
+        flex: 1;
+        margin-top: 19px;
     }
-    .menuNav p {
-        font-size: 14px;
+    .sponsor img {
+        width: 100%;
+        height: 100%;
     }
-
-    .logoclass {
-        margin-top: 20px;
-        width: 180px;
-    }
-
-    .buttonSubscribe {
-        text-decoration: none;
-        color: #000;
-        padding: 15px;
-    }
-    .buttonLogin {
-        text-decoration: none;
-        color: #000;
-        padding: 15px;
+    .sponsorimg{
+        object-fit: cover; 
+        position: relative;
+        height: 460px;
+        color: #fff;
     }
     .slider {
-        height: 350px;
+        height: 460px;
         flex: 3 1;
     }
-    .singleracecard {
-        box-sizing: border-box;
-        width: 200px !important;
-        height: 124px;
-        background: #FFFFFF;
-        border: 2px solid #DFDFDF;
-        border-radius: 20px;
-        transition: 0.4s linear all;
+    button#uncontrolled-tab-example-tab-home {
+        width: 130px;
     }
-    .clubname {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 13px;
-        line-height: 7px;
-        color: #000000;
-        padding: 1.5rem 0rem 0rem 1rem;
+    button#uncontrolled-tab-example-tab-ante{
+        width: 130px;
+    }
+}
+@media (max-width: 1490px) and (min-width: 1320px){
+    button.slick-arrow.slick-next {
+        width: 25px;
+        height: 124px;
+        margin-right: 10px;
+    }
+    button.slick-arrow.slick-prev {
+        width: 25px;
+        height: 124px;
+        margin-right: 10px;
+    }
+    .first-txt {
+        padding: 55px;
+        top: 25%;
+        font-size: 38.4118px;
+        line-height: 48px;
+    }
+
+    .slideimg1{
+        width: 100%;
+        height: 420px;
+    }
+    
+    .sponsor{
+        height: 420px;
+        margin-top: 19px;
+    }
+    .sponsor img {
+        width: 100%;
+        height: 100%;
+    }
+    .sponsorimg{
+        height: 420px;
+
+    }
+    .slider {
+        height: 420px;
+        flex: 3 1;
+    }
+    button#uncontrolled-tab-example-tab-home {
+        width: 120px;
+    }
+    button#uncontrolled-tab-example-tab-ante{
+        width: 120px;
+    }
+    .singleracecard {
+        width: 210px !important;
+        height: 124px;
+    }
+    .resultCard {
+        height: min(24rem,40rem);
     }
     .PredictionFlex {
         width: 100%;
+        align-items: baseline;
         margin-inline: auto;
     }
-    
-    .PredictionFlex :nth-child(1) {
-        font-size: 17.5949px;
-        color: #FFFFFF;
-        margin: 10px 0 0 20px;
-    }
-    
-    .PredictionFlex :nth-child(2) {
-        font-size: 12.5949px;
-        margin: 20px 0 0 20px;
-    }
-    
-    .PredictionFlex :nth-child(3) {
-        font-size: 12.5949px;
-        margin: 17px 10px 0 20px;
-    }
     .MatchDataPredict h3 {
-        font-size: 15.5949px;
+        font-size: 20.5949px;
+        margin: 20px 0 0 18px;
     }
-    .chartmatch {
-        font-size: 18.5949px;;
-    }
-
-
-    .MatchDataPredict h3 {
-        margin: 20px 0 0 20px;
-    }
-
     .presictData h6 {
-        margin: 17px 0 0 20px;
+        font-size: 15px;
+        line-height: 15px;
+        margin: 20px 0 0 20px;
     }
-    .Currentpostheader h2 {
-  
-        font-size: 14px;
-        
-      }
-      .bannerText {
-          padding: 5rem 3rem;
-         
-      }
-      .bannerText1 {
-       
-      
-          font-size: 2.5rem;
-      
-      }
-      .bannerText2 {
-         
-         
-          font-size: 2.6rem;
-         
-      }
-      button#uncontrolled-tab-example-tab-home {
-      
-      
-          font-size: 12px;
-      
-       
-      }
-      .nav-link {
-      
-          font-size: 12px;
-      }
-      .nav-tabs {
-          
-          width: 92%;
-      }
-      .AccordionHeader p{
-      font-size: 0.8rem;
-      }
-      .Currentpostheader img {
-      
-          font-size: 14px;
-       
-      }
-      .CompetitionHeader h2 {
-          
-          font-size: clamp(1rem, 10vw, 1.5em);
-      }
-      .CompetitionHeader {
-          width: 100%;
-       
-          display: flex;
-          margin-top: 0.8rem;
-          justify-content: space-around;
-      }
-      
-      .result_match_raceNo {
-      
-          font-size: 18px;
-      
-      
-        
-      }
-      .result_match_right > p {
-       
-          font-size: 14px;
-          line-height: 19px;
-      }
-      .AdsCard {
-        background: #C4C4C4;
-        width: 25%;
-        height: fit-content;
+    .racetime {
+        font-size: 19.4333px;
+        margin-left: -25px;
+        color: #FF9900;
+        width: 50px;
+        height: 30px;
     }
-    .sponsorimg {
-        object-fit: cover;
-        position: relative;
-        height: 300px;
-        color: #fff;
+    .clubname {
+        padding: 1.5rem 0rem 0rem 1rem;
     }
-    .sponsor {
-        height: 300px;
-        flex: 1 1;
-        margin-top: 19px;
+    .owner {
+        padding-left: 1rem;
     }
-    .slider {
-        height: 350px;
-        flex: 3 1;
+    .AddingtonStyle img {
+        height: 90.9px;
+    }
+    .Addingtonname {
+        font-size: 15px;
+    }
+    .Addingtontimer {
+        font-size: 16.4118px;
+    }
+    .racedisc {
+        height: 178px;
+    }
+    .innerCardBlogs {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        overflow: hidden;
+        height: 435px;
     }
 }
-@media (max-width: 980px) and (min-width: 768px){
+@media (max-width: 1320px) and (min-width: 1024){
+    button.slick-arrow.slick-next {
+        margin-right: 5px;
+    }
+    .slideimg1{
+        width: 100%;
+        height: 400px;
+    }
+    
+    .sponsor{
+        height: 420px;
+        margin-top: 19px;
+    }
+    .sponsorimg{
+        height: 400px;
+
+    }
+    .slider {
+        height: 400px;
+        flex: 3 1;
+    }
+    button#uncontrolled-tab-example-tab-home {
+        width: 110px;
+        font-size: 15px;
+    }
+    button#uncontrolled-tab-example-tab-ante {
+        width: 110px;
+        font-size: 15px;
+    }
+    .singleracecard {
+        width: 210px !important;
+        height: 124px;
+    }
+    .resultCard {
+        height: min(24rem,40rem);
+    }
+    .PredictionFlex {
+        width: 100%;
+        align-items: baseline;
+        margin-inline: auto;
+    }
+    .MatchDataPredict h3 {
+        font-size: 20.5949px;
+        margin: 20px 0 0 18px;
+    }
+    .presictData h6 {
+        font-size: 15px;
+        line-height: 15px;
+        margin: 20px 0 0 20px;
+    }
+    .racetime {
+        font-size: 19.4333px;
+        margin-left: -25px;
+        color: #FF9900;
+        width: 50px;
+        height: 30px;
+    }
+    .chartPrediction {
+        display: flex;
+        gap: 1.1rem;
+        margin-top: 4.1rem;
+    }
+    .clubname {
+        font-size: 16px;
+        padding: 1.5rem 0rem 0rem 1rem;
+    }
+    .owner {
+        padding-left: 1rem;
+        font-size: 15px;
+    }
+    .AddingtonStyle img {
+        height: 90.9px;
+    }
+    .Addingtonname {
+        font-size: 15px;
+    }
+    .Addingtontimer {
+        font-size: 16.4118px;
+    }
+    .racetime {
+        font-size: 20.4333px;
+        margin-left: -10px;
+    }
+    .owner {
+        padding-left: 1rem;
+    }
+    .clubname {
+        padding: 1.5rem 0rem 0rem 1rem;
+    }
     
 }
