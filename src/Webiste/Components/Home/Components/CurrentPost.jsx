@@ -11,6 +11,7 @@ import flag from "../../../assets/United Arab Emirates.png";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import calenderimg from '../../../assets/Calendar 15 (Traced).png'
+import { Bounce  } from 'react-reveal';
 
 const Match = () => {
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ const Match = () => {
         <Tab eventKey="home" title="Current">
           <div className=' newpost'>
           <Accordion defaultActiveKey="0" flush>
-            
+          <Bounce bottom>
             <div className="Currentpostdiv">
               <div className="Currentpostheader">
                 <h2>United Arab Emirates</h2>
@@ -101,11 +102,13 @@ const Match = () => {
                 </Accordion>
               </div>
             </div>
+          </Bounce>
           </Accordion>
           </div>
         </Tab>
         <Tab eventKey="ante" title="Ante Post" className="Ante_Post">
         <div className=' newpost'>
+          <Bounce bottom>
           <div className="Currentpostdiv">
           <Accordion defaultActiveKey="0" flush>
             <div className="Currentpostdiv">
@@ -148,14 +151,19 @@ const Match = () => {
             </div>
           </Accordion>
           </div>
+          </Bounce >
           </div>
         </Tab>
         <Tab
           eventKey="contact"
-          title={<img src={calenderimg} alt='' />}
+          title={<BsCalendarDate />}
         >
+          
           <div className=' newpost'>
+          <Bounce top>
           <Calendar1 />
+          </Bounce>
+          <Bounce bottom>
           <Accordion defaultActiveKey="0" flush>
             <div className="Currentpostdiv">
               <div className="Currentpostheader">
@@ -196,6 +204,7 @@ const Match = () => {
               </div>
             </div>
           </Accordion>
+          </Bounce>
           </div>
         </Tab>
       </Tabs>

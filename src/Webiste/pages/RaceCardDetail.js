@@ -97,7 +97,7 @@ const RaceCardDetail = () => {
   }, [id]);
 
   if (status === STATUSES.LOADING) {
-    return <h2 className="loader"></h2>;
+    return <h2 className="loader1"></h2>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -190,7 +190,7 @@ const RaceCardDetail = () => {
                       <span className="itemraces_left">
                         <span className="race">
                           <p>Race 1</p>
-                          <p>16:30</p>
+                          <p><b>16:30</b></p>
                         </span>
                         <span className="sponsor"></span>
                       </span>
@@ -200,7 +200,7 @@ const RaceCardDetail = () => {
                           style={{
                             display: "flex",
                             justifyContent: "space-between",
-                            width: "50%",
+                            width: "30%",
                           }}
                         >
                           <p
@@ -215,18 +215,22 @@ const RaceCardDetail = () => {
                               padding: "5px",
                             }}
                           >
-                            {singlerace[0].RaceStatus}
+                            RaceType
+                            {/* {singlerace[0].RaceType} */}
                           </p>
-                          <p
+                        </div>
+                        
+                      </span>
+                      <span className="itemraces_right">
+                      <p
                             style={{
-                              padding: "5px",
+                              display:'flex',
+                              alignItems:'center',
+                              margin:'15px'
                             }}
                           >
                             <img src={weather} alt="" />
                           </p>
-                        </div>
-                      </span>
-                      <span className="itemraces_right">
                         <span className="distance">
                           {singlerace[0].DayNTime}
                         </span>
@@ -237,6 +241,8 @@ const RaceCardDetail = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width:'100px',
+                                justifyContent:'space-between'
                               }}
                             >
                               <p>Notre Dame</p>
@@ -337,22 +343,23 @@ const RaceCardDetail = () => {
                                               <span>{data.NameEn}</span>
                                             </p>
                                             <p style={myPara}>
-                                              {data.Age} (242)
+                                              {data.Age}yrs GR H (242)
                                             </p>
                                           </div>
                                           <div
                                             style={{
                                               display: "flex",
+                                              lineHeight:'1px'
                                             }}
                                           >
                                             <p style={myPara}>
-                                              <b>Dam</b> :{data.Dam}
+                                              <b>Dam </b> :{data.Dam}
                                             </p>
                                             <p style={myPara}>
-                                              <b>Sire</b> :{data.Sire}
+                                              <b>Sire </b> :{data.Sire}
                                             </p>
                                             <p style={myPara}>
-                                              <b>G.Sire</b> : {data.GSire}
+                                              <b>G.Sire </b> : {data.GSire}
                                             </p>
                                           </div>
                                           <div
@@ -381,22 +388,58 @@ const RaceCardDetail = () => {
                                               (8 - 3 - 2 - 8 - 4)
                                             </p>
                                           </div>
+                                          <div className="trainerbreader_section">
+                                            <img src={pic} alt="" className="trainerbreader_image"/>                                            <div className="race_trainerbreader">
+                                            <p>T <b>Miss Alice Keighley </b></p>
+                                            <p>B <b>John Alice Keighley </b></p>
+                                            </div>
+                                          </div>
                                         </div>
-                                        <div className="cardraces3">
+                                        {/* <div className="cardraces3">
                                           <div>
-                                            {/* <p style={myPara1}>{singlerace[0].Horses.map((data) => data.GSire)}</p> */}
+                                            <p style={myPara1}>{singlerace[0].Horses.map((data) => data.GSire)}</p>
                                             <p style={myPara1}>56kg</p>
                                           </div>
                                           <div>
-                                            {/* <img src={singlerace[0].Owner.map((data) => data.image)} alt="" /> */}
+                                            <img src={singlerace[0].Owner.map((data) => data.image)} alt="" />
+                                          </div>
+                                        </div> */}
+                                        <div className="cardraces4">
+                                          <p style={{
+                                                fontWeight: "300",
+                                                fontSize: "12px",
+                                                lineHeight: "15px",
+                                                color: "rgba(0, 0, 0, 0.5)",
+                                                textAlign:'end'
+                                              }}>TT OR: 62</p>
+                                          <div className="cardracesjockey">
+                                            <div className="cardracesjockeyleft">
+                                              <p>J <b>Tadhg O’Shea</b></p>
+                                              <p>59kg</p>
+                                              <p style={{
+                                                fontWeight: "300",
+                                                fontSize: "9px",
+                                                lineHeight: "15px",
+                                                color: "rgba(0, 0, 0, 0.5)",
+                                              }}>47 (8 - 3 - 2 - 8 - 4)</p>
+                                            </div>
+                                            <img src={pic} alt="" className="cardracesjockeyimg"/>
+                                          </div>
+                                          <div className="cardracesjockeycards">
+                                            <ul>
+                                              <li>C</li>
+                                              <li>D</li>
+                                              <li>CL</li>
+                                              <li>BF</li>
+                                            </ul>
                                           </div>
                                         </div>
                                       </div>
                                       <div>
                                         <div className="pmclass">
-                                          <p>PM: AED 55,000</p>
-                                          <p>BTO: AED 55,000</p>
-                                          <p>SP: AED 55,000</p>
+                                          <p>PM: AED <b>55,000</b></p>
+                                          <p>BTO: AED <b>55,000</b></p>
+                                          <p>SP: AED <b>55,000</b></p>
                                         </div>
                                         <div className="uaecareer">
                                           <p>UAE Career: 47 (2 - 8 - 4)</p>

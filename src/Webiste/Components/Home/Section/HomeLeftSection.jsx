@@ -6,6 +6,7 @@ const HomeLeftSection = () => {
       <div className="HomeLeftSection">
         <CurrentData />
       </div>
+      
     </>
   )
 }

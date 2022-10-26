@@ -49,17 +49,17 @@ const Footer = () => {
                     <ul className="list-unstyled text-muted">
                         <li><p><b>Contact</b></p></li>
                         <li><p>Dubai, UAE</p></li>
-                        <li><p>+971 123 456 789</p></li>
-                        <li><p>info@mksracing.com</p></li>
+                        <li><p><a href="callto:1-800-123-4567">+971 123 456 789</a></p></li>
+                        <li><p><a href="mailto:email@example.com" >info@mksracing.com</a></p></li>
                         <li><p>Follow us</p></li>
                         <li style={{
                             display:'flex'
                         }}>
-                            <img src={Twitter} alt=''/>
-                            <img src={facebook} alt=''/>
-                            <img src={insta} alt=''/>
-                            <img src={linkedin} alt=''/>
-                            <img src={youtube} alt=''/>
+                           <a href='https://www.twitter.com/'> <img src={Twitter} alt=''/></a>
+                           <a href='https://www.facebook.com/'><img src={facebook} alt=''/></a> 
+                           <a href='https://www.instagram.com/'><img src={insta} alt=''/></a> 
+                           <a href='https://www.linkedin.com/'><img src={linkedin} alt=''/></a> 
+                           <a href='https://www.youtube.com/'><img src={youtube} alt=''/></a>
                         </li>
                     </ul>
                 </div>

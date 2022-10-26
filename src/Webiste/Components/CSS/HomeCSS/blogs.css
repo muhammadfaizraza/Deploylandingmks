@@ -1,6 +1,6 @@
 .BlogCard{
     background: #EFEFEF;
-    width: 74%;
+    width: 98%;
     border-radius: 20px;
 }
 .blognews{
@@ -13,7 +13,8 @@
     line-height: 43px;
     text-align: center;
     color: #19469D;
-    margin-top: 1.5rem;
+    margin-top: 2.2rem;
+    padding-top: 2rem;
 }
 .innerCardBlogs{
     display: flex;

@@ -204,6 +204,178 @@ export const RaceCourse = [
     }
    
 ]
+
+export const LeaderBoard1 = [
+    {
+        id:'1',
+        name:'Competition One',
+        raceNo:'01',
+        matches :  [
+            {
+                id:'4.25',
+                name: 'Winner Name'
+            },
+            {
+                id:'4.25 ',
+                name: 'Competition Name'
+            },
+            {
+                id:'3.54',
+                name: 'Competition Name'
+            },
+            {
+                id:'4.34',
+                name: 'Competition Name'
+            },
+            {
+                id:'5.11',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'6.24',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+        ]
+    },
+    {
+        id:'2',
+        name:'Competition Two',
+        raceNo:'03',
+        matches :  [
+            {
+                id:'4.25',
+                name: 'Winner Name'
+            },
+            {
+                id:'4.25 ',
+                name: 'Competition Name'
+            },
+            {
+                id:'3.54',
+                name: 'Competition Name'
+            },
+            {
+                id:'4.34',
+                name: 'Competition Name'
+            },
+            {
+                id:'5.11',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'6.24',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+        ]
+    },
+    {
+        id:'3',
+        name:'Competition Three',
+        raceNo:'01',
+        matches :  [
+            {
+                id:'4.25',
+                name: 'Winner Name'
+            },
+            {
+                id:'4.25 ',
+                name: 'Competition Name'
+            },
+            {
+                id:'3.54',
+                name: 'Competition Name'
+            },
+            {
+                id:'4.34',
+                name: 'Competition Name'
+            },
+            {
+                id:'5.11',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'6.24',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+        ]
+    },
+    {
+        id:'4',
+        name:'Competition Four',
+        raceNo:'01',
+        matches :  [
+            {
+                id:'4.25',
+                name: 'Winner Name'
+            },
+            {
+                id:'4.25 ',
+                name: 'Competition Name'
+            },
+            {
+                id:'3.54',
+                name: 'Competition Name'
+            },
+            {
+                id:'4.34',
+                name: 'Competition Name'
+            },
+            {
+                id:'5.11',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'6.24',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+            ,
+            {
+                id:'4.32',
+                name: 'Competition Name'
+            }
+        ]
+    }
+   
+]
 export const BlogData = [
     {
         id:'1',

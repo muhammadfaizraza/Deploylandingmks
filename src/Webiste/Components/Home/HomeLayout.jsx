@@ -45,18 +45,28 @@ const {pathname} = useLocation();
           <RaceCardSlider />
           <Addington />
         </div>
-        <Bounce>
+        
         <div className="middlesection">
-          <HomeLeftSection />
-          {
+          <div className="abc">
+            <HomeLeftSection />
+           <Ads />
+          </div>
+          <div className="stickyads">
+          <div className="xyz">{
             pathname === '/' ? <HomeCenterSection /> : <RaceCardDetail/>
           }
-          <HomeRightSection />
+         <div className="aab">
+         <HomeRightSection />
+         </div>
+          
+          </div>
+          <Blog />
+          </div>
         </div>
-        </Bounce>
+        
         <div className='endsection'>
-        <Ads />
-        <Blog />
+       <div className="stickyads"></div>
+        
       </div>
       </div>
     </>

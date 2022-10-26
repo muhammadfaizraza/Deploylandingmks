@@ -91,7 +91,7 @@ align-items: center;
     color: #fff;
     font-weight: 300;
 font-size: 13px;
-line-height: 16px;
+line-height: 1px;
 }
 .itemraces_left > .sponsor{
     flex-direction: row;
@@ -152,7 +152,7 @@ font-size: 22.5949px;
 line-height: 27px;
 }
 .racenameflex > p{
-    margin: 17px 16px 9px 18px;
+    margin: 5px 16px 9px 18px;
     font-style: normal;
     font-weight: 700;
     font-size: 22.5949px;
@@ -160,7 +160,7 @@ line-height: 27px;
     color: #FFFFFF;
 }
 .racenameflex > img{
-    margin: 18px 20px 0 0;
+    margin: 6px 20px 0 0;
     font-style: normal;
     font-weight: 700;
     font-size: 22.5949px;
@@ -426,4 +426,77 @@ line-height: 15px;
     height: 11px;
     width: 6px;
     margin-right: 15px;
+}
+b, strong {
+    font-weight: 800;
+}
+.cardraces1 > img{
+    width: 92px;
+height: 67px;
+margin-top: 15px;
+}
+.cardraces4{
+
+}
+.cardracesjockey{
+    display: flex;
+}
+.cardracesjockeyleft >p{
+    font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+
+color: #000000;
+}
+.cardracesjockeyimg{
+    width: 50px;
+    height: 50px;
+}
+.cardraces2 {
+    flex: 3;
+}
+.cardracesjockeycards >ul li:nth-child(2){
+    background: #078BE6;
+}
+.cardracesjockeycards >ul li:nth-child(3){
+    background: #979695;
+}
+.cardracesjockeycards >ul li{
+list-style: none;
+width: 22px;
+height: 21px;
+left: 937px;
+top: 800px;
+color: #fff;
+background: #FFB800;
+text-align: center;
+font-weight: 400;
+font-size: 9px;
+line-height: 11px;
+padding-top: 5px;
+
+}
+.cardracesjockeycards >ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+.race_trainerbreader >p{
+    font-style: normal;
+    /* font-weight: 700; */
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    margin-left: 10px;
+    
+    color: #000000;
+}
+.trainerbreader_section{
+    display: flex;
+}
+.trainerbreader_image{
+    width: 30px;
+height: 30px;
 }
