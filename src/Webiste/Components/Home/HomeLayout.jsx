@@ -51,7 +51,7 @@ const {pathname} = useLocation();
             <HomeLeftSection />
            <Ads />
           </div>
-          <div className="stickyads">
+          <div className="newabc">
           <div className="xyz">{
             pathname === '/' ? <HomeCenterSection /> : <RaceCardDetail/>
           }
@@ -65,7 +65,6 @@ const {pathname} = useLocation();
         </div>
         
         <div className='endsection'>
-       <div className="stickyads"></div>
         
       </div>
       </div>
