@@ -2,7 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+
 import Home from './Webiste/pages/Home';
+
 import RaceCard from './Webiste/pages/RaceCard';
 import RaceCardDetail from './Webiste/pages/RaceCardDetail';
 import './Webiste/Components/CSS/mediaquery.css'
