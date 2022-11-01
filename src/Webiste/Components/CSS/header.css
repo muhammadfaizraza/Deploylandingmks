@@ -13,9 +13,9 @@ border-radius: 0px 0px 50px 0px;
 }
 
 .menuNav{
-    /* display: flex;
-    justify-content: space-evenly; */
-    /* align-items: center; */
+    display: flex;
+    justify-content: space-evenly; 
+     align-items: center; 
     display: flex;
     justify-content: space-between;
     width: 95%;
@@ -33,6 +33,7 @@ border-radius: 0px 0px 50px 0px;
     cursor: pointer;
     font-weight: 300;
     font-size: 16px;
+   
 }
 
 .tracker > img{

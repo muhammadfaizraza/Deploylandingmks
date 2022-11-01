@@ -174,12 +174,20 @@
     .CompetitionHeader img {
         height: 40px;
     }
+    .Copyrights {
+    
+        font-size: 11px;
+    }
 }
 @media (max-width: 1320px) and (min-width: 1024px){
 
     .slideimg1{
         width: 100%;
         height: 400px;
+    }
+    button.slick-arrow.slick-prev {
+     
+        margin-left: 1px;
     }
     
     .sponsor{
@@ -250,8 +258,8 @@
  
     .singleracecard {
       
-        width: 193px !important;
-        margin-left: 2px;
+        max-width: 193px !important;
+        margin-left: 6px;
      
     }
     .rightlayoutinner {
@@ -265,19 +273,19 @@
     }
     button#uncontrolled-tab-example-tab-home {
     
-    width: 70px;
+    max-width: 70px;
     font-size: 10px;
     }
     button#uncontrolled-tab-example-tab-ante {
       
         font-size: 11px;
-     width: 86px;
+    max-width: 86px;
     
     }
     button#uncontrolled-tab-example-tab-contact {
    
     
-        width: 53px;
+        max-width: 53px;
     }
     .Currentpostheader h2 {
        
@@ -323,12 +331,11 @@
         width: 42px;
     }
     .PredictionCard {
-    
-        margin-top: 4rem;
+        margin-top: 5rem;
     }
     .GraphCard {
     
-        margin-top: 4rem;
+        margin-top: 5rem;
     }
     
     .footertext1 {
@@ -342,8 +349,93 @@
     
     .mtfooter1 {
         margin-top: 25px;
-        width: 111%;
+        max-width: 111%;
+    }
+    .innerCardBlogs {
+
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        overflow: hidden;
+        height: 435px;
+        max-width: 100%;
+    }
+    .MatchDataPredict h3 {
+   
+        font-size: 18.5949px;
+
+    }
+    
+    .PredictionFlex :nth-child(1) {
+       
+        font-size: 18.5949px;
+
+   
+    }
+    
+    .chartmatch {
+      
+        font-size: 18.5949px;
+ 
+        margin: 15px 0 0 -1px;
+        text-align: center;
+    }
+    
+    .playerPredictTable {
+   
+        margin-top: 0px;
+    }
+    
+    .AccordionHeader {
+
+        justify-content: space-between;
+     
+        height: 40px;
+    }
+    
+    .Predictiontable {
+ 
+        padding-top: 15px;
+        font-size: 14px;
+    }
+    .MatchDataPredict h3 {
+       
+        font-size: 18.5949px;
+      
+    }
+    
+    .PredictionFlex :nth-child(1) {
+
+
+        font-size: 18.5949px;
+    
+        margin: 20px 0 0 20px;
+    }
+    
+    .chartmatch {
+   
+        font-size: 18.5949px;
+    
+        margin: 15px 0 0 -1px;
+        text-align: center;
+    }
+    
+    .playerPredictTable {
+    
+        margin-top: 0px;
+    }
+    
+    
+    
+    .Predictiontable {
+    
+        font-size: 14px;
+    }
+    .AccordionHeader > p:nth-child(2) {
+
+        font-size: 10.5949px;
+    
     }
 }
+
 
 
