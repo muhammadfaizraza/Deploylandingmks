@@ -50,7 +50,7 @@ const {pathname} = useLocation();
         </span>
         
         <div className="middlesection">
-          <div className="abc">
+          <div className="middlesectioninner">
             <HomeLeftSection />
            <Ads />
           </div>

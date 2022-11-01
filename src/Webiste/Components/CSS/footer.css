@@ -87,3 +87,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     width: 310px;
 
   }
+  .copyrightinner{
+    flex: 2;
+    margin-top: 40px;
+  }

@@ -612,10 +612,10 @@ line-height: 100px;
         justify-content: space-between;
     }
     button.slick-arrow.slick-next {
-        margin-right: 60px;
+        margin-right: 10px;
     }
     button.slick-arrow.slick-next.slick-disabled{
-        margin-right: 60px;
+        margin-right: 10px;
     }
     .slidercards {
         width: 75% !important;
@@ -634,7 +634,7 @@ line-height: 100px;
         font-size: 58.4118px;
         line-height: 80px;
     }
-    .abc{
+    .middlesectioninner{
         display: none;
     }
     .aab{
@@ -651,14 +651,8 @@ line-height: 100px;
         width: 94%;
         margin-inline: auto;
     }
-    .customers12 >span >p {
-        width: 40%;
-        font-size: 13px;
-    }
-    .customers12 {
-        height: 45px;
-    }
     .mobiledata{
+        margin-top: 30px;
         display: block;
     }
     .mobiledropdown{
@@ -666,17 +660,75 @@ line-height: 100px;
         background-color: #D9D9D9;
         z-index: 999;
         width: 100%;
-        margin-top: 25px;
+        margin-top: 20px;
         text-align: center;
     }
-    /* .HomeCenterSection{
-        display: none;
-    } */
-    .react-calendar{
-        width: 90% !important;
-        margin-inline: auto;
+    .customers12 >span {
+        margin-top: 12px;
     }
-    
+    .customers1 >tr >td {
+        width: 15%;
+        font-size: 11px;
+    }
+    .result_match_left {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .live_result_data{
+        display: block;
+    }
+    .result_match_right {
+        display: flex;
+        gap: 20px;
+        width: 90%;
+        margin: auto;
+    }
+    .PredictionFlex :nth-child(1) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .PredictionFlex :nth-child(2) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .PredictionFlex :nth-child(3) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .playerPredictTable {
+        height: min(10.8rem,38rem);
+    }
+    .singleCardBlogs img {
+        width: 178.76px;
+        height: 175.07px;
+        border-radius: 14.7783px;
+    }
+    .blognews h1 {
+        font-size: 29.4118px;
+        margin-top: 0.2rem;
+        padding-top: 2rem;
+    }
+    .singleCardBlogs {
+        margin-top: 0.5rem;
+    }
+    .singleCardBlogs h3 {
+        font-size: 13.8px;
+    }
+    .singleCardBlogs h2 {
+        font-size: 13.8px;
+    }
+    .copyrightinner {
+        flex: 2 1;
+        display: none;
+        /* margin-top: 7px; */
+    }
+    .react-calendar {
+        width: 90% !important;
+    }
 }
 
 @media (max-width: 640px) and (min-width: 471px){
@@ -779,7 +831,7 @@ line-height: 100px;
     .sponsorimg{
         height: 400px;
     }
-    .abc{
+    .middlesectioninner{
         display: none;
     }
     .aab{
@@ -878,6 +930,14 @@ line-height: 100px;
     }
     .singleCardBlogs h2 {
         font-size: 13.8px;
+    }
+    .copyrightinner {
+        flex: 2 1;
+        display: none;
+        /* margin-top: 7px; */
+    }
+    .react-calendar {
+        width: 90% !important;
     }
 }
 @media (max-width: 471px) and (min-width: 375px){
