@@ -232,7 +232,7 @@ color: #000000;
 .accordion-button .collapsed{
 border-radius: 20px;
 }
-.customers12 > span > p:nth-child(2){
+/* .customers12 > span > p:nth-child(2){
     width: 15%;
     text-align: start;
-}
+} */

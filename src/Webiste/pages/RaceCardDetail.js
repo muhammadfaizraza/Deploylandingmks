@@ -26,6 +26,7 @@ import Summary from "../Components/RaceCard/Summary";
 import Draw from "../Components/RaceCard/Draw";
 import Predictor from "../Components/RaceCard/Predictor";
 import TrackRecord from "../Components/RaceCard/TrackRecord";
+import arrow1 from "../assets/image 13 (Traced).png";
 
 const Trophy = [
   {
@@ -116,6 +117,7 @@ const RaceCardDetail = () => {
     fontWeight: "700",
     fontSize: "12px",
     color: "rgba(0, 0, 0, 0.5)",
+    paddingLeft:'3px'
   };
   const myPara1 = {
     fontWeight: "700",
@@ -353,6 +355,287 @@ const RaceCardDetail = () => {
                                             }}
                                           >
                                             <p style={myPara}>
+                                            Dam <b>:{data.Dam} </b> 
+                                            </p>
+                                            <p style={myPara}>
+                                            Sire   <b>:{data.Sire} </b> 
+                                            </p>
+                                            <p style={myPara}>
+                                            G.Sire <b> : {data.GSire}</b> 
+                                            </p>
+                                          </div>
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                            }}
+                                          >
+                                            <p
+                                              style={{
+                                                fontWeight: "400",
+                                                fontSize: "12px",
+                                                lineHeight: "15px",
+                                                color: "#FF0000",
+                                              }}
+                                            >
+                                              David & Nicola Barron{" "}
+                                            </p>
+                                            <p
+                                              style={{
+                                                fontWeight: "300",
+                                                fontSize: "9px",
+                                                lineHeight: "15px",
+                                                color: "rgba(0, 0, 0, 0.5)",
+                                              }}
+                                            >
+                                              (8 - 3 - 2 - 8 - 4)
+                                            </p>
+                                          </div>
+                                          <div className="trainerbreader_section">
+                                            <img src={pic} alt="" className="trainerbreader_image"/>                                            <div className="race_trainerbreader">
+                                            <p>T <b>Miss Alice Keighley </b></p>
+                                            <p>B <b>John Alice Keighley </b></p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        {/* <div className="cardraces3">
+                                          <div>
+                                            <p style={myPara1}>{singlerace[0].Horses.map((data) => data.GSire)}</p>
+                                            <p style={myPara1}>56kg</p>
+                                          </div>
+                                          <div>
+                                            <img src={singlerace[0].Owner.map((data) => data.image)} alt="" />
+                                          </div>
+                                        </div> */}
+                                        <div className="cardraces4">
+                                          <p style={{
+                                                fontWeight: "300",
+                                                fontSize: "12px",
+                                                lineHeight: "15px",
+                                                color: "rgba(0, 0, 0, 0.5)",
+                                                textAlign:'end'
+                                              }}>TT OR: 62</p>
+                                          <div className="cardracesjockey">
+                                            <div className="cardracesjockeyleft">
+                                              <p>J <b>Tadhg O’Shea</b></p>
+                                              <p>59kg</p>
+                                              <p style={{
+                                                fontWeight: "300",
+                                                fontSize: "9px",
+                                                lineHeight: "15px",
+                                                color: "rgba(0, 0, 0, 0.5)",
+                                              }}>47 (8 - 3 - 2 - 8 - 4)</p>
+                                            </div>
+                                            <img src={pic} alt="" className="cardracesjockeyimg"/>
+                                          </div>
+                                          <div className="cardracesjockeycards">
+                                            <ul>
+                                              <li>C</li>
+                                              <li>D</li>
+                                              <li>CL</li>
+                                              <li>BF</li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <div className="pmclass">
+                                          <p>PM: AED <b>55,000</b></p>
+                                          <p>BTO: AED <b>55,000</b></p>
+                                          <p>SP: AED <b>55,000</b></p>
+                                        </div>
+                                        <div className="uaecareer">
+                                          <p>UAE Career: 47 (2 - 8 - 4)</p>
+                                          <p>Lifetime: 47 (2 - 8 - 4)</p>
+                                          <p>Turf :47 (2 - 8 - 4) </p>
+                                          <p>Durt :47 (2 - 8 - 4) </p>
+                                          <p>Dist: 47 (2 - 8 - 4) </p>
+                                          <p>AW :47 (2 - 8 - 4) </p>
+                                        </div>
+                                      </div>
+                                    </Accordion.Header>
+                                    <Accordion.Body className="AccordionBody11" >
+                                      <div className="mycardclass1">
+                                        <div className="BodyNew">
+                                          <table className="customers">
+                                            <tr>
+                                              <th>Date</th>
+                                              <th>Cr</th>
+                                              <th>Dist</th>
+                                              <th>TC</th>
+                                              <th>Type</th>
+                                              <th>Dts</th>
+                                              <th>time</th>
+                                              <th>Jockey</th>
+                                              <th>Wgt</th>
+                                              <th>FP</th>
+                                              <th>Les</th>
+                                              <th>RS</th>
+                                              <th>BtBy</th>
+                                              <th>Kgs</th>
+                                              <th>Draw</th>
+
+                                            </tr>
+                                          </table>
+                                        </div>
+                                        <div className="BodyNew1">
+                                          <table className="customers2">
+                                            <tr>
+                                              <th>12 Oct 22</th>
+                                              <th>Wol (T)</th>
+                                              <th>2400</th>
+                                              <th>D</th>
+                                              <th>S</th>
+                                              <th>Novice</th>
+                                              <th>02:05:55</th>
+                                              <th>Miss </th>
+                                              <th>58</th>
+                                              <th>6</th>
+                                              <th>16.25</th>
+                                              <th>5</th>
+                                              <th>67</th>
+                                              <th>5</th>
+                                              <th><img src={arrow1} alt='' /></th>
+                                            </tr>
+                                          </table>
+                                        </div>
+                                        <div className="BodyNew2">
+                                          <table className="customers2">
+                                            <tr>
+                                              <th>12 Oct 22</th>
+                                              <th>Wol (T)</th>
+                                              <th>2400</th>
+                                              <th>D</th>
+                                              <th>S</th>
+                                              <th>Novice</th>
+                                              <th>02:05:55</th>
+                                              <th>Miss </th>
+                                              <th>58</th>
+                                              <th>6</th>
+                                              <th>16.25</th>
+                                              <th>5</th>
+                                              <th>67</th>
+                                              <th>5</th>
+                                              <th>
+                                                <img src={arrow1} alt='' />
+                                              </th>
+                                            </tr>
+                                          </table>
+                                        </div>
+                                        <div className="BodyNew3">
+                                          <table className="customers2">
+                                            <tr>
+                                              <th>12 Oct 22</th>
+                                              <th>Wol (T)</th>
+                                              <th>2400</th>
+                                              <th>D</th>
+                                              <th>S</th>
+                                              <th>Novice</th>
+                                              <th>02:05:55</th>
+                                              <th>Miss </th>
+                                              <th>58</th>
+                                              <th>6</th>
+                                              <th>16.25</th>
+                                              <th>5</th>
+                                              <th>67</th>
+                                              <th>5</th>
+                                              <th><img src={arrow1} alt='' /></th>
+                                            </tr>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </Accordion.Body>
+                                  </Accordion.Item>
+                                );
+                              })}
+                            </div>
+                          </Accordion>
+                        </div>
+                      </div>
+                    </Tab>
+                    <Tab
+                      eventKey="Predictor"
+                      title="Predictor"
+                      tabClassName="profile-tabitem"
+                    >
+                      <div className="RaceDetailCard">
+                        <Predictor />
+                      </div>
+                    </Tab>
+                    <Tab
+                      eventKey="Draw"
+                      title="Draw"
+                      tabClassName="profile-tabitem"
+                    >
+                      <div className="RaceDetailCard">
+                        <Draw />
+                      </div>
+                    </Tab>
+                    <Tab
+                      eventKey="Summary"
+                      title="Summary"
+                      tabClassName="profile-tabitem"
+                    >
+                      <div className="RaceDetailCard">
+                      <Summary />
+                      </div>
+                    </Tab>
+                    <Tab
+                      eventKey="Track Record"
+                      title="Track Record"
+                      tabClassName="profile-tabitem"
+                    >
+                      <div className="RaceDetailCard">
+                        {/* <TrackRecord /> */}
+                      </div>
+                    </Tab>
+                    <Tab
+                      eventKey="Printout"
+                      title="Printout"
+                      tabClassName="profile-tabitem"
+                    >
+                      <div className="RaceDetailCard">
+                        <div className="forfexclass">
+                          <Accordion defaultActiveKey="0">
+                            <div>
+                              {singlerace[0].Horses.map((data) => {
+                                return (
+                                  <Accordion.Item eventKey='0'>
+                                    <Accordion.Header>
+                                      <div className="cardracesAccordion">
+                                        <div className="cardraces1">
+                                          <img src={shirt} alt="" />
+                                          <span className="cardraces1box">
+                                            1-3-22
+                                          </span>
+                                        </div>
+                                        <div className="cardraces2">
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              gap: "10px",
+                                            }}
+                                          >
+                                            <p
+                                              style={{
+                                                fontWeight: "700",
+                                                fontSize: "19.6px",
+                                                lineHeight: "24px",
+                                                color: "#19469D",
+                                              }}
+                                            >
+                                              <span>{data.NameEn}</span>
+                                            </p>
+                                            <p style={myPara}>
+                                              {data.Age}yrs GR H (242)
+                                            </p>
+                                          </div>
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              lineHeight:'1px'
+                                            }}
+                                          >
+                                            <p style={myPara}>
                                               <b>Dam </b> :{data.Dam}
                                             </p>
                                             <p style={myPara}>
@@ -539,278 +822,6 @@ const RaceCardDetail = () => {
                                   </Accordion.Item>
                                 );
                               })}
-                            </div>
-                          </Accordion>
-                        </div>
-                      </div>
-                    </Tab>
-                    <Tab
-                      eventKey="Predictor"
-                      title="Predictor"
-                      tabClassName="profile-tabitem"
-                    >
-                      <div className="RaceDetailCard">
-                        <Predictor />
-                      </div>
-                    </Tab>
-                    <Tab
-                      eventKey="Draw"
-                      title="Draw"
-                      tabClassName="profile-tabitem"
-                    >
-                      <div className="RaceDetailCard">
-                        <Draw />
-                      </div>
-                    </Tab>
-                    <Tab
-                      eventKey="Summary"
-                      title="Summary"
-                      tabClassName="profile-tabitem"
-                    >
-                      <div className="RaceDetailCard">
-                      <Summary />
-                      </div>
-                    </Tab>
-                    <Tab
-                      eventKey="Track Record"
-                      title="Track Record"
-                      tabClassName="profile-tabitem"
-                    >
-                      <div className="RaceDetailCard">
-                        {/* <TrackRecord /> */}
-                      </div>
-                    </Tab>
-                    <Tab
-                      eventKey="Printout"
-                      title="Printout"
-                      tabClassName="profile-tabitem"
-                    >
-                      <div className="RaceDetailCard">
-                        <div className="forfexclass">
-                          <Accordion defaultActiveKey="1">
-                            <div>
-                              <Accordion.Item
-                                eventKey={singlerace[0].Horses._id}
-                              >
-                                <Accordion.Header>
-                                  <div className="cardracesAccordion">
-                                    <div className="cardraces1">
-                                      <img src={shirt} alt="" />
-                                      <span className="cardraces1box">
-                                        1-3-22
-                                      </span>
-                                    </div>
-                                    <div className="cardraces2">
-                                      <div
-                                        style={{ display: "flex", gap: "10px" }}
-                                      >
-                                        <p
-                                          style={{
-                                            fontWeight: "700",
-                                            fontSize: "19.6px",
-                                            lineHeight: "24px",
-                                            color: "#19469D",
-                                          }}
-                                        >
-                                          {singlerace[0].Horses.map(
-                                            (data) => data.NameEn
-                                          )}
-                                        </p>
-                                        <p style={myPara}>
-                                          {singlerace[0].Horses.map(
-                                            (data) => data.Age
-                                          )}{" "}
-                                          (242)
-                                        </p>
-                                      </div>
-                                      <div
-                                        style={{
-                                          display: "flex",
-                                        }}
-                                      >
-                                        <p style={myPara}>
-                                          <b>Dam</b> :
-                                          {singlerace[0].Horses.map(
-                                            (data) => data.Dam
-                                          )}
-                                        </p>
-                                        <p style={myPara}>
-                                          <b>Sire</b> :
-                                          {singlerace[0].Horses.map(
-                                            (data) => data.Sire
-                                          )}
-                                        </p>
-                                        <p style={myPara}>
-                                          <b>G.Sire</b> :{" "}
-                                          {singlerace[0].Horses.map(
-                                            (data) => data.GSire
-                                          )}
-                                        </p>
-                                      </div>
-                                      <div
-                                        style={{
-                                          display: "flex",
-                                        }}
-                                      >
-                                        <p
-                                          style={{
-                                            fontWeight: "400",
-                                            fontSize: "12px",
-                                            lineHeight: "15px",
-                                            color: "#FF0000",
-                                          }}
-                                        >
-                                          David & Nicola Barron{" "}
-                                        </p>
-                                        <p
-                                          style={{
-                                            fontWeight: "300",
-                                            fontSize: "9px",
-                                            lineHeight: "15px",
-                                            color: "rgba(0, 0, 0, 0.5)",
-                                          }}
-                                        >
-                                          (8 - 3 - 2 - 8 - 4)
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div className="cardraces3">
-                                      <div>
-                                        {/* <p style={myPara1}>{singlerace[0].Horses.map((data) => data.GSire)}</p> */}
-                                        <p style={myPara1}>56kg</p>
-                                      </div>
-                                      <div>
-                                        {/* <img src={singlerace[0].Owner.map((data) => data.image)} alt="" /> */}
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <div className="pmclass">
-                                      <p>PM: AED 55,000</p>
-                                      <p>BTO: AED 55,000</p>
-                                      <p>SP: AED 55,000</p>
-                                    </div>
-                                    <div className="uaecareer">
-                                      <p>UAE Career: 47 (2 - 8 - 4)</p>
-                                      <p>Lifetime: 47 (2 - 8 - 4)</p>
-                                      <p>Turf :47 (2 - 8 - 4) </p>
-                                      <p>Durt :47 (2 - 8 - 4) </p>
-                                      <p>Dist: 47 (2 - 8 - 4) </p>
-                                      <p>AW :47 (2 - 8 - 4) </p>
-                                    </div>
-                                  </div>
-                                  {/* <div
-                                style={{
-                                  display: "flex",
-                                }}
-                              >
-                                <button
-                                  style={btnNew}
-                                  onClick={() => {
-                                    alert("Tricast");
-                                  }}
-                                >
-                                  Tricast
-                                </button>
-                                <button
-                                  style={btnNew1}
-                                  onClick={() => {
-                                    alert("Pick Six");
-                                  }}
-                                >
-                                  {" "}
-                                  Pick Six
-                                </button>
-                              </div> */}
-                                </Accordion.Header>
-                                <div  className="BodyNewRace">
-                                <Accordion.Body>
-                                  <div className="">
-                                    <div className="BodyNew">
-                                      <table className="customers">
-                                        <tr>
-                                          <th>Date</th>
-                                          <th>Cr</th>
-                                          <th>Dist</th>
-                                          <th>TC</th>
-                                          <th>Type</th>
-                                          <th>Dts</th>
-                                          <th>time</th>
-                                          <th>Jockey</th>
-                                          <th>Wgt</th>
-                                          <th>FP</th>
-                                          <th>Les</th>
-                                          <th>RS</th>
-                                          <th>BtBy</th>
-                                          <th>Kgs</th>
-                                          <th>Draw</th>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                    <div className="BodyNew1">
-                                      <table className="customers2">
-                                        <tr>
-                                          <th>12 Oct 22</th>
-                                          <th>Wol (T)</th>
-                                          <th>2400</th>
-                                          <th>D</th>
-                                          <th>S</th>
-                                          <th>Novice</th>
-                                          <th>02:05:55</th>
-                                          <th>Miss </th>
-                                          <th>58</th>
-                                          <th>6</th>
-                                          <th>16.25</th>
-                                          <th>5</th>
-                                          <th>67</th>
-                                          <th>5</th>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                    <div className="BodyNew2">
-                                      <table className="customers2">
-                                        <tr>
-                                          <th>12 Oct 22</th>
-                                          <th>Wol (T)</th>
-                                          <th>2400</th>
-                                          <th>D</th>
-                                          <th>S</th>
-                                          <th>Novice</th>
-                                          <th>02:05:55</th>
-                                          <th>Miss </th>
-                                          <th>58</th>
-                                          <th>6</th>
-                                          <th>16.25</th>
-                                          <th>5</th>
-                                          <th>67</th>
-                                          <th>5</th>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                    <div className="BodyNew3">
-                                      <table className="customers2">
-                                        <tr>
-                                          <th>12 Oct 22</th>
-                                          <th>Wol (T)</th>
-                                          <th>2400</th>
-                                          <th>D</th>
-                                          <th>S</th>
-                                          <th>Novice</th>
-                                          <th>02:05:55</th>
-                                          <th>Miss </th>
-                                          <th>58</th>
-                                          <th>6</th>
-                                          <th>16.25</th>
-                                          <th>5</th>
-                                          <th>67</th>
-                                          <th>5</th>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                  </div>
-                                </Accordion.Body>
-                                </div>
-                              </Accordion.Item>
                             </div>
                           </Accordion>
                         </div>

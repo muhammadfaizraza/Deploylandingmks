@@ -119,6 +119,17 @@ padding: 4px;
     align-items: end;
     margin-top: 12px;
   }
+  .customers12 >span >p{
+    width: 20%;
+  }
+  .customers1 >tr >td{
+    width: 15%;
+  }
+
+  .customers1 >tr >td:last-child{
+    width: 100%;
+    text-align: center;
+  }
   .customers13{
     border: none;
     width: 100%;
@@ -127,5 +138,8 @@ padding: 4px;
   .customers1 > tr >td:nth-child(2){
     padding-left: 50px;
     width: 15rem;
-    text-align: center;
+    text-align: start;
   }
+  .customers12 >span >p:nth-child(2){
+    width: 25%;
+}

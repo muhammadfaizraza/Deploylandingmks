@@ -1,56 +1,66 @@
 import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import Error from '../Components/Reuseable/Error'
-import { registerUser } from '../redux/postReducer/UserPost'
 import Layout from '../Components/Reuseable/layout'
 import '../Components/CSS/registration.css'
 import Footer from '../Components/Reuseable/Footer';
 import Copyrights from '../Components/Reuseable/Copyrights';
+import axios from 'axios';
+import {  toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom'
 
-const RegisterScreen = () => {
-  const [customError, setCustomError] = useState(null)
+const RegisterScreen = () => { 
 
-  const { loading, userInfo, error, success } = useSelector(
-    (state) => state.user
-  )
-  const dispatch = useDispatch()
+  const [FirstName,setFirstName] = useState('');
+  const [LastName,setLastName] = useState('');
+  const [PassportNo,setPassportNo] = useState('');
+  const [PhoneNumber,setPhoneNumber] = useState('');
+  const [password,setpassword] = useState('');
+  const [Email,setEmail] = useState('');
+  const [PassportPicture,setPassportPicture] = useState()
 
-  const { register, handleSubmit } = useForm()
+  const onSelectFile = e => {
+      setPassportPicture(e.target.files[0])
+  console.log(PassportPicture,'image')
+
+  }
   const navigate = useNavigate()
 
-  useEffect(() => {
-    // redirect authenticated user to profile screen
-    if (userInfo) navigate('/')
-    // if (success) navigate('/')
-  }, [navigate, userInfo, success])
 
-  const submitForm = (data) => {
-    if (data.password !== data.confirmpassword) {
-      setCustomError('password mismatch')
-      return
+  const RegisterUser = async (e) => {
+    e.preventDefault();
+    try {
+    const formData = new FormData();
+    formData.append("FirstName", FirstName)
+    formData.append("LastName", LastName)
+    formData.append("PassportNo", PassportNo)
+    formData.append("PhoneNumber", PhoneNumber)
+    formData.append("password", password)
+    formData.append("Email", Email)
+    formData.append("PassportPicture", PassportPicture)
+
+    const response = await axios.post(`https://mksbackendreal.herokuapp.com/api/v1/register`,formData)
+    console.log(response.success,'response')
+    toast('Successfuly Registered')
+    navigate('/login')
+
+    } catch (error) {
+      toast(error.response.data.message)
+      console.log(error.response.data.message,'error')
     }
-    data.Email = data.Email.toLowerCase()
-    dispatch(registerUser(data))
-    console.log("data is here",data)
-  }
-  
-  
+  };
+
   return (
     <>
     <Layout />
    <div className='registrationform'>
-   <form onSubmit={handleSubmit(submitForm)}>
-      {error && <Error>{error}</Error>}
-      {customError && <Error>{customError}</Error>}
+   <form onSubmit={RegisterUser}>
       <div className='form-group'>
-       
         <input
           type='text'
           className='form-input'
           placeholder='First Name'
-          {...register('FirstName')}
+          name="FirstName"
+          onChange={(e) => setFirstName(e.target.value)}
+          value={FirstName}
           required
         />
       </div>
@@ -60,7 +70,9 @@ const RegisterScreen = () => {
           type='text'
           className='form-input'
           placeholder='Last Name'
-          {...register('LastName')}
+          name="LastName"
+          onChange={(e) => setLastName(e.target.value)}
+          value={LastName}
           required
         />
       </div>
@@ -70,7 +82,9 @@ const RegisterScreen = () => {
           type='email'
           className='form-input'
           placeholder='Email'
-          {...register('Email')}
+          name="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={Email}
           required
         />
       </div>
@@ -80,8 +94,10 @@ const RegisterScreen = () => {
           type='number'
           className='form-input'
           placeholder='Passport No'
-          {...register('PassportNo')}
-          required
+          name="PassportNo"
+          onChange={(e) => setPassportNo(e.target.value)}
+          value={PassportNo}
+          
         />
       </div>
 
@@ -92,7 +108,9 @@ const RegisterScreen = () => {
           placeholder='Phone Number'
           
           className='form-input'
-          {...register('PhoneNumber')}
+          name="PhoneNumber"
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          value={PhoneNumber}
           required
         />
       </div>
@@ -103,31 +121,34 @@ const RegisterScreen = () => {
           type='text'
           placeholder='password'
           className='form-input'
-          {...register('password')}
-          required
-        />
-      </div>
-      <div className='form-group'>
-      
-        <input
-          type='text'
-          placeholder='Confirm password'
-          className='form-input'
-          {...register('confirmpassword')}
+          name="password"
+          onChange={(e) => setpassword(e.target.value)}
+          value={password}
           required
         />
       </div>
       {/* <div className='form-group'>
       
         <input
-          type='file'
+          type='text'
+          placeholder='Confirm password'
           className='form-input'
-          {...register('PassportPicture')}
+          name="email"
+          onChange={(e) => handleChange(e)}
           required
         />
       </div> */}
-      <button type='submit' className='buttonRegister' 
-      disabled={loading}>
+      <div className='form-group'>
+      
+        <input
+          type='file'
+          className='form-input'
+          name="PassportPicture"
+          onChange={onSelectFile}
+          required
+        />
+      </div>
+      <button type='submit' className='buttonRegister' >
         Register
       </button>
     </form>

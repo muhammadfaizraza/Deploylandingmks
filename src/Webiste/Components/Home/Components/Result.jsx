@@ -26,7 +26,7 @@ const Result = () => {
                 </span>
                 </div>
                 <div className='customers12'>
-                   <span>
+                   <span >
                    <p>Positions</p>
                    <p>Results</p>
                     <p>Win</p>

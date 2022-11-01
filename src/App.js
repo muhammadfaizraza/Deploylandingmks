@@ -42,6 +42,7 @@ function App() {
   }, [userIsDesktop]);
   return (
     <>
+    <ToastContainer /> 
     {userIsDesktop ?  <Provider store={store}>
     <BrowserRouter>
       <Routes>

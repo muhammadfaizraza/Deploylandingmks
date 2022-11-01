@@ -9,7 +9,7 @@ height: 158px;
 left: 18px;
 overflow: hidden;
 display: flex;
-align-items: center;
+align-items: flex-start;
 justify-content: space-evenly;
 }
 .slidercards{
@@ -112,6 +112,13 @@ color: #FF9900;
 width: 60px;
 height: 30px;
 overflow: hidden;
+transition: 0.4s linear all;
+}
+.racetime:hover{
+    transition: 0.4s linear all;
+    margin-bottom: 20px;
+    position: relative;
+    top: 20px;
 }
 
 .racetime:nth-child(1){

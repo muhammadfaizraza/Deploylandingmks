@@ -16,7 +16,7 @@
 }
 .RaceDetailCard{
     box-sizing: border-box;
-    width: 98%;
+    width: 100%;
     height: fit-content;
     /* background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D; */
     border-radius: 18px;
@@ -297,11 +297,12 @@ color: #000000;
   
   
   .customers th {
-    padding-top: 12px;
+    padding-top: 20px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #fff;
+    background-color: transparent;
     color: #000;
+    width: 7%;
   }
   
 .customers2 {
@@ -324,6 +325,10 @@ color: #000000;
     padding-bottom: 12px;
     text-align: left;
     color: #fff;
+    width: 7%;
+    font-weight: 300;
+font-size: 12px;
+line-height: 15px;
   }
   th{
     font-size: 12px;
@@ -417,7 +422,7 @@ line-height: 15px;
 .prizecardheaders{
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 92%;
     margin: auto;
     padding-top: 15px;
 }
@@ -500,3 +505,6 @@ padding-top: 5px;
     width: 30px;
 height: 30px;
 }
+/* button#uncontrolled-tab-example-tab-Card .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+background-color: transparent !important;
+} */
