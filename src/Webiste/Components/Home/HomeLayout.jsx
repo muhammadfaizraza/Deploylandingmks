@@ -45,6 +45,9 @@ const {pathname} = useLocation();
           <RaceCardSlider />
           <Addington />
         </div>
+        <span className="mobiledata">
+            <Sponsor />
+        </span>
         
         <div className="middlesection">
           <div className="abc">
@@ -58,8 +61,10 @@ const {pathname} = useLocation();
          <div className="aab">
          <HomeRightSection />
          </div>
-          
           </div>
+          <span className="mobiledata">
+           <HomeLeftSection />
+        </span>
           <Blog />
           </div>
         </div>

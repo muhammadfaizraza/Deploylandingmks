@@ -40,7 +40,7 @@ import CompetitionModal from './Webiste/Components/Competition/Competition';
 function App() {
   const [userIsDesktop, setUserIsDesktop] = useState(true);
   useEffect(() => {
-    window.innerWidth > 768 ? setUserIsDesktop(true) : setUserIsDesktop(false);
+    window.innerWidth > 368 ? setUserIsDesktop(true) : setUserIsDesktop(false);
   }, [userIsDesktop]);
   return (
     <>

@@ -1,6 +1,7 @@
 {
   "app_title":"MKS Racing",
   "logo": "../../../Group.png",
+  "mobilebar": "../Menu.png",
   "about":"About",
   "statistics": "statistics",
   "race_card": "race card",

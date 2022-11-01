@@ -49,3 +49,9 @@ a{
   text-decoration: none;
 
 }
+.mobiledata{
+  display: none;
+}
+.mobilemenudata {
+  display: none;
+}

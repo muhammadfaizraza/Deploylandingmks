@@ -1,6 +1,7 @@
 {
   "app_title":"السباق",
   "logo": "../../../Group.png",
+  "mobilebar": "../Menu.png",
   "about":"حول",
   "statistics": "الإحصاء",
   "race_card": "بطاقة السباق",

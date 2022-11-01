@@ -108,9 +108,9 @@ const RaceCardSlider = () => {
         },
       },
       {
-        breakpoint: 780,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1,
           dots: false,
