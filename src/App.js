@@ -2,7 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+
 import Home from './Webiste/pages/Home';
+
 import RaceCard from './Webiste/pages/RaceCard';
 import RaceCardDetail from './Webiste/pages/RaceCardDetail';
 import './Webiste/Components/CSS/mediaquery.css'
@@ -38,7 +40,7 @@ import CompetitionModal from './Webiste/Components/Competition/Competition';
 function App() {
   const [userIsDesktop, setUserIsDesktop] = useState(true);
   useEffect(() => {
-    window.innerWidth > 1024 ? setUserIsDesktop(true) : setUserIsDesktop(false);
+    window.innerWidth > 768 ? setUserIsDesktop(true) : setUserIsDesktop(false);
   }, [userIsDesktop]);
   return (
     <>
