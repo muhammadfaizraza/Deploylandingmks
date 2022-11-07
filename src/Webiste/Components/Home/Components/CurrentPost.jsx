@@ -12,11 +12,12 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import calenderimg from '../../../assets/Calendar 15 (Traced).png'
 import { Bounce  } from 'react-reveal';
+import { useTranslation } from 'react-i18next';
 
 const Match = () => {
   const dispatch = useDispatch();
   const { data: racecard, status } = useSelector((state) => state.racecard);
-
+  const {t} = useTranslation();
   useEffect(() => {
     dispatch(fetchRace());
   },[])
@@ -58,7 +59,7 @@ const Match = () => {
         id="uncontrolled-tab-example"
         className="mb-4 "
       >
-        <Tab eventKey="home" title="Current">
+        <Tab eventKey="home" title={t('current')}>
           <div className=' newpost'>
           <Accordion defaultActiveKey="0" flush>
           <Bounce bottom>
@@ -106,7 +107,7 @@ const Match = () => {
           </Accordion>
           </div>
         </Tab>
-        <Tab eventKey="ante" title="Ante Post" className="Ante_Post">
+        <Tab eventKey="ante" title={t('ante_post')} className="Ante_Post">
         <div className=' newpost'>
           <Bounce bottom>
           <div className="Currentpostdiv">

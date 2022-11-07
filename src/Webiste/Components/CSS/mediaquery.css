@@ -751,20 +751,21 @@ line-height: 100px;
         font-size: 19.5949px;
     }
     .PredictionCard{
-        width: 210px;
+        width: 305px;
         height: 310px;
     }
     .GraphCard {
-        width: 210px;
+        width: 305px;
         height: 310px;
     }
     .presictData h6{
         font-size: 15px;
+        margin: 20px 0 0 20px;
     }
     .MatchDataPredict h3 {
         font-size: 17.5949px;
         line-height: 1px;
-        margin: 10px 0 0 13px;
+        margin: 10px 0 0 18px;
     }
     
     /* .Homelayout {
@@ -806,30 +807,22 @@ line-height: 100px;
     .Addington {
         display: none;
     }
-    .RaceCardSection {
-        margin-top: 19px;
-        display: flex;
-        justify-content: space-between;
+    .customers1 {
+        margin-top: 15px;
     }
-   
-    .slidercards {
-        width: 88% !important;
-    }
-   .singleracecard {
-    width: 220px !important;
-    }
+    
     .slideimg1 {
-        height: 400px;
+        height: 390px;
     }
     .first-txt {
         top: 20%;
-        left: 6rem;
+        left: 2rem;
     }
     .sponsor{
-        height: 400px;
+        height: 319px;
     }
     .sponsorimg{
-        height: 400px;
+        height: 319px;
     }
     .middlesectioninner{
         display: none;
@@ -844,19 +837,36 @@ line-height: 100px;
         display: none;
     }
     .resultCard {
-        height: min(25rem,40rem);
-        width: 94%;
+        height: min(24rem,40rem);
+        width: 97%;
         margin-inline: auto;
     }
     .customers12 >span >p {
-        width: 40%;
+        width: 20%;
         font-size: 11px;
+        
     }
+    .customers12 >span >p:nth-child(5){
+        width: 40% !important;
+    }
+    
     .customers12 {
-        height: 45px;
+        background-color: #fff;
+        height: 60px;
+        border-radius: 21px 20px 20px 20px;
+        /* width: fit-content; */
+        display: flex;
+        /* width: 101%; */
+        justify-content: space-between;
+        /* margin-top: -12px; */
+        align-items: start;
+        padding-top: 10px;
     }
     .mobiledata{
         display: block;
+    }
+    .mobiledata1{
+        display: none;
     }
     .mobiledropdown{
         position: absolute;
@@ -870,15 +880,20 @@ line-height: 100px;
         height: 400px;
         overflow: hidden;
     }
-    .slick-slider {
-        margin-left: 30px;
-    }
+   
     .customers12 >span {
         margin-top: 12px;
     }
     .customers1 >tr >td {
-        width: 15%;
+        width: 22%;
         font-size: 11px;
+        text-align: center;
+    
+    }
+    .customers1 > tr >td:nth-child(2) {
+        padding-left: 10px;
+        width: 5rem;
+        text-align: start;
     }
     .result_match_left {
         display: flex;
@@ -890,9 +905,9 @@ line-height: 100px;
     }
     .result_match_right {
         display: flex;
-        gap: 20px;
-        width: 90%;
-        margin: auto;
+        width: 60%;
+        flex-wrap: wrap;
+        margin-left: 1.7rem;
     }
     .PredictionFlex :nth-child(1) {
         font-size: 15.5949px;
@@ -939,7 +954,437 @@ line-height: 100px;
     .react-calendar {
         width: 90% !important;
     }
+    button#uncontrolled-tab-example-tab-home {
+        font-size: 14px;
+        border-radius: 20px 20px 0 0;
+        height: 58px;
+        width: 115px;
+    }
+    button#uncontrolled-tab-example-tab-ante{
+        font-size: 14px;
+        border-radius: 20px 20px 0 0;
+        height: 58px;
+        width: 115px;
+    }
+    button#uncontrolled-tab-example-tab-contact {
+        height: 58px;
+        font-size: 20px;
+        width: 80px;
+    }
+    .chartPrediction{
+        display: none;
+    }
+    .result_match_right > p:nth-child(3){
+        margin-top: -22px;
+        margin-bottom: 22px;
+        
+    }.result_match_right > p:nth-child(4){
+        margin-top: -22px;
+        margin-bottom: 22px;
+    }
+    .resultCardHeader {
+        height: 240px;
+    }
+    .customers1 td, .customers1 th {
+        border: 1px solid #ddd;
+        padding: 0px;
+        /* text-align: center; */
+    }
+    .adscardmapping {
+        height: 230px;
+    }
+    .AdsCard {
+        background: #C4C4C4;
+        width: 100%;
+        margin-inline: auto;
+        height: 260px;
+        position: unset;
+    }
+    .mobilecompetition{
+        height: fit-content;
+    max-height: 700px;
+    background: #EFEFEF;
+    border-radius: 20px;
+    overflow: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    }
+    .CompetitionHeader h2{
+        font-size: 21px;
+    }
+    .ScrollContainer {
+        width: 700px;
+        display: flex;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+        gap: 10px;
+    }
+    .scroll-container1 {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    p.footertext1 {
+        display: none;
+    }
+    .customers1 >tr >td {
+        width: 13%;
+        font-size: 11px;
+        text-align: center;
+    }
+    .customers1 td, .customers1 th{
+        border: none;
+    }
+    .RaceCardSection {
+        margin-top: 19px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .customers1 {
+        margin-top: 15px;
+    }
+    .slidercards {
+        width: 88% !important;
+    }
+   .singleracecard {
+    width: 220px !important;
+    }
+    .slideimg1 {
+        height: 400px;
+    }
+    .slick-slider {
+        margin-left: 11px;
+        margin-right: -24px;
+    }
 }
-@media (max-width: 471px) and (min-width: 375px){
+
+@media (max-width: 471px) and (min-width: 360px){
+    .largemenu{
+        display: none;
+    }
+    .HomeLeftSection {
+        margin-top: 30px;
+    }
+    .chartPrediction {
+        width: 96%;
+        margin-inline: auto;
+    }
+    .chartclass {
+        width: 210px;
+        height: 210px;
+        margin: auto;
+    }
+    .chartmatch {
+        font-size: 19.5949px;
+    }
+    .PredictionCard{
+        width: 305px;
+        height: 310px;
+    }
+    .GraphCard {
+        width: 305px;
+        height: 310px;
+    }
+    .presictData h6{
+        font-size: 15px;
+        margin: 20px 0 0 20px;
+    }
+    .MatchDataPredict h3 {
+        font-size: 17.5949px;
+        line-height: 1px;
+        margin: 10px 0 0 18px;
+    }
+    
+    /* .Homelayout {
+        display: none;
+    } */
+    .header {
+        height: 79px;
+        width: 100% !important;
+    }
+    .cta {
+        display: none;
+    }
+    .mobilemenudata{
+        display: flex !important;
+        width: 85%;
+        margin-inline: auto;
+        justify-content: space-between;
+    }
+  
+    .logoclass {
+        margin-top: 15px;
+        width: 82%;
+    }
+    .fafabar{
+        margin-top: 18px;
+        color: #fff;
+        position: relative;
+        width: 38px;
+        height: 38px;
+    }
+    .rightlayout {
+        display: none;
+    }
+    .exnews {
+        display: none;
+    }
+    .Homelayout {
+        margin-top: 10px;
+    }
+    .Addington {
+        display: none;
+    }
+    .RaceCardSection {
+        margin-top: 19px;
+        display: flex;
+        justify-content: space-between;
+    }
+   
+    .slidercards {
+        width: 94% !important;
+    }
+   .singleracecard {
+    width: 225px !important;
+    }
+    .slick-slide.slick-active.slick-current{
+        width: 260px !important;
+    }
+    button.slick-arrow.slick-next {
+        margin-right: -24px;
+    }
+    .slideimg1 {
+        height: 390px;
+    }
+    .first-txt {
+        top: 20%;
+        left: 2rem;
+    }
+    .sponsor{
+        height: 319px;
+        margin-top: -10px;
+    }
+    .sponsorimg{
+        height: 319px;
+    }
+    .middlesectioninner{
+        display: none;
+    }
+    .aab{
+        display: none;
+    }
+    .newabc {
+        width: 98%;
+    }
+    .bannerHome {
+        display: none;
+    }
+    .resultCard {
+        height: min(24rem,40rem);
+        width: 97%;
+        margin-inline: auto;
+    }
+    .customers12 >span >p {
+        width: 20%;
+        font-size: 11px;
+        
+    }
+    .customers12 >span >p:nth-child(5){
+        width: 40% !important;
+    }
+    
+    .customers12 {
+        background-color: #fff;
+        height: 60px;
+        border-radius: 21px 20px 20px 20px;
+        /* width: fit-content; */
+        display: flex;
+        /* width: 101%; */
+        justify-content: space-between;
+        /* margin-top: -12px; */
+        align-items: start;
+        padding-top: 10px;
+    }
+    .mobiledata{
+        display: block;
+    }
+    .mobiledropdown{
+        position: absolute;
+        background-color: #D9D9D9;
+        z-index: 999;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .BlogCard {
+        height: 400px;
+        overflow: hidden;
+        border-radius: 0px;
+        width: 100%;
+    }
+    .slick-slider {
+        margin-left: 30px;
+    }
+    .customers12 >span {
+        margin-top: 12px;
+    }
+    .customers1 >tr >td {
+        width: 22%;
+        font-size: 11px;
+        text-align: center;
+    
+    }
+    .customers1 > tr >td:nth-child(2) {
+        padding-left: 10px;
+        width: 5rem;
+        text-align: start;
+    }
+    .result_match_left {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .live_result_data{
+        display: block;
+    }
+    .result_match_right {
+        display: flex;
+        width: 60%;
+        flex-wrap: wrap;
+        margin-left: 1.7rem;
+    }
+    .PredictionFlex :nth-child(1) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .PredictionFlex :nth-child(2) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .PredictionFlex :nth-child(3) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .playerPredictTable {
+        height: min(10.8rem,38rem);
+    }
+    .singleCardBlogs img {
+        width: 178.76px;
+        height: 175.07px;
+        border-radius: 14.7783px;
+    }
+    .blognews h1 {
+        font-size: 29.4118px;
+        margin-top: 0.2rem;
+        padding-top: 2rem;
+    }
+    .singleCardBlogs {
+        margin-top: 0.5rem;
+    }
+    .singleCardBlogs h3 {
+        font-size: 13.8px;
+    }
+    .singleCardBlogs h2 {
+        font-size: 13.8px;
+    }
+    .copyrightinner {
+        flex: 2 1;
+        display: none;
+        /* margin-top: 7px; */
+    }
+    .react-calendar {
+        width: 90% !important;
+    }
+    button#uncontrolled-tab-example-tab-home {
+        font-size: 14px;
+        border-radius: 20px 20px 0 0;
+        height: 58px;
+        width: 115px;
+    }
+    button#uncontrolled-tab-example-tab-ante{
+        font-size: 14px;
+        border-radius: 20px 20px 0 0;
+        height: 58px;
+        width: 115px;
+    }
+    button#uncontrolled-tab-example-tab-contact {
+        height: 58px;
+        font-size: 20px;
+        width: 80px;
+    }
+    .chartPrediction{
+        display: none;
+    }
+    .result_match_right > p:nth-child(3){
+        margin-top: -22px;
+        margin-bottom: 22px;
+        
+    }.result_match_right > p:nth-child(4){
+        margin-top: -22px;
+        margin-bottom: 22px;
+    }
+    .resultCardHeader {
+        height: 240px;
+    }
+    .customers1 td, .customers1 th {
+        border: 1px solid #ddd;
+        padding: 0px;
+        /* text-align: center; */
+    }
+    .adscardmapping {
+        height: 260px;
+    }
+    .AdsCard {
+        background: #C4C4C4;
+        width: 100%;
+        margin-inline: auto;
+        height: 260px;
+        position: unset;
+    }
+    .mobilecompetition{
+        height: fit-content;
+    max-height: 700px;
+    background: #EFEFEF;
+    border-radius: 20px;
+    overflow: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    }
+    .CompetitionHeader h2{
+        font-size: 21px;
+    }
+    .ScrollContainer {
+        width: 700px;
+        display: flex;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+        gap: 10px;
+    }
+    .scroll-container1 {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    p.footertext1 {
+        display: none;
+    }
+    .customers1 >tr >td {
+        width: 13%;
+        font-size: 11px;
+        text-align: center;
+    }
+    .customers1 td, .customers1 th{
+        border: none;
+    }
+    .mobiledata1{
+        display: none;
+    }
+    .newpost {
+        height: 500px;
+    }
 }
+
 

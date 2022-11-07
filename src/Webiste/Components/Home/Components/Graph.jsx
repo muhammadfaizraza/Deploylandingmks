@@ -1,6 +1,6 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-
+import {useTranslation } from 'react-i18next'
 ChartJS.register(ArcElement, Tooltip, Legend);
 const data = {
     datasets: [
@@ -27,11 +27,13 @@ const data = {
       },
     ],
   };
+  
 const Graph = () => {
+  const {t} = useTranslation();
   return (
     <>
     <div className="GraphCard">
-      <p className='chartheader'>Chart / Graph</p>
+      <p className='chartheader'>{t('ChartGraph')}</p>
       <div className='chartclass'>
       <Doughnut data={data}  />
       </div>

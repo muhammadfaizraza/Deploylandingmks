@@ -1,11 +1,11 @@
 import { BsCaretDownFill } from "react-icons/bs";
-import "../CSS/HomeCSS/auth.css";
-import profile from "../../assets/profile.jpg";
+import "../Components/CSS/HomeCSS/auth.css";
+import profile from "../assets/profile.jpg";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {NavLink } from "react-router-dom";
-import { getUserDetails } from "../../redux/postReducer/UserPost";
-import { logout } from '../../redux/getReducer/UserSlice'
+import { getUserDetails } from "../redux/postReducer/UserPost";
+import { logout } from '../redux/getReducer/UserSlice'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 const Auth = () => {

@@ -1,6 +1,9 @@
 import {News} from '../../../data/data'
+import {useTranslation} from 'react-i18next';
 
 const ExNews = () => {
+  const { t } = useTranslation()
+
   return (
     <>
     <div className='exnews'> 
@@ -8,7 +11,7 @@ const ExNews = () => {
       News.map((item,index) => {
         return(
           <span className='newsflex' key={item.id} >
-            <h5>{item.title}</h5>
+            <p>{t('Exclusive')}</p>
             <p>{item.description}</p>
           </span>
         )

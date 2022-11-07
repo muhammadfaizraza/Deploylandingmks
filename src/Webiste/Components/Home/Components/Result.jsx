@@ -1,12 +1,14 @@
 import '../../CSS/HomeCSS/result.css';
 import { MatchData } from '../../../data/data';
+import { useTranslation } from 'react-i18next';
 
 const Result = () => {
+  const {t} = useTranslation();
   return (
     <>
     <div className="resultCard">
       <div className='resultCardHeader'>
-        <h2>Live Results</h2>
+        <h2>{t('Live_Results')}</h2>
         <div className='livedatacard'>
         {
           MatchData.map((item) => {
@@ -19,20 +21,19 @@ const Result = () => {
                 <p className='result_match_totalRunner'>{item.totalRunner} Runner</p>
                 </span>
                 <span className='result_match_right'>
-                <p >Distance: {item.distance}</p>
-                <p >{item.flat} Race</p>
-                <p >Surface: {item.surface} </p>
-                <p>Going: {item.going}</p>
+                <p >{t('Distance')}: {item.distance}</p>
+                <p >{item.flat} {t('race_card')}</p>
+                <p >{t('Surface')}: {item.surface} </p>
+                <p>{t('Going')}: {item.going}</p>
                 </span>
                 </div>
                 <div className='customers12'>
                    <span >
-                   <p>Positions</p>
-                   <p>Results</p>
-                    <p>Win</p>
-                    
-                    <p>Place</p>
-                    <p>Off Time:<b>{item.offtime}</b></p>
+                   <p>{t('Positions')}</p>
+                   <p>{t('Results')}</p>
+                    <p>{t('Win')}</p>
+                    <p>{t('Place')}</p>
+                    <p>{t('OffTime')}:<b>{item.offtime}</b></p>
                    </span>
                   </div>
                 <div className='customers13'>

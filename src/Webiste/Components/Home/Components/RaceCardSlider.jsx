@@ -116,6 +116,15 @@ const RaceCardSlider = () => {
           dots: false,
         },
       },
+      {
+        breakpoint: 471,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          dots: false,
+        },
+      },
     ],
   };
   return (

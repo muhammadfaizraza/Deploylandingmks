@@ -1,14 +1,17 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 const Copyrights = () => {
+  const {t} = useTranslation();
+
   return (
     <>
       <div className='Copyrights'>
-        <div className='copyrightinner'>© 2022 Copyright</div>
+        <div className='copyrightinner'>© 2022 {t('Copyright')}</div>
         <div className='Policies'>
-          <p>Policies</p>
-          <p>Help & Support</p>
-          <p>Terms & Condition</p>
+          <p>{t('Policies')}</p>
+          <p>{t('Help')}t</p>
+          <p>{t('TermsCondition')}</p>
         </div>
       </div>
     </>

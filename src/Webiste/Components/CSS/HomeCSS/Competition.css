@@ -76,9 +76,10 @@
 .CompetitionData{
     width: 100%;
     margin: auto;
+    height: -moz-fit-content;
     height: fit-content;
     overflow: auto;
-    height: 520px;
+    max-width: 630px;
     margin-bottom: 25px;
 }
 .LeaderData{

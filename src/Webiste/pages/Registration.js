@@ -19,8 +19,6 @@ const RegisterScreen = () => {
 
   const onSelectFile = e => {
       setPassportPicture(e.target.files[0])
-  console.log(PassportPicture,'image')
-
   }
   const navigate = useNavigate()
 
@@ -91,7 +89,7 @@ const RegisterScreen = () => {
       <div className='form-group'>
        
         <input
-          type='number'
+          type='text'
           className='form-input'
           placeholder='Passport No'
           name="PassportNo"

@@ -3,10 +3,14 @@ import '../../CSS/HomeCSS/blogs.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchNews, STATUSES } from "../../../redux/getReducer/getNewsSlice";
 import { BlogData } from '../../../data/data';
+import ScrollContainer from 'react-indiana-drag-scroll'
+import {useTranslation} from 'react-i18next';
 
 const Blog = () => {
   const dispatch = useDispatch();
   const { data: allnews, status } = useSelector((state) => state.news);
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     dispatch(fetchNews());
@@ -39,7 +43,8 @@ const Blog = () => {
    <>
      <div className="BlogCard">
         <div className='blognews'>
-          <h1>NEWS & BLOGS</h1>
+          
+          <h1>{t('newsblogs')}</h1>
         </div>
         <div className='innerCardBlogs'>
           {/* {
@@ -53,6 +58,7 @@ const Blog = () => {
               )
             })
           } */}
+           <ScrollContainer  className="scroll-container1">
           {
             BlogData.map((item) => {
               return(
@@ -64,6 +70,7 @@ const Blog = () => {
               )
             })
           }
+          </ScrollContainer>
         </div>
       </div> 
    </>

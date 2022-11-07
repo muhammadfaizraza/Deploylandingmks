@@ -17,6 +17,11 @@ import '../CSS/HomeCSS/Home.css';
 import RaceCardDetail from "../../pages/RaceCardDetail";
 import { useLocation } from "react-router-dom";
 import Bounce from 'react-reveal/Fade';
+import Competition from "./Components/Competition";
+import ScrollContainer from 'react-indiana-drag-scroll'
+import Prediction from "./Components/Prediction";
+import Graph from "./Components/Graph";
+import LeaderBoard from "./Components/LeaderBoard";
 
 
 
@@ -64,7 +69,21 @@ const {pathname} = useLocation();
           </div>
           <span className="mobiledata">
            <HomeLeftSection />
-        </span>
+           <Ads />
+           <div className="mobilecompetition">
+           <Competition />
+           </div>
+           <ScrollContainer  className="scroll-container">
+              <div className="ScrollContainer">
+              <Prediction />
+              <Graph />
+              </div>
+           </ScrollContainer>
+           <div className="mobilecompetition">
+           <LeaderBoard />
+           </div>
+           </span>
+           
           <Blog />
           </div>
         </div>

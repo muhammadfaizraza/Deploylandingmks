@@ -1,11 +1,13 @@
 import { MatchData } from "../../../data/data"
-
+import { useTranslation } from "react-i18next"
 const Prediction = () => {
+
+  const {t} = useTranslation();
   return (
     <>
       <div className="PredictionCard">
         <div className="presictData">
-          <h6>Live Prediction</h6>
+          <h6>{t('live_prediction')}</h6>
           {
             MatchData.map((item) => {
               return(

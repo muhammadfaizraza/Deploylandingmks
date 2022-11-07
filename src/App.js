@@ -2,9 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-
 import Home from './Webiste/pages/Home';
-
 import RaceCard from './Webiste/pages/RaceCard';
 import RaceCardDetail from './Webiste/pages/RaceCardDetail';
 import './Webiste/Components/CSS/mediaquery.css'
@@ -13,7 +11,7 @@ import store from './Webiste/redux/store'
 import {Provider} from 'react-redux'
 import Registration from './Webiste/pages/Registration';
 import Login from './Webiste/pages/Login';
-import Dashboard from './Webiste/pages/Dashboard';
+import Dashboard from './Webiste/UserDashboard/Dashboard';
 import ProtectedRoute from './Webiste/Components/Reuseable/ProtectedRoute';
 import RaceCourse from './Webiste/pages/RaceCourse';
 import About from './Webiste/pages/About';
@@ -40,7 +38,7 @@ import CompetitionModal from './Webiste/Components/Competition/Competition';
 function App() {
   const [userIsDesktop, setUserIsDesktop] = useState(true);
   useEffect(() => {
-    window.innerWidth > 368 ? setUserIsDesktop(true) : setUserIsDesktop(false);
+    window.innerWidth > 360 ? setUserIsDesktop(true) : setUserIsDesktop(false);
   }, [userIsDesktop]);
   return (
     <>

@@ -2,13 +2,14 @@ import '../../CSS/HomeCSS/Competition.css';
 import {LeaderBoard1} from '../../../data/data'
 import flag from '../../../assets/United Arab Emirates.png'
 import Accordion from 'react-bootstrap/Accordion';
-
+import { useTranslation } from 'react-i18next';
 const LeaderBoard = () => {
+  const {t} = useTranslation();
   return (
     <>
       <div className='Competition'>
         <div className='CompetitionHeader'>
-          <h2>LEADERBOARD</h2>
+          <h2>{t('LEADERBOARD')}</h2>
           <img src={flag} alt="" />
         </div>
         <div className='LeaderData'>

@@ -55,3 +55,19 @@ a{
 .mobilemenudata {
   display: none;
 }
+
+.scroll-container1 {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.react-calendar__tile--active {
+  background: #006edc;
+  color: white;
+  border-radius: 20px;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #000;
+}
