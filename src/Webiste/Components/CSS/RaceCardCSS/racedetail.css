@@ -2,15 +2,18 @@
     width: 100%;
     /* margin-top: 20px; */
 }
-.RaceDetailHeader{
+.RaceDetailHeader {
     background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
     border-radius: 18px;
-    margin-inline: auto;
+  
     max-height: 900px;
-    height: 900px;
+    height: fit-content;
     margin-inline: auto;
-    overflow: auto;
+
+
 }
+
+
 .match {
     margin-top: -17px;
 }
@@ -203,8 +206,10 @@ margin-top: 8px;
 span.innerpredictdata {
     margin-top: 10px;
 }
-.AccordionBody11{
-    background-color: #fff !important;
+.AccordionBody11 {
+    margin: -9px -4px 1px 0px;
+    width: 100%;
+    background: transparent;
 }
 .innerpredictdata h6{
     font-family: 'Inter';
@@ -298,17 +303,15 @@ color: #000000;
   
   .customers th {
     padding-top: 20px;
-    padding-bottom: 12px;
+
     text-align: left;
     background-color: transparent;
     color: #000;
-    width: 7%;
-  }
-  
+    width: 15.5%;
+}
 .customers2 {
     width: 98%;
-    /* margin-left: 0px; */
-    /* border-radius: 29px; */
+
     margin: auto;
   }
   
@@ -321,11 +324,11 @@ color: #000000;
   
   
   .customers2 th {
-    padding-top: 12px;
+    padding-top: 18px;
     padding-bottom: 12px;
     text-align: left;
     color: #fff;
-    width: 7%;
+    width: 12.7%;
     font-weight: 300;
 font-size: 12px;
 line-height: 15px;
@@ -377,18 +380,20 @@ line-height: 15px;
     align-items: center;
     gap: 14px;
     width: 35%;
-    padding-top: 32px;
+    padding-top: 9px;
 }
-.racestatuscolor > li{
+.racestatuscolor > li {
     list-style: none;
-text-align: center;
-width: 22px;
-height: 25px;
-left: 799px;
-top: 238px;
-background: #5EC40F;
-border-radius: 5px;
-color: #fff;
+    text-align: center;
+    width: 24px;
+    padding: 4px;
+    height: 25px;
+    left: 799px;
+    font-size: 12px;
+    top: 238px;
+    background: #5EC40F;
+    border-radius: 5px;
+    color: #fff;
 }
 .racestatuscolor > li:nth-child(3){
     background: #ED6203;
@@ -403,6 +408,7 @@ color: #fff;
     font-size: 20px;
     line-height: 24px;
     color: #000000;
+    text-transform: capitalize;
 }
 .itemraces_center > p{
     font-family: 'Inter';
@@ -490,10 +496,10 @@ padding-top: 5px;
 }
 .race_trainerbreader >p{
     font-style: normal;
-    /* font-weight: 700; */
+
     font-size: 12px;
-    line-height: 15px;
-    /* identical to box height */
+    line-height: 6px;
+ 
     margin-left: 10px;
     
     color: #000000;
@@ -505,6 +511,3 @@ padding-top: 5px;
     width: 30px;
 height: 30px;
 }
-/* button#uncontrolled-tab-example-tab-Card .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
-background-color: transparent !important;
-} */

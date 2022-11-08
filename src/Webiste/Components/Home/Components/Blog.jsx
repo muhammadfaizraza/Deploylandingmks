@@ -5,6 +5,7 @@ import { fetchNews, STATUSES } from "../../../redux/getReducer/getNewsSlice";
 import { BlogData } from '../../../data/data';
 import ScrollContainer from 'react-indiana-drag-scroll'
 import {useTranslation} from 'react-i18next';
+import Cookies from 'js-cookie';
 
 const Blog = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ const Blog = () => {
       </h2>
     );
   }
+
+  const cookiedata = Cookies.get('i18next')
+  console.log(cookiedata,'cookiedata')
   return (
    <>
      <div className="BlogCard">
@@ -60,12 +64,12 @@ const Blog = () => {
           } */}
            <ScrollContainer  className="scroll-container1">
           {
-            BlogData.map((item) => {
+            allnews.map((item) => {
               return(
                 <div className='singleCardBlogs'>
                    <img src={item.image} alt="" />
-                   <h2>{item.TitleEn}</h2>
-                   <h3>{item.DescriptionEn}</h3>
+                   <h2>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</h2>
+                   <h3>{cookiedata === 'en' ? item.DescriptionEn : item.DescriptionAr}</h3>
                 </div>
               )
             })

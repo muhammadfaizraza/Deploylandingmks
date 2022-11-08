@@ -19,7 +19,8 @@ const RaceCardSlider = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const timerace = racecard.map((item) => item.DayNTime);
+  // const timerace = racecard.map((item) => item.DayNTime);
+  const timerace = 11
   const deadline = timerace;
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();
@@ -131,7 +132,8 @@ const RaceCardSlider = () => {
     <>
       <div className="RaceCardSlider">
         <div className="slidercards">
-          <Slider {...settings}>
+          {
+            racecard === undefined ? <h2 className="loader"></h2> :  <Slider {...settings}>
             {racecard.map((item) => {
               return (
                <Link to={`/racedetail/${item._id}`} className='LinkStyle'>
@@ -171,6 +173,8 @@ const RaceCardSlider = () => {
               );
             })}
           </Slider>
+          }
+          
         </div>
       </div>
     </>

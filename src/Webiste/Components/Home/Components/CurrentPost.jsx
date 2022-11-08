@@ -54,7 +54,8 @@ const Match = () => {
 
   return (
     <div className="match">
-      <Tabs
+      {
+        racecard === undefined ? <h2 className="loader"></h2> :<Tabs
         defaultActiveKey="home"
         id="uncontrolled-tab-example"
         className="mb-4 "
@@ -209,6 +210,8 @@ const Match = () => {
           </div>
         </Tab>
       </Tabs>
+      }
+      
     </div>
   );
 };
