@@ -48,9 +48,10 @@
     border: 1px dashed rgba(0, 0, 0, 0.1);
     border-radius: 8.07692px;
   }
-  .horsecenterdata{
-    flex: 3;
-  }
+  .horsecenterdata {
+    flex: 3 1;
+    margin-left: 20px;
+}
   .horseimage{
     box-sizing: border-box;
     width: 157px;
@@ -152,6 +153,7 @@
   .horseimage img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .horserecord{
@@ -167,8 +169,39 @@ padding-top: 10px;
   color: #000;
 }
 
+.customers6 {
+  margin-left: 6px;
+  width: 100%;
+}
+
+.customers6 td, .customers6 th {
+  border: transparent;
+  padding: 8px;
+  background-color: #5EC40F;
+  color: #fff;
+}
+
+.RaceNav.HorseNav {
+background-color: #19469D;
+}
+.customers6 th {
+  padding-top: 20px;
+
+  text-align: left;
+  background-color: transparent;
+  color: #000;
+  width: 15.5%;
+}
 .popupheader{
   background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
   color: #fff;
   font-family: inter;
+}
+
+.horsedetailimage{
+  display: flex;
+}
+.horsedetailimage img{
+  width: 30px;
+  height: 30px;
 }

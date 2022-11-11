@@ -1,0 +1,238 @@
+/* .AccordionBody > div{
+    padding: 10px;
+ 
+}
+
+.AccordionBody > div > .mylink {
+  
+    padding-left: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15.5949px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.AccordionBody > div > .mylink:focus {
+    font-weight: 700;
+   
+  
+}
+.accordion-item:last-of-type .accordion-collapse {
+    background-color: #707070;
+    
+}
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
+    border-radius: 0 20px 20px 0;
+}
+.accordion-button:focus {
+    border-color: none;
+    box-shadow: none;
+}
+.collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+}
+.accordion {
+    --bs-accordion-bg: #E8E8E8;
+    --bs-accordion-border-color:none;
+}
+.accordion-body {
+    background: #8D8D8D 97.94%;
+    border-radius: 0px 0px 50px 0px;
+    padding: 0;
+    height: 125px;
+    margin-top: -14px;
+    padding: 20px 2px 10PX 1PX;
+}
+.SettingSec {
+    font-style: normal;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 15.5949px;
+    position: absolute;
+    top: 103%;
+}
+.accordion-button::after {
+    display: none;
+}
+
+.accordion-button {
+    padding-left: 37px !important;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15.5949px;
+    line-height: 19px;
+} */
+/* .auth1{
+    background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
+    border-radius: 40px;
+   width: 186px;
+    height: 51px;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 1.3rem;
+font-weight: 400;
+} */
+/* .auth1 > a{
+text-decoration: none;
+color: white;
+cursor: pointer;
+
+} */
+.accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: var(--bs-accordion-inner-border-radius);
+    border-top-right-radius: var(--bs-accordion-inner-border-radius);
+    border-radius: 0px 20px 20px 0px;
+}
+
+.sidebar {
+    background-color: #e8e8e8;
+    border-radius: 0 39px 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    height: 964px;
+    margin-top: 20px;
+    width: 260px;
+}
+.searchdiv{
+    flex: 4;
+}
+.searchdiv input{
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+.searchdiv input::placeholder{
+    width: 80%;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15.5949px;
+    line-height: 19px;
+    color: #000000;
+    opacity: 0.5;
+    padding-left: 22px;
+}
+
+.innerHeader1{
+    display: flex;
+    gap: 22px;
+    text-align: center;
+}
+.searchclass {
+    flex: 6;
+    margin-top: 15px;
+}
+
+
+.searchdiv{
+    flex: 4;
+}
+.searchdiv input{
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+.searchdiv input::placeholder{
+    width: 80%;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15.5949px;
+    line-height: 19px;
+    color: #000000;
+    opacity: 0.5;
+    padding-left: 22px;
+}
+
+/* .userprofile{
+    width: 80%;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-inline: auto;
+}
+.profilepic > img{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+.profilename p{
+margin-bottom: 0 !important;
+} */
+
+
+
+ .mylink {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15.5949px;
+    line-height: 19px;
+    color: #000000;
+    padding: 19px;
+    padding-left: 39px;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 15.5949px;
+line-height: 19px;
+}
+ .sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 964px; 
+    background-color: #E8E8E8;
+    border-radius: 0px 39px 50px 0px;
+    margin-top: 20px;
+    /* gap: 22px; */
+}
+
+
+
+.logoclass11 {
+    width: 260px;
+    height: 80px;
+    background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
+    border-radius: 0px 0px 50px 0px;
+}
+.logoclass11 img{
+    width: 175px;
+    margin-top: 20px;
+}
+
+.headerdash {
+    height: 80px;
+    width: 100%;
+}
+
+.dashboardpageheader{
+    width: 100%;
+height: 77px;
+background: linear-gradient(89.98deg, rgba(25, 70, 157, 0.2) 23.67%, rgba(0, 163, 255, 0.2) 97.94%);
+background-blend-mode: luminosity;
+border-radius: 0px 0px  0px 20px;
+margin-top: 20px;
+}
+.dashboardpageheader h3 {
+    padding: 20px 0 0 20px;
+}
+
+.page {
+    width: 100%;
+}

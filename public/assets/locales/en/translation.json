@@ -52,5 +52,21 @@
   "Policies":"Policies",
   "Help":" Help & Support",
   "TermsCondition":"Terms & Condition",
-  "Copyright":"Copyright"
+  "Copyright":"Copyright",
+  "Name":"Name",
+  "Age":"Age",
+  "Sex":"Sex",
+  "Color":"Color",
+  "KindOfHorse":"Kind Of Horse",
+  "Owner":"Owner",
+  "ActiveTrainer":"Active Trainer",
+  "Dam":"Dam",
+  "Sire":" Sire",
+  "GSire":"GSire",
+  "DayNTime":"Day/Time",
+  "isGelted":"Gelted",
+  "PurchasePrice":"Purchased Price",
+  "OverAllRating":"Over All Rating ",
+  "Remarks":"Remarks"
+
 }

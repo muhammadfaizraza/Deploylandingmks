@@ -52,5 +52,19 @@
   "Policies":"سياسات",
   "Help":"ساعد لدعم",
   "TermsCondition":"الشروط والأحكام",
-  "Copyright":"حقوق النشر "
+  "Copyright":"حقوق النشر ",
+  "Name":"اسم",
+  "Age":"سن",
+  "Sex":"الجنس",
+  "Color":"اللون",
+  "KindOfHorse":"نوع الحصان",
+  "Owner":"صاحب",
+  "Dam":"سد",
+  "Sire":" مولى",
+  "GSire":"جي مولى",
+  "DayNTime":"اليوم والوقت",
+  "isGelted":"صقيل",
+  "PurchasePrice":"سعر الشراء",
+  "OverAllRating":"تقييم عام",
+  "Remarks":"ملاحظات"
 }

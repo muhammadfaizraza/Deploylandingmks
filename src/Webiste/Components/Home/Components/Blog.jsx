@@ -62,19 +62,27 @@ const Blog = () => {
               )
             })
           } */}
-           <ScrollContainer  className="scroll-container1">
           {
-            allnews.map((item) => {
-              return(
-                <div className='singleCardBlogs'>
-                   <img src={item.image} alt="" />
-                   <h2>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</h2>
-                   <h3>{cookiedata === 'en' ? item.DescriptionEn : item.DescriptionAr}</h3>
-                </div>
-              )
-            })
+            allnews === undefined ? <h2
+            style={{
+              margin: "100px",
+            }}
+          >
+            Loading....
+          </h2> :  <ScrollContainer  className="scroll-container1">
+            {
+              allnews.map((item) => {
+                return(
+                  <div className='singleCardBlogs'>
+                     <img src={item.image} alt="" />
+                     <h2>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</h2>
+                     <h3>{cookiedata === 'en' ? item.DescriptionEn : item.DescriptionAr}</h3>
+                  </div>
+                )
+              })
+            }
+            </ScrollContainer>
           }
-          </ScrollContainer>
         </div>
       </div> 
    </>

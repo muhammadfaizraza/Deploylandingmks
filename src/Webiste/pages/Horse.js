@@ -10,24 +10,27 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { Modal } from "react-bootstrap";
 import HorseDetail from "./HorseDetail";
-
+import { useTranslation } from "react-i18next";
 const Horse = () => {
 
+  const {t} = useTranslation();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [data ,setdata] = useState()
     const [show, setShow] = useState(false);
     const [modaldata, setmodaldata] = useState()
     const handleClose = () => setShow(false);
     const handleShow = async (data) => {
         setmodaldata(data)
+        console.log('horse data', data)
         await setShow(true)
     };
   const { data: horse, status } = useSelector((state) => state.horse);
+
+  const cookiedata = Cookies.get('i18next')
+
   useEffect(() => {
     dispatch(fetchHorse());
   },[])
- 
+ console.log('horse',horse)
   if (status === STATUSES.LOADING) {
     return (
       <h2
@@ -59,21 +62,23 @@ const Horse = () => {
            <div className="horseTable">
            <table id="customers">
             <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Sex</th>
-              <th>Color</th>
-              <th>KindOfHorse</th>
-              <th>Owner</th>
-              <th>Trainer</th>
-              <th>ActiveTrainer</th>
-              <th>Breeder</th>
-              <th>Dam</th>
-              <th>Sire</th>
-              <th>GSire</th>
-              <th>Remarks</th>
+              <th>{t('Name')}</th>
+              <th>{t('Age')}</th>
+              <th>{t('Sex')}</th>
+              <th>{t('Color')}</th>
+              <th>{t('KindOfHorse')}</th>
+              <th>{t('Owner')}</th>
+              <th>{t('Dam')}</th>
+              <th>{t('Sire')}</th>
+              <th>{t('GSire')}</th>
+              <th>{t('isGelted')}</th>
+              <th>{t('PurchasePrice')}</th>
+              <th>{t('OverAllRating')}</th>
+              <th>{t('Remarks')}</th>
             </tr>
             {
+              horse === undefined ? <></> : <>
+              {
                 horse.map((item) => {
                     return(
                         <React.Fragment>
@@ -81,23 +86,26 @@ const Horse = () => {
                             } style={{
                               cursor:'pointer'
                             }}>
-                            <td>{item.NameEn}</td>
-                            <td>{item.Age}</td>
-                            <td>{item.Sex}</td>
-                            <td>{item.Color}</td>
-                            <td>{item.KindOfHorse === null ? <>No Data</> : <>{item.KindOfHorse }</>}</td>
-                            <td>{item.Owner === null ? <>No Data</> : <>{item.Owner.map((data) => data.Name) }</>}</td>
-                            <td>{item.Trainer === null ? <>No Data</> : <>{item.Trainer.map((data) => data.Name) }</>}</td>
-                            <td>{item.ActiveTrainer === null ? <>No Data</> : <>{item.ActiveTrainer.Name }</>}</td>
-                            <td>{item.Breeder === null ? <>No Data</> : <>{item.Breeder }</>}</td>
-                            <td>{item.Dam === null ? <>No Data</> : <>{item.Dam }</>}</td>
-                            <td>{item.Sire === null ? <>No Data</> : <>{item.Sire }</>}</td>
-                            <td>{item.GSire === null ? <>No Data</> : <>{item.GSire }</>}</td>
+                            <td>{cookiedata === 'en' ? item.NameEn : item.NameEn}</td>
+                            <td>{cookiedata === 'en' ? item.Age : item.Age}</td>
+                            <td>{cookiedata === 'en' ? item.Sex : item.Sex}</td>
+                            <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
+                            <td>{cookiedata === 'en' ? 'red' : 'red'}</td>
+                            <td>{item.OwnerModels === null ? <>No Data</> : <>{item.OwnerModels.map((data) => data.NameEn) }</>}</td>
+                            <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.DamData.NameEn : item.DamData.NameAr}</>}</td>
+                            <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.SireData.NameEn : item.SireData.NameAr}</>}</td>
+                            <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.GSireData.NameEn : item.GSireData.NameAr}</>}</td>
+                            <td>{item.isGelted === 1 ? <>Yes</> : <>No</>}</td>
+                            <td>{item.PurchasePrice === null ? <>No Data</> : <>{item.PurchasePrice }</>}</td>
+                            <td>{item.OverAllRating === null ? <>No Data</> : <>{item.OverAllRating }</>}</td>
                             <td>{item.Remarks === null ? <>No Data</> : <>{item.Remarks }</>}</td>
+
                             </tr>
                         </React.Fragment>
                     )
                 })
+            }
+              </>
             }
           </table>
            </div>
@@ -108,7 +116,6 @@ const Horse = () => {
                   aria-labelledby="contained-modal-title-vcenter"
                   centered>
                 <Modal.Header className="popupheader" closeButton >
-                    <h3>Horse Detail</h3>
                 </Modal.Header>
                 <Modal.Body>
                 <HorseDetail data={modaldata} />

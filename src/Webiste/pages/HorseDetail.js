@@ -5,10 +5,10 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import React,{useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingleHorse, STATUSES } from "../../Webiste/redux/getReducer/getSingleHorse";
+import Cookies from "js-cookie";
 
 const HorseDetail = (data) => {
+  const cookiedata = Cookies.get('i18next')
   console.log(data)
   return (
     <div className="RaceDetailCard">
@@ -18,13 +18,12 @@ const HorseDetail = (data) => {
         </div>
         <div className="horsecardtop">
           <p>{data.data.HorseRating}</p>
-          <p>{data.data.OverAllRating}</p>
+          <p>{data.data.OverAllRating === null ? <>No Data</> : <>{data.data.OverAllRating }</>}</p>
         </div>
         <div className="horsecenterdata">
           <span
             style={{
               display: "flex",
-              justifyContent: "space-evenly",
             }}
           >
             <p
@@ -35,50 +34,56 @@ const HorseDetail = (data) => {
                 color: "#19469D",
               }}
             >
-              {
-                data.data.NameEn
-              }
+              {data.data.NameEn === null ? <>No Data</> : <>{data.data.NameEn }</>}
             </p>
             <p
               style={{
                 fontSize: "12px",
+                marginLeft:'20px'
               }}
             >
-               {data.data.Age}
+              {data.data.Age === null ? <>No Data</> : <>{data.data.Age }</>} yrs GR H (242)
+               
             </p>
           </span>
           <span
             style={{
               display: "flex",
-              justifyContent: "space-evenly",
             }}
           >
             <p
               style={{
                 fontSize: "12px",
+                paddingLeft:"10px"
               }}
             >
-              <b>Dam</b> {data.data.Dam }
+              Dam<b style={{
+                paddingLeft:"5px"
+              }}>{data.data.DamData === null ? <>N/A</>:<>{data.data.DamData.NameEn}</> }</b> 
+            </p>
+            <p
+              style={{
+                fontSize: "12px",
+                paddingLeft:"10px"
+              }}
+            >
+              Sire<b style={{
+                paddingLeft:"5px"
+              }}>{data.data.SireData === null ? <>N/A</>:<>{data.data.SireData.NameEn}</> }</b>
             </p>
             <p
               style={{
                 fontSize: "12px",
               }}
             >
-              <b>Sire</b>{data.data.Sire }
-            </p>
-            <p
-              style={{
-                fontSize: "12px",
-              }}
-            >
-              <b>G Sire</b> {data.data.GSire }
+             G Sire <b style={{
+                paddingLeft:"5px"
+              }}>{data.data.GSireData === null ? <>N/A</>:<>{data.data.GSireData.NameEn}</> }</b> 
             </p>
           </span>
           <span
             style={{
               display: "flex",
-              justifyContent: "space-evenly",
             }}
           >
             <p
@@ -87,17 +92,21 @@ const HorseDetail = (data) => {
                 color: "#FF0000",
               }}
             >
-              <b>O</b> {data.data.Owner.map((data) => data.Name)}
+              <b>O</b> {data.data.OwnerModels.map((data) => data.NameEn)}
             </p>
             <p
               style={{
                 fontSize: "9px",
+                marginLeft:"5px"
               }}
             >
               (8 - 3 - 2 - 8 - 4)
             </p>
           </span>
-          <p
+          <div className="horsedetailimage">
+            <img src={shirt} alt="" />
+           <span>
+           <p
             style={{
               fontSize: "12px",
               lineHeight: "10px",
@@ -106,7 +115,8 @@ const HorseDetail = (data) => {
           >
             <b  style={{
               padding: "10px",
-            }}>T</b>{data.data.Trainer.map((data) => data.Name)}
+              
+            }}>T</b>{data.data.OwnerModels.map((data) => data.NameEn)}  (8 - 3 - 2 - 8 - 4)
           </p>
           <p
             style={{
@@ -116,8 +126,10 @@ const HorseDetail = (data) => {
           >
             <b style={{
               padding: "10px",
-            }}>B</b>{data.data.Breeder }
+            }}>B</b>{data.data.BreederData.lenght === undefined ? <>N/A</>:<>{data.data.BreederData.NameEn}</>}
           </p>
+           </span>
+          </div>
         </div>
         <div className="horseimage">
           <img src={data.data.HorseImage} alt='' />
@@ -173,12 +185,12 @@ const HorseDetail = (data) => {
           </ListGroup.Item>
         </ListGroup>
       </div>
-      <div className="RaceNav">
+      <div className="RaceNav HorseNav">
         <Tabs id="uncontrolled-tab-example" className="mb-3 RaceNavItem">
           <Tab eventKey="Form" title="Form" tabClassName="profile-tabitem">
             <div className="RaceDetailCard">
               <div className="BodyNew">
-                <table className="customers horses1">
+                <table className="customers6 horses1">
                   <tr>
                     <th>Date</th>
                     <th>Cr</th>

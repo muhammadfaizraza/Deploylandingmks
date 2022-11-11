@@ -5,6 +5,8 @@ import SearchBar from './SearchBar';
 import Logo from '../assets/Group.png'
 import { useLocation } from "react-router-dom";
 import '../Components/CSS/sidebar.css'
+import { Link } from "react-router-dom";
+
 const Header = () => {
   let {pathname} = useLocation();
 
@@ -12,9 +14,11 @@ const Header = () => {
     <>
     {
       pathname !== '/' ?<div className="headerdash">
-      <div className="innerHeader">
+      <div className="innerHeader1">
         <div className="logoclass11">
-          <img src={Logo} alt="" />
+         <Link to='/' className='LinkStyle'>
+         <img src={Logo} alt="" />
+         </Link>
         </div>
         <div className="searchclass">
           <SearchBar />
