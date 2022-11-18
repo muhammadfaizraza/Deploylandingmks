@@ -36,5 +36,5 @@ export default getSingleTrainer.reducer;
 export const fetchSingletrainer = createAsyncThunk('/singlejockeyget/fetch', async() => {
         const res = await axios.get(`${window.env.API_URL}/singletrainerget/${Cookies.get('sjockey')}`);
     const jockeysData = res.data;
-    return jockeysData.RenderData;
+    return jockeysData.data;
 })

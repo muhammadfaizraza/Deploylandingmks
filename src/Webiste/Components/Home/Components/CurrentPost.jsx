@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import calenderimg from '../../../assets/Calendar 15 (Traced).png'
 import { Bounce  } from 'react-reveal';
 import { useTranslation } from 'react-i18next';
+import Moment from "react-moment";
 
 const Match = () => {
   const dispatch = useDispatch();
@@ -77,14 +78,17 @@ const Match = () => {
                         <Accordion.Item eventKey={item._id}>
                           <Accordion.Header>
                             <div className="AccordionHeader">
-                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
-                              <p>{item.DayNTime} min</p>
+                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackNameEn}</p>
+                              <p>                <Moment add={{ hours: 24 }}>{item.DayNTime}</Moment>
+>
+                                 min</p>
+                                 
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
                           <Link to={`/racedetail/${item._id}`} className='LinkStyle'>
                           <div className="Competition_Matches">
-                                  <p>{item.raceName}</p>
+                                  <p>{item.RaceNameModelData.NameEn}</p>
                                   <p>{item.id}</p>
                                 </div>
                           </Link>
@@ -126,13 +130,15 @@ const Match = () => {
                         <Accordion.Item eventKey={item._id}>
                           <Accordion.Header>
                             <div className="AccordionHeader">
-                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
-                              <p>{item.DayNTime} min</p>
+                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackNameEn}</p>
+                              <p><Moment parse="YYYY-MM-DD HH:mm">
+                              {item.DayNTime}
+                             </Moment> min</p>
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
                           <div className="Competition_Matches">
-                                  <p>{item.raceName}</p>
+                                  <p>{item.RaceNameModelData.NameEn}</p>
                                   <p>{item.id}</p>
                                 </div>
                             {/* {item.matches.map((data) => {

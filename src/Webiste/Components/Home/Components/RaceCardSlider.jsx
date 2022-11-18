@@ -128,6 +128,7 @@ const RaceCardSlider = () => {
       },
     ],
   };
+  console.log(racecard, "ahaa")
   return (
     <>
       <div className="RaceCardSlider">
@@ -144,11 +145,11 @@ const RaceCardSlider = () => {
                       {item.RaceCourseData === null ? (
                         <>No Data</>
                       ) : (
-                        item.RaceCourseData.TrackName
+                        item.RaceCourseData.TrackNameEn
                       )}
                     </p>
                     <p className="owner">
-                    {item.raceName}
+                    {item.raceNameEn}
                     </p>
                     <span className="racecardrow">
                       <div style = {{

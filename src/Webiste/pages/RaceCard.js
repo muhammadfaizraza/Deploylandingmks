@@ -58,7 +58,10 @@ const RaceCard = () => {
               <div className="racepagehead">
                 <div className="racepageheadflex">
                   <div className="racepagename">
-                    <span>{item.raceName}</span>
+                    <span>
+                      Hello
+                      {/* {item.raceName} */}
+                      </span>
                     <p>{item.DayNTime}</p>
                   </div>
                   <div className="raceStatus">

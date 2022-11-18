@@ -35,5 +35,5 @@ export default getSingleRace.reducer;
 export const fetchSinglerace = createAsyncThunk('/singleraceget/fetch', async({id}) => {
         const res = await axios.get(`${window.env.API_URL}/getsinglerace/${id}`);
     const raceData = res.data;
-    return raceData.RenderData;
+    return raceData.data;
 })

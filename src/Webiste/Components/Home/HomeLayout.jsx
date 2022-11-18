@@ -56,7 +56,7 @@ const {pathname} = useLocation();
         
         <div className="middlesection">
           <div className="middlesectioninner">
-            <HomeLeftSection />
+             <HomeLeftSection /> 
            <Ads />
           </div>
           <div className="newabc">

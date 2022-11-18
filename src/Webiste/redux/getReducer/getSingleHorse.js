@@ -38,5 +38,5 @@ export default getSingleHorse.reducer;
 export const fetchSingleHorse = createAsyncThunk('/horseget/fetch', async() => {
     const res = await axios.get(`${window.env.API_URL}/getsinglehorse/${Cookies.get('sjockey')}`);
     const horseData = res.data;
-    return horseData.RenderData;
+    return horseData.data;
 })
