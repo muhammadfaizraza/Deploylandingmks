@@ -1,5 +1,5 @@
 .ownerdetailhead{
-    height: 104px;
+    height: 251px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 18px;
@@ -20,4 +20,11 @@ padding: 1rem;
 }
 .ownerimage{
 padding: 10px;
+}
+span h6 {
+    justify-content: end;
+    text-align: end;
+    position: relative;
+    bottom: 115px;
+    left: 80px;
 }

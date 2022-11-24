@@ -8,6 +8,8 @@ import 'bootstrap/dist/js/bootstrap.js'
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Webiste/Components/CSS/mediaquery.css'
+import Lottie from 'react-lottie';
+import Animate from './Webiste/assets/loader.json'
 
 i18next
   .use(HttpApi)
@@ -26,11 +28,24 @@ i18next
       loadPath: '/assets/locales/{{lng}}/translation.json',
     },
   })
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Animate,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }}
 
     // react: { useSuspense: false },
 const loadingMarkup = (
   <div className="py-4 text-center">
-    <h1 data-text="Loading..."  className="loader"></h1>
+    <div>
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
+    </div>
   </div>
 )
 

@@ -8,14 +8,17 @@ import Accordion from "react-bootstrap/Accordion";
 import Calendar1 from "./Calendar";
 import { BsCalendarDate } from "react-icons/bs";
 import flag from "../../../assets/United Arab Emirates.png";
-import { useParams } from 'react-router-dom';
+import { useParams ,useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import calenderimg from '../../../assets/Calendar 15 (Traced).png'
 import { Bounce  } from 'react-reveal';
 import { useTranslation } from 'react-i18next';
 import Moment from "react-moment";
+import Cookies from 'js-cookie';
+
 
 const Match = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const { data: racecard, status } = useSelector((state) => state.racecard);
   const {t} = useTranslation();
@@ -27,7 +30,13 @@ const Match = () => {
   // const {MyRace} = racecard.find(race => race.RaceStatus  === abc)
 
   // console.log("aa",MyRace)
-
+  function HandleJockey(id){
+    navigate("/racedetail", {
+    state: {
+      id: id
+    },
+  });
+}
 
   if (status === STATUSES.LOADING) {
     return (
@@ -52,6 +61,8 @@ const Match = () => {
       </h2>
     );
   }
+  const cookiedata = Cookies.get('i18next')
+  console.log(cookiedata,'cookiedata')
 
   return (
     <div className="match">
@@ -67,7 +78,7 @@ const Match = () => {
           <Bounce bottom>
             <div className="Currentpostdiv">
               <div className="Currentpostheader">
-                <h2>United Arab Emirates</h2>
+                <h2>{t('United Arab Emirates')}</h2>
                 <img src={flag} alt="" />
               </div>
               <div className="CompetitionData">
@@ -78,20 +89,20 @@ const Match = () => {
                         <Accordion.Item eventKey={item._id}>
                           <Accordion.Header>
                             <div className="AccordionHeader">
-                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackNameEn}</p>
-                              <p>                <Moment add={{ hours: 24 }}>{item.DayNTime}</Moment>
->
+                              <p>{  cookiedata === 'en' ?  item.RaceCourseData.TrackNameEn  : item.RaceCourseData.TrackNameAr}</p>
+                              <p>                <Moment add={{ hours: 12 }} format="hh:mm">{item.DayNTime}</Moment>
+
                                  min</p>
                                  
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
-                          <Link to={`/racedetail/${item._id}`} className='LinkStyle'>
-                          <div className="Competition_Matches">
-                                  <p>{item.RaceNameModelData.NameEn}</p>
+                       
+                          <div onClick={() =>  HandleJockey(item._id)} className="Competition_Matches">
+                                  <p>{  cookiedata === 'en' ?  item.RaceNameModelData.NameEn  : item.RaceNameModelData.NameAr} </p>
                                   <p>{item.id}</p>
                                 </div>
-                          </Link>
+                      
                             {/* {item.matches.map((data) => {
                               return (
                                 <div className="Competition_Matches">
@@ -131,9 +142,7 @@ const Match = () => {
                           <Accordion.Header>
                             <div className="AccordionHeader">
                               <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackNameEn}</p>
-                              <p><Moment parse="YYYY-MM-DD HH:mm">
-                              {item.DayNTime}
-                             </Moment> min</p>
+                              <p>  <Moment add={{ hours: 12 }} format="hh:mm">{item.DayNTime}</Moment> min</p>
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
@@ -186,13 +195,13 @@ const Match = () => {
                         <Accordion.Item eventKey={item._id}>
                           <Accordion.Header>
                             <div className="AccordionHeader">
-                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackName}</p>
-                              <p>{item.DayNTime} min</p>
+                              <p>{item.RaceCourseData === null ? <>No Data</> : item.RaceCourseData.TrackNameEn}</p>
+                              <p>  <Moment add={{ hours: 12 }} format="hh:mm">{item.DayNTime}</Moment> min</p>
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
                           <div className="Competition_Matches">
-                                  <p>{item.raceName}</p>
+                                  <p>{item.RaceNameModelData.NameEn}</p>
                                   <p>{item.id}</p>
                                 </div>
                             {/* {item.matches.map((data) => {

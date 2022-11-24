@@ -13,6 +13,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { BsFillCaretRightFill } from 'react-icons/bs';
 import '../Components/CSS/pagesCSS/owner.css'
+import Moment from "react-moment";
 
 const JockeyDetail = (data) => {
   
@@ -34,15 +35,33 @@ const JockeyDetail = (data) => {
                 fontSize: '19.6px',
                 lineHeight: '24px',
                 color:'#19469D'
-            }}>{data.data.Name}</span>
-            <span>{data.data.Age}</span>
+            }}>{data.data.NameEn}</span>
             <span>
+            <Moment fromNow ago>
+                                  {data.data.DOB}
+
+                               
+     
+              </Moment>
+              
+            </span>  
+            <span>
+       
             <img src={flag} alt='' />
+            <h6>
+              Rating
+              <b>
+            {data.data.Rating}
+            </b>
+            </h6>
             </span>
         </div>
         <div className="ownerimage">
+            
             <span>
+            
             <img src={shirt} alt='' />
+             
             </span>
         </div>
       </div>
@@ -52,7 +71,7 @@ const JockeyDetail = (data) => {
             <p><b>IRE JUMPS</b> last 5 seasons Apr 2018 - Apr 2023</p>
             </ListGroup.Item>
             
-            {/* <ListGroup.Item className='horsebodyitem'>
+            <ListGroup.Item className='horsebodyitem'>
            
             </ListGroup.Item>
             <ListGroup.Item className='horsebodyitem1'>
@@ -63,7 +82,7 @@ const JockeyDetail = (data) => {
             </ListGroup.Item>
             <ListGroup.Item className='horsebodyitem1'>
            
-           </ListGroup.Item> */}
+           </ListGroup.Item> 
             </ListGroup>
          </div>
          <div className="RaceNav">

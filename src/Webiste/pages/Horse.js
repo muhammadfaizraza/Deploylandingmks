@@ -11,6 +11,7 @@ import Cookies from "js-cookie";
 import { Modal } from "react-bootstrap";
 import HorseDetail from "./HorseDetail";
 import { useTranslation } from "react-i18next";
+import Moment from "react-moment";
 const Horse = () => {
 
   const {t} = useTranslation();
@@ -68,12 +69,13 @@ const Horse = () => {
               <th>{t('Color')}</th>
               <th>{t('KindOfHorse')}</th>
               <th>{t('Owner')}</th>
+              <th>{t('Breeder')}</th>
               <th>{t('Dam')}</th>
               <th>{t('Sire')}</th>
               <th>{t('GSire')}</th>
               <th>{t('isGelted')}</th>
               <th>{t('PurchasePrice')}</th>
-              <th>{t('OverAllRating')}</th>
+              <th>{t('Nationality')}</th>
               <th>{t('Remarks')}</th>
             </tr>
             {
@@ -87,17 +89,20 @@ const Horse = () => {
                               cursor:'pointer'
                             }}>
                             <td>{cookiedata === 'en' ? item.NameEn : item.NameEn}</td>
-                            <td>{cookiedata === 'en' ? item.Age : item.Age}</td>
-                            <td>{cookiedata === 'en' ? item.Sex : item.Sex}</td>
+                            <td> <Moment fromNow ago>
+                                  {item.Age}
+                                </Moment></td>
+                            <td>{cookiedata === 'en' ? item.SexModelData.NameEn : item.SexModelData.NameEn}</td>
                             <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
-                            <td>{cookiedata === 'en' ? 'red' : 'red'}</td>
-                            <td>{item.OwnerModels === null ? <>No Data</> : <>{item.OwnerModels.map((data) => data.NameEn) }</>}</td>
+                            <td>{cookiedata === 'en' ? item.HorseKindData : item.HorseKindData}</td>
+                            <td>{item.BreederData.NameEn === null ? <>No Data</> : <>{item.OwnerModels.map((data) => data.NameEn) }</>}</td>
+                            <td>{cookiedata === 'en' ? item.BreederData.NameEn : item.BreederData.NameEn}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.DamData.NameEn : item.DamData.NameAr}</>}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.SireData.NameEn : item.SireData.NameAr}</>}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.GSireData.NameEn : item.GSireData.NameAr}</>}</td>
                             <td>{item.isGelted === 1 ? <>Yes</> : <>No</>}</td>
-                            <td>{item.PurchasePrice === null ? <>No Data</> : <>{item.PurchasePrice }</>}</td>
-                            <td>{item.OverAllRating === null ? <>No Data</> : <>{item.OverAllRating }</>}</td>
+                            <td>{item.PurchasePrice === null ? <>No Data</> : <>{item.PurchasePrice }AED</>}</td>
+                            <td>{item.NationalityData === null ? <>No Data</> : <>{item.NationalityData.NameEn }</>}</td>
                             <td>{item.Remarks === null ? <>No Data</> : <>{item.Remarks }</>}</td>
 
                             </tr>

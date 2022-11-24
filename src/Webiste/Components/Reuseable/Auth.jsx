@@ -8,7 +8,10 @@ import { getUserDetails } from "../../redux/postReducer/UserPost";
 import { logout } from '../../redux/getReducer/UserSlice'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {useTranslation} from 'react-i18next';
+
 const Auth = () => {
+  const {t} = useTranslation()
   const { userInfo, userToken } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -28,6 +31,7 @@ function Redirect(){
   
   return (
     <>
+ 
      
       <div className="cta">
         {userInfo || userToken ? (
@@ -83,10 +87,10 @@ function Redirect(){
         ) : (
           <div className="auth1 ">
             <NavLink className="buttonLogin" to="/login">
-            Login
+            {t("Login")}
           </NavLink>
           <NavLink className="buttonSubscribe" to="/registration">
-            Subscribe
+          {t("Subscibe")}
           </NavLink>
           </div>
         )}

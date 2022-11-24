@@ -5,6 +5,7 @@ import CoptRight from "../Components/Reuseable/Copyrights";
 import "../Components/CSS/pagesCSS/horse.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Moment from "react-moment";
 import {
   fetchJockey,
   STATUSES,
@@ -82,6 +83,9 @@ const Trainer = () => {
               <tr>
                 <th>Name</th>
                 <th>Age</th>
+                <th>RemarksEn </th>
+                <th>Rating</th>
+                <th>Nationality</th>
                 <th>Image</th>
               </tr>
               {jockey.map((item) => {
@@ -90,8 +94,14 @@ const Trainer = () => {
                   } style={{
                     cursor:'pointer'
                   }}>
-                  <td >{item.Name}</td>
-                  <td>{item.Age}</td>
+                  <td >{item.NameEn}</td>
+                  <td><Moment fromNow ago>
+                                  {item.Age}
+                                </Moment></td>
+                                <td>{item.RemarksEn}</td>
+                                <td>{item.Rating}</td>
+                                <td>{item.JockeyNationalityData.NameEn} </td>
+                               
                   <td>
                     <img src={item.image} alt=""  style={{
                       height:'30px',

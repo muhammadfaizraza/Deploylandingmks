@@ -12,7 +12,7 @@ import Accordion from "react-bootstrap/Accordion";
 import shirt from "../../Webiste/assets/image 5.png";
 import pic from "../../Webiste/assets/Ellipse 7.png";
 import { RaceCardData } from "../data/data";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
 import Zoom from "react-reveal/Zoom";
@@ -25,8 +25,9 @@ import arrow from "../assets/image 3 (Traced).png";
 import Summary from "../Components/RaceCard/Summary";
 import Draw from "../Components/RaceCard/Draw";
 import Predictor from "../Components/RaceCard/Predictor";
-import TrackRecord from "../Components/RaceCard/TrackRecord";
+import TrackRecord from "../Components/RaceCard/TrackRecord"; 
 import arrow1 from "../assets/image 13 (Traced).png";
+import Moment from 'react-moment';
 
 const Trophy = [
   {
@@ -80,6 +81,7 @@ const Trophy = [
 ];
 const RaceCardDetail = () => {
   const dispatch = useDispatch();
+  const {state} = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
   const [data, setdata] = useState();
@@ -91,14 +93,20 @@ const RaceCardDetail = () => {
     await setShow(true);
   };
 
-  const { id } = useParams();
+  const { id } = state;
+  console.log(id,'detail id')
+
   console.log(singlerace, "singlerace");
   useEffect(() => {
     dispatch(fetchSinglerace({ id }));
   }, [id]);
 
   if (status === STATUSES.LOADING) {
-    return <h2 className="loader1"></h2>;
+    return <h2 className="loader1">
+
+
+      
+    </h2>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -165,16 +173,18 @@ const RaceCardDetail = () => {
                   <div>
                     <span className="racenameflex">
                       <p>
-                        {/* {singlerace.RaceCourseData === null ? (
+                       {singlerace.RaceCourseData === null ? (
                     <>N/A</>
                   ) : (
-                    singlerace.RaceCourseData.TrackName
-                  )} */}
+                    singlerace.RaceCourseData.TrackNameEn
+                  )} 
                         Al Hassan
                       </p>
                       <img src={flag} alt="" />
                     </span>
-                    <p className="itemtime">Friday {singlerace[0].DayNTime}</p>
+                    <p className="itemtime"> 
+                         <Moment format="hh:mm:ss" trim durationFromNow> {singlerace.DayNTime}
+                          </Moment>  </p>
                   </div>
                   <div className="racestatuscolor">
                     <li>1</li>
@@ -192,12 +202,16 @@ const RaceCardDetail = () => {
                       <span className="itemraces_left">
                         <span className="race">
                           <p>Race 1</p>
-                          <p><b>16:30</b></p>
+                          <p><b>16:35</b></p>
                         </span>
-                        <span className="sponsor"></span>
+                   
+
+<img  className="sponsor" src={singlerace.SponsorData.image}  alt=""  />
+
+                      
                       </span>
                       <span className="itemraces_center">
-                        <h5>{singlerace[0].raceName}</h5>
+                       <h5>{singlerace.RaceNameModelData.NameEn}</h5>
                         <div
                           style={{
                             display: "flex",
@@ -210,7 +224,7 @@ const RaceCardDetail = () => {
                               padding: "5px",
                             }}
                           >
-                            {singlerace[0].RaceKind}
+                      {singlerace.RaceKindData.NameEn} 
                           </p>
                           <p
                             style={{
@@ -218,8 +232,8 @@ const RaceCardDetail = () => {
                             }}
                           >
                             RaceType
-                            {/* {singlerace[0].RaceType} */}
-                          </p>
+                           {singlerace.RaceTypeModelData.NameEn} 
+                                                     </p>
                         </div>
                         
                       </span>
@@ -234,7 +248,10 @@ const RaceCardDetail = () => {
                             <img src={weather} alt="" />
                           </p>
                         <span className="distance">
-                          {singlerace[0].DayNTime}
+                          <Moment format="YYYY/MM/DD">
+                          {singlerace.DayNTime}
+                          </Moment>
+                        
                         </span>
                         <div className="Favourite">
                           <div>
@@ -256,7 +273,7 @@ const RaceCardDetail = () => {
                       </span>
                     </div>
                     <p>
-                      <b>DESCRIPTION</b> :{singlerace[0].Description}
+                      <b>DESCRIPTION</b> :{singlerace.DescriptionEn}
                     </p>
                   </div>
                 </div>
@@ -280,25 +297,79 @@ const RaceCardDetail = () => {
                         Tricast
                       </button>
                       <button style={btnNew1} onClick={() => handleShow()}>
-                        {" "}
+                       
                         Pick Six
                       </button>
                     </div>
                   </div>
                   <div className="Competitiontrophy">
-                    {Trophy.map((item) => {
-                      return (
+                 
+                       
                         <div className="Trophydata">
-                          <span>{item.id}</span>
+                          <span>1st</span>
                           <span>
-                            <img src={item.image} alt="" />
+                            <img src={img1} alt="" />
                           </span>
                           <div className="Trophydata_P">
-                            <h6>{item.prize}</h6>
+                            <h6>{singlerace.FirstPrice} AED</h6>
                           </div>
+                          
                         </div>
-                      );
-                    })}
+                        <div className="Trophydata">
+                          <span>2nd</span>
+                          <span>
+                            <img src={img} alt="" />
+                          </span>
+                          <div className="Trophydata_P">
+                            <h6>{singlerace.SecondPrice} AED</h6>
+                          </div>
+                          
+                          
+                        </div>
+                        <div className="Trophydata">
+                          <span>3rd</span>
+                          <span>
+                            <img src={img} alt="" />
+                          </span>
+                          <div className="Trophydata_P">
+                            <h6>{singlerace.ThirdPrice} AED</h6>
+                          </div>
+                          
+                          
+                        </div>
+                        <div className="Trophydata">
+                          <span>4th</span>
+                          <span>
+                            <img src={img} alt="" />
+                          </span>
+                          <div className="Trophydata_P">
+                            <h6>{singlerace.FourthPrice} AED</h6>
+                          </div>
+                          
+                          
+                        </div>
+                        <div className="Trophydata">
+                          <span>5th</span>
+                          <span>
+                            <img src={img} alt="" />
+                          </span>
+                          <div className="Trophydata_P">
+                            <h6>{singlerace.FifthPrice} AED</h6>
+                          </div>
+                          
+                          
+                        </div>
+                        <div className="Trophydata">
+                          <span>6th</span>
+                          <span>
+                            <img src={img} alt="" />
+                          </span>
+                          <div className="Trophydata_P">
+                            <h6>{singlerace.SixthPrice} AED</h6>
+                          </div>
+                          
+                          
+                        </div>
                   </div>
                 </div>
                 <div className="RaceNav">
@@ -316,7 +387,10 @@ const RaceCardDetail = () => {
                         <div className="forfexclass">
                           <Accordion defaultActiveKey="0">
                             <div>
-                              {singlerace[0].Horses.map((data) => {
+
+                              {
+                                singlerace.HorseModels === null ? <>N/A </>:
+                              singlerace.HorseModels.map((data) => {
                                 return (
                                   <Accordion.Item eventKey='0'>
                                     <Accordion.Header>
@@ -345,7 +419,7 @@ const RaceCardDetail = () => {
                                               <span>{data.NameEn}</span>
                                             </p>
                                             <p style={myPara}>
-                                              {data.Age}yrs GR H (242)
+                                              {/* {data.Age}yrs GR H (242) */}
                                             </p>
                                           </div>
                                           <div
@@ -355,7 +429,7 @@ const RaceCardDetail = () => {
                                             }}
                                           >
                                             <p style={myPara}>
-                                            Dam <b>:{data.Dam} </b> 
+                                            Dam <b>:{data.Dam === null ? <>N/A</> : <>{data.Dam} </>} </b> 
                                             </p>
                                             <p style={myPara}>
                                             Sire   <b>:{data.Sire} </b> 
@@ -377,7 +451,7 @@ const RaceCardDetail = () => {
                                                 color: "#FF0000",
                                               }}
                                             >
-                                              David & Nicola Barron{" "}
+                                              David & Nicola Barron
                                             </p>
                                             <p
                                               style={{
@@ -399,11 +473,11 @@ const RaceCardDetail = () => {
                                         </div>
                                         {/* <div className="cardraces3">
                                           <div>
-                                            <p style={myPara1}>{singlerace[0].Horses.map((data) => data.GSire)}</p>
+                                            <p style={myPara1}>{singlerace.Horses.map((data) => data.GSire)}</p>
                                             <p style={myPara1}>56kg</p>
                                           </div>
                                           <div>
-                                            <img src={singlerace[0].Owner.map((data) => data.image)} alt="" />
+                                            <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
                                         <div className="cardraces4">
@@ -597,7 +671,7 @@ const RaceCardDetail = () => {
                         <div className="forfexclass">
                           <Accordion defaultActiveKey="0">
                             <div>
-                              {singlerace[0].Horses.map((data) => {
+                              {singlerace.HorseModels.map((data) => {
                                 return (
                                   <Accordion.Item eventKey='0'>
                                     <Accordion.Header>
@@ -626,7 +700,7 @@ const RaceCardDetail = () => {
                                               <span>{data.NameEn}</span>
                                             </p>
                                             <p style={myPara}>
-                                              {data.Age}yrs GR H (242)
+                                              {/* {data.Age}yrs GR H (242) */}
                                             </p>
                                           </div>
                                           <div
@@ -658,7 +732,7 @@ const RaceCardDetail = () => {
                                                 color: "#FF0000",
                                               }}
                                             >
-                                              David & Nicola Barron{" "}
+                                              David & Nicola Barron
                                             </p>
                                             <p
                                               style={{
@@ -680,11 +754,11 @@ const RaceCardDetail = () => {
                                         </div>
                                         {/* <div className="cardraces3">
                                           <div>
-                                            <p style={myPara1}>{singlerace[0].Horses.map((data) => data.GSire)}</p>
+                                            <p style={myPara1}>{singlerace.Horses.map((data) => data.GSire)}</p>
                                             <p style={myPara1}>56kg</p>
                                           </div>
                                           <div>
-                                            <img src={singlerace[0].Owner.map((data) => data.image)} alt="" />
+                                            <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
                                         <div className="cardraces4">

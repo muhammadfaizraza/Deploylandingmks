@@ -48,7 +48,7 @@ function App() {
       <Routes>
         <Route path='/' exact element={  <Home /> } />
         <Route path="/racecard"  element={  <RaceCard /> } />
-        <Route path={'/racedetail/:id'} element={  <Home /> } />
+        <Route path={'/racedetail'} element={  <Home /> } />
         <Route path='/login'  element={  <Login /> } />
         <Route path='/registration'  element={  <Registration /> } />
         <Route path='/racecourse'  element={  <RaceCourse /> } />

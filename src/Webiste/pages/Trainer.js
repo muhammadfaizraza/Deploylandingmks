@@ -13,6 +13,7 @@ import {
   fetchTrainer,
   STATUSES,
 } from "../../Webiste/redux/getReducer/getTrainerSlice";
+import Moment from "react-moment";
 
 const Trainer = () => {
     const [country, setCountry] = useState([]);
@@ -66,16 +67,16 @@ console.log(country,'trainer')
   const columns = [
     {
         name: "Image",
-        selector: (row) => <img width={50} height={50} src={row.image} />,
+        selector: (row) => <img width={50} height={50} src={row.image} alt=""/>,
       },
     {
       name: "Name",
-      selector: (row) => row.Name,
+      selector: (row) => row.NameEn,
       sortable: true,
     },
     {
       name: "Age",
-      selector: (row) => row.Age,
+      selector: (row) => <Moment fromNow ago>{ row.DOB} </Moment>,
     },
     {
       name: "Detail",
@@ -84,6 +85,10 @@ console.log(country,'trainer')
     {
         name: "Remarks",
         selector: (row) => row.Remarks,
+      },
+      {
+        name: "Nationality",
+        selector: (row) => row.JockeyNationalityData,
       },
       {
         name: "details",

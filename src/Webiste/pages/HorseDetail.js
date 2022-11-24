@@ -6,6 +6,7 @@ import Tabs from "react-bootstrap/Tabs";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import React,{useEffect} from 'react';
 import Cookies from "js-cookie";
+import Moment from "react-moment";
 
 const HorseDetail = (data) => {
   const cookiedata = Cookies.get('i18next')
@@ -42,7 +43,9 @@ const HorseDetail = (data) => {
                 marginLeft:'20px'
               }}
             >
-              {data.data.Age === null ? <>No Data</> : <>{data.data.Age }</>} yrs GR H (242)
+              {data.data.DOB === null ? <>No Data</> : <><Moment fromNow ago>
+                                  {data.data.DOB}
+                                </Moment></>} yrs GR H (242)
                
             </p>
           </span>
@@ -116,7 +119,7 @@ const HorseDetail = (data) => {
             <b  style={{
               padding: "10px",
               
-            }}>T</b>{data.data.OwnerModels.map((data) => data.NameEn)}  (8 - 3 - 2 - 8 - 4)
+            }}>T</b>{data.data.TrainerModels.map((data) => data.NameEn)}  (8 - 3 - 2 - 8 - 4)
           </p>
           <p
             style={{
@@ -126,7 +129,7 @@ const HorseDetail = (data) => {
           >
             <b style={{
               padding: "10px",
-            }}>B</b>{data.data.BreederData.lenght === undefined ? <>N/A</>:<>{data.data.BreederData.NameEn}</>}
+            }}>B</b>{data.data.BreederData.length === undefined ? <>N/A</>:<>{data.data.BreederData.NameEn}</>}
           </p>
            </span>
           </div>

@@ -9,11 +9,22 @@ import "../../CSS/HomeCSS/blogs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRace, STATUSES } from "../../../redux/getReducer/getRaceCard";
 import Cookies from "js-cookie";
+import Moment from "react-moment"
+import Animate from "../../../assets/loader.json"
+import Lottie from 'react-lottie';
+
 
 const RaceCardSlider = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Animate,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
   const { data: racecard, status } = useSelector((state) => state.racecard);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -38,18 +49,28 @@ const RaceCardSlider = () => {
 
   useEffect(() => {
     dispatch(fetchRace());
-  }, []);
-  const HandleJockey = (Id) => {
-    Cookies.set('sjockey',Id)
-    navigate('/racedetail')
-  };
+  }, [dispatch]);
+
+
+
+ 
+
+  function HandleJockey(id){
+      navigate("/racedetail", {
+      state: {
+        id: id
+      },
+    });
+  }
   if (status === STATUSES.LOADING) {
     return (
-      <h2
-      className="loader"
-      >
-       
-      </h2>
+      <div>
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
+      </div>
     );
   }
 
@@ -128,19 +149,21 @@ const RaceCardSlider = () => {
       },
     ],
   };
-  console.log(racecard, "ahaa")
   return (
     <>
       <div className="RaceCardSlider">
         <div className="slidercards">
           {
-            racecard === undefined ? <h2 className="loader"></h2> :  <Slider {...settings}>
+            racecard === undefined ? <h2 className="loader">
+
+            </h2> :  <Slider {...settings}>
             {racecard.map((item) => {
               return (
-               <Link to={`/racedetail/${item._id}`} className='LinkStyle'>
-                 <div className="singleracecard" key={item.key}  onClick={() => HandleJockey(item._id)} style={{
+         
+                 <div className="singleracecard" key={item.key}     onClick={() => HandleJockey(item._id)}  style={{
                   cursor:'pointer'
                 }}>
+              
                     <p className="clubname">
                       {item.RaceCourseData === null ? (
                         <>No Data</>
@@ -149,7 +172,7 @@ const RaceCardSlider = () => {
                       )}
                     </p>
                     <p className="owner">
-                    {item.raceNameEn}
+                    {item.RaceNameModelData.NameEn}
                     </p>
                     <span className="racecardrow">
                       <div style = {{
@@ -164,13 +187,13 @@ const RaceCardSlider = () => {
                         )} m
                       </p>
                       </div>
-                      <p className="racetime">{item.DayNTime} m</p>
+                      <p className="racetime"> <Moment add={{ hours: 12 }} format="hh:mm:ss">{item.DayNTime}</Moment> m</p>
                     </span>
                     <span className="singleracecardbtn">
                       <button>From</button>
                     </span>
                   </div>
-               </Link>
+          
               );
             })}
           </Slider>
