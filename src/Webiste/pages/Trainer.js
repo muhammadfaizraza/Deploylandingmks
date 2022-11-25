@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
 
 import {
   fetchTrainer,
@@ -16,8 +17,18 @@ import {
 import Moment from "react-moment";
 
 const Trainer = () => {
+  const cookiedata = Cookies.get('i18next')
+  const {t} = useTranslation()
     const [country, setCountry] = useState([]);
     const [search, setSearch] = useState("");
+    const [show, setShow] = useState(false);
+    const [modaldata, setmodaldata] = useState()
+    const handleClose = () => setShow(false);
+    const handleShow = async (data) => {
+        setmodaldata(data)
+        console.log('horse data', data)
+        await setShow(true)
+    };
     // const [filterCountries, setFilterCountries] = useState("");
     const navigate = useNavigate();
 
@@ -64,42 +75,9 @@ console.log(country,'trainer')
     navigate('/trainerdetail')
   };
 
-  const columns = [
-    {
-        name: "Image",
-        selector: (row) => <img width={50} height={50} src={row.image} alt=""/>,
-      },
-    {
-      name: "Name",
-      selector: (row) => row.NameEn,
-      sortable: true,
-    },
-    {
-      name: "Age",
-      selector: (row) => <Moment fromNow ago>{ row.DOB} </Moment>,
-    },
-    {
-      name: "Detail",
-      selector: (row) => row.Detail,
-    },
-    {
-        name: "Remarks",
-        selector: (row) => row.Remarks,
-      },
-      {
-        name: "Nationality",
-        selector: (row) => row.JockeyNationalityData,
-      },
-      {
-        name: "details",
-        selector: (row) => (
-          <button className="btn" onClick={() => HandleJockey(row._id)}>
-            Detailed View
-          </button>
-        )
-      },
+
     
-  ];
+  
   
   return (
     <>
@@ -109,26 +87,48 @@ console.log(country,'trainer')
           <h2>MKS Racing Trainer</h2>
         </div>
         <div className="aboutpagesection">
-          <div className="horseTable">
-            <DataTable
-              columns={columns}
-              data={trainer}
-              pagination
-              fixedHeader
-              fixedHeaderScrollHeight="450px"
-              highlightOnHover
-            //   actions={<button>Export</button>}
-            //   subHeader
-            //   subHeaderComponent={
-            //     <input
-            //       type={"text"}
-            //       placeholder="search"
-            //       value={search}
-            //       onChange={(e) => setSearch(e.target.value)}
-            //     />
-            //   }
-            />
-          </div>
+        <div className="horseTable">
+           <table id="customers">
+            <tr>
+              <th>{t('Name')}</th>
+              <th>{t('Age')}</th>
+              <th>{t('Detail')}</th>
+              <th>{t('Remarks')}</th>
+              <th>{t('Nationality')}</th>
+            
+            </tr>
+            {
+            trainer === undefined ? <></> : <>
+              {
+             trainer.map((item) => {
+                    return(
+                        <React.Fragment>
+                            <tr onClick={()=> handleShow(item) 
+                            } style={{
+                              cursor:'pointer'
+                            }}>
+                            <td>{cookiedata === 'en' ? item.NameEn : item.NameEn}</td>
+                            <td> <Moment fromNow ago>
+                                  {item.Age}
+                                </Moment></td>
+                            <td>{cookiedata === 'en' ? item.SexModelData.NameEn : item.SexModelData.NameEn}</td>
+                            <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
+                    
+                            <td>{item.NationalityData === null ? <>No Data</> : <>{item.NationalityData.NameEn }</>}</td>
+                            <td>{item.Remarks === null ? <>No Data</> : <>{item.Remarks }</>}</td>
+                            <td>     <button className="btn" onClick={() => HandleJockey(item._id)}>
+            Detailed View
+          </button></td>
+
+                            </tr>
+                        </React.Fragment>
+                    )
+                })
+            }
+              </>
+            }
+          </table>
+           </div>
         </div>
       </div>
       <Footer />

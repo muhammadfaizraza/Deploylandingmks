@@ -245,6 +245,8 @@ background: #FF0000;
 border-radius: 18px;
 border: none;
 margin-top: 3px;
+
+color: #FFFFFF;
 }
 .Summary{
     display: flex;

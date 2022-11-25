@@ -3,8 +3,9 @@
     width: 98%;
     border-radius: 20px;
 }
-.blognews{
+.blognews {
     width: 100%;
+    margin-top: 370px;
 }
 .blognews h1{
     font-style: normal;

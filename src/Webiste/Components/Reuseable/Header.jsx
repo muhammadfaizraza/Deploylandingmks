@@ -5,13 +5,25 @@ import { FaBars } from 'react-icons/fa';
 import { useState } from 'react';
 import Fade from 'react-reveal/Fade';
 
+
 const Header = () => {
+ 
+
   const { t } = useTranslation()
 
   const [show,setShow] =useState(false)
+ 
+ 
+  const styles = {
+    popup:{
+      borderRadius: show ? "0px, 0px , 50px ,0px" : "none",
+
+    }
+  };
   return (
     <>
-      <div className='header'>
+    
+      <div className='header' style={styles.popup}>
        <div className='largemenu'>
        <div className="d-flex menuNav">
         <Link to='/'>

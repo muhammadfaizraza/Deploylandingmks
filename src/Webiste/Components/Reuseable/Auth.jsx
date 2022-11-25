@@ -42,7 +42,7 @@ function Redirect(){
                  </span>
                  <span className="profilename">
                    <p className="username">John Doe Elizebth</p>
-                   <p className="pointuser">1000 pts</p>
+                   <p className="pointuser">{t('1000 pts')}</p>
                  </span>
                  <span>
                    <BsCaretDownFill
@@ -54,11 +54,11 @@ function Redirect(){
                </div>
                <div className="authhover">
                 <ul>
-                  <li><Link to='/dashboard' className="LinkStyle"> Dashboard</Link></li>
-                  <li>My Tracker</li>
-                  <li>My Profile</li>
-                  <li>Setting</li>
-                  <li onClick={handleLogout}>Logout</li>
+                  <li><Link to='/dashboard' className="LinkStyle">{t('Dashboard')}</Link></li>
+                  <li>{t('My Tracker')}</li>
+                  <li>{t('My Profile')}</li>
+                  <li>{t('Setting')}</li>
+                  <li onClick={handleLogout}>{t('LOGOUT')}</li>
                 </ul>
                </div>
              </div>

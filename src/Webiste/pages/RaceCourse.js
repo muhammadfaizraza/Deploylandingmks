@@ -26,7 +26,7 @@ const RaceCourse = () => {
           margin: "100px",
         }}
       >
-        Loading....
+  
       </h2>
     );
   }

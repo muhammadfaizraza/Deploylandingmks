@@ -19,7 +19,7 @@ const Sponsor = () => {
           margin: "100px",
         }}
       >
-        Loading....
+    
       </h2>
     );
   }

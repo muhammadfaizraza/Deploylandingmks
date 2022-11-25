@@ -45,7 +45,7 @@ const Match = () => {
           margin: "100px",
         }}
       >
-        Loading....
+       
       </h2>
     );
   }
@@ -130,7 +130,7 @@ const Match = () => {
           <Accordion defaultActiveKey="0" flush>
             <div className="Currentpostdiv">
               <div className="Currentpostheader">
-                <h2>United Arab Emirates</h2>
+                <h2>{t('United Arab Emirates')}</h2>
                 <img src={flag} alt="" />
               </div>
               <div className="CompetitionData">
@@ -184,7 +184,7 @@ const Match = () => {
           <Accordion defaultActiveKey="0" flush>
             <div className="Currentpostdiv">
               <div className="Currentpostheader">
-                <h2>United Arab Emirates</h2>
+                <h2>{t('United Arab Emirates')}</h2>
                 <img src={flag} alt="" />
               </div>
               <div className="CompetitionData">

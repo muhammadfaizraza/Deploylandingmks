@@ -1210,11 +1210,17 @@ line-height: 100px;
     }
     .mobiledropdown{
         position: absolute;
-        background-color: #D9D9D9;
+        /* background-color: #D9D9D9; */
         z-index: 999;
+        top: 58px;
         width: 100%;
+        background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
         margin-top: 20px;
         text-align: center;
+        height: 32%;
+        color: white;
+        border-radius: 0px 0px 50px 0px;
+    
     }
     .BlogCard {
         height: 400px;

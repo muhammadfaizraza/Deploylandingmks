@@ -24,7 +24,7 @@ const Blog = () => {
           margin: "100px",
         }}
       >
-        Loading....
+   
       </h2>
     );
   }
@@ -68,7 +68,7 @@ const Blog = () => {
               margin: "100px",
             }}
           >
-            Loading....
+ 
           </h2> :  <ScrollContainer  className="scroll-container1">
             {
               allnews.map((item) => {

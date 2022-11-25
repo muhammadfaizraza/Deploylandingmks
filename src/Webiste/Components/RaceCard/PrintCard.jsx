@@ -101,7 +101,7 @@ const Card = () => {
                                   color: "#FF0000",
                                 }}
                               >
-                                David & Nicola Barron{" "}
+                                David & Nicola Barron
                               </p>
                               <p
                                 style={{

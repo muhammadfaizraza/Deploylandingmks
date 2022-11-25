@@ -12,6 +12,7 @@ import Cookies from "js-cookie";
 import Moment from "react-moment"
 import Animate from "../../../assets/loader.json"
 import Lottie from 'react-lottie';
+import { useTranslation } from "react-i18next";
 
 
 const RaceCardSlider = () => {
@@ -149,6 +150,7 @@ const RaceCardSlider = () => {
       },
     ],
   };
+  const {t} =useTranslation
   return (
     <>
       <div className="RaceCardSlider">
@@ -187,7 +189,7 @@ const RaceCardSlider = () => {
                         )} m
                       </p>
                       </div>
-                      <p className="racetime"> <Moment add={{ hours: 12 }} format="hh:mm:ss">{item.DayNTime}</Moment> m</p>
+                      <p className="racetime"> <Moment add={{ hours: 12 }} format="mm">{item.DayNTime}</Moment> m</p>
                     </span>
                     <span className="singleracecardbtn">
                       <button>From</button>

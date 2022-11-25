@@ -25,7 +25,7 @@ const Profile = () => {
           margin: "100px",
         }}
       >
-        Loading....
+     
       </h2>
     );
   }

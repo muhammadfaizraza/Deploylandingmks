@@ -19,7 +19,7 @@ const Ads = () => {
           margin: "100px",
         }}
       >
-        Loading....
+   
       </h2>
     );
   }

@@ -22,7 +22,7 @@ const RaceCard = () => {
       <h2
       className="loader"
       >
-        Loading....
+  
       </h2>
     );
   }

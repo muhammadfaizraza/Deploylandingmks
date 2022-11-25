@@ -31,7 +31,7 @@ const Stats = () => {
           margin: "100px",
         }}
       >
-        Loading....
+  
       </h2>
     );
   }
