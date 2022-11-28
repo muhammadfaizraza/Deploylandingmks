@@ -6,11 +6,11 @@ const ExNews = () => {
 
   return (
     <>
-    <div className='exnews'> 
+    <div className='exnews newsD'> 
      {
       News.map((item,index) => {
         return(
-          <span className='newsflex' key={item.id} >
+          <span className='newsflex ' key={item.id} >
             <p>{t('Exclusive')}</p>
             <p>{item.description}</p>
           </span>

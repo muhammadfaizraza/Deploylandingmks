@@ -33,6 +33,9 @@ import JockeyDetail from './Webiste/pages/JockeyDetail';
 import TrainerDetail from './Webiste/pages/TrainerDetail';
 import { useState, useEffect } from "react";
 import CompetitionModal from './Webiste/Components/Competition/Competition';
+import MySelection from './Webiste/UserDashboard/MySelection';
+import MyProfile from './Webiste/UserDashboard/MyProfile';
+import WinnerList from './Webiste/UserDashboard/WinnerList';
 
 
 function App() {
@@ -70,6 +73,9 @@ function App() {
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
           <Route path='/dashboard'  element={  <Dashboard /> } />
+          <Route path='/myprofile'  element={  <MyProfile /> } />
+          <Route path='/myselection'  element={  <MySelection /> } />
+          <Route path='/winnerlist'  element={  <WinnerList/> } />
           <Route path='/userProfile'  element={  <Profile /> } />
           <Route path='/changepassword' element={<ChangePassword />} />
           <Route path='/myresult' element={ <UserResult /> }/>

@@ -32,6 +32,7 @@ const RaceCardSlider = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   // const timerace = racecard.map((item) => item.DayNTime);
+  const {t} = useTranslation();
   const timerace = 11
   const deadline = timerace;
   const getTime = () => {
@@ -150,7 +151,8 @@ const RaceCardSlider = () => {
       },
     ],
   };
-  const {t} =useTranslation
+  const cookiedata = Cookies.get('i18next')
+
   return (
     <>
       <div className="RaceCardSlider">
@@ -167,25 +169,21 @@ const RaceCardSlider = () => {
                 }}>
               
                     <p className="clubname">
-                      {item.RaceCourseData === null ? (
-                        <>No Data</>
-                      ) : (
-                        item.RaceCourseData.TrackNameEn
-                      )}
+                    {cookiedata === 'en' ? item.RaceCourseData.TrackNameEn : item.RaceCourseData.TrackNameAr}
                     </p>
                     <p className="owner">
-                    {item.RaceNameModelData.NameEn}
+                    {cookiedata === 'en' ? item.RaceNameModelData.NameEn : item.RaceNameModelData.NameAr}
                     </p>
                     <span className="racecardrow">
                       <div style = {{
                         display:'flex'
                       }}>
-                      <p className="raceNo"> Race 4 -</p>
+                      <p className="raceNo"> {t("Race") }4 -</p>
                       <p className="racedistance">
-                        {item.RaceCourseData === null ? (
+                        {item.TrackLengthData === null ? (
                           <>No Data</>
                         ) : (
-                          item.RaceCourseData.TrackLength
+                          item.TrackLengthData.TrackLength
                         )} m
                       </p>
                       </div>

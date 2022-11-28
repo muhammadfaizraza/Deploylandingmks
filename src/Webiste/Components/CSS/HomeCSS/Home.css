@@ -333,3 +333,6 @@ button#uncontrolled-tab-example-tab-contact .nav-link:active{
 .accordion-button .collapsed{
     background-color: #19469D;
 }
+.newsD{
+flex: 9;
+}
