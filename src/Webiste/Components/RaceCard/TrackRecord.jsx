@@ -1,7 +1,9 @@
 // import { RaceCardData } from "../../data/data";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 const TrackRecord = () => {
   return (
+    <ScrollContainer className="scroll-container">
     <div>
       <table className="customers">
         <tr>
@@ -143,6 +145,7 @@ const TrackRecord = () => {
         </tr>
       </table>
     </div>
+    </ScrollContainer>
   );
 };
 export default TrackRecord;

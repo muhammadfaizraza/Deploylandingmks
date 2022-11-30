@@ -41,6 +41,7 @@ const Card = () => {
     border: "none",
     color: "#fff",
   };
+  
   return (
     <div className="forfexclass">
       <Accordion defaultActiveKey="1">

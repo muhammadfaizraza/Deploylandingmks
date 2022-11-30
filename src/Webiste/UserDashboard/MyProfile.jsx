@@ -5,7 +5,7 @@ import Search from '../Components/Home/Components/Search'
 import ExNews from '../Components/Home/Components/ExNews'
 import Notification from '../Components/Home/Components/Notification'
 import Tracker from '../Components/Home/Components/Tracker'
-import Language from '../Components/Home/Components/Language'
+
 import { Form } from 'react-bootstrap'
 import {FloatingLabel} from 'react-bootstrap'
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,7 +24,7 @@ const MyProfile = () => {
     <Search />
     <Tracker />
     <Notification />
-    <Language />
+    
 
   </div>
 <div className="userHeader">

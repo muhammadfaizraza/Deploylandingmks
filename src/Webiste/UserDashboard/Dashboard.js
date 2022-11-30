@@ -34,8 +34,7 @@ const Dashboard = () => {
 
               <div className='OngoingRaces'>
                 <p>Races </p>
-                <h3>0</h3>
-              </div>
+               </div>
               <div className='GenerateReports'>
                 <Link to='/myselection'>
                 <p>My Selection</p>
@@ -50,7 +49,7 @@ const Dashboard = () => {
               </div>
               <div className='GenerateReports'>
                 <p>Result</p>
-                <h3>0</h3>
+              
               </div>
               <div className='GenerateReports'>
                 <Link to="/myprofile">

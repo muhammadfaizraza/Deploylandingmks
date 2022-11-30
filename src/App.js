@@ -36,6 +36,7 @@ import CompetitionModal from './Webiste/Components/Competition/Competition';
 import MySelection from './Webiste/UserDashboard/MySelection';
 import MyProfile from './Webiste/UserDashboard/MyProfile';
 import WinnerList from './Webiste/UserDashboard/WinnerList';
+import RaceDetails from './Webiste/pages/RaceDetails';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         <Route path='/' exact element={  <Home /> } />
         <Route path="/racecard"  element={  <RaceCard /> } />
         <Route path={'/racedetail'} element={  <Home /> } />
+        <Route path={'/racedetails'} element={  <RaceDetails /> } />
         <Route path='/login'  element={  <Login /> } />
         <Route path='/registration'  element={  <Registration /> } />
         <Route path='/racecourse'  element={  <RaceCourse /> } />

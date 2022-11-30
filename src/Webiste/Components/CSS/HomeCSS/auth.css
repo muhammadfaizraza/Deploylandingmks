@@ -120,6 +120,7 @@ line-height: 43px;
   border-radius: 0px 0px 0px 20px;
   color: #fff;
 height: 50px;
+margin: 0 - 39px !important;
 width: 225px;
 }
 .authhover:hover{

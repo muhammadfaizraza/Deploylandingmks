@@ -55,14 +55,31 @@ const RaceCardSlider = () => {
 
 
 
- 
+  const [userIsDesktop, setUserIsDesktop] = useState(true);
 
+  useEffect(() => {
+    window.innerWidth > 440 ? setUserIsDesktop(true) : setUserIsDesktop(false);
+  }, [userIsDesktop]);
+
+  console.log(userIsDesktop,'userIsDesktop')
   function HandleJockey(id){
+    if( userIsDesktop === true) {
       navigate("/racedetail", {
-      state: {
-        id: id
-      },
-    });
+        state: {
+          id: id
+        },
+      });
+    }
+    else{
+      navigate("/racedetails",{
+       state : {
+
+        id:id
+       }
+
+      })
+    }
+     
   }
   if (status === STATUSES.LOADING) {
     return (

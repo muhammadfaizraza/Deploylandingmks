@@ -1,17 +1,21 @@
 import { RaceCardData } from "../../data/data"
 import horse from '../../assets/horse.png'
+import ScrollContainer from "react-indiana-drag-scroll"
 
 const Predictor = () => {
   return (
+    <ScrollContainer className="scroll-container">
     <div>
       {
         RaceCardData.map((item) => {
           return(
+        
             <div className="predictor">
             {
               item.predictor.map((predict) => {
                 const { name, position, score} = predict;
                 return(
+            
                   <div className="predict" >
                      <>
                      <span className="predictdata"
@@ -33,6 +37,7 @@ const Predictor = () => {
                      </>
                      <button>{position}</button>
                   </div>
+              
                 )
               })
             }
@@ -41,6 +46,7 @@ const Predictor = () => {
         })
       }
     </div>
+        </ScrollContainer>
   )
 }
 export default Predictor

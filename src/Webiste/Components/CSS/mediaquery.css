@@ -735,6 +735,7 @@ line-height: 100px;
     .largemenu{
         display: none;
     }
+
     .HomeLeftSection {
         margin-top: 30px;
     }
@@ -1059,7 +1060,51 @@ line-height: 100px;
 }
 
 @media (max-width: 471px) and (min-width: 360px){
+    .resracenameflex p{
+        margin: 26px 16px 9px 18px;
+    
+    }
+    .resracenameflex > img {
+        margin: 26px 20px 0 0;
+    }
+    .resracestatuscolor{
+        gap: 15px;
+        width: 73%;
+        padding-top: 3px;
+        margin-left: 26px;
+    }
+    .RaceDetailHeader {
+        width: 94%;
+        margin: 0 15px;    }
+    .resracestatuscolor li{
+        width: 30px;
+    }
+    .itemraces_left > .sponsor {
+      
+        max-width: 84px;
+        margin-top: 17px;
+    }
+    .weatherimg{
+
+        margin-left: 63px;
+    margin-top: 17px;
+
+    }
+    .itemraces_center > h5 {
+        margin-left: 16px;
+        margin-top: -11px;
+      
+    }
+    .itemraces_right .distance {
+     
+        margin: 4px 8px 0 -18px;
+   font-size: 10px;
+    }
+    
     .largemenu{
+        display: none;
+    }
+    .xyz{
         display: none;
     }
     .HomeLeftSection {
@@ -1073,6 +1118,12 @@ line-height: 100px;
         width: 210px;
         height: 210px;
         margin: auto;
+    }
+    .rescolorheader{
+
+display: block;
+height: 150px;
+
     }
     .chartmatch {
         font-size: 19.5949px;
@@ -1391,6 +1442,89 @@ line-height: 100px;
     .newpost {
         height: 500px;
     }
+    .itemraces_right .Favourite {
+        margin-top: 14px;
+        margin-left: 78px;
+    }
+    .raced p{
+font-size: 10px;
+line-height: 0px;
+        
+    }
+    .inner_itemraces {
+    display: block;
+    }
+    .racedisc {
+        height: fit-content;
+        max-height: 550px;
+    }
+    .prizecardheaders {
+        display: block;
+     
+}
+.Competitiontrophy {
+
+    width: 743px;
+margin-top: 10px;
+    overflow: auto;
+}
+.racedisc {
+ 
+    height: fit-content;
+
+    max-height: 550px;
+}
+.prizecard {
+    height: fit-content;
+    max-height: 190px;
+}
+.customers td, .customers th {
+    border: inherit;
+    padding: 4px 14px;
+    font-size: 6px;
+
+    
+}
+.cardracesjockeycards {
+    margin-left: -57px;
+   
+}
+.pmclass > p {
+    font-weight: 300;
+    font-size: 12px;
+    color: black;
+}
+.uaecareer {
+    display: flex;
+    gap: 25px;
+    margin-top: 17px;
+    width: 700px;
+    margin-bottom: -15px;
+}
+.trainerbreader_section {
+   
+    margin-top: 8px;
+}
+.pmclass {
+    margin: 14px 0 0 2px;
+    
+}
+.costum td , .costum th{
+    
+        border: inherit;
+        padding: 4px 13px;
+        font-size: 10px;
+    
+}
+.mycardclass1 {
+    background-color: #d9d6d6;
+    width: 707px;
+}
+.predictor{
+
+    width: 700px;
+    overflow: scroll;
+}
 }
 
 

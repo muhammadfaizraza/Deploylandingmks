@@ -5,6 +5,8 @@ import Card from './PrintCard';
 class ComponentToPrint extends React.Component {
   render() {
     return (
+
+      
      <Card />
     );
   }

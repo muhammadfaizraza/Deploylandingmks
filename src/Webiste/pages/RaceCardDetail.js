@@ -162,6 +162,7 @@ const RaceCardDetail = () => {
     border: "none",
     color: "#fff",
   };
+  console.log(singlerace , "single")
   const cookiedata = Cookies.get('i18next')
   return (
     <>
@@ -175,7 +176,7 @@ const RaceCardDetail = () => {
                   <div>
                     <span className="racenameflex">
                       <p>
-                      {  cookiedata === 'en' ?  singlerace.RaceCourseData.TrackNameEn  : singlerace.RaceCourseData.TrackNameAr}
+                      {  cookiedata === 'en' ?  (singlerace.RaceCourseData.TrackNameEn === null ?<>N/A</> :singlerace.RaceCourseData.TrackNameEn )  : (singlerace.RaceCourseData.TrackNameAr === null ? <>N/A</>:singlerace.RaceCourseData.TrackNameAr )}
                       </p>
                       <img src={flag} alt="" />
                     </span>
@@ -203,12 +204,12 @@ const RaceCardDetail = () => {
                         </span>
                    
 
-<img  className="sponsor" src={singlerace.SponsorData.image}  alt=""  />
+ <img  className="sponsor" src={singlerace.SponsorData.image}  alt=""  /> 
 
                       
                       </span>
                       <span className="itemraces_center">
-                       <h5>   {  cookiedata === 'en' ?  singlerace.RaceNameModelData.NameEn  : singlerace.RaceNameModelData.NameAr} </h5>
+                     <h5>   {  cookiedata === 'en' ?  (singlerace.RaceNameModelData.NameEn === null ?<>N/A</> : singlerace.RaceNameModelData.NameEn)  :( singlerace.RaceNameModelData.NameAr === null ? <>N/A</> : singlerace.RaceNameModelData.NameAr)} </h5>
                         <div
                           style={{
                             display: "flex",
@@ -222,15 +223,15 @@ const RaceCardDetail = () => {
                             }}
                           >
                       {singlerace.RaceKindData.NameEn} 
-                          </p>
-                          <p
-                            style={{
-                              padding: "5px",
-                            }}
-                          >
-                    
-                           {singlerace.RaceTypeModelData.NameEn} 
-                                                     </p>
+                          </p> 
+                             <p
+                              style={{
+                                padding: "5px",
+                              }}
+                            >
+                       
+                            {singlerace.RaceTypeModelData.NameEn} 
+                                                      </p> 
                         </div>
                         
                       </span>
@@ -245,9 +246,9 @@ const RaceCardDetail = () => {
                             <img src={weather} alt="" />
                           </p>
                         <span className="distance">
-                          <Moment format="YYYY/MM/DD">
-                          {singlerace.DayNTime}
-                          </Moment>
+                      
+                  {singlerace.TrackLengthData.TrackLength}m        {singlerace.WeatherDegree}F
+                      
                         
                         </span>
                         <div className="Favourite">
@@ -386,7 +387,8 @@ const RaceCardDetail = () => {
                             <div>
 
                               {
-                               
+                               singlerace.HorseModels === undefined ? <>N/A</>:
+
                               singlerace.HorseModels.map((data) => {
                                 return (
                                   <Accordion.Item eventKey='0'>
@@ -413,10 +415,10 @@ const RaceCardDetail = () => {
                                                 color: "#19469D",
                                               }}
                                             >
-                                              <span>{data.NameEn}</span>
+                                              <span>{cookiedata === "en" ?data.NameEn :   data.NameAr }</span>
                                             </p>
                                             <p style={myPara}>
-                                              {/* {data.Age}yrs GR H (242) */}
+                                            <Moment fromNow ago>{data.DOB}</Moment>  GR H (242) 
                                             </p>
                                           </div>
                                           <div

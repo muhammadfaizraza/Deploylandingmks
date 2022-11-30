@@ -363,7 +363,7 @@ line-height: 15px;
   .PrintOutClass{
     border: none;
     width: 100%;
-    margin: auto;
+    margin-top: 10px;
   }
   .itemraces_center{
     margin-top: 20px;
@@ -448,9 +448,7 @@ b, strong {
 height: 67px;
 margin-top: 15px;
 }
-.cardraces4{
 
-}
 .cardracesjockey{
     display: flex;
 }
