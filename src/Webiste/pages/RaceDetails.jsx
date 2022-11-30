@@ -128,7 +128,8 @@ const RaceDetails = () => {
     <Zoom>
       <div className="RaceCardDetail">
         {singlerace.length !== 0 ? (
-          <div className="RaceDetailHeader">
+         <>
+         <div className="RaceDetailHeader">
             <div>
               <div className="colorheader rescolorheader">
                 <div>
@@ -646,9 +647,19 @@ const RaceDetails = () => {
                   <PrintOut/>
                   </Tab>
                 </Tabs>
+            
               </div>
+         
             </div>
+      
+            <div>
+      <Footer />
+
           </div>
+          </div>
+
+        
+          </>
         ) : (
           <>No Data</>
         )}
@@ -669,8 +680,8 @@ const RaceDetails = () => {
         </Modal>
       </div>
     </Zoom>
-   
-         <Footer />
+  
+     
   </>
   )
 }

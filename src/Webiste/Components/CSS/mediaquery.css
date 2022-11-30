@@ -1525,6 +1525,9 @@ margin-top: 10px;
     width: 700px;
     overflow: scroll;
 }
+.RaceDetailHeader {
+    max-height: 700px;
+}
 }
 
 
