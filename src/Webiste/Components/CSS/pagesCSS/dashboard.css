@@ -560,7 +560,7 @@ color: #000;
   margin-top: 10px;
   caption-side: bottom;
     border-collapse: inherit;
-    width: 92vw;
+    width: 100%;
 }
 
 .div_maintb th {

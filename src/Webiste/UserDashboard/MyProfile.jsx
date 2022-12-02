@@ -5,14 +5,35 @@ import Search from '../Components/Home/Components/Search'
 import ExNews from '../Components/Home/Components/ExNews'
 import Notification from '../Components/Home/Components/Notification'
 import Tracker from '../Components/Home/Components/Tracker'
-
+import { fetchProfile  } from '../redux/getReducer/getUserProfile'
 import { Form } from 'react-bootstrap'
 import {FloatingLabel} from 'react-bootstrap'
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from 'react-date-picker';
-import { useState } from 'react'
+import { useState } from 'react';
+import { useDispatch,useSelector  } from 'react-redux';
+import { useLocation ,useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect } from 'react'
+import Cookies from 'js-cookie'
 const MyProfile = () => {
-    const [DOB ,setDOB] = useState()
+
+  const history = useNavigate();
+  const { state } = useLocation();
+    const [DOB ,setDOB] = useState();
+    const dispatch = useDispatch();
+
+   useEffect(()=>{
+
+    axios({
+      method: "get",
+      url: `https://sumairroudani.com/api/v1/singlesubscriber/:${Cookies.get("id")}`,
+    }).then(function (response) {
+      console.log(response.data , "BHARAVA");
+    });
+
+
+   },[])
   return (
  <Fragment>
   <div className='d-flex'>
@@ -29,6 +50,7 @@ const MyProfile = () => {
   </div>
 <div className="userHeader">
 <h3>My Profile</h3>
+
 
 </div>
 <div className="form">

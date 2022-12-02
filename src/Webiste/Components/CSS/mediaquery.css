@@ -1512,7 +1512,7 @@ margin-top: 10px;
 .costum td , .costum th{
     
         border: inherit;
-        padding: 4px 13px;
+        padding: 20px 13px;
         font-size: 10px;
     
 }
@@ -1527,6 +1527,69 @@ margin-top: 10px;
 }
 .RaceDetailHeader {
     max-height: 700px;
+}
+.customers2 th {
+    font-size: 10px;
+    padding-left: 8px;
+}
+
+.CompetitionName h2 {
+
+    font-size: 14.5949px;
+ 
+}
+
+.CompetitionName h3 {
+ 
+    font-size: 13.5949px;
+
+}
+
+.CompetitionPoint {
+
+    gap: 9.39px;
+    padding-left: 3px;
+    padding-right: 10px;
+}
+
+.CompetitionCard {
+  
+    height: 35px;
+  
+}
+
+
+.CompetitionPoint > div:nth-child(3) {
+
+    height: 45px;
+
+}
+
+.CompetitionPoint > div:nth-child(7) {
+
+    height: 45px;
+ 
+}
+.CompetitionHorse > p {
+
+    font-size: 14.6px;
+ 
+}
+.CompetitionBtn > button {
+    font-size: 13px;
+    width: 137px;
+
+ }
+ ul.mb-3.RaceNavItem.nav.nav-tabs {
+ 
+    overflow-x: auto;
+}
+.modal-content {
+    width: 100vw;
+    margin: 0 -8px;
+}
+.RaceCardDetail {
+    width: 99%;
 }
 }
 

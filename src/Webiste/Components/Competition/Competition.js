@@ -4,6 +4,7 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import "../CSS/competitionModal.css";
 import img from "../../assets/image 10.png";
 import img1 from "../../assets/image 10 (1).png";
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 const options = [
   {
@@ -87,10 +88,12 @@ const Competition = () => {
             return <div className="CompetitionCard">{item.id}</div>;
           })}
         </div>
+        <ScrollContainer className="scroll-container">
         <div className="CompetitionPrize">
           <div className="Competitiontrophy">
             {Trophy.map((item) => {
               return (
+            
                 <div className="Trophydata">
                   <span>{item.id}</span>
                   <span>
@@ -102,13 +105,16 @@ const Competition = () => {
                     <p>{item.name}</p>
                   </div>
                 </div>
+      
               );
             })}
           </div>
         </div>
+        </ScrollContainer>
         <div>
           {options.map((item) => {
             return (
+              <ScrollContainer className="scroll-container">
               <div className="CompetitionHorse">
                 <p>{item.name}</p>
                 <div className="CompetitionHorseselect">
@@ -132,6 +138,7 @@ const Competition = () => {
                   })}
                 </div>
               </div>
+              </ScrollContainer>
             );
           })}
         </div>

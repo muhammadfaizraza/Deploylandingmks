@@ -12,6 +12,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const { data: profile, status } = useSelector((state) => state.profile);
 
+
   const navigate = useNavigate()
 
   useEffect(() => {

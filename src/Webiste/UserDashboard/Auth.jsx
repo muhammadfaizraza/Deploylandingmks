@@ -16,11 +16,12 @@ const Auth = () => {
     if (userToken) {
       dispatch(getUserDetails());
     }
-   
+   console.log(userInfo , "agaya")
   }, [userToken, dispatch]);
 function Redirect(){
   navigate('/dashboard')
 }
+
   const handleLogout = () => {
     dispatch(logout())
     navigate('/login')

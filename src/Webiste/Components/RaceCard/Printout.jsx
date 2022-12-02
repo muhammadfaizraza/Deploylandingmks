@@ -1,13 +1,16 @@
 import React, { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 import Card from './PrintCard';
+import { useState } from 'react';
 
 class ComponentToPrint extends React.Component {
+  
   render() {
+    
+ 
     return (
 
-      
-     <Card />
+      <Card />
     );
   }
 }

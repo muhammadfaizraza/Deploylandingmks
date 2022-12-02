@@ -120,6 +120,7 @@ const RaceDetails = () => {
     border: "none",
     color: "#fff",
   };
+  
   console.log(singlerace , "single")
   const cookiedata = Cookies.get('i18next')
   return (
@@ -377,10 +378,19 @@ const RaceDetails = () => {
                                               color: "rgba(0, 0, 0, 0.5)",
                                               textAlign:'end'
                                             }}>TT OR: 62</p>
-                                        <div className="cardracesjockey">
+                                             {
+                                              singlerace.JockeyModels.map((jockey , ind)=>(
+                                        <div className="cardracesjockey" key={ind}>
+                                        
                                           <div className="cardracesjockeyleft">
-                                            <p>J <b>Tadhg O’Shea</b></p>
-                                            <p>59kg</p>
+                                      
+                                   
+                                        
+                                     
+                                            <p>J<b>{jockey.NameEn}</b></p>    
+                                            <p>{jockey.MaximumJockeyWeight}</p>
+                                
+                                           
                                             <p style={{
                                               fontWeight: "300",
                                               fontSize: "9px",
@@ -388,8 +398,9 @@ const RaceDetails = () => {
                                               color: "rgba(0, 0, 0, 0.5)",
                                             }}>47 (8 - 3 - 2 - 8 - 4)</p>
                                           </div>
-                                          <img src={pic} alt="" className="cardracesjockeyimg"/>
+                                          <img src={jockey.image} alt="" className="cardracesjockeyimg"/>
                                         </div>
+                                            ))} 
                                         <div className="cardracesjockeycards">
                                           <ul>
                                             <li>C</li>
@@ -442,10 +453,10 @@ const RaceDetails = () => {
                                           Dam <b>:{data.Dam === null ? <>N/A</> : <>{data.Dam} </>} </b> 
                                           </p>
                                           <p style={myPara}>
-                                          Sire   <b>:{data.Sire} </b> 
+                                          Sire   <b>:{data.Sire === null ? <>N/A</> : <>{data.Sire} </>}  </b> 
                                           </p>
                                           <p style={myPara}>
-                                          G.Sire <b> : {data.GSire}</b> 
+                                          G.Sire <b>:{data.GSire === null ? <>N/A</> : <>{data.GSire} </>} </b> 
                                           </p>
                                         </div>
                                         <div
@@ -461,7 +472,7 @@ const RaceDetails = () => {
                                               color: "#FF0000",
                                             }}
                                           >
-                                            David & Nicola Barron
+                                     <b>O</b>       David & Nicola Barron
                                           </p>
                                           <p
                                             style={{
@@ -469,6 +480,7 @@ const RaceDetails = () => {
                                               fontSize: "9px",
                                               lineHeight: "15px",
                                               color: "rgba(0, 0, 0, 0.5)",
+                                             marginLeft:"10px", 
                                             }}
                                           >
                                             (8 - 3 - 2 - 8 - 4)
@@ -477,7 +489,7 @@ const RaceDetails = () => {
                                         <div className="trainerbreader_section">
                                           <img src={pic} alt="" className="trainerbreader_image"/>                                            <div className="race_trainerbreader">
                                           <p>T <b>Miss Alice Keighley </b></p>
-                                          <p>B <b>John Alice Keighley </b></p>
+                                          <p>B <b>{data.BreederData === undefined ? <>N/A</>:<> {data.BreederData.NameEn}</>} </b></p>
                                           </div>
                                         </div>
                                       </div>
@@ -510,7 +522,7 @@ const RaceDetails = () => {
                                             <th>Dist</th>
                                             <th>TC</th>
                                             <th>Type</th>
-                                            <th>Dts</th>
+                                            <th>Dhr</th>
                                             <th>time</th>
                                             <th>Jockey</th>
                                             <th>Wgt</th>
@@ -616,8 +628,9 @@ const RaceDetails = () => {
                     title="Draw"
                     tabClassName="profile-tabitem"
                   >
+                         <Draw />
                     <div className="RaceDetailCard">
-                      <Draw />
+                 
                     </div>
                   </Tab>
                   <Tab

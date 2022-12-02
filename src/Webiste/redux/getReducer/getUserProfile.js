@@ -39,6 +39,7 @@ export const fetchProfile = createAsyncThunk('profileGet/fetch', async () => {
           Authorization: `Bearer ${Cookies.get('userToken')}`,
         },
       }
+    
     const res = await axios.get(`${window.env.API_URL}/singlesubscriber/${Cookies.get('id' || '')}`, config)
     const data =  res.data;
     return data.data;

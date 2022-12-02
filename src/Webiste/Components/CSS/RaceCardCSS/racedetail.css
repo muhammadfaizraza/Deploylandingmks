@@ -419,13 +419,14 @@ font-weight: 300;
 font-size: 12px;
 line-height: 15px;
 }
-.Trophydata_P > h6{
+.Trophydata_P > h6 {
     margin-top: 10px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
     line-height: 15px;
+    margin-left: 10px;
 }
 .prizecardheaders{
     display: flex;
