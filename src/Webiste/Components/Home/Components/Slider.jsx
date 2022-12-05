@@ -40,7 +40,7 @@ const Slider = () => {
   return (
     <>
       <div className="slider">
-      <Carousel>
+      {/* <Carousel>
       <Carousel.Item interval={1000}>
               <ReactImageAppear 
                 className="d-block w-100 slideimg1"
@@ -52,8 +52,8 @@ const Slider = () => {
               />
             </Carousel.Item>
             
-      </Carousel>
-      {/* <Carousel>
+      </Carousel> */}
+      <Carousel>
         {
           slider.map((item) => {
             return(
@@ -69,7 +69,7 @@ const Slider = () => {
             )
           })
         }
-      </Carousel> */}
+      </Carousel>
       </div>
     </>
   )

@@ -24,6 +24,7 @@ justify-content: space-evenly;
     box-sizing: border-box;
     width: 235px !important;
     height: 124px;
+    cursor: pointer;
     background: #FFFFFF;
     border: 2px solid #DFDFDF;
     border-radius: 20px;

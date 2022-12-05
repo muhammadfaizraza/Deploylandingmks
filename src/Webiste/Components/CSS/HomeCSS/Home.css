@@ -104,8 +104,8 @@ border-radius: 0px 20px 0px 0px;
 .first-txt{
     position: absolute;
     padding: 55px;
-    top: 20%;
-    /* left: 10rem; */
+    top: 25%;
+    left: 25%;
     /* width: 243px; */
     height: 120px;
     font-family: 'Inter';
@@ -335,4 +335,9 @@ button#uncontrolled-tab-example-tab-contact .nav-link:active{
 }
 .newsD{
 flex: 9;
+}
+.adstitlepos{
+left: 40%;
+top: 20%;
+font-weight: 400;
 }

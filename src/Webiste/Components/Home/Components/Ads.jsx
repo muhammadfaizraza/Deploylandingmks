@@ -38,7 +38,7 @@ const Ads = () => {
   return (
     <>
     <div className="AdsCard">
-      {/* {
+      {
         ads.slice(-1).map((item) => {
           return(
             <div className='adscardmapping'style={{
@@ -50,15 +50,14 @@ const Ads = () => {
             }} />
             <p style={{
               position: 'absolute',
-              top: '7px',
-              left: '5px'
-            }}>{item.TitleEn}</p>
+              
+            }} className='adstitlepos'>{item.TitleEn}</p>
             
             </div>
           )
         })
-      } */}
-      <div className='adscardmapping'style={{
+      }
+      {/* <div className='adscardmapping'style={{
               position:'relative'
             }} >
             <img src={img} alt='' style={{
@@ -71,7 +70,7 @@ const Ads = () => {
               left: '5px'
             }}>Ads</p>
             
-            </div>
+            </div> */}
     </div>
     </>
   )

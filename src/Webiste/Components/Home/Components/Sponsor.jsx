@@ -38,12 +38,12 @@ const Sponsor = () => {
   return (
     <>
       <div className="sponsor">
-      <div  className='sponsorimg'>
+      {/* <div  className='sponsorimg'>
                 <img src={img} alt=""/>
                 <h2 className='first-txt'>SPONSOR
 BANNER</h2>
-                </div>
-      {/* {
+                </div> */}
+      {
             sponsor.slice(0,1).map((item) => {
               return(
                 <div  className='sponsorimg'>
@@ -52,7 +52,7 @@ BANNER</h2>
                 </div>
               )
             })
-          } */}
+          }
       </div>  
     </>
   )
