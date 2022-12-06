@@ -45,7 +45,7 @@ const HorseDetail = (data) => {
             >
               {data.data.DOB === null ? <>No Data</> : <><Moment fromNow ago>
                                   {data.data.DOB}
-                                </Moment></>} yrs GR H (242)
+                                </Moment></>} GR H (242)
                
             </p>
           </span>

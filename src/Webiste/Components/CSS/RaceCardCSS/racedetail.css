@@ -102,7 +102,7 @@ line-height: 1px;
     flex-direction: row;
 justify-content: center;
 align-items: center;
-padding: 5.97744px 8.96617px;
+padding: 0px 0.96617px;
 gap: 10.76px;
 width: 84px;
 height: 77px;
@@ -534,4 +534,10 @@ height: 30px;
     display: flex;
     flex-direction: column;
     gap: 2px;
+}
+
+.weatherIcon{
+    width: 26px;
+    height: 26px;
+    color: rgb(112, 112, 112);
 }

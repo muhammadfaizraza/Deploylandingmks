@@ -11,7 +11,7 @@ import { fetchRace, STATUSES } from "../../../redux/getReducer/getRaceCard";
 import Cookies from "js-cookie";
 import Moment from "react-moment"
 import Animate from "../../../assets/loader.json"
-import Lottie from 'react-lottie';
+import Lottie from 'react-lottie';
 import { useTranslation } from "react-i18next";
 
 
@@ -194,7 +194,7 @@ const RaceCardSlider = () => {
                       <div style = {{
                         display:'flex'
                       }}>
-                      <p className="raceNo"> {t("Race") }4 -</p>
+                      <p className="raceNo"> {t("Race") } - </p>
                       <p className="racedistance">
                         {item.TrackLengthData === null ? (
                           <>No Data</>
@@ -203,10 +203,10 @@ const RaceCardSlider = () => {
                         )} m
                       </p>
                       </div>
-                      <p className="racetime"> <Moment add={{ hours: 12 }} format="mm">{item.DayNTime}</Moment> m</p>
+                      <p className="racetime"> <Moment fromNow>{item.DayNTime}</Moment></p>
                     </span>
                     <span className="singleracecardbtn">
-                      <button>From</button>
+                      <button>FORM</button>
                     </span>
                   </div>
           

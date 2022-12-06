@@ -40,31 +40,21 @@ const Slider = () => {
   return (
     <>
       <div className="slider">
-      {/* <Carousel>
-      <Carousel.Item interval={1000}>
-              <ReactImageAppear 
-                className="d-block w-100 slideimg1"
-                src={img}
-                alt="First slide"
-                animation="zoomIn"
-                animationDuration="1s"
-                indicators={false}
-              />
-            </Carousel.Item>
-            
-      </Carousel> */}
+     
       <Carousel>
         {
           slider.map((item) => {
             return(
               <Carousel.Item interval={1000}>
-              <ReactImageAppear 
+               <a href={item.Url} target='_blank'>
+               <ReactImageAppear 
                 className="d-block w-100 slideimg1"
                 src={item.image}
                 alt="First slide"
                 animation="zoomIn"
                 animationDuration="1s"
               />
+               </a>
             </Carousel.Item>
             )
           })

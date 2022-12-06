@@ -35,7 +35,7 @@ const RegisterScreen = () => {
     formData.append("Email", Email)
     formData.append("PassportPicture", PassportPicture)
 
-    const response = await axios.post(`https://mksbackendreal.herokuapp.com/api/v1/register`,formData)
+    const response = await axios.post(`https://sumairroudani.com/api/v1/register`,formData)
     console.log(response.success,'response')
     toast('Successfuly Registered')
     navigate('/login')
@@ -136,8 +136,7 @@ const RegisterScreen = () => {
           required
         />
       </div> */}
-      <div className='form-group'>
-      
+      <div className='form-group PassportPicturefile'>
         <input
           type='file'
           className='form-input'

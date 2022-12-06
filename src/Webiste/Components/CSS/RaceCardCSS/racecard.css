@@ -220,3 +220,6 @@ border-radius: 25px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 25px;
 }
+.Competition_Matches{
+    cursor: pointer;
+}

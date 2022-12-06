@@ -28,7 +28,6 @@ function Redirect(){
     dispatch(logout())
     navigate('/login')
   }
-  console.log(userInfo,'userInfo')
   return (
     <>
  

@@ -29,6 +29,7 @@ import TrackRecord from "../Components/RaceCard/TrackRecord";
 import arrow1 from "../assets/image 13 (Traced).png";
 import Moment from "react-moment";
 import PrintOut from "../Components/RaceCard/Printout";
+import { IoPartlySunnyOutline ,IoCloudyOutline } from 'react-icons/io5'
 
 const Trophy = [
   {
@@ -217,7 +218,7 @@ const RaceCardDetail = () => {
 
                         <img
                           className="sponsor"
-                          src={singlerace.SponsorData.image}
+                          src={singlerace.SponsorData === null ? <></> :singlerace.SponsorData.image}
                           alt=""
                         />
                       </span>
@@ -267,12 +268,15 @@ const RaceCardDetail = () => {
                             margin: "15px",
                           }}
                         >
-                          <img src={weather} alt="" />
+                          {
+                            singlerace.WeatherType === 'Sunny' ? <IoPartlySunnyOutline className="weatherIcon"/> : <IoCloudyOutline className="weatherIcon"/>
+                          }
+                          {/* <img src={weather} alt="" /> */}
                         </p>
                         <span className="distance">
                           <p>
                             {singlerace.TrackLengthData.TrackLength}m{" "}
-                            {singlerace.WeatherDegree}F
+                            a{singlerace.WeatherDegree}F
                           </p>
                         </span>
                         <div className="Favourite">

@@ -28,7 +28,7 @@ const Login = () => {
 
   const submitForm = (data) => {
     dispatch(userLogin(data))  
-     
+   
   }
 
   // const AllFilled = (register.Email !== '') && (register.password !== "")
@@ -62,7 +62,7 @@ const Login = () => {
           required
         />
       </div>
-      
+
       <button type='submit' className='buttonRegister' 
       disabled={loading}>
         Login

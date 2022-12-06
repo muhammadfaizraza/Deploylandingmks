@@ -6,6 +6,8 @@ import { BlogData } from '../../../data/data';
 import ScrollContainer from 'react-indiana-drag-scroll'
 import {useTranslation} from 'react-i18next';
 import Cookies from 'js-cookie';
+import Moment from "react-moment";
+import moment from 'moment';
 
 const Blog = () => {
   const dispatch = useDispatch();
@@ -40,6 +42,7 @@ const Blog = () => {
       </h2>
     );
   }
+  const start = moment().add(Date.now(), 'm');
 
   const cookiedata = Cookies.get('i18next')
   return (
@@ -76,6 +79,7 @@ const Blog = () => {
                      <img src={item.image} alt="" />
                      <h2>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</h2>
                      <h3>{cookiedata === 'en' ? item.DescriptionEn : item.DescriptionAr}</h3>
+                     {/* <Moment date={start} format="hh:mm:ss" trim durationFromNow>2022-12-06 09:59</Moment> */}
                   </div>
                 )
               })

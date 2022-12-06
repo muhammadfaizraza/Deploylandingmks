@@ -20,6 +20,8 @@
   height: 40px;
   border-radius: 10px;
   border: none;
+  background-color: #fff;
+  padding: 8px;
 }
 .buttonRegister {
   border: none;

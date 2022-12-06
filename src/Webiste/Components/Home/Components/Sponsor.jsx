@@ -38,18 +38,16 @@ const Sponsor = () => {
   return (
     <>
       <div className="sponsor">
-      {/* <div  className='sponsorimg'>
-                <img src={img} alt=""/>
-                <h2 className='first-txt'>SPONSOR
-BANNER</h2>
-                </div> */}
+    
       {
             sponsor.slice(0,1).map((item) => {
               return(
-                <div  className='sponsorimg'>
+                <a href={item.Url} target='_blank'>
+                  <div  className='sponsorimg' >
                 <img src={item.image} alt=""/>
                 <h2 className='first-txt'>{item.DescriptionEn}</h2>
                 </div>
+                </a>
               )
             })
           }

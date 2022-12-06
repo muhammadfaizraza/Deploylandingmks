@@ -5,58 +5,64 @@ import CoptRight from "../Components/Reuseable/Copyrights";
 import "../Components/CSS/pagesCSS/horse.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DataTable from "react-data-table-component";
+import Moment from "react-moment";
+import {
+  fetchJockey,
+  STATUSES,
+} from "../../Webiste/redux/getReducer/getJockeySlice";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useTranslation } from "react-i18next";
-
-import {
-  fetchTrainer,
-  STATUSES,
-} from "../../Webiste/redux/getReducer/getTrainerSlice";
-import Moment from "react-moment";
+import JockeyDetail from "./JockeyDetail";
+import { Modal } from "react-bootstrap";
+import Lottie from 'react-lottie';
+import Animate from '../assets/loader.json'
 
 const Trainer = () => {
-  const cookiedata = Cookies.get('i18next')
-  const {t} = useTranslation()
-    const [country, setCountry] = useState([]);
-    const [search, setSearch] = useState("");
-    const [show, setShow] = useState(false);
-    const [modaldata, setmodaldata] = useState()
-    const handleClose = () => setShow(false);
-    const handleShow = async (data) => {
-        setmodaldata(data)
-        console.log('horse data', data)
-        await setShow(true)
-    };
-    // const [filterCountries, setFilterCountries] = useState("");
-    const navigate = useNavigate();
-
-    
-    const dispatch = useDispatch();
-  const { data: trainer, status } = useSelector((state) => state.trainer);
-
+  const [pageNumber, setPageNumber] = useState(1);
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const navigate = useNavigate();
+  const [data ,setdata] = useState()
+  const [show, setShow] = useState(false);
+  const [modaldata, setmodaldata] = useState()
+  const handleClose = () => setShow(false);
+  const handleShow = async (data) => {
+      setmodaldata(data)
+      await setShow(true)
+  };
+  const dispatch = useDispatch();
+  const { data: jockey, status } = useSelector((state) => state.jockey);
+  
   useEffect(() => {
-    dispatch(fetchTrainer());
-    setCountry(trainer);
-    setCountry(trainer);
-  }, []);
+    dispatch(fetchJockey({ pageNumber,searchKeyword }));
+  }, [dispatch, pageNumber,searchKeyword]);
 
-//   useEffect(() => {
-//     const result = country.filter(country => {
-//     return country.name.toLowerCase().match(search.toLowerCase());
-//     });
-//     setCountry(result)
-//   },[search])
+  
+  const previousPageHandler = () => {
+    setPageNumber((pageNumber) => pageNumber - 1);
+  };
+  const nextPageHandler = () => {
+    setPageNumber((pageNumber) => pageNumber + 1);
+  };
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Animate,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }}
+ 
+  const HandleJockey = (Id) => {
+    Cookies.set('sjockey',Id)
+    navigate('/jockeydetail')
+  };
 
-console.log(country,'trainer')
   if (status === STATUSES.LOADING) {
     return (
-      <h2
-      className="loader"
-      >
-        
-      </h2>
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
     );
   }
   if (status === STATUSES.ERROR) {
@@ -70,15 +76,7 @@ console.log(country,'trainer')
       </h2>
     );
   }
-  const HandleJockey = (Id) => {
-    Cookies.set('sjockey',Id)
-    navigate('/trainerdetail')
-  };
 
-
-    
-  
-  
   return (
     <>
       <Layout />
@@ -87,49 +85,85 @@ console.log(country,'trainer')
           <h2>MKS Racing Trainer</h2>
         </div>
         <div className="aboutpagesection">
-        <div className="horseTable">
-           <table id="customers">
-            <tr>
-              <th>{t('Name')}</th>
-              <th>{t('Age')}</th>
-              <th>{t('Detail')}</th>
-              <th>{t('Remarks')}</th>
-              <th>{t('Nationality')}</th>
+          <div className="horseTable">
+            <input type='text' value={searchKeyword} placeholder='Search' onChange={e => setSearchKeyword(e.target.value)}/>
             
-            </tr>
-            {
-            trainer === undefined ? <></> : <>
-              {
-             trainer.map((item) => {
-                    return(
-                        <React.Fragment>
-                            <tr onClick={()=> handleShow(item) 
-                            } style={{
-                              cursor:'pointer'
-                            }}>
-                            <td>{cookiedata === 'en' ? item.NameEn : item.NameEn}</td>
-                            <td> <Moment fromNow ago>
+            <table id="customers">
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>RemarksEn </th>
+                <th>Rating</th>
+                <th>Nationality</th>
+                <th>Image</th>
+              </tr>
+              {jockey.map((item) => {
+                return (
+                  <tr onClick={()=> handleShow(item) 
+                  } style={{
+                    cursor:'pointer'
+                  }}>
+                  <td >{item.NameEn}</td>
+                  <td><Moment fromNow ago>
                                   {item.Age}
                                 </Moment></td>
-                            <td>{cookiedata === 'en' ? item.SexModelData.NameEn : item.SexModelData.NameEn}</td>
-                            <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
-                    
-                            <td>{item.NationalityData === null ? <>No Data</> : <>{item.NationalityData.NameEn }</>}</td>
-                            <td>{item.Remarks === null ? <>No Data</> : <>{item.Remarks }</>}</td>
-                            <td>     <button className="btn" onClick={() => HandleJockey(item._id)}>
-            Detailed View
-          </button></td>
-
-                            </tr>
-                        </React.Fragment>
-                    )
-                })
-            }
-              </>
-            }
-          </table>
-           </div>
+                                <td>{item.RemarksEn}</td>
+                                <td>{item.Rating}</td>
+                                <td>{item.JockeyNationalityData.NameEn} </td>
+                               
+                  <td>
+                    <img src={item.image} alt=""  style={{
+                      height:'30px',
+                      width:'30px'
+                    }}/>
+                  </td>
+                </tr>
+                );
+              })}
+            </table>
+            <div
+              style={{
+                display: "flex",
+                marginTop: "20px",
+                justifyContent: "space-between",
+              }}
+            >
+              <button
+                className="button"
+                onClick={previousPageHandler}
+                disabled={pageNumber === 1}
+              >
+                Previous
+              </button>
+              <p
+                style={{
+                  marginTop: "20px",
+                }}
+              >
+                Page {pageNumber}
+              </p>
+              <button
+                className="button"
+                onClick={nextPageHandler}
+                disabled={jockey.length <= 1}
+              >
+                Next
+              </button>
+            </div>
+          </div>
         </div>
+        <Modal show={show} onHide={handleClose}   size="lg"
+                  aria-labelledby="contained-modal-title-vcenter"
+                  centered>
+                <Modal.Header className="popupheader" closeButton >
+                    <h3>Trainer Detail</h3>
+                </Modal.Header>
+                <Modal.Body>
+                <JockeyDetail data={modaldata} />
+                </Modal.Body>
+                <Modal.Footer>
+                </Modal.Footer>
+            </Modal>
       </div>
       <Footer />
       <CoptRight />

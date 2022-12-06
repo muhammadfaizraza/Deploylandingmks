@@ -14,6 +14,9 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import JockeyDetail from "./JockeyDetail";
 import { Modal } from "react-bootstrap";
+import Lottie from 'react-lottie';
+import Animate from '../assets/loader.json'
+
 const Trainer = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -40,7 +43,13 @@ const Trainer = () => {
   const nextPageHandler = () => {
     setPageNumber((pageNumber) => pageNumber + 1);
   };
-
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Animate,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }}
  
   const HandleJockey = (Id) => {
     Cookies.set('sjockey',Id)
@@ -49,11 +58,11 @@ const Trainer = () => {
 
   if (status === STATUSES.LOADING) {
     return (
-      <h2
-      className="loader"
-      >
-        
-      </h2>
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
     );
   }
   if (status === STATUSES.ERROR) {
@@ -73,7 +82,7 @@ const Trainer = () => {
       <Layout />
       <div className="aboutpage">
         <div className="aboutpageheader">
-          <h2>MKS Racing Trainer</h2>
+          <h2>MKS Racing Jockey</h2>
         </div>
         <div className="aboutpagesection">
           <div className="horseTable">

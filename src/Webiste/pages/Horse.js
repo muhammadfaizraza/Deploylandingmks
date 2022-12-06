@@ -12,6 +12,9 @@ import { Modal } from "react-bootstrap";
 import HorseDetail from "./HorseDetail";
 import { useTranslation } from "react-i18next";
 import Moment from "react-moment";
+import Lottie from 'react-lottie';
+import Animate from '../assets/loader.json'
+
 const Horse = () => {
 
   const {t} = useTranslation();
@@ -27,18 +30,26 @@ const Horse = () => {
   const { data: horse, status } = useSelector((state) => state.horse);
 
   const cookiedata = Cookies.get('i18next')
-
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Animate,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }}
   useEffect(() => {
     dispatch(fetchHorse());
   },[])
  console.log('horse',horse)
   if (status === STATUSES.LOADING) {
     return (
-      <h2
-       className="loader"
-      >
-       
-      </h2>
+      <div>
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
+    </div>
     );
   }
   if (status === STATUSES.ERROR) {
@@ -67,7 +78,7 @@ const Horse = () => {
               <th>{t('Age')}</th>
               <th>{t('Sex')}</th>
               <th>{t('Color')}</th>
-              <th>{t('KindOfHorse')}</th>
+              {/* <th>{t('KindOfHorse')}</th> */}
               <th>{t('Owner')}</th>
               <th>{t('Breeder')}</th>
               <th>{t('Dam')}</th>
@@ -94,7 +105,7 @@ const Horse = () => {
                                 </Moment></td>
                             <td>{cookiedata === 'en' ? item.SexModelData.NameEn : item.SexModelData.NameEn}</td>
                             <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
-                            <td>{cookiedata === 'en' ? item.HorseKindData : item.HorseKindData}</td>
+                            {/* <td>{cookiedata === 'en' ? item.HorseKindData : item.HorseKindData}</td> */}
                             <td>{item.BreederData.NameEn === null ? <>No Data</> : <>{item.OwnerModels.map((data) => data.NameEn) }</>}</td>
                             <td>{cookiedata === 'en' ? item.BreederData.NameEn : item.BreederData.NameEn}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.DamData.NameEn : item.DamData.NameAr}</>}</td>

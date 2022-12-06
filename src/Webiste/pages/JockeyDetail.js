@@ -27,7 +27,7 @@ const JockeyDetail = (data) => {
         <div className="RaceDetailCard">
       <div className="ownerdetailhead">
         <div className="ownername">
-            <span>
+            <span className="ownerdetailjockey">
             <img src={data.data.image} alt='' />
             </span>
             <span style={{
@@ -45,7 +45,7 @@ const JockeyDetail = (data) => {
               </Moment>
               
             </span>  
-            <span>
+            <span className="jockeyimagedetail">
        
             <img src={flag} alt='' />
             <h6>
