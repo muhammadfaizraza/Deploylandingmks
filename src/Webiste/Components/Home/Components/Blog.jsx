@@ -42,7 +42,6 @@ const Blog = () => {
   }
 
   const cookiedata = Cookies.get('i18next')
-  console.log(cookiedata,'cookiedata')
   return (
    <>
      <div className="BlogCard">

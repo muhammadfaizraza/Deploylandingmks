@@ -61,7 +61,6 @@ const RaceCardSlider = () => {
     window.innerWidth > 440 ? setUserIsDesktop(true) : setUserIsDesktop(false);
   }, [userIsDesktop]);
 
-  console.log(userIsDesktop,'userIsDesktop')
   function HandleJockey(id){
     if( userIsDesktop === true) {
       navigate("/racedetail", {

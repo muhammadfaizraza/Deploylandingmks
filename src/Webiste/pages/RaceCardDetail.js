@@ -25,10 +25,10 @@ import arrow from "../assets/image 3 (Traced).png";
 import Summary from "../Components/RaceCard/Summary";
 import Draw from "../Components/RaceCard/Draw";
 import Predictor from "../Components/RaceCard/Predictor";
-import TrackRecord from "../Components/RaceCard/TrackRecord"; 
+import TrackRecord from "../Components/RaceCard/TrackRecord";
 import arrow1 from "../assets/image 13 (Traced).png";
-import Moment from 'react-moment';
-import PrintOut from "../Components/RaceCard/Printout"
+import Moment from "react-moment";
+import PrintOut from "../Components/RaceCard/Printout";
 
 const Trophy = [
   {
@@ -82,7 +82,7 @@ const Trophy = [
 ];
 const RaceCardDetail = () => {
   const dispatch = useDispatch();
-  const {state} = useLocation();
+  const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
   const [data, setdata] = useState();
@@ -95,7 +95,7 @@ const RaceCardDetail = () => {
   };
 
   const { id } = state;
-  console.log(id,'detail id')
+  console.log(id, "detail id");
 
   console.log(singlerace, "singlerace");
   useEffect(() => {
@@ -103,11 +103,7 @@ const RaceCardDetail = () => {
   }, [id]);
 
   if (status === STATUSES.LOADING) {
-    return <h2 className="loader1">
-
-
-      
-    </h2>;
+    return <h2 className="loader1"></h2>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -126,7 +122,7 @@ const RaceCardDetail = () => {
     fontWeight: "700",
     fontSize: "12px",
     color: "rgba(0, 0, 0, 0.5)",
-    paddingLeft:'3px'
+    paddingLeft: "3px",
   };
   const myPara1 = {
     fontWeight: "700",
@@ -162,8 +158,11 @@ const RaceCardDetail = () => {
     border: "none",
     color: "#fff",
   };
-  console.log(singlerace , "single")
-  const cookiedata = Cookies.get('i18next')
+  console.log(singlerace, "single");
+  const cookiedata = Cookies.get("i18next");
+  const toUpperCaseFilter = (d) => {
+    return d.toUpperCase();
+  };
   return (
     <>
       {/* <Layout /> */}
@@ -176,13 +175,26 @@ const RaceCardDetail = () => {
                   <div>
                     <span className="racenameflex">
                       <p>
-                      {  cookiedata === 'en' ?  (singlerace.RaceCourseData.TrackNameEn === null ?<>N/A</> :singlerace.RaceCourseData.TrackNameEn )  : (singlerace.RaceCourseData.TrackNameAr === null ? <>N/A</>:singlerace.RaceCourseData.TrackNameAr )}
+                        {cookiedata === "en" ? (
+                          singlerace.RaceCourseData.TrackNameEn === null ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.RaceCourseData.TrackNameEn
+                          )
+                        ) : singlerace.RaceCourseData.TrackNameAr === null ? (
+                          <>N/A</>
+                        ) : (
+                          singlerace.RaceCourseData.TrackNameAr
+                        )}
                       </p>
                       <img src={flag} alt="" />
                     </span>
-                    <p className="itemtime"> 
-                         <Moment format="hh:mm:ss" trim durationFromNow> {singlerace.DayNTime}
-                          </Moment>  </p>
+                    <p className="itemtime">
+                      <Moment parse="YYYY-MM-DD">{singlerace.DayNTime}</Moment>
+                    </p>
+                    {/* <p className="itemtime"> 
+                    <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
+                          </Moment>  </p> */}
                   </div>
                   <div className="racestatuscolor">
                     <li>1</li>
@@ -200,16 +212,30 @@ const RaceCardDetail = () => {
                       <span className="itemraces_left">
                         <span className="race">
                           <p>Race 1</p>
-                          <p><b>16:35</b></p>
+                          {/* <p><b>16:35</b></p> */}
                         </span>
-                   
 
- <img  className="sponsor" src={singlerace.SponsorData.image}  alt=""  /> 
-
-                      
+                        <img
+                          className="sponsor"
+                          src={singlerace.SponsorData.image}
+                          alt=""
+                        />
                       </span>
                       <span className="itemraces_center">
-                     <h5>   {  cookiedata === 'en' ?  (singlerace.RaceNameModelData.NameEn === null ?<>N/A</> : singlerace.RaceNameModelData.NameEn)  :( singlerace.RaceNameModelData.NameAr === null ? <>N/A</> : singlerace.RaceNameModelData.NameAr)} </h5>
+                        <h5>
+                          {" "}
+                          {cookiedata === "en" ? (
+                            singlerace.RaceNameModelData.NameEn === null ? (
+                              <>N/A</>
+                            ) : (
+                              singlerace.RaceNameModelData.NameEn
+                            )
+                          ) : singlerace.RaceNameModelData.NameAr === null ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.RaceNameModelData.NameAr
+                          )}{" "}
+                        </h5>
                         <div
                           style={{
                             display: "flex",
@@ -222,40 +248,38 @@ const RaceCardDetail = () => {
                               padding: "5px",
                             }}
                           >
-                      {singlerace.RaceKindData.NameEn} 
-                          </p> 
-                             <p
-                              style={{
-                                padding: "5px",
-                              }}
-                            >
-                       
-                            {singlerace.RaceTypeModelData.NameEn} 
-                                                      </p> 
-                        </div>
-                        
-                      </span>
-                      <span className="itemraces_right">
-                      <p
+                            {singlerace.RaceKindData.NameEn}
+                          </p>
+                          <p
                             style={{
-                              display:'flex',
-                              alignItems:'center',
-                              margin:'15px'
+                              padding: "5px",
                             }}
                           >
-                            <img src={weather} alt="" />
+                            {singlerace.RaceTypeModelData.NameEn}
                           </p>
+                        </div>
+                      </span>
+                      <span className="itemraces_right">
+                        <p
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            margin: "15px",
+                          }}
+                        >
+                          <img src={weather} alt="" />
+                        </p>
                         <span className="distance">
-                      
-                  {singlerace.TrackLengthData.TrackLength}m        {singlerace.WeatherDegree}F
-                      
-                        
+                          <p>
+                            {singlerace.TrackLengthData.TrackLength}m{" "}
+                            {singlerace.WeatherDegree}F
+                          </p>
                         </span>
                         <div className="Favourite">
                           <div>
                             <p>Favourite</p>
                             <br />
-                            <div
+                            {/* <div
                               style={{
                                 display: "flex",
                                 width:'100px',
@@ -265,7 +289,7 @@ const RaceCardDetail = () => {
                               <p>Notre Dame</p>
                               <img src={arrow} alt="" className="videoicon" />
                             </div>
-                            <p>4.40</p>
+                            <p>4.40</p> */}
                           </div>
                         </div>
                       </span>
@@ -278,12 +302,20 @@ const RaceCardDetail = () => {
                 <div className="prizecard">
                   <div className="prizecardheaders">
                     <p>
-                      Total Prize: <b>300,000 AED</b>
+                      Total Prize:{" "}
+                      <b>
+                        {singlerace.FirstPrice +
+                          singlerace.SecondPrice +
+                          singlerace.ThirdPrice +
+                          singlerace.FourthPrice +
+                          singlerace.FifthPrice +
+                          singlerace.SixthPrice}
+                      </b>
                     </p>
                     <div
                       style={{
                         display: "flex",
-                        gap:'10px'
+                        gap: "10px",
                       }}
                     >
                       <button
@@ -295,79 +327,65 @@ const RaceCardDetail = () => {
                         Tricast
                       </button>
                       <button style={btnNew1} onClick={() => handleShow()}>
-                       
                         Pick Six
                       </button>
                     </div>
                   </div>
                   <div className="Competitiontrophy">
-                 
-                       
-                        <div className="Trophydata">
-                          <span>1st</span>
-                          <span>
-                            <img src={img1} alt="" />
-                          </span>
-                          <div className="Trophydata_P">
-                            <h6>{singlerace.FirstPrice} AED</h6>
-                          </div>
-                          
-                        </div>
-                        <div className="Trophydata">
-                          <span>2nd</span>
-                          <span>
-                            <img src={img} alt="" />
-                          </span>
-                          <div className="Trophydata_P">
-                            <h6>{singlerace.SecondPrice} AED</h6>
-                          </div>
-                          
-                          
-                        </div>
-                        <div className="Trophydata">
-                          <span>3rd</span>
-                          <span>
-                            <img src={img} alt="" />
-                          </span>
-                          <div className="Trophydata_P">
-                            <h6>{singlerace.ThirdPrice} AED</h6>
-                          </div>
-                          
-                          
-                        </div>
-                        <div className="Trophydata">
-                          <span>4th</span>
-                          <span>
-                            <img src={img} alt="" />
-                          </span>
-                          <div className="Trophydata_P">
-                            <h6>{singlerace.FourthPrice} AED</h6>
-                          </div>
-                          
-                          
-                        </div>
-                        <div className="Trophydata">
-                          <span>5th</span>
-                          <span>
-                            <img src={img} alt="" />
-                          </span>
-                          <div className="Trophydata_P">
-                            <h6>{singlerace.FifthPrice} AED</h6>
-                          </div>
-                          
-                          
-                        </div>
-                        <div className="Trophydata">
-                          <span>6th</span>
-                          <span>
-                            <img src={img} alt="" />
-                          </span>
-                          <div className="Trophydata_P">
-                            <h6>{singlerace.SixthPrice} AED</h6>
-                          </div>
-                          
-                          
-                        </div>
+                    <div className="Trophydata">
+                      <span>1st</span>
+                      <span>
+                        <img src={img1} alt="" />
+                      </span>
+                      <div className="Trophydata_P">
+                        <h6>{singlerace.FirstPrice} AED</h6>
+                      </div>
+                    </div>
+                    <div className="Trophydata">
+                      <span>2nd</span>
+                      <span>
+                        <img src={img} alt="" />
+                      </span>
+                      <div className="Trophydata_P">
+                        <h6>{singlerace.SecondPrice} AED</h6>
+                      </div>
+                    </div>
+                    <div className="Trophydata">
+                      <span>3rd</span>
+                      <span>
+                        <img src={img} alt="" />
+                      </span>
+                      <div className="Trophydata_P">
+                        <h6>{singlerace.ThirdPrice} AED</h6>
+                      </div>
+                    </div>
+                    <div className="Trophydata">
+                      <span>4th</span>
+                      <span>
+                        <img src={img} alt="" />
+                      </span>
+                      <div className="Trophydata_P">
+                        <h6>{singlerace.FourthPrice} AED</h6>
+                      </div>
+                    </div>
+                    <div className="Trophydata">
+                      <span>5th</span>
+                      <span>
+                        <img src={img} alt="" />
+                      </span>
+                      <div className="Trophydata_P">
+                        <h6>{singlerace.FifthPrice} AED</h6>
+                      </div>
+                    </div>
+                    <div className="Trophydata">
+                      <span>6th</span>
+                      <span>
+                        <img src={img} alt="" />
+                      </span>
+                      <div className="Trophydata_P">
+                        <h6>{singlerace.SixthPrice} AED</h6>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="RaceNav">
@@ -384,93 +402,140 @@ const RaceCardDetail = () => {
                       <div className="RaceDetailCard">
                         <div className="forfexclass">
                           <Accordion defaultActiveKey="0">
-                            <div>
-
-                              {
-                               singlerace.HorseModels === undefined ? <>N/A</>:
-
-                              singlerace.HorseModels.map((data) => {
-                                return (
-                                  <Accordion.Item eventKey='0'>
-                                    <Accordion.Header>
-                                      <div className="cardracesAccordion">
-                                        <div className="cardraces1">
-                                          <img src={shirt} alt="" />
-                                          <span className="cardraces1box">
-                                            1-3-22
-                                          </span>
-                                        </div>
-                                        <div className="cardraces2">
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              gap: "10px",
-                                            }}
-                                          >
-                                            <p
+                            <div className="HorseModelsCSSFlex">
+                              {singlerace.HorseModels === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.HorseModels.map((data,index) => {
+                                  return (
+                                    <div className="HorseModelsCSS">
+                                      <Accordion.Item eventKey={index}>
+                                      <Accordion.Header>
+                                        <div className="cardracesAccordion">
+                                          <div className="cardraces1">
+                                            <img src={data.HorseImage} alt="" />
+                                            <span className="cardraces1box">
+                                              1-3-22
+                                            </span>
+                                          </div>
+                                          <div className="cardraces2">
+                                            <div
                                               style={{
-                                                fontWeight: "700",
-                                                fontSize: "19.6px",
-                                                lineHeight: "24px",
-                                                color: "#19469D",
+                                                display: "flex",
+                                                gap: "10px",
                                               }}
                                             >
-                                              <span>{cookiedata === "en" ?data.NameEn :   data.NameAr }</span>
-                                            </p>
-                                            <p style={myPara}>
-                                            <Moment fromNow ago>{data.DOB}</Moment>  GR H (242) 
-                                            </p>
-                                          </div>
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              lineHeight:'1px'
-                                            }}
-                                          >
-                                            <p style={myPara}>
-                                            Dam <b>:{data.Dam === null ? <>N/A</> : <>{data.Dam} </>} </b> 
-                                            </p>
-                                            <p style={myPara}>
-                                            Sire   <b>:{data.Sire} </b> 
-                                            </p>
-                                            <p style={myPara}>
-                                            G.Sire <b> : {data.GSire}</b> 
-                                            </p>
-                                          </div>
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                            }}
-                                          >
-                                            <p
+                                              <p
+                                                style={{
+                                                  fontWeight: "700",
+                                                  fontSize: "19.6px",
+                                                  lineHeight: "24px",
+                                                  color: "#19469D",
+                                                }}
+                                              >
+                                                <span>
+                                                  {cookiedata === "en"
+                                                    ? data.NameEn
+                                                    : data.NameAr}
+                                                </span>
+                                              </p>
+                                              <p style={myPara}>
+                                                <Moment fromNow ago>
+                                                  {data.DOB}
+                                                </Moment>{" "}
+                                                GR H (242)
+                                              </p>
+                                            </div>
+                                            <div
                                               style={{
-                                                fontWeight: "400",
-                                                fontSize: "12px",
-                                                lineHeight: "15px",
-                                                color: "#FF0000",
+                                                display: "flex",
+                                                lineHeight: "1px",
                                               }}
                                             >
-                                              David & Nicola Barron
-                                            </p>
-                                            <p
+                                              <p style={myPara}>
+                                                Dam{" "}
+                                                <b>
+                                                  :
+                                                  {data.Dam === null ? (
+                                                    <>N/A</>
+                                                  ) : (
+                                                    <>{data.Dam} </>
+                                                  )}{" "}
+                                                </b>
+                                              </p>
+                                              <p style={myPara}>
+                                                Sire{" "}
+                                                <b>
+                                                  :
+                                                  {data.GSire === null ? (
+                                                    <>N/A</>
+                                                  ) : (
+                                                    <>{data.GSire} </>
+                                                  )}
+                                                </b>
+                                              </p>
+                                              <p style={myPara}>
+                                                G.Sire{" "}
+                                                <b>
+                                                  {" "}
+                                                  :{" "}
+                                                  {data.GSire === null ? (
+                                                    <>N/A</>
+                                                  ) : (
+                                                    <>{data.GSire} </>
+                                                  )}
+                                                </b>
+                                              </p>
+                                            </div>
+                                            <div
                                               style={{
-                                                fontWeight: "300",
-                                                fontSize: "9px",
-                                                lineHeight: "15px",
-                                                color: "rgba(0, 0, 0, 0.5)",
+                                                display: "flex",
                                               }}
                                             >
-                                              (8 - 3 - 2 - 8 - 4)
-                                            </p>
-                                          </div>
-                                          <div className="trainerbreader_section">
-                                            <img src={pic} alt="" className="trainerbreader_image"/>                                            <div className="race_trainerbreader">
-                                            <p>T <b>Miss Alice Keighley </b></p>
-                                            <p>B <b>John Alice Keighley </b></p>
+                                              <p
+                                                style={{
+                                                  fontWeight: "400",
+                                                  fontSize: "12px",
+                                                  lineHeight: "15px",
+                                                  color: "#FF0000",
+                                                }}
+                                              >
+                                                David & Nicola Barron
+                                              </p>
+                                              <p
+                                                style={{
+                                                  fontWeight: "300",
+                                                  fontSize: "9px",
+                                                  lineHeight: "15px",
+                                                  color: "rgba(0, 0, 0, 0.5)",
+                                                }}
+                                              >
+                                                (8 - 3 - 2 - 8 - 4)
+                                              </p>
+                                            </div>
+                                            <div className="trainerbreader_section">
+                                              <img
+                                                src={pic}
+                                                alt=""
+                                                className="trainerbreader_image"
+                                              />{" "}
+                                              <div className="race_trainerbreader">
+                                                <p>
+                                                  T <b>Miss Alice Keighley </b>
+                                                </p>
+                                                <p>
+                                                  B{" "}
+                                                  <b>
+                                                    {cookiedata === "en"
+                                                      ? data.BreederData.NameEn
+                                                      : data.BreederData
+                                                          .NameAr}{" "}
+                                                  </b>
+                                                </p>
+                                              </div>
                                             </div>
                                           </div>
-                                        </div>
-                                        {/* <div className="cardraces3">
+                                          {/* <div className="cardraces3">
                                           <div>
                                             <p style={myPara1}>{singlerace.Horses.map((data) => data.GSire)}</p>
                                             <p style={myPara1}>56kg</p>
@@ -479,147 +544,172 @@ const RaceCardDetail = () => {
                                             <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
-                                        <div className="cardraces4">
-                                          <p style={{
+                                          <div className="cardraces4">
+                                            <p
+                                              style={{
                                                 fontWeight: "300",
                                                 fontSize: "12px",
                                                 lineHeight: "15px",
                                                 color: "rgba(0, 0, 0, 0.5)",
-                                                textAlign:'end'
-                                              }}>TT OR: 62</p>
-                                          <div className="cardracesjockey">
-                                            <div className="cardracesjockeyleft">
-                                              <p>J <b>Tadhg O’Shea</b></p>
-                                              <p>59kg</p>
-                                              <p style={{
-                                                fontWeight: "300",
-                                                fontSize: "9px",
-                                                lineHeight: "15px",
-                                                color: "rgba(0, 0, 0, 0.5)",
-                                              }}>47 (8 - 3 - 2 - 8 - 4)</p>
+                                                textAlign: "end",
+                                              }}
+                                            >
+                                              TT OR: 62
+                                            </p>
+                                            <div className="cardracesjockey">
+                                              <div className="cardracesjockeyleft">
+                                                <p>
+                                                  J <b>Tadhg O’Shea</b>
+                                                </p>
+                                                <p>59kg</p>
+                                                <p
+                                                  style={{
+                                                    fontWeight: "300",
+                                                    fontSize: "9px",
+                                                    lineHeight: "15px",
+                                                    color: "rgba(0, 0, 0, 0.5)",
+                                                  }}
+                                                >
+                                                  47 (8 - 3 - 2 - 8 - 4)
+                                                </p>
+                                              </div>
+                                              <img
+                                                src={pic}
+                                                alt=""
+                                                className="cardracesjockeyimg"
+                                              />
                                             </div>
-                                            <img src={pic} alt="" className="cardracesjockeyimg"/>
+                                            <div className="cardracesjockeycards">
+                                              <ul>
+                                                <li>C</li>
+                                                <li>D</li>
+                                                <li>CL</li>
+                                                <li>BF</li>
+                                              </ul>
+                                            </div>
                                           </div>
-                                          <div className="cardracesjockeycards">
-                                            <ul>
-                                              <li>C</li>
-                                              <li>D</li>
-                                              <li>CL</li>
-                                              <li>BF</li>
-                                            </ul>
+                                        </div>
+                                        <div>
+                                          <div className="pmclass">
+                                            <p>
+                                              PM: AED <b>55,000</b>
+                                            </p>
+                                            <p>
+                                              BTO: AED <b>55,000</b>
+                                            </p>
+                                            <p>
+                                              SP: AED <b>55,000</b>
+                                            </p>
+                                          </div>
+                                          <div className="uaecareer">
+                                            <p>UAE Career: 47 (2 - 8 - 4)</p>
+                                            <p>Lifetime: 47 (2 - 8 - 4)</p>
+                                            <p>Turf :47 (2 - 8 - 4) </p>
+                                            <p>Durt :47 (2 - 8 - 4) </p>
+                                            <p>Dist: 47 (2 - 8 - 4) </p>
+                                            <p>AW :47 (2 - 8 - 4) </p>
                                           </div>
                                         </div>
-                                      </div>
-                                      <div>
-                                        <div className="pmclass">
-                                          <p>PM: AED <b>55,000</b></p>
-                                          <p>BTO: AED <b>55,000</b></p>
-                                          <p>SP: AED <b>55,000</b></p>
+                                      </Accordion.Header>
+                                      <Accordion.Body className="AccordionBody11">
+                                        <div className="mycardclass1">
+                                          <div className="BodyNew">
+                                            <table className="customers">
+                                              <tr>
+                                                <th>Date</th>
+                                                <th>Cr</th>
+                                                <th>Dist</th>
+                                                <th>TC</th>
+                                                <th>Type</th>
+                                                <th>Dts</th>
+                                                <th>time</th>
+                                                <th>Jockey</th>
+                                                <th>Wgt</th>
+                                                <th>FP</th>
+                                                <th>Les</th>
+                                                <th>RS</th>
+                                                <th>BtBy</th>
+                                                <th>Kgs</th>
+                                                <th>Draw</th>
+                                              </tr>
+                                            </table>
+                                          </div>
+                                          <div className="BodyNew1">
+                                            <table className="customers2">
+                                              <tr>
+                                                <th>12 Oct 22</th>
+                                                <th>Wol (T)</th>
+                                                <th>2400</th>
+                                                <th>D</th>
+                                                <th>S</th>
+                                                <th>Novice</th>
+                                                <th>02:05:55</th>
+                                                <th>Miss </th>
+                                                <th>58</th>
+                                                <th>6</th>
+                                                <th>16.25</th>
+                                                <th>5</th>
+                                                <th>67</th>
+                                                <th>5</th>
+                                                <th>
+                                                  <img src={arrow1} alt="" />
+                                                </th>
+                                              </tr>
+                                            </table>
+                                          </div>
+                                          <div className="BodyNew2">
+                                            <table className="customers2">
+                                              <tr>
+                                                <th>12 Oct 22</th>
+                                                <th>Wol (T)</th>
+                                                <th>2400</th>
+                                                <th>D</th>
+                                                <th>S</th>
+                                                <th>Novice</th>
+                                                <th>02:05:55</th>
+                                                <th>Miss </th>
+                                                <th>58</th>
+                                                <th>6</th>
+                                                <th>16.25</th>
+                                                <th>5</th>
+                                                <th>67</th>
+                                                <th>5</th>
+                                                <th>
+                                                  <img src={arrow1} alt="" />
+                                                </th>
+                                              </tr>
+                                            </table>
+                                          </div>
+                                          <div className="BodyNew3">
+                                            <table className="customers2">
+                                              <tr>
+                                                <th>12 Oct 22</th>
+                                                <th>Wol (T)</th>
+                                                <th>2400</th>
+                                                <th>D</th>
+                                                <th>S</th>
+                                                <th>Novice</th>
+                                                <th>02:05:55</th>
+                                                <th>Miss </th>
+                                                <th>58</th>
+                                                <th>6</th>
+                                                <th>16.25</th>
+                                                <th>5</th>
+                                                <th>67</th>
+                                                <th>5</th>
+                                                <th>
+                                                  <img src={arrow1} alt="" />
+                                                </th>
+                                              </tr>
+                                            </table>
+                                          </div>
                                         </div>
-                                        <div className="uaecareer">
-                                          <p>UAE Career: 47 (2 - 8 - 4)</p>
-                                          <p>Lifetime: 47 (2 - 8 - 4)</p>
-                                          <p>Turf :47 (2 - 8 - 4) </p>
-                                          <p>Durt :47 (2 - 8 - 4) </p>
-                                          <p>Dist: 47 (2 - 8 - 4) </p>
-                                          <p>AW :47 (2 - 8 - 4) </p>
-                                        </div>
-                                      </div>
-                                    </Accordion.Header>
-                                    <Accordion.Body className="AccordionBody11" >
-                                      <div className="mycardclass1">
-                                        <div className="BodyNew">
-                                          <table className="customers">
-                                            <tr>
-                                              <th>Date</th>
-                                              <th>Cr</th>
-                                              <th>Dist</th>
-                                              <th>TC</th>
-                                              <th>Type</th>
-                                              <th>Dts</th>
-                                              <th>time</th>
-                                              <th>Jockey</th>
-                                              <th>Wgt</th>
-                                              <th>FP</th>
-                                              <th>Les</th>
-                                              <th>RS</th>
-                                              <th>BtBy</th>
-                                              <th>Kgs</th>
-                                              <th>Draw</th>
-
-                                            </tr>
-                                          </table>
-                                        </div>
-                                        <div className="BodyNew1">
-                                          <table className="customers2">
-                                            <tr>
-                                              <th>12 Oct 22</th>
-                                              <th>Wol (T)</th>
-                                              <th>2400</th>
-                                              <th>D</th>
-                                              <th>S</th>
-                                              <th>Novice</th>
-                                              <th>02:05:55</th>
-                                              <th>Miss </th>
-                                              <th>58</th>
-                                              <th>6</th>
-                                              <th>16.25</th>
-                                              <th>5</th>
-                                              <th>67</th>
-                                              <th>5</th>
-                                              <th><img src={arrow1} alt='' /></th>
-                                            </tr>
-                                          </table>
-                                        </div>
-                                        <div className="BodyNew2">
-                                          <table className="customers2">
-                                            <tr>
-                                              <th>12 Oct 22</th>
-                                              <th>Wol (T)</th>
-                                              <th>2400</th>
-                                              <th>D</th>
-                                              <th>S</th>
-                                              <th>Novice</th>
-                                              <th>02:05:55</th>
-                                              <th>Miss </th>
-                                              <th>58</th>
-                                              <th>6</th>
-                                              <th>16.25</th>
-                                              <th>5</th>
-                                              <th>67</th>
-                                              <th>5</th>
-                                              <th>
-                                                <img src={arrow1} alt='' />
-                                              </th>
-                                            </tr>
-                                          </table>
-                                        </div>
-                                        <div className="BodyNew3">
-                                          <table className="customers2">
-                                            <tr>
-                                              <th>12 Oct 22</th>
-                                              <th>Wol (T)</th>
-                                              <th>2400</th>
-                                              <th>D</th>
-                                              <th>S</th>
-                                              <th>Novice</th>
-                                              <th>02:05:55</th>
-                                              <th>Miss </th>
-                                              <th>58</th>
-                                              <th>6</th>
-                                              <th>16.25</th>
-                                              <th>5</th>
-                                              <th>67</th>
-                                              <th>5</th>
-                                              <th><img src={arrow1} alt='' /></th>
-                                            </tr>
-                                          </table>
-                                        </div>
-                                      </div>
-                                    </Accordion.Body>
-                                  </Accordion.Item>
-                                );
-                              })}
+                                      </Accordion.Body>
+                                    </Accordion.Item>
+                                    </div>
+                                  );
+                                })
+                              )}
                             </div>
                           </Accordion>
                         </div>
@@ -649,7 +739,7 @@ const RaceCardDetail = () => {
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
-                      <Summary />
+                        <Summary />
                       </div>
                     </Tab>
                     <Tab
@@ -658,7 +748,7 @@ const RaceCardDetail = () => {
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
-                    <TrackRecord />
+                        <TrackRecord />
                       </div>
                     </Tab>
                     <Tab
@@ -666,8 +756,7 @@ const RaceCardDetail = () => {
                       title="Printout"
                       tabClassName="profile-tabitem"
                     >
-                  
-                    <PrintOut/>
+                      <PrintOut />
                     </Tab>
                   </Tabs>
                 </div>

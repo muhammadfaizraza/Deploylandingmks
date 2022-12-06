@@ -28,7 +28,7 @@ function Redirect(){
     dispatch(logout())
     navigate('/login')
   }
-  
+  console.log(userInfo,'userInfo')
   return (
     <>
  
@@ -37,12 +37,12 @@ function Redirect(){
         {userInfo || userToken ? (
                <div className="auth">
                <div className="userprofile">
-                 <span className="profilepic">
-                   <img src={profile} alt="" />
+               <span className="profilepic">
+                   <img src={userInfo === null ? <> </> : userInfo.data.PassportPicture} alt="" />
                  </span>
                  <span className="profilename">
-                   <p className="username">John Doe Elizebth</p>
-                   <p className="pointuser">{t('1000 pts')}</p>
+                   <p className="username">{userInfo === null ? <> </> : userInfo.data.FirstName} {userInfo === null ? <> </> :userInfo.data.LastName}</p>
+                   {/* <p className="pointuser">{t('1000 pts')}</p> */}
                  </span>
                  <span>
                    <BsCaretDownFill

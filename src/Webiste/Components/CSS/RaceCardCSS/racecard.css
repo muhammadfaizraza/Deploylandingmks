@@ -127,6 +127,7 @@ border-radius: 18px;
 .accordion-item {
     background-color: #fff;
     border: none;
+    margin-top: 5px;
     border-radius: 20px !important;
 }
 .cardracesAccordion{
