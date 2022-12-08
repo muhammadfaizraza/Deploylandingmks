@@ -45,7 +45,7 @@ const Slider = () => {
         {
           slider.map((item) => {
             return(
-              <Carousel.Item interval={1000}>
+              <Carousel.Item interval={2000}>
                <a href={item.Url} target='_blank'>
                <ReactImageAppear 
                 className="d-block w-100 slideimg1"

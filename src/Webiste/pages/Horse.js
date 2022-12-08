@@ -40,7 +40,6 @@ const Horse = () => {
   useEffect(() => {
     dispatch(fetchHorse());
   },[])
- console.log('horse',horse)
   if (status === STATUSES.LOADING) {
     return (
       <div>
@@ -86,8 +85,9 @@ const Horse = () => {
               <th>{t('GSire')}</th>
               <th>{t('isGelted')}</th>
               <th>{t('PurchasePrice')}</th>
-              <th>{t('Nationality')}</th>
               <th>{t('Remarks')}</th>
+              <th>{t('Nationality')}</th>
+
             </tr>
             {
               horse === undefined ? <></> : <>
@@ -101,20 +101,19 @@ const Horse = () => {
                             }}>
                             <td>{cookiedata === 'en' ? item.NameEn : item.NameEn}</td>
                             <td> <Moment fromNow ago>
-                                  {item.Age}
+                                  {item.DOB}
                                 </Moment></td>
                             <td>{cookiedata === 'en' ? item.SexModelData.NameEn : item.SexModelData.NameEn}</td>
                             <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
-                            {/* <td>{cookiedata === 'en' ? item.HorseKindData : item.HorseKindData}</td> */}
-                            <td>{item.BreederData.NameEn === null ? <>No Data</> : <>{item.OwnerModels.map((data) => data.NameEn) }</>}</td>
+                            <td>{cookiedata === 'en' ? item.ActiveOwnerData.NameEn : item.ActiveOwnerData.NameEn}</td>
                             <td>{cookiedata === 'en' ? item.BreederData.NameEn : item.BreederData.NameEn}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.DamData.NameEn : item.DamData.NameAr}</>}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.SireData.NameEn : item.SireData.NameAr}</>}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.GSireData.NameEn : item.GSireData.NameAr}</>}</td>
                             <td>{item.isGelted === 1 ? <>Yes</> : <>No</>}</td>
                             <td>{item.PurchasePrice === null ? <>No Data</> : <>{item.PurchasePrice }AED</>}</td>
-                            <td>{item.NationalityData === null ? <>No Data</> : <>{item.NationalityData.NameEn }</>}</td>
                             <td>{item.Remarks === null ? <>No Data</> : <>{item.Remarks }</>}</td>
+                            <td>{item.NationalityData === null ? <>No Data</> : <>{item.NationalityData.NameEn }</>}</td>
 
                             </tr>
                         </React.Fragment>

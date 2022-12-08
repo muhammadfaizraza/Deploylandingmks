@@ -28,7 +28,9 @@ const Login = () => {
 
   const submitForm = (data) => {
     dispatch(userLogin(data))  
-   
+    setCustomError(error)
+    toast(error)
+    
   }
 
   // const AllFilled = (register.Email !== '') && (register.password !== "")
@@ -38,8 +40,8 @@ const Login = () => {
     <Layout />
    <div className='registrationform'>
    <form onSubmit={handleSubmit(submitForm)}>
-      {error && <Error>{error}</Error>}
-      {customError && <Error>{customError}</Error>}
+      {/* {error && <Error>{error}</Error>}
+      {customError && <Error>{customError}</Error>} */}
       <div className='form-group'>
       
         <input

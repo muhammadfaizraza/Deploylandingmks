@@ -15,11 +15,11 @@ const HorseDetail = (data) => {
     <div className="RaceDetailCard">
       <div className="horseheader1">
         <div className="horseshirt">
-          <img src={shirt} alt="image" />
+          <img src={ data.data.ActiveOwnerData.image} alt="image" className="horseshirtimage"/>
         </div>
         <div className="horsecardtop">
-          <p>{data.data.HorseRating}</p>
-          <p>{data.data.OverAllRating === null ? <>No Data</> : <>{data.data.OverAllRating }</>}</p>
+          <p>{data.data.STARS}</p>
+          <p className="horsefoal">0{data.data.Foal }</p>
         </div>
         <div className="horsecenterdata">
           <span
@@ -95,7 +95,7 @@ const HorseDetail = (data) => {
                 color: "#FF0000",
               }}
             >
-              <b>O</b> {data.data.OwnerModels.map((data) => data.NameEn)}
+              <b>O </b>{cookiedata === 'en' ? data.data.ActiveOwnerData.NameEn : data.data.ActiveOwnerData.NameEn}
             </p>
             <p
               style={{
@@ -107,7 +107,7 @@ const HorseDetail = (data) => {
             </p>
           </span>
           <div className="horsedetailimage">
-            <img src={shirt} alt="" />
+            <img src={data.data.ActiveTrainerData.image} alt="" />
            <span>
            <p
             style={{
@@ -119,7 +119,7 @@ const HorseDetail = (data) => {
             <b  style={{
               padding: "10px",
               
-            }}>T</b>{data.data.TrainerModels.map((data) => data.NameEn)}  (8 - 3 - 2 - 8 - 4)
+            }}>T</b>{data.data.ActiveTrainerData.NameEn}  (8 - 3 - 2 - 8 - 4)
           </p>
           <p
             style={{
@@ -129,7 +129,7 @@ const HorseDetail = (data) => {
           >
             <b style={{
               padding: "10px",
-            }}>B</b>{data.data.BreederData.length === undefined ? <>N/A</>:<>{data.data.BreederData.NameEn}</>}
+            }}>B</b>{data.data.BreederData === undefined ? <>N/A</>:<>{data.data.BreederData.NameEn}</>}
           </p>
            </span>
           </div>

@@ -20,7 +20,9 @@ const Footer = () => {
                 <div className="col-lg-3 col-md-6">
                     {/* <h5 className="h1 text-black">FB.</h5> */}
                     <img src={image1} alt="" className='mtfooter1'/>
-                    <p className="footertext1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p className="footertext1">
+                    {t('Aboutsite')}
+                    </p>
                 </div>
 
                 <div className="col-lg-3 col-md-6 mobiledata1">

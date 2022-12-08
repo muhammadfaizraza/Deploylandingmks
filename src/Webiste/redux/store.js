@@ -15,6 +15,7 @@ import getSingleHorse from './getReducer/getSingleHorse';
 import  getSingleJockey  from './getReducer/getSingleJockey';
 import getSingleTrainer from './getReducer/getSingleTrainer';
 import getSingleRace from './getReducer/getSingleRace';
+import getSeo from './getReducer/getSeo';
 
 const store = configureStore({
     reducer: {
@@ -33,7 +34,8 @@ const store = configureStore({
         singlehorse: getSingleHorse,
         singlejockey: getSingleJockey,
         singletrainer: getSingleTrainer,
-        singlerace: getSingleRace
+        singlerace: getSingleRace,
+        Seo: getSeo
     },
 });
 

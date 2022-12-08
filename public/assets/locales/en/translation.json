@@ -3,12 +3,12 @@
   "logo": "../../../Group.png",
   "mobilebar": "../Menu.png",
   "about":"About",
-  "statistics": "statistics",
-  "race_card": "race card",
+  "statistics": "Statistics",
+  "race_card": "Race card",
   "result": "Result",
-  "race_course":"race course",
-  "competition":"competition",
-  "sponsors":"sponsors",
+  "race_course":"Race course",
+  "competition":"Competition",
+  "sponsors":"Sponsors",
   "addington":"Addington",
   "current":" Current",
   "ante_post":"Ante Post",
@@ -67,6 +67,7 @@
   "isGelted":"Gelted",
   "PurchasePrice":"Purchased Price",
   "OverAllRating":"Over All Rating ",
-  "Remarks":"Remarks"
+  "Remarks":"Remarks",
+  "Aboutsite":" Free bets and sign up offers.Download our racing app How to bet on racingpost.com Guide to Racing Free Super Tips MyRacing SoccerbasePickswise Fantasy Alarm Prices powered by Diffusion"
 
 }

@@ -30,7 +30,7 @@
   .horseheader1{
     padding: 1rem;
     box-sizing: border-box;
-    width: 688px;
+    /* width: 688px; */
     height: 187px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -204,4 +204,14 @@ background-color: #19469D;
 .horsedetailimage img{
   width: 30px;
   height: 30px;
+}
+.horseshirtimage{
+  width: 100px;
+}
+.horsefoal {
+  font-weight: 400;
+  font-size: 32.7337px;
+  line-height: 10px;
+  /* letter-spacing: -0.1em; */
+  color: #000000;
 }

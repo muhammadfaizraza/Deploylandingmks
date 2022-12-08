@@ -240,7 +240,7 @@ const RaceCardDetail = () => {
                         <div
                           style={{
                             display: "flex",
-                            justifyContent: "space-between",
+                            justifyContent: "start",
                             width: "60%",
                           }}
                         >
@@ -504,7 +504,7 @@ const RaceCardDetail = () => {
                                                   color: "#FF0000",
                                                 }}
                                               >
-                                                David & Nicola Barron
+                                                {data.ActiveOwnerData === null ? <>Na/A</> :data.ActiveOwnerData.NameEn}
                                               </p>
                                               <p
                                                 style={{
@@ -525,7 +525,7 @@ const RaceCardDetail = () => {
                                               />{" "}
                                               <div className="race_trainerbreader">
                                                 <p>
-                                                  T <b>Miss Alice Keighley </b>
+                                                  T <b>{data.ActiveTrainerData === null ? <>Na/A</> :data.ActiveTrainerData.NameEn} </b>
                                                 </p>
                                                 <p>
                                                   B{" "}
@@ -558,14 +558,14 @@ const RaceCardDetail = () => {
                                                 textAlign: "end",
                                               }}
                                             >
-                                              TT OR: 62
+                                              TT OR: {singlerace.JockeyModels[index].Rating}
                                             </p>
                                             <div className="cardracesjockey">
                                               <div className="cardracesjockeyleft">
                                                 <p>
-                                                  J <b>Tadhg O’Shea</b>
+                                                  J <b>{singlerace.JockeyModels[index].NameEn}</b>
                                                 </p>
-                                                <p>59kg</p>
+                                                <p>{singlerace.JockeyModels[index].MaximumJockeyWeight}kg</p>
                                                 <p
                                                   style={{
                                                     fontWeight: "300",
@@ -596,7 +596,7 @@ const RaceCardDetail = () => {
                                         <div>
                                           <div className="pmclass">
                                             <p>
-                                              PM: AED <b>55,000</b>
+                                              PM: AED <b>{data.PurchasePrice}</b>
                                             </p>
                                             <p>
                                               BTO: AED <b>55,000</b>

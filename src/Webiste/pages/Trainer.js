@@ -99,8 +99,7 @@ const Trainer = () => {
               </tr>
               {jockey.map((item) => {
                 return (
-                  <tr onClick={()=> handleShow(item) 
-                  } style={{
+                  <tr style={{
                     cursor:'pointer'
                   }}>
                   <td >{item.NameEn}</td>
@@ -121,35 +120,7 @@ const Trainer = () => {
                 );
               })}
             </table>
-            <div
-              style={{
-                display: "flex",
-                marginTop: "20px",
-                justifyContent: "space-between",
-              }}
-            >
-              <button
-                className="button"
-                onClick={previousPageHandler}
-                disabled={pageNumber === 1}
-              >
-                Previous
-              </button>
-              <p
-                style={{
-                  marginTop: "20px",
-                }}
-              >
-                Page {pageNumber}
-              </p>
-              <button
-                className="button"
-                onClick={nextPageHandler}
-                disabled={jockey.length <= 1}
-              >
-                Next
-              </button>
-            </div>
+            
           </div>
         </div>
         <Modal show={show} onHide={handleClose}   size="lg"
