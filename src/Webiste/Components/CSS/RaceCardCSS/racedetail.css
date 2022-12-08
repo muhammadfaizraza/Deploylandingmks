@@ -541,3 +541,10 @@ height: 30px;
     height: 26px;
     color: rgb(112, 112, 112);
 }
+.RaceDetailsName{
+    display: flex;
+}
+.RaceDetailsName h6{
+
+    margin: 10px 40px;
+}

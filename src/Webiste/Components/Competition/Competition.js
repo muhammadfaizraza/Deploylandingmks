@@ -86,7 +86,7 @@ const Competition = () => {
         <div className="CompetitionPoint">
           {options.map((item) => {
             return <div className="CompetitionCard">{item.id}</div>;
-          })}
+          })}   
         </div>
         <ScrollContainer className="scroll-container">
         <div className="CompetitionPrize">

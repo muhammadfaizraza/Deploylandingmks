@@ -8,22 +8,31 @@ import Layout from '../Components/Reuseable/layout';
 import Footer from '../Components/Reuseable/Footer';
 import CopyRight from '../Components/Reuseable/Copyrights';
 import '../Components/CSS/pagesCSS/RaceCourse.css'
+import Lottie from 'react-lottie';
+import Animate from '../assets/loader.json'
 
 const RaceCard = () => {
   
   const dispatch = useDispatch();
   const { data: racecard, status } = useSelector((state) => state.racecard);
  
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Animate,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }}
   useEffect(() => {
     dispatch(fetchRace());
   },[])
   if (status === STATUSES.LOADING) {
     return (
-      <h2
-      className="loader"
-      >
-  
-      </h2>
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
     );
   }
 

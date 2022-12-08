@@ -160,6 +160,11 @@ margin: 20px 20px 0 20px;
     margin-bottom: 12px;
 
 }
+.chartPrediction {
+    display: flex;
+    gap: 1.1rem;
+    margin-top: 0.7rem !important;
+}
 .nav-tabs {
     border: none !important;
     width: 100%;

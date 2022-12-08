@@ -106,9 +106,9 @@
     justify-content: space-between;
     color: #fff;
 }
-.accordion-body {    
-background: #19469D;
-border-radius: 0 0 20px 20px;
+.accordion-body {
+    background: #19469D;
+   
 }
 .accordion-item {
     background-color: #EFEFEF ; 

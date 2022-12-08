@@ -31,56 +31,7 @@ import Moment from "react-moment";
 import PrintOut from "../Components/RaceCard/Printout";
 import { IoPartlySunnyOutline ,IoCloudyOutline } from 'react-icons/io5'
 
-const Trophy = [
-  {
-    id: "1st",
-    name: "East Street Revue ",
-    image: img1,
-    pts: "20PTS",
-    HNo: "1",
-    prize: "5,0000 AED",
-  },
-  {
-    id: "2nd",
-    name: "East Street Revue ",
-    image: img,
-    pts: "20PTS",
-    HNo: "2",
-    prize: "45,000 AED",
-  },
-  {
-    id: "3rd",
-    name: "East Street Revue ",
-    image: img,
-    pts: "20PTS",
-    HNo: "3",
-    prize: "4,0000 AED",
-  },
-  {
-    id: "4th",
-    name: "East Street Revue ",
-    image: img,
-    pts: "20PTS",
-    HNo: "5",
-    prize: "35,000 AED",
-  },
-  {
-    id: "5th",
-    name: "East Street Revue ",
-    image: img,
-    pts: "18PTS",
-    HNo: "5",
-    prize: "3,0000 AED",
-  },
-  {
-    id: "6th",
-    name: "East Street Revue ",
-    image: img,
-    pts: "10PTS",
-    HNo: "6",
-    prize: "25,000 AED",
-  },
-];
+
 const RaceCardDetail = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
@@ -96,7 +47,7 @@ const RaceCardDetail = () => {
   };
 
   const { id } = state;
-  console.log(id, "detail id");
+  console.log(id, "detail aaya id");
 
   console.log(singlerace, "singlerace");
   useEffect(() => {
@@ -104,7 +55,9 @@ const RaceCardDetail = () => {
   }, [id]);
 
   if (status === STATUSES.LOADING) {
-    return <h2 className="loader1"></h2>;
+    return <h2 className="loader1">
+
+    </h2>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -191,7 +144,7 @@ const RaceCardDetail = () => {
                       <img src={flag} alt="" />
                     </span>
                     <p className="itemtime">
-                      <Moment parse="YYYY-MM-DD">{singlerace.DayNTime}</Moment>
+                      <Moment format='MMMM Do YYYY, h:mm:ss'>{singlerace.DayNTime}</Moment>
                     </p>
                     {/* <p className="itemtime"> 
                     <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
@@ -204,7 +157,7 @@ const RaceCardDetail = () => {
                     <li>4</li>
                     <li>5</li>
                     <li>6</li>
-                    <li>7</li>
+                 
                   </div>
                 </div>
                 <div className="racedisc">
@@ -306,7 +259,7 @@ const RaceCardDetail = () => {
                 <div className="prizecard">
                   <div className="prizecardheaders">
                     <p>
-                      Total Prize:{" "}
+                      Total Prize:
                       <b>
                         {singlerace.FirstPrice +
                           singlerace.SecondPrice +
@@ -519,16 +472,16 @@ const RaceCardDetail = () => {
                                             </div>
                                             <div className="trainerbreader_section">
                                               <img
-                                                src={pic}
+                                                src={data.ActiveOwnerData.image}
                                                 alt=""
                                                 className="trainerbreader_image"
                                               />{" "}
                                               <div className="race_trainerbreader">
                                                 <p>
-                                                  T <b>{data.ActiveTrainerData === null ? <>Na/A</> :data.ActiveTrainerData.NameEn} </b>
+                                                  T <b>{data.ActiveTrainerData === null ? <>N/A</> :data.ActiveTrainerData.NameEn} </b>
                                                 </p>
                                                 <p>
-                                                  B{" "}
+                                                  B
                                                   <b>
                                                     {cookiedata === "en"
                                                       ? data.BreederData.NameEn
@@ -578,7 +531,7 @@ const RaceCardDetail = () => {
                                                 </p>
                                               </div>
                                               <img
-                                                src={pic}
+                                                src={singlerace.JockeyModels[index].image}
                                                 alt=""
                                                 className="cardracesjockeyimg"
                                               />

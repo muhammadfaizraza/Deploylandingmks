@@ -160,7 +160,7 @@ const RaceDetails = () => {
                       </span>
                  
 
-<img  className="sponsor" src={singlerace.SponsorData.image}  alt=""  /> 
+<img  className="sponsor" src={singlerace.SponsorData === null ? <>N/A</> :<>{singlerace.SponsorData.image}</>}  alt=""  /> 
 <span style={{display:"block"   ,  margin: "15px 10px 1px" ,fontSize:"10px"}}>
 <p
                           style={{

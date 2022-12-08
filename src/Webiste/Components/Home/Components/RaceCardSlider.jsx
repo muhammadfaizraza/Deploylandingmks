@@ -200,7 +200,7 @@ const RaceCardSlider = () => {
                           <>No Data</>
                         ) : (
                           item.TrackLengthData.TrackLength
-                        )} m
+                        )}m
                       </p>
                       </div>
                       <p className="racetime"> <Moment fromNow>{item.DayNTime}</Moment></p>

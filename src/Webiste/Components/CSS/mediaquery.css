@@ -13,7 +13,47 @@
         border-radius: 10px;
         margin-right: 1px;
     }
+    .customers12 >span >p {
+      font-size: 14px;
+    }
+    .customers12 >span {
+        width: 100%;
+        margin: 0px 41px -3px 14px;
+        /* margin: auto; */
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-top: 12px;
+    }
+    .customers1 > tr >td:nth-child(3) {
+        padding-left: 0px;
+        width: 6rem;
+        text-align: start;
+    }
+    .customers1 > tr >td:nth-child(2) {
+        padding-left: 0px;
+        width: 14rem;
+        text-align: start;
+    }
+    .customers12 >span >:nth-child(3){
+        font-size: 14px;
+        padding-left: 7px;
+    }
+    .customers12 >span >:nth-child(4){
+        font-size: 14px;
+        padding-left: 7px;
+        width: 11rem;
+    }
+    .customers2 th {
+        font-size: 11px;
+      }
+      .customers2 th {
+
+        width: 11.5%;
+      
+      }
 }
+
 @media (max-width: 1619px) and (min-width: 1490px){
     button.slick-arrow.slick-next {
         width: 25px;
@@ -22,6 +62,9 @@
         border-radius: 10px;
         /* margin-right: 10px; */
     }
+    .menuNav p {
+        font-size: 14px;
+      }
     button.slick-arrow.slick-prev {
         width: 25px;
         height: 124px;
@@ -46,6 +89,9 @@
         flex: 1;
         margin-top: 19px;
     }
+    .racestatuscolor {
+        margin: 0 13px;
+      }
     .sponsor img {
         width: 100%;
         height: 100%;
@@ -56,6 +102,55 @@
         height: 460px;
         color: #fff;
     }
+    .itemtime {
+        font-size: 19.595px;
+        margin-bottom: 26px;
+ 
+      }
+      .customers1 >tr >td {
+        width: 10%;
+    }
+    
+    
+    
+    
+    .customers1 > tr > td:nth-child(2) {
+      padding-left: 28px;
+      width: 11rem;
+      text-align: start;
+    }
+    
+    .customers1 > tr > td {
+      width: 17%;
+    }
+      .customers12 > span > p {
+        font-size: 13px;
+        margin: 5px auto;
+      }
+      .customers12 > span :nth-child(3) {
+        font-size: 13px;
+        margin: 5px auto;
+        width: 7.2rem;
+      }
+      .uaecareer > p {
+        font-size: 9px;
+       
+      }
+      .customers td, .customers th {
+        padding: 17px 2px;
+        font-size: 9px;
+        width: 124px !important;
+      }
+      .customers2 th {
+        text-align: left;
+        width: 6.7%;
+        font-size: 8px;
+        line-height: 10px;
+      }
+      .footertext1 {
+        font-size: 13.613px;
+       
+      }
     .slider {
         height: 460px;
         flex: 3 1;
@@ -178,12 +273,43 @@
     
         font-size: 11px;
     }
+    .slick-list {
+        margin-left: 22px !important;
+      }
+      .react-calendar, .react-calendar *, .react-calendar ::before, .react-calendar ::after {
+        font-size: 10px !important;
+      }
+      .Currentpostdiv {
+        width: 93%;
+      }
+      .uaecareer > p {
+        font-size: 8px;
+       
+      }
+      .customers2 th {
+        padding-top: 18px;
+        padding-bottom: 15px;
+        text-align: left;
+        color: #fff;
+        width: 9.7%;
+        font-size: 9px;
+        line-height: 15px;
+      }
 }
 @media (max-width: 1320px) and (min-width: 1024px){
 
     .slideimg1{
         width: 100%;
         height: 400px;
+    }
+    .racestatuscolor {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        width: 38%;
+        padding-top: 9px;
     }
     button.slick-arrow.slick-prev {
      
@@ -257,13 +383,13 @@
     }
  
     .singleracecard {
-      
-        max-width: 193px !important;
+        max-width: 226px !important;
         margin-left: 6px;
-     
-    }
+      }
     .rightlayoutinner {
-        margin-right: -14px;
+       
+  margin: 0      7px;
+
     }
 
     .first-txt {
@@ -339,7 +465,7 @@
     
     .footertext1 {
         padding: 1rem -2rem;
-    font-size: 10px;
+        font-size: 13px;
         color: #000000;
     }
     .mtfooter {
@@ -431,9 +557,8 @@
     
     
     .Predictiontable {
-    
-        font-size: 14px;
-    }
+        font-size: 11px;
+      }
     .AccordionHeader > p:nth-child(2) {
 
         font-size: 10.5949px;
@@ -472,21 +597,12 @@
     
     }
     .customers th {
-
- 
-        width: 60%;
+        width: 12%;
         font-weight: 600;
         font-size: 9px;
         line-height: 25px;
-    }
-    .customers2 th {
-
-   
-        width: 100%;
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 15px;
-    }
+      }
+  
     .Trophydata > span:nth-child(1) {
   
         font-size: 13.3439px;
@@ -508,16 +624,21 @@ line-height: 100px;
         font-size: 11px;
  
     }
-    .customers1 > tr >td:nth-child(2) {
-        padding-left: 38px;
-     
-   
-    }
+    .customers1 > tr > td:nth-child(2) {
+        padding-left: 10px;
+        width: 9rem;
+        text-align: start;
+        font-size: 9px;
+      }
+
     .HorseParent > p{
         display: flex;
         padding-left: 1px;
 
     }
+    .chartPrediction {
+        margin-top: -6.7rem;
+      }
     .aab {
      
         width: -1%;
@@ -1278,6 +1399,8 @@ height: 150px;
         overflow: hidden;
         border-radius: 0px;
         width: 100%;
+        margin-left: 4px;
+        margin-top: 30px;
     }
     .slick-slider {
         margin-left: 30px;
@@ -1340,12 +1463,15 @@ height: 150px;
     }
     .singleCardBlogs {
         margin-top: 0.5rem;
+        margin-left: 7px;
     }
     .singleCardBlogs h3 {
-        font-size: 13.8px;
+        font-size: 11px;
     }
     .singleCardBlogs h2 {
-        font-size: 13.8px;
+      
+    font-size: 13px;
+
     }
     .copyrightinner {
         flex: 2 1;
@@ -1440,7 +1566,7 @@ height: 150px;
         display: none;
     }
     .newpost {
-        height: 500px;
+        height: fit-content;
     }
     .itemraces_right .Favourite {
         margin-top: 14px;

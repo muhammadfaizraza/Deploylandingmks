@@ -84,8 +84,9 @@ const {pathname} = useLocation();
            </div>
            </span>
            
-          <Blog />
+           <Blog />
           </div>
+          
         </div>
         
         <div className='endsection'>

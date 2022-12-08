@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import "../../CSS/HomeCSS/blogs.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRace, STATUSES } from "../../../redux/getReducer/getRaceCard";
+import {
+  fetchCourse,
+  STATUSES,
+} from "../../../redux/getReducer/getRaceCourse";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
@@ -16,15 +19,18 @@ import { useTranslation } from "react-i18next";
 import Moment from "react-moment";
 import Cookies from "js-cookie";
 
+
 const Match = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { data: racecard, status } = useSelector((state) => state.racecard);
-  const { t } = useTranslation();
-  useEffect(() => {
-    dispatch(fetchRace());
-  }, []);
+  
+  const { t } = useTranslation()
 
+  const { data: racecourse, status } = useSelector((state) => state.racecourse);
+
+  useEffect(() => {
+    dispatch(fetchCourse());
+  }, []);
   // let abc = 'live'
   // const {MyRace} = racecard.find(race => race.RaceStatus  === abc)
 
@@ -43,7 +49,9 @@ const Match = () => {
         style={{
           margin: "100px",
         }}
-      ></h2>
+      >
+
+      </h2>
     );
   }
 
@@ -62,8 +70,10 @@ const Match = () => {
 
   return (
     <div className="match">
-      {racecard === undefined ? (
-        <h2 className="loader"></h2>
+      {racecourse === undefined ? (
+        <h2 >
+
+        </h2>
       ) : (
         <Tabs
           defaultActiveKey="home"
@@ -81,7 +91,7 @@ const Match = () => {
                     </div>
                     <div className="CompetitionData">
                       <Accordion>
-                        {racecard.map((item) => {
+                        {racecourse.map((item ,ind) => {
                           return (
                             <div className="Competitionitem" key={item._id}>
                               <Accordion.Item eventKey={item._id}>
@@ -89,8 +99,8 @@ const Match = () => {
                                   <div className="AccordionHeader">
                                     <p>
                                       {cookiedata === "en"
-                                        ? item.RaceCourseData.TrackNameEn
-                                        : item.RaceCourseData.TrackNameAr}
+                                        ? item.TrackNameEn
+                                        : item.TrackNameAr}
                                     </p>
                                     <p>
                                       {" "}
@@ -104,28 +114,36 @@ const Match = () => {
                                     </p>
                                   </div>
                                 </Accordion.Header>
-                                <Accordion.Body>
-                                  <div
-                                    onClick={() => HandleJockey(item._id)}
-                                    className="Competition_Matches"
-                                  >
-                                    <p>
-                                      {cookiedata === "en"
-                                        ? item.RaceNameModelData.NameEn
-                                        : item.RaceNameModelData.NameAr}{" "}
-                                    </p>
-                                    <p>{item.id}</p>
-                                  </div>
+               {       
+               item.RaceCourseData.map((name, ind)=>( 
+                    <Accordion.Body>
+                   
+       
+                      <div
+                        onClick={() => HandleJockey(item._id)}
+                        className="Competition_Matches"
+                      >
+                        <p>
+                          {cookiedata === "en"
+                            ? name.RaceNameModelData.NameEn
+                            : name.RaceNameModelData.NameAr}
+                        </p>
+                        <p>{item.id}</p>
+                      </div>
 
-                                  {/* {item.matches.map((data) => {
-                              return (
-                                <div className="Competition_Matches">
-                                  <p>{data.name}</p>
-                                  <p>{data.id}</p>
-                                </div>
-                              );
-                            })} */}
-                                </Accordion.Body>
+                      {/* {item.matches.map((data) => {
+                  return (
+                    <div className="Competition_Matches">
+                      <p>{data.name}</p>
+                      <p>{data.id}</p>
+                    </div>
+                    
+                  );
+                })} */}
+
+
+                    </Accordion.Body>
+                    ))} 
                               </Accordion.Item>
                             </div>
                           );
@@ -149,7 +167,7 @@ const Match = () => {
                       </div>
                       <div className="CompetitionData">
                         <Accordion>
-                          {racecard.map((item) => {
+                          {racecourse.map((item) => {
                             return (
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
@@ -176,7 +194,7 @@ const Match = () => {
                                   </Accordion.Header>
                                   <Accordion.Body>
                                     <div className="Competition_Matches">
-                                      <p>{item.RaceNameModelData.NameEn}</p>
+                                      {/* <p>{item.RaceNameModelData.NameEn}</p> */}
                                       <p>{item.id}</p>
                                     </div>
                                     {/* {item.matches.map((data) => {
@@ -214,7 +232,7 @@ const Match = () => {
                     </div>
                     <div className="CompetitionData">
                       <Accordion>
-                        {racecard.map((item) => {
+                        {racecourse.map((item) => {
                           return (
                             <div className="Competitionitem" key={item._id}>
                               <Accordion.Item eventKey={item._id}>
@@ -241,7 +259,7 @@ const Match = () => {
                                 </Accordion.Header>
                                 <Accordion.Body>
                                   <div className="Competition_Matches">
-                                    <p>{item.RaceNameModelData.NameEn}</p>
+                                    {/* <p>{item.RaceNameModelData.NameEn}</p> */}
                                     <p>{item.id}</p>
                                   </div>
                                 
