@@ -44,16 +44,15 @@ const Match = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = axios.post(`${window.env.API_URL}/GetRaceWithDayntime`, {DayNTime:value});
+        const res =await axios.post(`${window.env.API_URL}/GetRaceWithDayntime`, {DayNTime:value});
         setDayData(res.data.data)
       } catch (err) {
-        console.log('Error occured');
+        console.log(err);
       }
     })();
-  }, []);
+  }, [value]);
 
-
-  console.log(DayData,'res')
+  console.log(DayData,'DayData')
   // const submit = async (event) => {
 
   //   event.preventDefault();
@@ -261,15 +260,15 @@ const Match = () => {
                                     <div className="AccordionHeader">
                                       <p>
                                         {cookiedata === "en" ? (
-                                          item.TrackNameEn === null ? (
+                                          item.RaceCourseData === null ? (
                                             <>N/A</>
                                           ) : (
-                                            item.TrackNameEn
+                                            item.RaceCourseData.TrackNameEn
                                           )
-                                        ) : item.TrackNameAr === null ? (
+                                        ) : item.RaceCourseData === null ? (
                                           <>N/A</>
                                         ) : (
-                                          item.TrackNameAr
+                                          item.RaceCourseData.TrackNameAr
                                         )}
                                       </p>
                                       <p>
@@ -284,21 +283,19 @@ const Match = () => {
                                       </p>
                                     </div>
                                   </Accordion.Header>
-                                  {item.RaceCourseData.map((name, ind) => (
-                                    <Accordion.Body>
+                                  <Accordion.Body>
                                       <div
-                                        onClick={() => HandleJockey(name._id)}
+                                        onClick={() => HandleJockey(item._id)}
                                         className="Competition_Matches"
                                       >
                                         <p>
                                           {cookiedata === "en"
-                                            ? (name.RaceNameModelData === null ? <>N/A</> : name.RaceNameModelData.NameEn)
-                                            : (name.RaceNameModelData === null ? <>N/A</> : name.RaceNameModelData.NameAr)}
+                                            ? (item.RaceNameModelData === null ? <>N/A</> : item.RaceNameModelData.NameEn)
+                                            : (item.RaceNameModelData === null ? <>N/A</> : item.RaceNameModelData.NameAr)}
                                         </p>
                                         <p>{ind + 1}</p>
                                       </div>
                                     </Accordion.Body>
-                                  ))}
                                 </Accordion.Item>
                               </div>
                             );
