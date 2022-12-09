@@ -78,8 +78,7 @@ const Blog = () => {
                   <div className='singleCardBlogs'>
                      <img src={item.image} alt="" />
                      <h2>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</h2>
-                     <h3>{cookiedata === 'en' ? item.DescriptionEn : item.DescriptionAr}</h3>
-                     {/* <Moment date={start} format="hh:mm:ss" trim durationFromNow>2022-12-06 09:59</Moment> */}
+                     <h3>{cookiedata === 'en' ? item.SecondTitleEn : item.SecondTitleAr}</h3>
                   </div>
                 )
               })

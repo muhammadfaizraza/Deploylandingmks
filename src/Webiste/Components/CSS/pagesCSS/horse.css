@@ -215,3 +215,8 @@ background-color: #19469D;
   /* letter-spacing: -0.1em; */
   color: #000000;
 }
+
+
+p.racestatusclasstime {
+  font-size: 12px !important;
+}

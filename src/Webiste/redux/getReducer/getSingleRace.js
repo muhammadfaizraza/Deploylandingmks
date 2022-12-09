@@ -7,7 +7,7 @@ export const STATUSES = Object.freeze({
     LOADING: 'loading',
 });
 
-const getSingleRace = createSlice({
+const getsinglerace = createSlice({
     name: 'singlerace',
     initialState: {
         data:[],
@@ -16,23 +16,23 @@ const getSingleRace = createSlice({
 
     extraReducers: (builder) => {
         builder
-        .addCase(fetchSinglerace.pending, (state, action) => {
+        .addCase(fetchsinglerace.pending, (state, action) => {
             state.status = STATUSES.LOADING;
         })
-        .addCase(fetchSinglerace.fulfilled, (state, action) => {
+        .addCase(fetchsinglerace.fulfilled, (state, action) => {
             state.data = action.payload;
             state.status = STATUSES.IDLE
         })
-        .addCase(fetchSinglerace.rejected , (state,action) => {
+        .addCase(fetchsinglerace.rejected , (state,action) => {
             state.status = STATUSES.ERROR;
         })
     }
 });
 
-export const {setRace , setStatus} = getSingleRace.actions;
-export default getSingleRace.reducer;
+export const {setRace , setStatus} = getsinglerace.actions;
+export default getsinglerace.reducer;
 
-export const fetchSinglerace = createAsyncThunk('/singleraceget/fetch', async({id}) => {
+export const fetchsinglerace = createAsyncThunk('/singleraceget/fetch', async({id}) => {
         const res = await axios.get(`${window.env.API_URL}/getsinglerace/${id}`);
     const raceData = res.data;
     return raceData.data;

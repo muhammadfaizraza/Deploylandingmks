@@ -3,11 +3,13 @@ import {News} from '../../../data/data'
 import {useTranslation} from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAds, STATUSES } from "../../../redux/getReducer/getAdsSlice";
+import Cookies from "js-cookie";
 
 const ExNews = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch();
   const { data: ads, status } = useSelector((state) => state.ads);
+  const cookiedata = Cookies.get("i18next");
 
   useEffect(() => {
     dispatch(fetchAds());
@@ -43,7 +45,8 @@ const ExNews = () => {
         return(
           <span className='newsflex ' key={item.id} >
             <p>{t('Exclusive')}</p>
-            <p>{item.DescriptionEn}</p>
+            <marquee> <p>{cookiedata === 'en' ? item.DescriptionEn : item.DescriptionAr}</p></marquee>
+           
           </span>
         )
       })

@@ -15,7 +15,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const { data: Seo, status } = useSelector((state) => state.Seo);
   
-  console.log(Seo,'seo')
   useEffect(() => {
     dispatch(fetchSeo());
   }, [dispatch]);

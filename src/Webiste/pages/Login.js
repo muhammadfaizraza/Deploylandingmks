@@ -9,6 +9,7 @@ import '../Components/CSS/registration.css'
 import Footer from '../Components/Reuseable/Footer';
 import Copyrights from '../Components/Reuseable/Copyrights';
 import { toast } from 'react-toastify';
+import Cookies from 'js-cookie';
 
 const Login = () => {
   const { loading, userInfo, error ,success} = useSelector((state) => state.user)
@@ -18,7 +19,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm()
 
   const navigate = useNavigate()
-
+  const cookiedata = Cookies.get("id");
   // redirect authenticated user to profile screen
   useEffect(() => {
     if (userInfo) {
@@ -28,9 +29,12 @@ const Login = () => {
 
   const submitForm = (data) => {
     dispatch(userLogin(data))  
-    setCustomError(error)
-    toast(error)
-    
+       if(!cookiedata){
+      navigate('/login')
+    }
+     else{
+        navigate('/dashboard')
+ }
   }
 
   // const AllFilled = (register.Email !== '') && (register.password !== "")

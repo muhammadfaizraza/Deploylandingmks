@@ -185,10 +185,11 @@ const RaceCardSlider = () => {
                 }}>
               
                     <p className="clubname">
-                    {cookiedata === 'en' ? item.RaceCourseData.TrackNameEn : item.RaceCourseData.TrackNameAr}
+
+                    {cookiedata === 'en' ? (item.RaceCourseData === null ? <>N/A</> : item.RaceCourseData.TrackNameEn) : (item.RaceCourseData === null ? <>N/A</> : item.RaceCourseData.TrackNameAr)}
                     </p>
                     <p className="owner">
-                    {cookiedata === 'en' ? item.RaceNameModelData.NameEn : item.RaceNameModelData.NameAr}
+                    {cookiedata === 'en' ? (item.RaceNameModelData  === null ? <>N/A</> : item.RaceNameModelData.NameEn) : (item.RaceNameModelData  === null ? <>N/A</> : item.RaceNameModelData.NameAr )}
                     </p>
                     <span className="racecardrow">
                       <div style = {{

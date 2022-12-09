@@ -3,11 +3,13 @@ import '../../CSS/HomeCSS/blogs.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAds, STATUSES } from "../../../redux/getReducer/getAdsSlice";
 import img from '../../../assets/Rectangle 19.png'
+import Cookies from "js-cookie";
 
 const Ads = () => {
 
   const dispatch = useDispatch();
   const { data: ads, status } = useSelector((state) => state.ads);
+  const cookiedata = Cookies.get("i18next");
 
   useEffect(() => {
     dispatch(fetchAds());
@@ -51,26 +53,12 @@ const Ads = () => {
             <p style={{
               position: 'absolute',
               
-            }} className='adstitlepos'>{item.TitleEn}</p>
+            }} className='adstitlepos'>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</p>
             
             </div>
           )
         })
       }
-      {/* <div className='adscardmapping'style={{
-              position:'relative'
-            }} >
-            <img src={img} alt='' style={{
-               width:'100%',
-               height:'100%'
-            }} />
-            <p style={{
-              position: 'absolute',
-              top: '7px',
-              left: '5px'
-            }}>Ads</p>
-            
-            </div> */}
     </div>
     </>
   )

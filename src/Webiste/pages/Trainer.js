@@ -7,9 +7,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Moment from "react-moment";
 import {
-  fetchJockey,
+  fetchTrainer,
   STATUSES,
-} from "../../Webiste/redux/getReducer/getJockeySlice";
+} from "../../Webiste/redux/getReducer/getTrainerSlice";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import JockeyDetail from "./JockeyDetail";
@@ -30,19 +30,13 @@ const Trainer = () => {
       await setShow(true)
   };
   const dispatch = useDispatch();
-  const { data: jockey, status } = useSelector((state) => state.jockey);
+  const { data: trainer, status } = useSelector((state) => state.trainer);
   
   useEffect(() => {
-    dispatch(fetchJockey({ pageNumber,searchKeyword }));
-  }, [dispatch, pageNumber,searchKeyword]);
+    dispatch(fetchTrainer());
+  }, [dispatch]);
 
-  
-  const previousPageHandler = () => {
-    setPageNumber((pageNumber) => pageNumber - 1);
-  };
-  const nextPageHandler = () => {
-    setPageNumber((pageNumber) => pageNumber + 1);
-  };
+ 
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -92,23 +86,24 @@ const Trainer = () => {
               <tr>
                 <th>Name</th>
                 <th>Age</th>
-                <th>RemarksEn </th>
-                <th>Rating</th>
+                <th>Remarks </th>
+                <th>Detail</th>
                 <th>Nationality</th>
                 <th>Image</th>
               </tr>
-              {jockey.map((item) => {
+              {trainer.map((item) => {
                 return (
                   <tr style={{
                     cursor:'pointer'
                   }}>
                   <td >{item.NameEn}</td>
                   <td><Moment fromNow ago>
-                                  {item.Age}
+                                  {item.DOB}
                                 </Moment></td>
-                                <td>{item.RemarksEn}</td>
-                                <td>{item.Rating}</td>
-                                <td>{item.JockeyNationalityData.NameEn} </td>
+                                <td>{item.Remarks}</td>
+                                <td>{item.Detail}</td>
+
+                                <td>{item.TrainerNationalityData === null ? <>N/A</> : item.TrainerNationalityData.NameEn} </td>
                                
                   <td>
                     <img src={item.image} alt=""  style={{

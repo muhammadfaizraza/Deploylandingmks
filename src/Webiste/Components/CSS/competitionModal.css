@@ -170,3 +170,7 @@ color: #000;
 .btn-check:focus+.btn, .btn:focus {
     box-shadow: none;
 }
+
+span.cardraces1box h3 {
+    margin: 10px;
+}

@@ -5,12 +5,10 @@ import prizeImage from "../assets/image 10 (1).png";
 import RaceNav from "../../Webiste/Components/RaceCard/RaceNav";
 import Layout from "../Components/Reuseable/layout";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
+import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-import shirt from "../../Webiste/assets/image 5.png";
-import pic from "../../Webiste/assets/Ellipse 7.png";
 import { RaceCardData } from "../data/data";
 import { useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -37,7 +35,6 @@ const RaceCardDetail = () => {
   const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
-  const [data, setdata] = useState();
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState();
   const handleClose = () => setShow(false);
@@ -47,11 +44,8 @@ const RaceCardDetail = () => {
   };
 
   const { id } = state;
-  console.log(id, "detail aaya id");
-
-  console.log(singlerace, "singlerace");
   useEffect(() => {
-    dispatch(fetchSinglerace({ id }));
+    dispatch(fetchsinglerace({ id }));
   }, [id]);
 
   if (status === STATUSES.LOADING) {
@@ -130,12 +124,12 @@ const RaceCardDetail = () => {
                     <span className="racenameflex">
                       <p>
                         {cookiedata === "en" ? (
-                          singlerace.RaceCourseData.TrackNameEn === null ? (
+                          singlerace.RaceCourseData === null ? (
                             <>N/A</>
                           ) : (
                             singlerace.RaceCourseData.TrackNameEn
                           )
-                        ) : singlerace.RaceCourseData.TrackNameAr === null ? (
+                        ) : singlerace.RaceCourseData === null ? (
                           <>N/A</>
                         ) : (
                           singlerace.RaceCourseData.TrackNameAr
@@ -144,13 +138,13 @@ const RaceCardDetail = () => {
                       <img src={flag} alt="" />
                     </span>
                     <p className="itemtime">
-                      <Moment format='MMMM Do YYYY, h:mm:ss'>{singlerace.DayNTime}</Moment>
+                      <Moment format='MMMM Do YYYY'>{singlerace.DayNTime}</Moment>
                     </p>
                     {/* <p className="itemtime"> 
                     <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
                           </Moment>  </p> */}
                   </div>
-                  <div className="racestatuscolor">
+                  {/* <div className="racestatuscolor">
                     <li>1</li>
                     <li>2</li>
                     <li>3</li>
@@ -158,7 +152,7 @@ const RaceCardDetail = () => {
                     <li>5</li>
                     <li>6</li>
                  
-                  </div>
+                  </div> */}
                 </div>
                 <div className="racedisc">
                   <div className="itemraces">
@@ -179,12 +173,12 @@ const RaceCardDetail = () => {
                         <h5>
                           {" "}
                           {cookiedata === "en" ? (
-                            singlerace.RaceNameModelData.NameEn === null ? (
+                            singlerace.RaceNameModelData === null ? (
                               <>N/A</>
                             ) : (
                               singlerace.RaceNameModelData.NameEn
                             )
-                          ) : singlerace.RaceNameModelData.NameAr === null ? (
+                          ) : singlerace.RaceNameModelData === null ? (
                             <>N/A</>
                           ) : (
                             singlerace.RaceNameModelData.NameAr
@@ -359,20 +353,21 @@ const RaceCardDetail = () => {
                       <div className="RaceDetailCard">
                         <div className="forfexclass">
                           <Accordion defaultActiveKey="0">
-                            <div className="HorseModelsCSSFlex">
-                              {singlerace.HorseModels === undefined ? (
-                                <>N/A</>
+                            <div className="RaceAndHorseModelDataCSSFlex">
+                              {singlerace.RaceAndHorseModelData === undefined ? (
+                                <div className="NAclass">N/A</div>
                               ) : (
-                                singlerace.HorseModels.map((data,index) => {
+                                singlerace.RaceAndHorseModelData.map((data,index) => {
                                   return (
-                                    <div className="HorseModelsCSS">
+                                    <div className="RaceAndHorseModelDataCSS">
                                       <Accordion.Item eventKey={index}>
                                       <Accordion.Header>
                                         <div className="cardracesAccordion">
                                           <div className="cardraces1">
                                             <img src={data.HorseImage} alt="" />
                                             <span className="cardraces1box">
-                                              1-3-22
+                                              <p>1-3-22</p>
+                                              <h3>0{data.Foal}</h3>
                                             </span>
                                           </div>
                                           <div className="cardraces2">
@@ -400,7 +395,7 @@ const RaceCardDetail = () => {
                                                 <Moment fromNow ago>
                                                   {data.DOB}
                                                 </Moment>{" "}
-                                                GR H (242)
+                                                GR H ({data.Height})
                                               </p>
                                             </div>
                                             <div
@@ -720,8 +715,7 @@ const RaceCardDetail = () => {
               </div>
             </div>
           ) : (
-            <>No Data</>
-          )}
+            <div className="NAclass">No Data</div>          )}
           <Modal
             show={show}
             onHide={handleClose}

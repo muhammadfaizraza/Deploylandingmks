@@ -1,6 +1,7 @@
 import axios from 'axios';
 const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 
+
 export const STATUSES = Object.freeze({
     IDLE: 'idle',
     ERROR: 'error',

@@ -52,13 +52,13 @@ const Card = () => {
     <div className="RaceDetailCard">
                         <div className="forfexclass">
                           <Accordion defaultActiveKey="0">
-                            <div className="HorseModelsCSSFlex">
-                              {singlerace.HorseModels === undefined ? (
+                            <div className="RaceAndHorseModelDataCSSFlex">
+                              {singlerace.RaceAndHorseModelData === undefined ? (
                                 <>N/A</>
                               ) : (
-                                singlerace.HorseModels.map((data) => {
+                                singlerace.RaceAndHorseModelData.map((data) => {
                                   return (
-                                    <div className="HorseModelsCSS">
+                                    <div className="RaceAndHorseModelDataCSS">
                                       <Accordion.Item eventKey='0'>
                                       <Accordion.Header>
                                         <div className="cardracesAccordion">

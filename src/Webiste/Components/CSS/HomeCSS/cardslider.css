@@ -115,12 +115,12 @@ height: 30px;
 overflow: hidden;
 transition: 0.4s linear all;
 }
-.racetime:hover{
+/* .racetime:hover{
     transition: 0.4s linear all;
     margin-bottom: 20px;
     position: relative;
     top: 20px;
-}
+} */
 
 .racetime:nth-child(1){
     color: #ff0008;

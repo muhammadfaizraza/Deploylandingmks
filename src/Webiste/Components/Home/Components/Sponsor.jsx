@@ -3,10 +3,12 @@ import '../../CSS/HomeCSS/blogs.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSponsor, STATUSES } from "../../../redux/getReducer/getSponsorSlice";
 import img from '../../../assets/Rectangle 19.png'
+import Cookies from "js-cookie";
 
 const Sponsor = () => {
   const dispatch = useDispatch();
   const { data: sponsor, status } = useSelector((state) => state.sponsor);
+  const cookiedata = Cookies.get('i18next')
 
   useEffect(() => {
     dispatch(fetchSponsor());
@@ -45,7 +47,9 @@ const Sponsor = () => {
                 <a href={item.Url} target='_blank'>
                   <div  className='sponsorimg' >
                 <img src={item.image} alt=""/>
-                <h2 className='first-txt'>{item.DescriptionEn}</h2>
+                <h2 className='first-txt'>
+                {cookiedata === 'en' ? (item.TitleEn === null ? <>N/A</> : item.TitleEn) : (item.TitleAr === null ? <>N/A</> : item.TitleAr)}
+                </h2>
                 </div>
                 </a>
               )

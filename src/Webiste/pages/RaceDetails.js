@@ -7,7 +7,7 @@ import prizeImage from "../assets/image 10 (1).png";
 import RaceNav from "../Components/RaceCard/RaceNav";
 import Layout from "../Components/Reuseable/layout";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
+import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Accordion from "react-bootstrap/Accordion";
 import shirt from "../../Webiste/assets/image 5.png";
 import pic from "../../Webiste/assets/Ellipse 7.png";
@@ -53,7 +53,7 @@ const RaceDetails = () => {
 
   console.log(singlerace, "singlerace");
   useEffect(() => {
-    dispatch(fetchSinglerace({ id }));
+    dispatch(fetchsinglerace({ id }));
   }, [id]);
 
   if (status === STATUSES.LOADING) {
@@ -140,7 +140,7 @@ const RaceDetails = () => {
                        <Moment format="hh:mm:ss" trim durationFromNow> {singlerace.DayNTime}
                         </Moment>  </p>
                 </div>
-                <div className="racestatuscolor resracestatuscolor ">
+                {/* <div className="racestatuscolor resracestatuscolor ">
                   <li>1</li>
                   <li>2</li>
                   <li>3</li>
@@ -148,7 +148,7 @@ const RaceDetails = () => {
                   <li>5</li>
                   <li>6</li>
                   <li>7</li>
-                </div>
+                </div> */}
               </div>
               <div className="racedisc">
                 <div className="itemraces">
@@ -353,9 +353,9 @@ const RaceDetails = () => {
                           <div>
 
                             {
-                             singlerace.HorseModels === undefined ? <>N/A</>:
+                             singlerace.RaceAndHorseModelData === undefined ? <>N/A</>:
 
-                            singlerace.HorseModels.map((data) => {
+                            singlerace.RaceAndHorseModelData.map((data) => {
                               return (
                                 <Accordion.Item eventKey='0'>
                                   <Accordion.Header>
@@ -670,7 +670,7 @@ const RaceDetails = () => {
         
           </>
         ) : (
-          <>No Data</>
+          <div className="NAclass">No Data</div>
         )}
         <Modal
           show={show}
