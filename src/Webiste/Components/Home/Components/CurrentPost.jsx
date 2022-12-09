@@ -71,7 +71,9 @@ const Match = () => {
         style={{
           margin: "100px",
         }}
-      ></h2>
+      >
+
+      </h2>
     );
   }
 
@@ -103,15 +105,17 @@ const Match = () => {
               <Accordion defaultActiveKey="0" flush>
                 <Bounce bottom>
                   <div className="Currentpostdiv">
-                    <div className="Currentpostheader">
-                      <h2>{t("United Arab Emirates")}</h2>
-                      <img src={flag} alt="" />
-                    </div>
+                 
                     <div className="CompetitionData">
                       <Accordion>
                         {
                           racecourse.length === 0 || racecourse === undefined ? <></> : racecourse.map((item, ind) => {
                             return (
+                              <>
+                              <div className="Currentpostheader">
+                              <h2>{item.NationalityDataRaceCourse.NameEn}</h2>
+                              <img src={item.NationalityDataRaceCourse.image} alt="" />
+                            </div>
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
@@ -158,6 +162,7 @@ const Match = () => {
                                   ))}
                                 </Accordion.Item>
                               </div>
+                              </>
                             );
                           })
                         }

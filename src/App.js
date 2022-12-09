@@ -37,6 +37,7 @@ import MySelection from './Webiste/UserDashboard/MySelection';
 import MyProfile from './Webiste/UserDashboard/MyProfile';
 import WinnerList from './Webiste/UserDashboard/WinnerList';
 import RaceDetails from './Webiste/pages/RaceDetails';
+import BlogDetails from './Webiste/pages/BlogDetails';
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
         <Route path='/querytool'  element={  <QueryTool /> } />
         <Route path='/jockeydetail'  element={  <JockeyDetail /> } />
         <Route path='/trainerdetail'  element={  <TrainerDetail /> } />
+        <Route path='/blogdetails'  element={  <BlogDetails /> } />
         <Route path='/competitionmodal'  element={  <CompetitionModal /> } />
 
         {/* Protected Routes */}
