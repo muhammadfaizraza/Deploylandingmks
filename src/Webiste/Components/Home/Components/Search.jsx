@@ -29,13 +29,13 @@ const Search = () => {
          <input type="text" onChange={event => SearchData(event.target.value)} />
         <i className="fa fa-search icon11" ></i>
       </div>
-      <div className = {item === '' ? 'searchchild1' : 'searchchild'}  >
+      <div className="searchchild">
       {
-        Data.length === 0 ? <>No Data Found</> : <>{Data.map((item) => {
+        Data.length === 0 ? <></> : <>{Data.map((item) => {
           return(
             <div className="searchdatalist ">
               <p>{item.NameEn}</p>
-            
+              <p>{item.Remarks}</p>
             </div>
           )
         })}</>

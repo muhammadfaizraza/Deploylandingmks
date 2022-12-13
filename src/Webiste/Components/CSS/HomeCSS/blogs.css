@@ -23,8 +23,10 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.singleCardBlogs{
-margin-top: 2.5rem;
+.singleCardBlogs {
+    margin-top: 2.5rem;
+    height: fit-content;
+    max-height: 380px;
 }
 .singleCardBlogs img{
     width: 215.76px;

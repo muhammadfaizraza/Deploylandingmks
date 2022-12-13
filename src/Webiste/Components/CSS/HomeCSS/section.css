@@ -245,3 +245,7 @@ border-radius: 20px;
     width: 15%;
     text-align: start;
 } */
+.Currentpostheader img {
+    height: 40px;
+    width: 50px;
+  }
