@@ -151,6 +151,7 @@ margin: 20px 20px 0 20px;
     margin-top: 20px;
 }
 .newpost{
+    min-height: 700px;
     /* height: 700px; */
     background: #19469D;
     margin: 0px;

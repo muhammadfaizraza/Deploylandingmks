@@ -28,6 +28,7 @@ import arrow1 from "../assets/image 13 (Traced).png";
 import Moment from "react-moment";
 import PrintOut from "../Components/RaceCard/Printout";
 import { IoPartlySunnyOutline ,IoCloudyOutline } from 'react-icons/io5'
+import TriCompetition from "../Components/Competition/TriCompetition";
 
 
 const RaceCardDetail = () => {
@@ -35,12 +36,22 @@ const RaceCardDetail = () => {
   const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
+  const [TriData , setTriData] = useState([]);
+  const [CastData , setCastData] = useState([]);
+
   const [show, setShow] = useState(false);
-  const [modaldata, setmodaldata] = useState();
+  const [showtri, setShowtri] = useState(false);
+
   const handleClose = () => setShow(false);
+  const handleCloseTri = () => setShowtri(false);
+
   const handleShow = async (data) => {
-    setmodaldata(data);
     await setShow(true);
+    setCastData(data)
+  };
+  const handleShowTri = async (data) => {
+    await setShowtri(true);
+    setTriData(data)
   };
 
   const { id } = state;
@@ -106,7 +117,8 @@ const RaceCardDetail = () => {
     border: "none",
     color: "#fff",
   };
-  console.log(singlerace, "single");
+
+  console.log(singlerace,'asdsd')
   const cookiedata = Cookies.get("i18next");
   const toUpperCaseFilter = (d) => {
     return d.toUpperCase();
@@ -263,7 +275,8 @@ const RaceCardDetail = () => {
                           singlerace.SixthPrice}
                       </b>
                     </p>
-                    <div
+                    {
+                      singlerace.CompetitionRacesPointsModelData.length > 0 ?  <div
                       style={{
                         display: "flex",
                         gap: "10px",
@@ -271,16 +284,17 @@ const RaceCardDetail = () => {
                     >
                       <button
                         style={btnNew}
-                        onClick={() => {
-                          alert("Tricast");
-                        }}
+                        onClick={() => handleShowTri(singlerace.CompetitionRacesPointsModelData)}
                       >
                         Tricast
                       </button>
-                      <button style={btnNew1} onClick={() => handleShow()}>
+                      <button style={btnNew1}
+                       onClick={() => handleShow(singlerace.CompetitionRacesPointsModelData)}>
                         Pick Six
                       </button>
-                    </div>
+                    </div> : <></>
+                    }
+                    
                   </div>
                   <div className="Competitiontrophy">
                     <div className="Trophydata">
@@ -408,10 +422,10 @@ const RaceCardDetail = () => {
                                                 Dam{" "}
                                                 <b>
                                                   :
-                                                  {data.Dam === null ? (
+                                                  {data.DamData === null ? (
                                                     <>N/A</>
                                                   ) : (
-                                                    <>{data.Dam} </>
+                                                    <>{data.DamData.NameEn} </>
                                                   )}{" "}
                                                 </b>
                                               </p>
@@ -419,10 +433,10 @@ const RaceCardDetail = () => {
                                                 Sire{" "}
                                                 <b>
                                                   :
-                                                  {data.GSire === null ? (
+                                                  {data.GSireData === null ? (
                                                     <>N/A</>
                                                   ) : (
-                                                    <>{data.GSire} </>
+                                                    <>{data.GSireData.NameEn} </>
                                                   )}
                                                 </b>
                                               </p>
@@ -431,10 +445,10 @@ const RaceCardDetail = () => {
                                                 <b>
                                                   {" "}
                                                   :{" "}
-                                                  {data.GSire === null ? (
+                                                  {data.GSireData === null ? (
                                                     <>N/A</>
                                                   ) : (
-                                                    <>{data.GSire} </>
+                                                    <>{data.GSireData.NameEn} </>
                                                   )}
                                                 </b>
                                               </p>
@@ -506,14 +520,14 @@ const RaceCardDetail = () => {
                                                 textAlign: "end",
                                               }}
                                             >
-                                              TT OR: {singlerace.JockeyModels[index].Rating}
+                                              TT OR: {singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.Rating === undefined ? <>N/A</> : singlerace.JockeyModels[index].Rating)}
                                             </p>
                                             <div className="cardracesjockey">
                                               <div className="cardracesjockeyleft">
                                                 <p>
-                                                  J <b>{singlerace.JockeyModels[index].NameEn}</b>
+                                                  J <b>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.NameEn === undefined ? <>N/A</> :singlerace.JockeyModels[index].NameEn)}</b>
                                                 </p>
-                                                <p>{singlerace.JockeyModels[index].MaximumJockeyWeight}kg</p>
+                                                <p>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.weight === undefined ? <>N/A</> :singlerace.JockeyModels[index].weight)}kg</p>
                                                 <p
                                                   style={{
                                                     fontWeight: "300",
@@ -526,7 +540,7 @@ const RaceCardDetail = () => {
                                                 </p>
                                               </div>
                                               <img
-                                                src={singlerace.JockeyModels[index].image}
+                                                src={singlerace.JockeyModels.length < 1 ? <>N/A</> :(singlerace.JockeyModels.image === undefined ? <>N/A</> :singlerace.JockeyModels[index].image)}
                                                 alt=""
                                                 className="cardracesjockeyimg"
                                               />
@@ -725,12 +739,27 @@ const RaceCardDetail = () => {
           >
             <Modal.Header closeButton></Modal.Header>
             <Modal.Body>
-              <Competition />
+              <Competition data={CastData}/>
             </Modal.Body>
             <Modal.Footer>
               {/* <button onClick={handleClose}>Close</button> */}
             </Modal.Footer>
           </Modal>
+
+          <Modal
+          show={showtri}
+          onHide={handleCloseTri}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton></Modal.Header>
+          <Modal.Body>
+            <TriCompetition data={TriData}/>
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal>
         </div>
       </Zoom>
       {/* <Footer />

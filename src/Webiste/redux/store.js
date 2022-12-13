@@ -18,6 +18,8 @@ import getSingleRace from './getReducer/getSingleRace';
 import getSeo from './getReducer/getSeo';
 import getCard from './getReducer/getCard';
 import getSingleCourse from './getReducer/getSingleCourse';
+import getCompetition from './getReducer/getCompetition';
+import getRaceResult from './getReducer/getRaceResult';
 
 const store = configureStore({
     reducer: {
@@ -39,7 +41,9 @@ const store = configureStore({
         singlerace: getSingleRace,
         Seo: getSeo,
         Card: getCard,
-        singlecourse:getSingleCourse
+        singlecourse:getSingleCourse,
+        competition:getCompetition,
+        raceresult:getRaceResult
     },
 });
 

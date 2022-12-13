@@ -15,12 +15,12 @@ const Auth = () => {
   const { userInfo, userToken } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  useEffect(() => {
-    if (userToken) {
-      dispatch(getUserDetails());
-    }
+  // useEffect(() => {
+  //   if (userToken) {
+  //     dispatch(getUserDetails());
+  //   }
    
-  }, [userToken, dispatch]);
+  // }, [userToken, dispatch]);
 function Redirect(){
   navigate('/dashboard')
 }

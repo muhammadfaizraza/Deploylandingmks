@@ -73,20 +73,46 @@ const Card = () => {
                               <p style={myPara}>5yrs GR H (242)</p>
                             </div>
                             <div
-                              style={{
-                                display: "flex",
-                              }}
-                            >
-                              <p style={myPara}>
-                                <b>Dam</b> :Tapit
-                              </p>
-                              <p style={myPara}>
-                                <b>Sire</b> :Los
-                              </p>
-                              <p style={myPara}>
-                                <b>G.Sire</b> : Ojitos
-                              </p>
-                            </div>
+                                              style={{
+                                                display: "flex",
+                                                lineHeight: "1px",
+                                              }}
+                                            >
+                                              <p style={myPara}>
+                                                Dam{" "}
+                                                <b>
+                                                  :
+                                                  {race.DamData === null ? (
+                                                    <>N/A</>
+                                                  ) : (
+                                                    <>{race.DamData.NameEn} </>
+                                                  )}{" "}
+                                                </b>
+                                              </p>
+                                              <p style={myPara}>
+                                                Sire{" "}
+                                                <b>
+                                                  :
+                                                  {race.GSireData === null ? (
+                                                    <>N/A</>
+                                                  ) : (
+                                                    <>{race.GSireData.NameEn} </>
+                                                  )}
+                                                </b>
+                                              </p>
+                                              <p style={myPara}>
+                                                G.Sire{" "}
+                                                <b>
+                                                  {" "}
+                                                  :{" "}
+                                                  {race.GSireData === null ? (
+                                                    <>N/A</>
+                                                  ) : (
+                                                    <>{race.GSireData.NameEn} </>
+                                                  )}
+                                                </b>
+                                              </p>
+                                            </div>
                             <div
                               style={{
                                 display: "flex",

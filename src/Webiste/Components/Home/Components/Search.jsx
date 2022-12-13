@@ -3,42 +3,45 @@ import React,{useState, useEffect} from "react"
 
 const Search = () => {
 
-  const [item, SearchData] = useState();
-  const [Data, setData] = useState()
+  const [item, SearchData] = useState('');
+  const [Data, setData] = useState([])
 
-  useEffect(() => {
-    handleSearch();
-  }, []);
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append("Query",item ); 
-   const response =  await axios.post(`${window.env.API_URL}/searchhorse_trainer_jockey`, formData);
-   setData(response.data.data1)
-  };
-
-  console.log('data is ',Data)
- 
+   useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.post(`${window.env.API_URL}/searchhorse_trainer_jockey`, {Query:item});
+        setData(res.data.data1)
+        if(item === ''){
+          setData([])
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [item]);
+  
+  console.log(Data,'Data')
+  console.log( Data.length,'Data')
 
   return (
-    <>
+    <div className="searchparent">
       <div className="searchbox">
          <input type="text" onChange={event => SearchData(event.target.value)} />
-        <i className="fa fa-search icon11" onClick={handleSearch}></i>
+        <i className="fa fa-search icon11" ></i>
       </div>
-      <div className="SearchDataPanel">
+      <div className = {item === '' ? 'searchchild1' : 'searchchild'}  >
       {
-       Data !== undefined ? Data.map((item) => {
+        Data.length === 0 ? <>No Data Found</> : <>{Data.map((item) => {
           return(
-            <>
-            <p>{item.NameEn}</p>
-            </>
+            <div className="searchdatalist ">
+              <p>{item.NameEn}</p>
+            
+            </div>
           )
-        }) : <></>
-      }
-      </div>
-      
-    </>
+        })}</>
+      }</div>
+    
+    </div>
   )
 }
 export default Search

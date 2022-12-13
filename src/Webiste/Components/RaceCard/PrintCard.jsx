@@ -56,16 +56,17 @@ const Card = () => {
                               {singlerace.RaceAndHorseModelData === undefined ? (
                                 <>N/A</>
                               ) : (
-                                singlerace.RaceAndHorseModelData.map((data) => {
+                                singlerace.RaceAndHorseModelData.map((data,index) => {
                                   return (
                                     <div className="RaceAndHorseModelDataCSS">
-                                      <Accordion.Item eventKey='0'>
+                                     <Accordion.Item eventKey='0'>
                                       <Accordion.Header>
                                         <div className="cardracesAccordion">
                                           <div className="cardraces1">
                                             <img src={data.HorseImage} alt="" />
                                             <span className="cardraces1box">
-                                              1-3-22
+                                              <p>1-3-22</p>
+                                              <h3>0{data.Foal}</h3>
                                             </span>
                                           </div>
                                           <div className="cardraces2">
@@ -93,7 +94,7 @@ const Card = () => {
                                                 <Moment fromNow ago>
                                                   {data.DOB}
                                                 </Moment>{" "}
-                                                GR H (242)
+                                                GR H ({data.Height})
                                               </p>
                                             </div>
                                             <div
@@ -106,10 +107,10 @@ const Card = () => {
                                                 Dam{" "}
                                                 <b>
                                                   :
-                                                  {data.Dam === null ? (
+                                                  {data.DamData === null ? (
                                                     <>N/A</>
                                                   ) : (
-                                                    <>{data.Dam} </>
+                                                    <>{data.DamData.NameEn} </>
                                                   )}{" "}
                                                 </b>
                                               </p>
@@ -117,10 +118,10 @@ const Card = () => {
                                                 Sire{" "}
                                                 <b>
                                                   :
-                                                  {data.GSire === null ? (
+                                                  {data.GSireData === null ? (
                                                     <>N/A</>
                                                   ) : (
-                                                    <>{data.GSire} </>
+                                                    <>{data.GSireData.NameEn} </>
                                                   )}
                                                 </b>
                                               </p>
@@ -129,10 +130,10 @@ const Card = () => {
                                                 <b>
                                                   {" "}
                                                   :{" "}
-                                                  {data.GSire === null ? (
+                                                  {data.GSireData === null ? (
                                                     <>N/A</>
                                                   ) : (
-                                                    <>{data.GSire} </>
+                                                    <>{data.GSireData.NameEn} </>
                                                   )}
                                                 </b>
                                               </p>
@@ -150,7 +151,7 @@ const Card = () => {
                                                   color: "#FF0000",
                                                 }}
                                               >
-                                                David & Nicola Barron
+                                                {data.ActiveOwnerData === null ? <>Na/A</> :data.ActiveOwnerData.NameEn}
                                               </p>
                                               <p
                                                 style={{
@@ -165,16 +166,16 @@ const Card = () => {
                                             </div>
                                             <div className="trainerbreader_section">
                                               <img
-                                                src={pic}
+                                                src={data.ActiveOwnerData.image}
                                                 alt=""
                                                 className="trainerbreader_image"
                                               />{" "}
                                               <div className="race_trainerbreader">
                                                 <p>
-                                                  T <b>Miss Alice Keighley </b>
+                                                  T <b>{data.ActiveTrainerData === null ? <>N/A</> :data.ActiveTrainerData.NameEn} </b>
                                                 </p>
                                                 <p>
-                                                  B{" "}
+                                                  B
                                                   <b>
                                                     {cookiedata === "en"
                                                       ? data.BreederData.NameEn
@@ -194,7 +195,7 @@ const Card = () => {
                                             <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
-                                          <div className="cardraces4">
+                                            <div className="cardraces4">
                                             <p
                                               style={{
                                                 fontWeight: "300",
@@ -204,14 +205,14 @@ const Card = () => {
                                                 textAlign: "end",
                                               }}
                                             >
-                                              TT OR: 62
+                                              TT OR: {singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.Rating === undefined ? <>N/A</> : singlerace.JockeyModels[index].Rating)}
                                             </p>
                                             <div className="cardracesjockey">
                                               <div className="cardracesjockeyleft">
                                                 <p>
-                                                  J <b>Tadhg O’Shea</b>
+                                                  J <b>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.NameEn === undefined ? <>N/A</> :singlerace.JockeyModels[index].NameEn)}</b>
                                                 </p>
-                                                <p>59kg</p>
+                                                <p>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.weight === undefined ? <>N/A</> :singlerace.JockeyModels[index].weight)}kg</p>
                                                 <p
                                                   style={{
                                                     fontWeight: "300",
@@ -224,7 +225,7 @@ const Card = () => {
                                                 </p>
                                               </div>
                                               <img
-                                                src={pic}
+                                                src={singlerace.JockeyModels.length < 1 ? <>N/A</> :(singlerace.JockeyModels.image === undefined ? <>N/A</> :singlerace.JockeyModels[index].image)}
                                                 alt=""
                                                 className="cardracesjockeyimg"
                                               />
@@ -242,7 +243,7 @@ const Card = () => {
                                         <div>
                                           <div className="pmclass">
                                             <p>
-                                              PM: AED <b>55,000</b>
+                                              PM: AED <b>{data.PurchasePrice}</b>
                                             </p>
                                             <p>
                                               BTO: AED <b>55,000</b>

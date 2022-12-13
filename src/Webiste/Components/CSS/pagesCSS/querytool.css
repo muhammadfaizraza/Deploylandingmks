@@ -28,3 +28,31 @@ border-radius: 18px;
     font-size: 12px;
     line-height: 15px; 
 }
+
+/* .searchdatalist {
+   display: flex;
+   flex-direction: column;
+} */
+.searchchild{
+    border: 1px solid #cbc3c3;
+    border-radius: 0px 0px 20px 20px;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: absolute;
+    z-index: 9999;
+    background: #fff;
+    width: 100%;
+    border-top: 0;
+    padding-top: 20px;
+    top: 47px;
+}
+.searchparent{
+    position: relative;
+}
+.searchchild1{
+display: none;
+}

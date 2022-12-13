@@ -4,6 +4,7 @@
     background: #EFEFEF;
     border-radius: 20px;
     overflow: auto;
+    min-height: 700px;
 }
 .HomeRightLeaderBoader{
         /* height: 700px; */

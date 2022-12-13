@@ -23,7 +23,7 @@ const Login = () => {
   // redirect authenticated user to profile screen
   useEffect(() => {
     if (userInfo) {
-      navigate('/dashboard')
+      navigate('/')
     }
   }, [navigate, userInfo])
 
@@ -33,7 +33,7 @@ const Login = () => {
       navigate('/login')
     }
      else{
-        navigate('/dashboard')
+        navigate('/')
  }
   }
 

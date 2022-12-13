@@ -52,7 +52,6 @@ const Match = () => {
     })();
   }, [value]);
 
-  console.log(DayData,'DayData')
   // const submit = async (event) => {
 
   //   event.preventDefault();
@@ -103,15 +102,20 @@ const Match = () => {
               <Accordion defaultActiveKey="0" flush>
                 <Bounce bottom>
                   <div className="Currentpostdiv">
+                  {
+                          racecourse.length === 0 || racecourse === undefined ? <></> : racecourse.map((item, ind) => {
+                            return (
+                    <>
                     <div className="Currentpostheader">
-                      <h2>{t("United Arab Emirates")}</h2>
-                      <img src={flag} alt="" />
+                      <h2>{item.NationalityDataRaceCourse === null ? <>N/A</> : item.NationalityDataRaceCourse.NameEn}</h2>
+                      <img src={item.NationalityDataRaceCourse.image === null ? <>N/A</> : item.NationalityDataRaceCourse.image} alt="" style={{
+                        width:'50px',
+                        heigth:'50px'
+                      }}/>
                     </div>
                     <div className="CompetitionData">
                       <Accordion>
-                        {
-                          racecourse.length === 0 || racecourse === undefined ? <></> : racecourse.map((item, ind) => {
-                            return (
+                    
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
@@ -158,11 +162,13 @@ const Match = () => {
                                   ))}
                                 </Accordion.Item>
                               </div>
-                            );
-                          })
-                        }
+                        
                       </Accordion>
                     </div>
+                    </>
+                        );
+                      })
+                    }
                   </div>
                 </Bounce>
               </Accordion>
@@ -172,15 +178,20 @@ const Match = () => {
             <div className=" newpost">
               <Bounce bottom>
               <div className="Currentpostdiv">
+                  {
+                          racecourse.length === 0 || racecourse === undefined ? <></> : racecourse.map((item, ind) => {
+                            return (
+                    <>
                     <div className="Currentpostheader">
-                      <h2>{t("United Arab Emirates")}</h2>
-                      <img src={flag} alt="" />
+                      <h2>{item.NationalityDataRaceCourse === null ? <>N/A</> : item.NationalityDataRaceCourse.NameEn}</h2>
+                      <img src={item.NationalityDataRaceCourse.image === null ? <>N/A</> : item.NationalityDataRaceCourse.image} alt="" style={{
+                        width:'50px',
+                        heigth:'50px'
+                      }}/>
                     </div>
                     <div className="CompetitionData">
                       <Accordion>
-                        {
-                          racecourse.length === 0 || racecourse === undefined ? <></> : racecourse.map((item, ind) => {
-                            return (
+                    
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
@@ -227,11 +238,13 @@ const Match = () => {
                                   ))}
                                 </Accordion.Item>
                               </div>
-                            );
-                          })
-                        }
+                        
                       </Accordion>
                     </div>
+                    </>
+                        );
+                      })
+                    }
                   </div>
               </Bounce>
             </div>
@@ -245,15 +258,20 @@ const Match = () => {
               </Bounce>
               <Bounce bottom>
               <div className="Currentpostdiv">
+                  {
+                          DayData.length === 0 || DayData === undefined ? <></> : DayData.map((item, ind) => {
+                            return (
+                    <>
                     <div className="Currentpostheader">
-                      <h2>{t("United Arab Emirates")}</h2>
-                      <img src={flag} alt="" />
+                      <h2>{item.RaceCourseData === null ? <>N/A</> : item.RaceCourseData.NameEn}</h2>
+                      <img src={item.RaceCourseData.image} alt="" style={{
+                        width:'50px',
+                        heigth:'50px'
+                      }}/>
                     </div>
                     <div className="CompetitionData">
                       <Accordion>
-                        {
-                          DayData.length === 0 || DayData === undefined ?<div className="NAclass">No Race</div> : DayData.map((item, ind) => {
-                            return (
+                    
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
@@ -298,12 +316,14 @@ const Match = () => {
                                     </Accordion.Body>
                                 </Accordion.Item>
                               </div>
-                            );
-                          })
-                        }
+                        
                       </Accordion>
                     </div>
-              </div>
+                    </>
+                        );
+                      })
+                    }
+                  </div>
               </Bounce>
             </div>
           </Tab>
