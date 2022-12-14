@@ -56,3 +56,11 @@ border-radius: 18px;
 .searchchild1{
 display: none;
 }
+.searchdatalist > p{
+    font-size: 14px;
+    cursor: pointer;
+    padding: 3px;
+}
+.searchdatalist1{
+    font-size: 14px;
+}

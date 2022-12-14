@@ -195,7 +195,7 @@ const Card = () => {
                                             <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
-                                            <div className="cardraces4">
+                                    <div className="cardraces4">
                                             <p
                                               style={{
                                                 fontWeight: "300",
@@ -205,14 +205,14 @@ const Card = () => {
                                                 textAlign: "end",
                                               }}
                                             >
-                                              TT OR: {singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.Rating === undefined ? <>N/A</> : singlerace.JockeyModels[index].Rating)}
+                                              TT OR: {singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels[index].Rating === undefined ? <>N/A</> : singlerace.JockeyModels[index].Rating)}
                                             </p>
                                             <div className="cardracesjockey">
                                               <div className="cardracesjockeyleft">
                                                 <p>
-                                                  J <b>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.NameEn === undefined ? <>N/A</> :singlerace.JockeyModels[index].NameEn)}</b>
+                                                  J <b>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels[index].NameEn === undefined ? <>N/A</> :singlerace.JockeyModels[index].NameEn)}</b>
                                                 </p>
-                                                <p>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels.weight === undefined ? <>N/A</> :singlerace.JockeyModels[index].weight)}kg</p>
+                                                <p>{singlerace.JockeyModels.length < 1 ? <>N/A</> : (singlerace.JockeyModels[index].MaximumJockeyWeight === undefined ? <>N/A</> :singlerace.JockeyModels[index].MaximumJockeyWeight)}kg</p>
                                                 <p
                                                   style={{
                                                     fontWeight: "300",
@@ -225,7 +225,7 @@ const Card = () => {
                                                 </p>
                                               </div>
                                               <img
-                                                src={singlerace.JockeyModels.length < 1 ? <>N/A</> :(singlerace.JockeyModels.image === undefined ? <>N/A</> :singlerace.JockeyModels[index].image)}
+                                                src={singlerace.JockeyModels.length < 1 ? <>N/A</> :(singlerace.JockeyModels[index].image === undefined ? <>N/A</> :singlerace.JockeyModels[index].image)}
                                                 alt=""
                                                 className="cardracesjockeyimg"
                                               />
