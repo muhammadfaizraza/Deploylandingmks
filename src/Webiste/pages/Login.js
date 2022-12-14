@@ -21,11 +21,7 @@ const Login = () => {
   const navigate = useNavigate()
   const cookiedata = Cookies.get("id");
   // redirect authenticated user to profile screen
-  useEffect(() => {
-    if (userInfo) {
-      navigate('/')
-    }
-  }, [navigate, userInfo])
+
 
   const submitForm = (data) => {
     dispatch(userLogin(data))  

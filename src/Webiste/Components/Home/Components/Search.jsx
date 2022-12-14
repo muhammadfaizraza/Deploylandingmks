@@ -8,6 +8,8 @@ const Search = () => {
   const [item, SearchData] = useState('');
   const [Data, setData] = useState([])
   const [Data2, setData2] = useState([])
+  const [Data3, setData3] = useState([])
+
 
    useEffect(() => {
     (async () => {
@@ -15,6 +17,7 @@ const Search = () => {
         const res = await axios.post(`${window.env.API_URL}/searchhorse_trainer_jockey`, {Query:item});
         setData(res.data.data1)
         setData2(res.data.data2)
+        setData3(res.data.data3)
         if(item === ''){
           setData([])
         }
@@ -36,22 +39,76 @@ const Search = () => {
         <i className="fa fa-search icon11" ></i>
       </div>
       <div className={item === '' ? 'searchchild1' : 'searchchild'}>
-      {
-        Data.length === 0 ? <p className="searchdatalist1">No Data Found</p> : <>{Data.map((item) => {
-          return(
-            <div className="searchdatalist ">
-                  <OverlayTrigger placement={"left"} overlay={<Tooltip id="tooltip-disabled">
-                    <span>
-                      <p>Height:{item.Height}</p>
-                    </span>
-                  </Tooltip>}>
-                  <p>{item.NameEn}</p>
-                  </OverlayTrigger>
+      <div className="searchdatalist ">
+               <div className="row">
+               <div className="col-sm">
+                 <h5>Horse</h5>
+               </div>
+                
+                
+                <div className="col-sm">
+                <h5>Trainer</h5>
+                </div>
+                <div className="col-sm">
              
+                <h5>Owner</h5>
+                </div>
+
+
+                </div>
+                 
             </div>
-          )
-        })}</>
-      }</div>
+            <hr/>
+      <div className="searchdatalist ">
+               <div className="row">
+               <div className="col-sm">
+               {
+                Data.length === 0 ? <p className="searchdatalist1">No Data Found</p> : <>
+                {
+                 Data.map((data2) => {
+                  return(
+                    <p className="searchname">{data2.NameEn}</p>
+                  
+                  )
+                 })
+                  }</>
+                  
+               }  
+               </div>
+                
+                
+                <div className="col-sm">
+                {
+                Data2.length === 0 ? <p className="searchdatalist1">No Data Found</p> : <>
+                {
+                 Data2.map((data2) => {
+                  return(
+                    <p className="searchname">{data2.NameEn}</p>
+                  )
+                 })
+                  }</>
+               }
+             
+                </div>
+                <div className="col-sm">
+                {
+                Data3.length === 0 ? <p className="searchdatalist1">No Data Found</p> : <>
+                {
+                 Data3.map((data2) => {
+                  return(
+                    <p className="searchname">{data2.NameEn}</p>
+                  )
+                 })
+                  }</>
+               }
+             
+                </div>
+
+
+                </div>
+                 
+            </div>
+      </div>
     
     </div>
   )

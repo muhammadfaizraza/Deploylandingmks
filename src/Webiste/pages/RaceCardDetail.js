@@ -175,7 +175,7 @@ const RaceCardDetail = () => {
                           {/* <p><b>16:35</b></p> */}
                         </span>
 
-                        <img
+                        <img 
                           className="sponsor"
                           src={singlerace.SponsorData === null ? <></> :singlerace.SponsorData.image}
                           alt=""

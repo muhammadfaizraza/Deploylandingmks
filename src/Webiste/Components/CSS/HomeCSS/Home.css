@@ -44,7 +44,7 @@ border-radius: 0px 20px 0px 0px;
 }
 .searchbox{
     display: flex;
-    flex: 2;
+    width: 300px;
 }
 .searchbox > input{
     margin-top: 10px;

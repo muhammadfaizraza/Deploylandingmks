@@ -82,7 +82,7 @@ const Result = () => {
                           <tr key={data._id}>
                           <td>{data.Rank}</td>
                           <td>{data.HorseIDDataHorse.NameEn}</td>
-                          <td>{data.Foal}</td>
+                          <td>{data.Rank}</td>
                           
                           <td>{data.HorseStatus === true ? <>Yes</> : <>No</>}</td>
                           <td style={{

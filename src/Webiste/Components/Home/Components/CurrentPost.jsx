@@ -88,7 +88,7 @@ const Match = () => {
     );
   }
   const cookiedata = Cookies.get("i18next");
-
+console.log(DayData,'DayData')
   return (
     <div className="match">
       {racecourse === undefined ? (
