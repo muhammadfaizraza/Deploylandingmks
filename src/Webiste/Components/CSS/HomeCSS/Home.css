@@ -359,3 +359,8 @@ flex: 9;
     font-size: 20px;
     font-weight: 600;
 }
+
+.aboutpagesection.resultdata {
+    width: 50%;
+    margin: auto;
+}

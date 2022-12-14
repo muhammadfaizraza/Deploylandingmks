@@ -171,33 +171,9 @@ const RaceCardDetail = () => {
                   <div className="itemraces">
                     <div className="inner_itemraces">
                       <span className="itemraces_left">
-                        <span className="race" style={{
-                                  backgroundColor: `${
-                                    singlerace.RaceStatus === "Cancel"
-                                      ? "#000000"
-                                      :  singlerace.RaceStatus === "End"
-                                      ? "#FF0000"
-                                      :  singlerace.RaceStatus === "Live"
-                                      ? "#5EC30F"
-                                      : "#FF9900"
-                                  }`,
-                                  color: `${
-                                     singlerace.RaceStatus === "Cancel"
-                                      ? "#ffff"
-                                      :  singlerace.RaceStatus === "End"
-                                      ? "#00000"
-                                      :  singlerace.RaceStatus === "Live"
-                                      ? "#00000"
-                                      : "#000000"
-                                  }`,
-                                }}>
+                        <span className="race">
                           <p>Race 1</p>
-                          <Moment
-                                          add={{ hours: 12 }}
-                                          format="mm:ss"
-                                        >
-                                          { singlerace.DayNTime}
-                                        </Moment>
+                          {/* <p><b>16:35</b></p> */}
                         </span>
 
                         <img 
