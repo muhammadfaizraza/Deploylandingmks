@@ -1,4 +1,4 @@
-import React, { useEffect ,useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../CSS/HomeCSS/blogs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCourse, STATUSES } from "../../../redux/getReducer/getRaceCourse";
@@ -9,7 +9,7 @@ import Calendar1 from "./Calendar";
 import { BsCalendarDate } from "react-icons/bs";
 import flag from "../../../assets/United Arab Emirates.png";
 import { useParams, useNavigate } from "react-router-dom";
-import { Bounce ,Fade } from "react-reveal";
+import { Bounce, Fade } from "react-reveal";
 import { useTranslation } from "react-i18next";
 import Moment from "react-moment";
 import Cookies from "js-cookie";
@@ -23,7 +23,7 @@ const Match = () => {
 
   const { t } = useTranslation();
   const [value, onChange] = useState(new Date());
-  const [DayData , setDayData] = useState([])
+  const [DayData, setDayData] = useState([]);
   const { data: racecourse, status } = useSelector((state) => state.racecourse);
 
   useEffect(() => {
@@ -38,14 +38,14 @@ const Match = () => {
     });
   }
 
-
-
-
   useEffect(() => {
     (async () => {
       try {
-        const res =await axios.post(`${window.env.API_URL}/GetRaceWithDayntime`, {DayNTime:value});
-        setDayData(res.data.data)
+        const res = await axios.post(
+          `${window.env.API_URL}/GetRaceWithDayntime`,
+          { DayNTime: value }
+        );
+        setDayData(res.data.data);
       } catch (err) {
         console.log(err);
       }
@@ -55,12 +55,12 @@ const Match = () => {
   // const submit = async (event) => {
 
   //   event.preventDefault();
-  //   try {  
+  //   try {
   //     await axios.post(`${window.env.API_URL}/GetRaceWithDayntime`, value);
 
   //   } catch (error) {
   //     const err = error.response.data.message;
-     
+
   //   }
   // };
 
@@ -71,7 +71,7 @@ const Match = () => {
           margin: "100px",
         }}
       >
-
+        
       </h2>
     );
   }
@@ -88,7 +88,7 @@ const Match = () => {
     );
   }
   const cookiedata = Cookies.get("i18next");
-console.log(DayData,'DayData')
+  console.log(DayData, "DayData");
   return (
     <div className="match">
       {racecourse === undefined ? (
@@ -99,24 +99,49 @@ console.log(DayData,'DayData')
           id="uncontrolled-tab-example"
           className="mb-4 "
         >
-           <Tab eventKey="home" title={t("current")}>
+          <Tab eventKey="home" title={t("current")}>
             <div className=" newpost">
               <Bounce bottom>
-              <div className="Currentpostdiv">
-                  {
-                          racecourse.length === 0 || racecourse === undefined ? <></> : racecourse.map((item, ind) => {
-                            return (
-                    <>
-                    <div className="Currentpostheader">
-                      <h2>{item.NationalityDataRaceCourse === null ? <>N/A</> : item.NationalityDataRaceCourse.NameEn}</h2>
-                      <img src={item.NationalityDataRaceCourse.image === null ? <>N/A</> : item.NationalityDataRaceCourse.image} alt="" style={{
-                        width:'50px',
-                        heigth:'50px'
-                      }}/>
-                    </div>
-                    <div className="CompetitionData">
-                      <Accordion>
-                    
+                <div className="Currentpostdiv">
+                  {racecourse.length === 0 || racecourse === undefined ? (
+                    <></>
+                  ) : (
+                    racecourse.map((item, ind) => {
+                      return (
+                        <>
+                          <div className="Currentpostheader">
+                            <h2>
+                              {" "}
+                              {cookiedata === "en" ? (
+                                item.NationalityDataRaceCourse === null ? (
+                                  <>N/A</>
+                                ) : (
+                                  item.NationalityDataRaceCourse.NameEn
+                                )
+                              ) : item.NationalityDataRaceCourse === null ? (
+                                <>N/A</>
+                              ) : (
+                                item.NationalityDataRaceCourse.NameAr
+                              )}
+                            </h2>
+                            <img
+                              src={
+                                item.NationalityDataRaceCourse.image ===
+                                null ? (
+                                  <>N/A</>
+                                ) : (
+                                  item.NationalityDataRaceCourse.image
+                                )
+                              }
+                              alt=""
+                              style={{
+                                width: "50px",
+                                heigth: "50px",
+                              }}
+                            />
+                          </div>
+                          <div className="CompetitionData">
+                            <Accordion>
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
@@ -153,9 +178,18 @@ console.log(DayData,'DayData')
                                         className="Competition_Matches"
                                       >
                                         <p>
-                                          {cookiedata === "en"
-                                            ? (name.RaceNameModelData === null ? <>N/A</> : name.RaceNameModelData.NameEn)
-                                            : (name.RaceNameModelData === null ? <>N/A</> : name.RaceNameModelData.NameAr)}
+                                          {cookiedata === "en" ? (
+                                            name.RaceNameModelData === null ? (
+                                              <>N/A</>
+                                            ) : (
+                                              name.RaceNameModelData.NameEn
+                                            )
+                                          ) : name.RaceNameModelData ===
+                                            null ? (
+                                            <>N/A</>
+                                          ) : (
+                                            name.RaceNameModelData.NameAr
+                                          )}
                                         </p>
                                         <p>{ind + 1}</p>
                                       </div>
@@ -163,35 +197,59 @@ console.log(DayData,'DayData')
                                   ))}
                                 </Accordion.Item>
                               </div>
-                        
-                      </Accordion>
-                    </div>
-                    </>
-                        );
-                      })
-                    }
-                  </div>
+                            </Accordion>
+                          </div>
+                        </>
+                      );
+                    })
+                  )}
+                </div>
               </Bounce>
             </div>
           </Tab>
           <Tab eventKey="ante" title={t("ante_post")} className="Ante_Post">
             <div className=" newpost">
               <Bounce bottom>
-              <div className="Currentpostdiv">
-                  {
-                          racecourse.length === 0 || racecourse === undefined ? <></> : racecourse.map((item, ind) => {
-                            return (
-                    <>
-                    <div className="Currentpostheader">
-                      <h2>{item.NationalityDataRaceCourse === null ? <>N/A</> : item.NationalityDataRaceCourse.NameEn}</h2>
-                      <img src={item.NationalityDataRaceCourse.image === null ? <>N/A</> : item.NationalityDataRaceCourse.image} alt="" style={{
-                        width:'50px',
-                        heigth:'50px'
-                      }}/>
-                    </div>
-                    <div className="CompetitionData">
-                      <Accordion>
-                    
+                <div className="Currentpostdiv">
+                  {racecourse.length === 0 || racecourse === undefined ? (
+                    <></>
+                  ) : (
+                    racecourse.map((item, ind) => {
+                      return (
+                        <>
+                          <div className="Currentpostheader">
+                            <h2>
+                              {" "}
+                              {cookiedata === "en" ? (
+                                item.NationalityDataRaceCourse === null ? (
+                                  <>N/A</>
+                                ) : (
+                                  item.NationalityDataRaceCourse.NameEn
+                                )
+                              ) : item.NationalityDataRaceCourse === null ? (
+                                <>N/A</>
+                              ) : (
+                                item.NationalityDataRaceCourse.NameAr
+                              )}
+                            </h2>
+                            <img
+                              src={
+                                item.NationalityDataRaceCourse.image ===
+                                null ? (
+                                  <>N/A</>
+                                ) : (
+                                  item.NationalityDataRaceCourse.image
+                                )
+                              }
+                              alt=""
+                              style={{
+                                width: "50px",
+                                heigth: "50px",
+                              }}
+                            />
+                          </div>
+                          <div className="CompetitionData">
+                            <Accordion>
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
@@ -228,9 +286,18 @@ console.log(DayData,'DayData')
                                         className="Competition_Matches"
                                       >
                                         <p>
-                                          {cookiedata === "en"
-                                            ? (name.RaceNameModelData === null ? <>N/A</> : name.RaceNameModelData.NameEn)
-                                            : (name.RaceNameModelData === null ? <>N/A</> : name.RaceNameModelData.NameAr)}
+                                          {cookiedata === "en" ? (
+                                            name.RaceNameModelData === null ? (
+                                              <>N/A</>
+                                            ) : (
+                                              name.RaceNameModelData.NameEn
+                                            )
+                                          ) : name.RaceNameModelData ===
+                                            null ? (
+                                            <>N/A</>
+                                          ) : (
+                                            name.RaceNameModelData.NameAr
+                                          )}
                                         </p>
                                         <p>{ind + 1}</p>
                                       </div>
@@ -238,40 +305,54 @@ console.log(DayData,'DayData')
                                   ))}
                                 </Accordion.Item>
                               </div>
-                        
-                      </Accordion>
-                    </div>
-                    </>
-                        );
-                      })
-                    }
-                  </div>
+                            </Accordion>
+                          </div>
+                        </>
+                      );
+                    })
+                  )}
+                </div>
               </Bounce>
             </div>
           </Tab>
           <Tab eventKey="contact" title={<BsCalendarDate />}>
             <div className=" newpost">
               <Bounce top>
-              <Fade>
-                <Calendar onChange={onChange} value={value} classNam="calenderin" />
-              </Fade>
+                <Fade>
+                  <Calendar
+                    onChange={onChange}
+                    value={value}
+                    classNam="calenderin"
+                  />
+                </Fade>
               </Bounce>
               <Bounce bottom>
-              <div className="Currentpostdiv">
-                  {
-                          DayData.length === 0 || DayData === undefined ? <></> : DayData.map((item, ind) => {
-                            return (
-                    <>
-                    <div className="Currentpostheader">
-                      <h2>{item.RaceCourseData === null ? <>N/A</> : item.RaceCourseData.NameEn}</h2>
-                      <img src={item.RaceCourseData.image} alt="" style={{
-                        width:'50px',
-                        heigth:'50px'
-                      }}/>
-                    </div>
-                    <div className="CompetitionData">
-                      <Accordion>
-                    
+                <div className="Currentpostdiv">
+                  {DayData.length === 0 || DayData === undefined ? (
+                    <></>
+                  ) : (
+                    DayData.map((item, ind) => {
+                      return (
+                        <>
+                          <div className="Currentpostheader">
+                            <h2>
+                              {item.RaceCourseData === null ? (
+                                <>N/A</>
+                              ) : (
+                                item.RaceCourseData.NameEn
+                              )}
+                            </h2>
+                            <img
+                              src={item.RaceCourseData.image}
+                              alt=""
+                              style={{
+                                width: "50px",
+                                heigth: "50px",
+                              }}
+                            />
+                          </div>
+                          <div className="CompetitionData">
+                            <Accordion>
                               <div className="Competitionitem" key={item._id}>
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
@@ -302,28 +383,35 @@ console.log(DayData,'DayData')
                                     </div>
                                   </Accordion.Header>
                                   <Accordion.Body>
-                                      <div
-                                        onClick={() => HandleJockey(item._id)}
-                                        className="Competition_Matches"
-                                      >
-                                        <p>
-                                          {cookiedata === "en"
-                                            ? (item.RaceNameModelData === null ? <>N/A</> : item.RaceNameModelData.NameEn)
-                                            : (item.RaceNameModelData === null ? <>N/A</> : item.RaceNameModelData.NameAr)}
-                                        </p>
-                                        <p>{ind + 1}</p>
-                                      </div>
-                                    </Accordion.Body>
+                                    <div
+                                      onClick={() => HandleJockey(item._id)}
+                                      className="Competition_Matches"
+                                    >
+                                      <p>
+                                        {cookiedata === "en" ? (
+                                          item.RaceNameModelData === null ? (
+                                            <>N/A</>
+                                          ) : (
+                                            item.RaceNameModelData.NameEn
+                                          )
+                                        ) : item.RaceNameModelData === null ? (
+                                          <>N/A</>
+                                        ) : (
+                                          item.RaceNameModelData.NameAr
+                                        )}
+                                      </p>
+                                      <p>{ind + 1}</p>
+                                    </div>
+                                  </Accordion.Body>
                                 </Accordion.Item>
                               </div>
-                        
-                      </Accordion>
-                    </div>
-                    </>
-                        );
-                      })
-                    }
-                  </div>
+                            </Accordion>
+                          </div>
+                        </>
+                      );
+                    })
+                  )}
+                </div>
               </Bounce>
             </div>
           </Tab>
