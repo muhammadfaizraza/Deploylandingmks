@@ -64,7 +64,9 @@ const TrainerDetail = (data) => {
           </span>
        
           <div className="horsedetailimage">
-            <img src={data.data.TrainerNationalityData.image} alt="" />
+            {
+              data.data.TrainerNationalityData ? <>
+              <img src={data.data.TrainerNationalityData.image} alt="" />
             <span>
            <p
             style={{
@@ -76,7 +78,7 @@ const TrainerDetail = (data) => {
             <b  style={{
               padding: "10px",
               
-            }}>Nationality</b>{data.data.TrainerNationalityData.NameEn}  (8 - 3 - 2 - 8 - 4)
+            }}>Nationality</b>{data.data.TrainerNationalityData.NameEn} 
           </p>
           <p
             style={{
@@ -89,6 +91,9 @@ const TrainerDetail = (data) => {
             }}>Value            </b>{data.data.TrainerNationalityData.Value === undefined ? <>N/A</>:<>{data.data.TrainerNationalityData.Value}</>}
           </p>
            </span>
+              </> : <>N/A</>
+            }
+            
           </div>
         </div>
         

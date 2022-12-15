@@ -98,8 +98,10 @@ const JockeyDetail = (data) => {
             </p>
           </span>
           <div className="horsedetailimage">
-            <img src={data.data.JockeyNationalityData.image} alt="" />
-           <span>
+            {
+              data.data.TrainerNationalityData ? <>
+              <img src={data.data.TrainerNationalityData.image} alt="" />
+            <span>
            <p
             style={{
               fontSize: "12px",
@@ -110,9 +112,22 @@ const JockeyDetail = (data) => {
             <b  style={{
               padding: "10px",
               
-            }}>Nationality:</b>{data.data.JockeyNationalityData.NameEn} 
+            }}>Nationality</b>{data.data.TrainerNationalityData.NameEn} 
+          </p>
+          <p
+            style={{
+              fontSize: "12px",
+              marginLeft: "10px",
+            }}
+          >
+            <b style={{
+              padding: "10px",
+            }}>Value            </b>{data.data.TrainerNationalityData.Value === undefined ? <>N/A</>:<>{data.data.TrainerNationalityData.Value}</>}
           </p>
            </span>
+              </> : <>N/A</>
+            }
+            
           </div>
         </div>
         {/* <div className="horseimage">
