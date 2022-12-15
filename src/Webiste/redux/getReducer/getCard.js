@@ -33,7 +33,7 @@ export const { setRace, setStatus } = getCard.actions;
 export default getCard.reducer;
 
 export const fetchRace = createAsyncThunk('raceGet/fetch', async () => {
-    const res = await axios.get(`${window.env.API_URL}/Cardget `)
+    const res = await axios.get(`${window.env.API_URL}/RaceCardget `)
     const data =  res.data;
     return data.data;
 });

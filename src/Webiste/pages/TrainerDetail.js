@@ -1,230 +1,272 @@
-import Layout from "../Components/Reuseable/layout"
-import '../Components/CSS/pagesCSS/about.css'
-import Footer from '../Components/Reuseable/Footer.jsx';
-import CoptRight from '../Components/Reuseable/Copyrights'
-import React,{useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingletrainer, STATUSES } from "../../Webiste/redux/getReducer/getSingleTrainer";
+import Layout from "../Components/Reuseable/layout";
+import "../Components/CSS/pagesCSS/about.css";
+import Footer from "../Components/Reuseable/Footer.jsx";
+import CoptRight from "../Components/Reuseable/Copyrights";
+import React, { useEffect } from "react";
 import shirt from "../assets/image 5.png";
 import profile from "../assets/Ellipse 7.png";
 import flag from "../assets/France.png";
+
 import "../Components/CSS/pagesCSS/horse.css";
-import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import { BsFillCaretRightFill } from 'react-icons/bs';
-import '../Components/CSS/pagesCSS/owner.css'
+import { BsFillCaretRightFill } from "react-icons/bs";
+import "../Components/CSS/pagesCSS/owner.css";
+import Cookies from "js-cookie";
+import Moment from "react-moment";
 
-const TainerDetail = () => {
-    const dispatch = useDispatch();
-  const { data: singletrainer, status } = useSelector((state) => state.singletrainer);
+const TrainerDetail = (data) => {
+  console.log(data,' Trainer Data')
+  const cookiedata = Cookies.get('i18next')
 
-  useEffect(() => {
-    dispatch(fetchSingletrainer());
-  },[]);
-
-  if (status === STATUSES.LOADING) {
-    return (
-      <h2
-      className="loader"
-      >
-      
-      </h2>
-    );
-  }
-  if (status === STATUSES.ERROR) {
-    return (
-      <h2
-        style={{
-          margin: "100px",
-        }}
-      >
-        Something went wrong!
-      </h2>
-    );
-  }
   return (
     <>
-    <Layout/>
-    <div className="aboutpage">
-      <div className="aboutpageheader">
-        <h2>MKS Racing TainerDetail</h2>
-      </div>
-      <div className="aboutpagesection">
-        <div className="RaceDetailCard">
-      <div className="ownerdetailhead">
-        <div className="ownername">
-            <span>
-                <img src={singletrainer.image} alt='' />
-            </span>
-            <span style={{
-                fontWeight: '700',
-                fontSize: '19.6px',
-                lineHeight: '24px',
-                color:'#19469D'
-            }}>{singletrainer.Name}</span>
-            <span>{singletrainer.Age}</span>
-            <span>
-            <img src={flag} alt='' />
-            </span>
+      <div className="aboutpage">
+      <div className="RaceDetailCard">
+      <div className="horseheader1">
+        <div className="horseshirt">
+          <img src={ data.data.image} alt="image" className="horseshirtimage" style={{
+            height:'90px'
+          }}/>
         </div>
-        <div className="ownerimage">
+        {/* <div className="horsecardtop">
+          <p>{data.data.Rating}</p>
+          <p className="horsefoal"> {data.data.JockeyAllowance }</p>
+        </div> */}
+        <div className="horsecenterdata">
+          <span
+            style={{
+              display: "flex",
+            }}
+          >
+            <p
+              style={{
+                fontWeight: "700",
+                fontSize: " 19.6px",
+                lineHeight: "24px",
+                color: "#19469D",
+              }}
+            >
+              {data.data.TitleEn === null ? <>No Data</> : <>{data.data.TitleEn }</>}
+            </p>
+            <p
+              style={{
+                fontSize: "12px",
+                marginLeft:'20px'
+              }}
+            >
+              {data.data.DOB === null ? <>No Data</> : <><Moment fromNow ago>
+                                  {data.data.DOB}
+                                </Moment></>} 
+               
+            </p>
+          </span>
+       
+          <div className="horsedetailimage">
+            <img src={data.data.TrainerNationalityData.image} alt="" />
             <span>
-            <img src={shirt} alt='' />
-            </span>
+           <p
+            style={{
+              fontSize: "12px",
+              lineHeight: "10px",
+              marginLeft: "10px",
+            }}
+          >
+            <b  style={{
+              padding: "10px",
+              
+            }}>Nationality</b>{data.data.TrainerNationalityData.NameEn}  (8 - 3 - 2 - 8 - 4)
+          </p>
+          <p
+            style={{
+              fontSize: "12px",
+              marginLeft: "10px",
+            }}
+          >
+            <b style={{
+              padding: "10px",
+            }}>Value            </b>{data.data.TrainerNationalityData.Value === undefined ? <>N/A</>:<>{data.data.TrainerNationalityData.Value}</>}
+          </p>
+           </span>
+          </div>
         </div>
+        
       </div>
-      <div className='horsebody'>
-            <ListGroup >
-            <ListGroup.Item className='horsebodyitem horsebodyitemfirst'>
-            <p><b>IRE JUMPS</b> last 5 seasons Apr 2018 - Apr 2023</p>
-            </ListGroup.Item>
-            
-            {/* <ListGroup.Item className='horsebodyitem'>
-           
-            </ListGroup.Item>
-            <ListGroup.Item className='horsebodyitem1'>
-           
-            </ListGroup.Item>
-            <ListGroup.Item className='horsebodyitem1'>
-           
-            </ListGroup.Item>
-            <ListGroup.Item className='horsebodyitem1'>
-           
-           </ListGroup.Item> */}
-            </ListGroup>
-         </div>
-         <div className="RaceNav">
-      <Tabs
-        id="uncontrolled-tab-example"
-        className="mb-3 RaceNavItem"
-      >
-        <Tab eventKey="Form" title="Form" tabClassName="profile-tabitem">
-          <div className="RaceDetailCard">
-                          <div className="BodyNew">
-                            <table className="customers horses1">
-                              <tr>
-                                <th>Date</th>
-                                <th>Cr</th>
-                                <th>Dist</th>
-                                <th>TC</th>
-                                <th>Type</th>
-                                <th>Dts</th>
-                                <th>time</th>
-                                <th>Jockey</th>
-                                <th>Wgt</th>
-                                <th>FP</th>
-                                <th>Les</th>
-                                <th>RS</th>
-                                <th>BtBy</th>
-                                <th>Kgs</th>
-                                <th>Draw</th>
-                              </tr>
-                            </table>
-                          </div>
-                          <div className="BodyNew1">
-                            <table className="customers2">
-                              <tr>
-                                <th>12 Oct 22</th>
-                                <th>Wol (T)</th>
-                                <th>2400</th>
-                                <th>D</th>
-                                <th>S</th>
-                                <th>Novice</th>
-                                <th>02:05:55</th>
-                                <th>Miss </th>
-                                <th>58</th>
-                                <th>6</th>
-                                <th>16.25</th>
-                                <th>5</th>
-                                <th>67</th>
-                                <th>5</th>
-                                <th><BsFillCaretRightFill style={{
-                                  color:'red'
-                                }}/></th>
-                              </tr>
-                            </table>
-                          </div>
-                          <div className="BodyNew2">
-                          <table className="customers2">
-                              <tr>
-                                <th>12 Oct 22</th>
-                                <th>Wol (T)</th>
-                                <th>2400</th>
-                                <th>D</th>
-                                <th>S</th>
-                                <th>Novice</th>
-                                <th>02:05:55</th>
-                                <th>Miss </th>
-                                <th>58</th>
-                                <th>6</th>
-                                <th>16.25</th>
-                                <th>5</th>
-                                <th>67</th>
-                                <th>5</th>
-                                <th><BsFillCaretRightFill style={{
-                                  color:'red'
-                                }}/></th>
-                              </tr>
-                            </table>
-                          </div>
-                          <div className="BodyNew3">
-                          <table className="customers2">
-                              <tr>
-                                <th>12 Oct 22</th>
-                                <th>Wol (T)</th>
-                                <th>2400</th>
-                                <th>D</th>
-                                <th>S</th>
-                                <th>Novice</th>
-                                <th>02:05:55</th>
-                                <th>Miss </th>
-                                <th>58</th>
-                                <th>6</th>
-                                <th>16.25</th>
-                                <th>5</th>
-                                <th>67</th>
-                                <th>5</th>
-                                <th><BsFillCaretRightFill style={{
-                                  color:'red'
-                                }}/></th>
-                              </tr>
-                            </table>
-                          </div>
+      <div className="horsebody">
+        <ListGroup>
+          <ListGroup.Item className="horsebodyitem">
+            <p style={{
+              color:'#fff',
+              textAlign:'center'
+            }}>National Hunt Form</p>
+          </ListGroup.Item>
+          <div className="horsehistorylist">
+            <p style={{
+              color:'#fff',
+              padding:'10px'
+            }}>
+            00 / P8PP44 / 7P3214112 / 1211
+            </p>
           </div>
-        </Tab>
-        <Tab
-          eventKey="Entries"
-          title="Entries"
-          tabClassName="profile-tabitem"
-        >
-          <div className="RaceDetailCard">
-            retre
+          <ListGroup.Item className="horsebodyitem">
+           <div className='horserecord'>
+            <p>Lifetime Record</p>
+            <p>Runs</p>
+            <p>Wins</p>
+            <p>2nd</p>
+            <p>3rd</p>
+            <p>Winnings</p>
+            <p>Earnings</p>
+            <p>OR </p>
+           </div>
+          </ListGroup.Item>
+          <ListGroup.Item className="horsebodyitem1">
+          <div className='horserecord'>
+            <h6>FLAT TURF</h6>
           </div>
-        </Tab>
-        <Tab eventKey="Entities" title="Entities" tabClassName="profile-tabitem">
-          <div className="RaceDetailCard">
-            retr
+          </ListGroup.Item>
+          <ListGroup.Item className="horsebodyitem1">
+          <div className='horserecord'>
+          <h6>RULES RACES</h6>
           </div>
-        </Tab>
-        <Tab eventKey="Horses" title="Horses" tabClassName="profile-tabitem">
-          <div className="RaceDetailCard">
-            <div className="Pedigree"></div>
+          </ListGroup.Item>
+          <ListGroup.Item className="horsebodyitem1">
+          <div className='horserecord'>
+          <h6>DURT</h6>
           </div>
-        </Tab>
-        <Tab eventKey="Stats" title="Stats" tabClassName="profile-tabitem">
-          <div className="RaceDetailCard">
-            <div className="Pedigree"></div>
+          </ListGroup.Item>
+          <ListGroup.Item className="horsebodyitem1">
+          <div className='horserecord'>
+          <h6>TOTAL</h6>
           </div>
-        </Tab>
-      </Tabs>
-    </div>
-    </div>
+          </ListGroup.Item>
+        </ListGroup>
+      </div>
+      <div className="RaceNav HorseNav">
+        <Tabs id="uncontrolled-tab-example" className="mb-3 RaceNavItem">
+          <Tab eventKey="Form" title="Form" tabClassName="profile-tabitem">
+            <div className="RaceDetailCard">
+              <div className="BodyNew">
+                <table className="customers6 horses1">
+                  <tr>
+                    <th>Date</th>
+                    <th>Cr</th>
+                    <th>Dist</th>
+                    <th>TC</th>
+                    <th>Type</th>
+                    <th>Dts</th>
+                    <th>time</th>
+                    <th>Jockey</th>
+                    <th>Wgt</th>
+                    <th>FP</th>
+                    <th>Les</th>
+                    <th>RS</th>
+                    <th>BtBy</th>
+                    <th>Kgs</th>
+                    <th>Draw</th>
+                  </tr>
+                </table>
+              </div>
+              <div className="BodyNew1">
+                <table className="customers2">
+                  <tr>
+                    <th>12 Oct 22</th>
+                    <th>Wol (T)</th>
+                    <th>2400</th>
+                    <th>D</th>
+                    <th>S</th>
+                    <th>Novice</th>
+                    <th>02:05:55</th>
+                    <th>Miss </th>
+                    <th>58</th>
+                    <th>6</th>
+                    <th>16.25</th>
+                    <th>5</th>
+                    <th>67</th>
+                    <th>5</th>
+                    <th>
+                      <BsFillCaretRightFill
+                        style={{
+                          color: "red",
+                        }}
+                      />
+                    </th>
+                  </tr>
+                </table>
+              </div>
+              <div className="BodyNew2">
+                <table className="customers2">
+                  <tr>
+                    <th>12 Oct 22</th>
+                    <th>Wol (T)</th>
+                    <th>2400</th>
+                    <th>D</th>
+                    <th>S</th>
+                    <th>Novice</th>
+                    <th>02:05:55</th>
+                    <th>Miss </th>
+                    <th>58</th>
+                    <th>6</th>
+                    <th>16.25</th>
+                    <th>5</th>
+                    <th>67</th>
+                    <th>5</th>
+                    <th>
+                      <BsFillCaretRightFill
+                        style={{
+                          color: "red",
+                        }}
+                      />
+                    </th>
+                  </tr>
+                </table>
+              </div>
+              <div className="BodyNew3">
+                <table className="customers2">
+                  <tr>
+                    <th>12 Oct 22</th>
+                    <th>Wol (T)</th>
+                    <th>2400</th>
+                    <th>D</th>
+                    <th>S</th>
+                    <th>Novice</th>
+                    <th>02:05:55</th>
+                    <th>Miss </th>
+                    <th>58</th>
+                    <th>6</th>
+                    <th>16.25</th>
+                    <th>5</th>
+                    <th>67</th>
+                    <th>5</th>
+                    <th>
+                      <BsFillCaretRightFill
+                        style={{
+                          color: "red",
+                        }}
+                      />
+                    </th>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </Tab>
+          <Tab
+            eventKey="Entries"
+            title="Entries"
+            tabClassName="profile-tabitem"
+          >
+            <div className="RaceDetailCard">retre</div>
+          </Tab>
+          <Tab eventKey="Stats" title="Stats" tabClassName="profile-tabitem">
+            <div className="RaceDetailCard">retr</div>
+          </Tab>
+         
+        </Tabs>
       </div>
     </div>
-    <Footer />
-    <CoptRight />
+      </div>
     </>
-  )
-}
-export default TainerDetail
+  );
+};
+export default TrainerDetail;

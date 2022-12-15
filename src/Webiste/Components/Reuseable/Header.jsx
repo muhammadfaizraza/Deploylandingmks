@@ -23,7 +23,9 @@ const Header = () => {
   return (
     <>
     
-      <div className='header' style={styles.popup}>
+      <div className={
+        !show ? 'header' : 'header1'
+      }>
        <div className='largemenu'>
        <div className="d-flex menuNav">
         <Link to='/'>
@@ -63,7 +65,15 @@ const Header = () => {
          
          {
             show?   <Fade right> <span className='mobiledropdown'>
-              <Link to='/about' className="LinkStyle">
+        
+        <Link to='/login' className="LinkStyle">
+        <p>LOGIN/REGISTER</p>
+        </Link>
+        <Link to='/' className="LinkStyle">
+        <p>Search</p>
+        </Link>
+
+        <Link to='/about' className="LinkStyle">
         <p>{t('about')}</p>
         </Link>
         <Link to='/statistics' className="LinkStyle">

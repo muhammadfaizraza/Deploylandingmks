@@ -4,6 +4,9 @@ import {
   fetchCourse,
   STATUSES,
 } from "../../Webiste/redux/getReducer/getRaceCourse";
+import {
+  fetchRace,
+} from "../../Webiste/redux/getReducer/getCard";
 import "../Components/CSS/RaceCardCSS/racecard.css";
 import { Link } from "react-router-dom";
 import Layout from "../Components/Reuseable/layout";
@@ -18,6 +21,8 @@ import Moment from "react-moment";
 const RaceCourse = () => {
   const dispatch = useDispatch();
   const { data: racecourse, status } = useSelector((state) => state.racecourse);
+  const { data: Card } = useSelector((state) => state.Card);
+
   const [modaldata, setmodaldata] = useState();
 
   const [show, setShow] = useState(false);
@@ -30,6 +35,8 @@ const RaceCourse = () => {
 
   useEffect(() => {
     dispatch(fetchCourse());
+    dispatch(fetchRace());
+
   }, []);
 
   const defaultOptions = {
@@ -56,6 +63,8 @@ const RaceCourse = () => {
       </h2>
     );
   }
+
+
   return (
     <>
       <Layout />

@@ -12,7 +12,7 @@ import {
 } from "../../Webiste/redux/getReducer/getTrainerSlice";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import JockeyDetail from "./JockeyDetail";
+import TrainerDetail from "./TrainerDetail";
 import { Modal } from "react-bootstrap";
 import Lottie from 'react-lottie';
 import Animate from '../assets/loader.json'
@@ -21,7 +21,6 @@ const Trainer = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState('');
   const navigate = useNavigate();
-  const [data ,setdata] = useState()
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState()
   const handleClose = () => setShow(false);
@@ -45,10 +44,7 @@ const Trainer = () => {
       preserveAspectRatio: "xMidYMid slice"
     }}
  
-  const HandleJockey = (Id) => {
-    Cookies.set('sjockey',Id)
-    navigate('/jockeydetail')
-  };
+ 
 
   if (status === STATUSES.LOADING) {
     return (
@@ -80,7 +76,7 @@ const Trainer = () => {
         </div>
         <div className="aboutpagesection">
           <div className="horseTable">
-            <input type='text' value={searchKeyword} placeholder='Search' onChange={e => setSearchKeyword(e.target.value)}/>
+            {/* <input type='text' value={searchKeyword} placeholder='Search' onChange={e => setSearchKeyword(e.target.value)}/> */}
             
             <table id="customers">
               <tr>
@@ -93,7 +89,8 @@ const Trainer = () => {
               </tr>
               {trainer.map((item) => {
                 return (
-                  <tr style={{
+                  <tr  onClick={()=> handleShow(item) 
+                  } style={{
                     cursor:'pointer'
                   }}>
                   <td >{item.NameEn}</td>
@@ -125,7 +122,7 @@ const Trainer = () => {
                     <h3>Trainer Detail</h3>
                 </Modal.Header>
                 <Modal.Body>
-                <JockeyDetail data={modaldata} />
+                <TrainerDetail data={modaldata} />
                 </Modal.Body>
                 <Modal.Footer>
                 </Modal.Footer>

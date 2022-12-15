@@ -53,7 +53,6 @@
       
       }
 }
-
 @media (max-width: 1619px) and (min-width: 1490px){
     button.slick-arrow.slick-next {
         width: 25px;
@@ -163,6 +162,12 @@
     }
 }
 @media (max-width: 1490px) and (min-width: 1320px){
+    .HomeRightSection {
+        min-height: 500px;
+    }
+    .newpost {
+        min-height: 500px;
+    }
     button.slick-arrow.slick-next {
         width: 25px;
         height: 124px;
@@ -311,7 +316,12 @@
       }
 }
 @media (max-width: 1320px) and (min-width: 1024px){
-
+    .HomeRightSection {
+        min-height: 500px;
+    }
+    .newpost {
+        min-height: 500px;
+    }
     .slideimg1{
         width: 100%;
         height: 400px;
@@ -692,7 +702,7 @@ line-height: 100px;
 }
 .racecardrow {
    
-    justify-content: space-between;
+    justify-content: space-around;
   
 }
 .Summary {
@@ -705,8 +715,185 @@ line-height: 100px;
  
 }
 }
-
+@media (max-width: 1024px) and (min-width: 768px){
+    .largemenu{
+        display: none;
+    }
+    .singleracecard {
+        width: 210px !important;
+    }
+    .chartPrediction {
+        width: 96%;
+        margin-inline: auto;
+    }
+    /* .Homelayout {
+        display: none;
+    } */
+    .header {
+        height: 79px;
+        width: 100% !important;
+    }
+    .cta {
+        display: none;
+    }
+    .mobilemenudata{
+        display: flex !important;
+        width: 90%;
+        margin-inline: auto;
+        justify-content: space-between;
+    }
+  
+    .logoclass {
+        margin-top: 10px;
+    }
+    .fafabar{
+        margin-top: 18px;
+        color: #fff;
+        position: relative;
+        width: 38px;
+        height: 38px;
+    }
+    .rightlayout {
+        display: none;
+    }
+    .exnews {
+        display: none;
+    }
+    .Homelayout {
+        margin-top: 10px;
+    }
+    .Addington {
+        display: none;
+    }
+    .RaceCardSection {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+    button.slick-arrow.slick-next {
+        margin-right: 10px;
+    }
+    button.slick-arrow.slick-next.slick-disabled{
+        margin-right: 10px;
+    }
+    .slidercards {
+        width: 75% !important;
+    }
+    .sponsor img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+    }
+    .first-txt {
+        padding: 110px;
+        width: 140px;
+        margin: auto;
+        top: 20%;
+        /* left: 9rem; */
+        font-size: 58.4118px;
+        line-height: 80px;
+    }
+    .middlesectioninner{
+        display: none;
+    }
+    .aab{
+        display: none;
+    }
+    .newabc {
+        width: 98%;
+    }
+    .bannerHome {
+        display: none;
+    }
+    .resultCard {
+        height: min(25rem,40rem);
+        width: 94%;
+        margin-inline: auto;
+    }
+    .mobiledata{
+        margin-top: 30px;
+        display: block;
+    }
+    .mobiledropdown{
+        position: absolute;
+        background-color: #D9D9D9;
+        z-index: 999;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .customers12 >span {
+        margin-top: 12px;
+    }
+    .customers1 >tr >td {
+        width: 15%;
+        font-size: 11px;
+    }
+    .result_match_left {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .live_result_data{
+        display: block;
+    }
+    .result_match_right {
+        display: flex;
+        gap: 20px;
+        width: 90%;
+        margin: auto;
+    }
+    .PredictionFlex :nth-child(1) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .PredictionFlex :nth-child(2) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .PredictionFlex :nth-child(3) {
+        font-size: 15.5949px;
+        line-height: 17px;
+        margin: 20px 0 0 10px;
+    }
+    .playerPredictTable {
+        height: min(10.8rem,38rem);
+    }
+    .singleCardBlogs img {
+        width: 178.76px;
+        height: 175.07px;
+        border-radius: 14.7783px;
+    }
+    .blognews h1 {
+        font-size: 29.4118px;
+        margin-top: 0.2rem;
+        padding-top: 2rem;
+    }
+    .singleCardBlogs {
+        margin-top: 0.5rem;
+    }
+    .singleCardBlogs h3 {
+        font-size: 13.8px;
+    }
+    .singleCardBlogs h2 {
+        font-size: 13.8px;
+    }
+    .copyrightinner {
+        flex: 2 1;
+        display: none;
+        /* margin-top: 7px; */
+    }
+    .react-calendar {
+        width: 90% !important;
+    }
+}
 @media (max-width: 768px) and (min-width: 640px){
+    .registrationform > form{
+        width: 90%;
+        margin: auto;
+    }
     .largemenu{
         display: none;
     }
@@ -880,12 +1067,14 @@ line-height: 100px;
         width: 90% !important;
     }
 }
-
 @media (max-width: 640px) and (min-width: 471px){
     .largemenu{
         display: none;
     }
-
+    .registrationform > form{
+        width: 90%;
+        margin: auto;
+    }
     .HomeLeftSection {
         margin-top: 30px;
     }
@@ -1208,11 +1397,17 @@ line-height: 100px;
         margin-right: -24px;
     }
 }
-
 @media (max-width: 471px) and (min-width: 360px){
     .resracenameflex p{
         margin: 26px 16px 9px 18px;
     
+    }
+    .buttonRegister {
+        margin: 15px;
+    }
+    .registrationform > form{
+        width: 100% !important;
+        margin: auto;
     }
     .resracenameflex > img {
         margin: 26px 20px 0 0;
@@ -1355,11 +1550,11 @@ height: 150px;
         margin-right: -24px;
     }
     .slideimg1 {
-        height: 390px;
+        height: 340px;
     }
     .first-txt {
         top: 20%;
-        left: 2rem;
+        left: 5rem;
     }
     .sponsor{
         height: 319px;
@@ -1413,12 +1608,12 @@ height: 150px;
         position: absolute;
         /* background-color: #D9D9D9; */
         z-index: 999;
-        top: 58px;
+        top: 76px;
         width: 100%;
         background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
         margin-top: 20px;
         text-align: center;
-        height: 32%;
+        height: fit-content;
         color: white;
         border-radius: 0px 0px 50px 0px;
     
@@ -1595,15 +1790,21 @@ height: 150px;
         display: none;
     }
     .newpost {
+        height: -moz-fit-content;
         height: fit-content;
+        min-height: 430px;
     }
     .itemraces_right .Favourite {
         margin-top: 14px;
         margin-left: 78px;
     }
+    .adstitlepos {
+        top: 15%;
+        left: 15%;
+    }
     .raced p{
-font-size: 10px;
-line-height: 0px;
+        font-size: 10px;
+        line-height: 0px;
         
     }
     .inner_itemraces {

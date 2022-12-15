@@ -17,11 +17,11 @@ import { Modal } from "react-bootstrap";
 import Lottie from 'react-lottie';
 import Animate from '../assets/loader.json'
 
+
 const Trainer = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState('');
   const navigate = useNavigate();
-  const [data ,setdata] = useState()
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState()
   const handleClose = () => setShow(false);
@@ -36,13 +36,6 @@ const Trainer = () => {
     dispatch(fetchJockey({ pageNumber,searchKeyword }));
   }, [dispatch, pageNumber,searchKeyword]);
 
-  
-  const previousPageHandler = () => {
-    setPageNumber((pageNumber) => pageNumber - 1);
-  };
-  const nextPageHandler = () => {
-    setPageNumber((pageNumber) => pageNumber + 1);
-  };
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -99,7 +92,8 @@ const Trainer = () => {
               </tr>
               {jockey.map((item) => {
                 return (
-                  <tr style={{
+                  <tr onClick={()=> handleShow(item) 
+                  } style={{
                     cursor:'pointer'
                   }}>
                   <td >{item.NameEn}</td>

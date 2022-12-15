@@ -441,6 +441,7 @@ const RaceCardDetail = () => {
                                               style={{
                                                 display: "flex",
                                                 lineHeight: "1px",
+                                                flexWrap:"wrap"
                                               }}
                                             >
                                               <p style={myPara}>
