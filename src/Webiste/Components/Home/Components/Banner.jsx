@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Banner = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { userToken } = useSelector((state) => state.user);
+  const { token } = useSelector((state) => state.user);
 
   return (
     <>
@@ -19,7 +19,7 @@ const Banner = () => {
           <h1 className='bannerText1'>{t('bannerText1')}</h1>
           <h1 className='bannerText2'>{t('bannerText2')}</h1>
           {
-            userToken !== null ? <></> : <button className='registerbtn' onClick={() => navigate('/login')}>{t('RegisterNow')}</button>
+            token !== null ? <></> : <button className='registerbtn' onClick={() => navigate('/login')}>{t('RegisterNow')}</button>
 
           }
         </div>

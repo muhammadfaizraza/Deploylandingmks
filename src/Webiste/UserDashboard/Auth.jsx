@@ -9,15 +9,15 @@ import { logout } from "../redux/getReducer/UserSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 const Auth = () => {
-  const { userInfo, userToken } = useSelector((state) => state.user);
+  const { userInfo, token } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    if (userToken) {
+    if (token) {
       dispatch(getUserDetails());
     }
     console.log(userInfo, "agaya");
-  }, [userToken, dispatch]);
+  }, [token, dispatch]);
   function Redirect() {
     navigate("/dashboard");
   }
@@ -30,7 +30,7 @@ const Auth = () => {
   return (
     <>
       <div className="cta">
-        {userInfo || userToken ? (
+        {userInfo || token ? (
           <div className="auth">
             <div className="userprofile">
               <span className="profilepic">

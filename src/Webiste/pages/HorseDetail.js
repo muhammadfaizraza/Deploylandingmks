@@ -4,22 +4,63 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { BsFillCaretRightFill } from "react-icons/bs";
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Cookies from "js-cookie";
 import Moment from "react-moment";
+import axios from "axios";
+import { toast } from 'react-toastify';
 
 const HorseDetail = (data) => {
-  const cookiedata = Cookies.get('i18next')
-  console.log(data)
+  const cookiedata = Cookies.get('i18next');
+  const token = Cookies.get("token");
+
+  console.log(token, 'token');
+  const btnNew1 = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "13px 10px",
+    gap: "10px",
+    width: "112px",
+    height: "24px",
+    background: "#FF0000",
+    borderRadius: "10px",
+    border: "none",
+    color: "#fff",
+    margin: '6px'
+  };
+
+
+  const handleTrack = async (Id) => {
+    try {
+      alert(token);
+      const res = await axios.post(
+
+        `${window.env.API_URL}/trackhorse`, { Horse: Id }, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          withCredentials: true,
+        },
+      }
+      );
+      console.log(res);
+    } catch (error) {
+      console.log(error, 'error 232');
+    }
+  };
+
+
   return (
     <div className="RaceDetailCard">
       <div className="horseheader1">
         <div className="horseshirt">
-          <img src={ data.data.ActiveOwnerData.image} alt="image" className="horseshirtimage"/>
+          <img src={data.data.ActiveOwnerData.image} alt="image" className="horseshirtimage" />
         </div>
         <div className="horsecardtop">
           <p>{data.data.STARS}</p>
-          <p className="horsefoal">0{data.data.Foal }</p>
+          <p className="horsefoal">0{data.data.Foal}</p>
         </div>
         <div className="horsecenterdata">
           <span
@@ -35,18 +76,18 @@ const HorseDetail = (data) => {
                 color: "#19469D",
               }}
             >
-              {data.data.NameEn === null ? <>No Data</> : <>{data.data.NameEn }</>}
+              {data.data.NameEn === null ? <>No Data</> : <>{data.data.NameEn}</>}
             </p>
             <p
               style={{
                 fontSize: "12px",
-                marginLeft:'20px'
+                marginLeft: '20px'
               }}
             >
               {data.data.DOB === null ? <>No Data</> : <><Moment fromNow ago>
-                                  {data.data.DOB}
-                                </Moment></>} GR H (242)
-               
+                {data.data.DOB}
+              </Moment></>} GR H (242)
+
             </p>
           </span>
           <span
@@ -57,31 +98,31 @@ const HorseDetail = (data) => {
             <p
               style={{
                 fontSize: "12px",
-                paddingLeft:"10px"
+                paddingLeft: "10px"
               }}
             >
               Dam<b style={{
-                paddingLeft:"5px"
-              }}>{data.data.DamData === null ? <>N/A</>:<>{data.data.DamData.NameEn}</> }</b> 
+                paddingLeft: "5px"
+              }}>{data.data.DamData === null ? <>N/A</> : <>{data.data.DamData.NameEn}</>}</b>
             </p>
             <p
               style={{
                 fontSize: "12px",
-                paddingLeft:"10px"
+                paddingLeft: "10px"
               }}
             >
               Sire<b style={{
-                paddingLeft:"5px"
-              }}>{data.data.SireData === null ? <>N/A</>:<>{data.data.SireData.NameEn}</> }</b>
+                paddingLeft: "5px"
+              }}>{data.data.SireData === null ? <>N/A</> : <>{data.data.SireData.NameEn}</>}</b>
             </p>
             <p
               style={{
                 fontSize: "12px",
               }}
             >
-             G Sire <b style={{
-                paddingLeft:"5px"
-              }}>{data.data.GSireData === null ? <>N/A</>:<>{data.data.GSireData.NameEn}</> }</b> 
+              G Sire <b style={{
+                paddingLeft: "5px"
+              }}>{data.data.GSireData === null ? <>N/A</> : <>{data.data.GSireData.NameEn}</>}</b>
             </p>
           </span>
           <span
@@ -100,7 +141,7 @@ const HorseDetail = (data) => {
             <p
               style={{
                 fontSize: "9px",
-                marginLeft:"5px"
+                marginLeft: "5px"
               }}
             >
               (8 - 3 - 2 - 8 - 4)
@@ -108,83 +149,89 @@ const HorseDetail = (data) => {
           </span>
           <div className="horsedetailimage">
             <img src={data.data.ActiveTrainerData.image} alt="" />
-           <span>
-           <p
-            style={{
-              fontSize: "12px",
-              lineHeight: "10px",
-              marginLeft: "10px",
-            }}
-          >
-            <b  style={{
-              padding: "10px",
-              
-            }}>T</b>{data.data.ActiveTrainerData.NameEn}  (8 - 3 - 2 - 8 - 4)
-          </p>
-          <p
-            style={{
-              fontSize: "12px",
-              marginLeft: "10px",
-            }}
-          >
-            <b style={{
-              padding: "10px",
-            }}>B</b>{data.data.BreederData === undefined ? <>N/A</>:<>{data.data.BreederData.NameEn}</>}
-          </p>
-           </span>
+            <span>
+              <p
+                style={{
+                  fontSize: "12px",
+                  lineHeight: "10px",
+                  marginLeft: "10px",
+                }}
+              >
+                <b style={{
+                  padding: "10px",
+
+                }}>T</b>{data.data.ActiveTrainerData.NameEn}  (8 - 3 - 2 - 8 - 4)
+              </p>
+              <p
+                style={{
+                  fontSize: "12px",
+                  marginLeft: "10px",
+                }}
+              >
+                <b style={{
+                  padding: "10px",
+                }}>B</b>{data.data.BreederData === undefined ? <>N/A</> : <>{data.data.BreederData.NameEn}</>}
+              </p>
+            </span>
           </div>
         </div>
         <div className="horseimage">
           <img src={data.data.HorseImage} alt='' />
+          <button
+            style={btnNew1}
+            onClick={() => handleTrack(data.data._id)}
+          >
+            Track Horse
+          </button>
         </div>
       </div>
       <div className="horsebody">
         <ListGroup>
           <ListGroup.Item className="horsebodyitem">
             <p style={{
-              color:'#fff',
-              textAlign:'center'
+              color: '#fff',
+              textAlign: 'center'
             }}>National Hunt Form</p>
           </ListGroup.Item>
           <div className="horsehistorylist">
             <p style={{
-              color:'#fff',
-              padding:'10px'
+              color: '#fff',
+              padding: '10px'
             }}>
-            00 / P8PP44 / 7P3214112 / 1211
+              00 / P8PP44 / 7P3214112 / 1211
             </p>
           </div>
           <ListGroup.Item className="horsebodyitem">
-           <div className='horserecord'>
-            <p>Lifetime Record</p>
-            <p>Runs</p>
-            <p>Wins</p>
-            <p>2nd</p>
-            <p>3rd</p>
-            <p>Winnings</p>
-            <p>Earnings</p>
-            <p>OR </p>
-           </div>
+            <div className='horserecord'>
+              <p>Lifetime Record</p>
+              <p>Runs</p>
+              <p>Wins</p>
+              <p>2nd</p>
+              <p>3rd</p>
+              <p>Winnings</p>
+              <p>Earnings</p>
+              <p>OR </p>
+            </div>
           </ListGroup.Item>
           <ListGroup.Item className="horsebodyitem1">
-          <div className='horserecord'>
-            <h6>FLAT TURF</h6>
-          </div>
+            <div className='horserecord'>
+              <h6>FLAT TURF</h6>
+            </div>
           </ListGroup.Item>
           <ListGroup.Item className="horsebodyitem1">
-          <div className='horserecord'>
-          <h6>RULES RACES</h6>
-          </div>
+            <div className='horserecord'>
+              <h6>RULES RACES</h6>
+            </div>
           </ListGroup.Item>
           <ListGroup.Item className="horsebodyitem1">
-          <div className='horserecord'>
-          <h6>DURT</h6>
-          </div>
+            <div className='horserecord'>
+              <h6>DURT</h6>
+            </div>
           </ListGroup.Item>
           <ListGroup.Item className="horsebodyitem1">
-          <div className='horserecord'>
-          <h6>TOTAL</h6>
-          </div>
+            <div className='horserecord'>
+              <h6>TOTAL</h6>
+            </div>
           </ListGroup.Item>
         </ListGroup>
       </div>
@@ -313,28 +360,28 @@ const HorseDetail = (data) => {
           >
             <div className="RaceDetailCard">
               <div className="Pedigree">
-              <div className="wrapper">
-                <div className="one">
-                  <div className="sire">1</div>
-                  <div className="dam">2</div>
+                <div className="wrapper">
+                  <div className="one">
+                    <div className="sire">1</div>
+                    <div className="dam">2</div>
+                  </div>
+                  <div className="two">
+                    <div className="gsire">1</div>
+                    <div className="gdam">2</div>
+                    <div className="gsire">3</div>
+                    <div className="gdam">4</div>
+                  </div>
+                  <div className="three">
+                    <div className="ggsire">1</div>
+                    <div className="ggdam">2</div>
+                    <div className="ggsire">3</div>
+                    <div className="ggdam">4</div>
+                    <div className="ggsire">5</div>
+                    <div className="ggdam">6</div>
+                    <div className="ggsire">7</div>
+                    <div className="ggdam">8</div>
+                  </div>
                 </div>
-                <div className="two">
-                <div className="gsire">1</div>
-                <div className="gdam">2</div>
-                <div className="gsire">3</div>
-                <div className="gdam">4</div>
-                </div>
-                <div className="three">
-                <div  className="ggsire">1</div>
-                <div  className="ggdam">2</div>
-                <div  className="ggsire">3</div>
-                <div  className="ggdam">4</div>
-                <div  className="ggsire">5</div>
-                <div  className="ggdam">6</div>
-                <div  className="ggsire">7</div>
-                <div  className="ggdam">8</div>
-                </div>
-              </div>
               </div>
             </div>
           </Tab>

@@ -16,7 +16,7 @@ export const userLogin = createAsyncThunk(
         { Email, password },
         config
       )
-      Cookies.set('userToken', data.token)
+      Cookies.set('token', data.token)
       Cookies.set('id', data.user._id)
       
       return data
@@ -45,7 +45,7 @@ export const registerUser = createAsyncThunk(
         { FirstName,LastName,PassportNo,PhoneNumber,password,Email },
         config
       )
-      Cookies.set('userToken', data.token)
+      Cookies.set('token', data.token)
       Cookies.set('id', data.user._id)
       
       return data
@@ -69,7 +69,7 @@ export const getUserDetails = createAsyncThunk(
       // configure authorization header with user's token
       const config = {
         headers: {
-          Authorization: `Bearer ${user.userToken}`,
+          Authorization: `Bearer ${user.token}`,
         },
       }
 

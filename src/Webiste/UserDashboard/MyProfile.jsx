@@ -27,7 +27,7 @@ const MyProfile = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const dispatch = useDispatch();
-  const { userInfo, userToken } = useSelector((state) => state.user);
+  const { userInfo, token } = useSelector((state) => state.user);
   const { data: nationality, status } = useSelector(
     (state) => state.nationality
   );
@@ -43,6 +43,9 @@ const MyProfile = () => {
   const [confirmpassword, setconfirmpassword] = useState("");
   const [Error, setError] = useState("");
 
+  // const ProfileId ='1'
+  const ProfileId = userInfo.data._id;
+  // console.log(ProfileId,'ProfileId')
   const [state1, setState] = useState({
 		FirstName: '',
     LastName:'',
@@ -88,8 +91,8 @@ const MyProfile = () => {
       formData.append("Address", state1.Address);
       formData.append("PassportPicture", PassportPicture);
 
-      const response = await axios.post(
-        `${window.env.API_URL}/register`,
+      const response = await axios.put(
+        `${window.env.API_URL}/updatesubscriber/${ProfileId}`,
         formData
       );
       toast("Successfuly Updated");

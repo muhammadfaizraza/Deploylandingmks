@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 // import { getUserDetails, registerUser, userLogin } from './userActions'
 import { registerUser, getUserDetails,userLogin } from '../postReducer/UserPost'
 
-const userToken = Cookies.get('userToken')
-  ? Cookies.get('userToken')
+const token = Cookies.get('token')
+  ? Cookies.get('token')
   : null
 
 const initialState = {
   loading: false,
   userInfo: null,
-  userToken,
+  token,
   error: null,
   success: false,
 }
@@ -20,11 +20,11 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      Cookies.remove('userToken')
+      Cookies.remove('token')
       Cookies.remove('id')
       state.loading = false
       state.userInfo = null
-      state.userToken = null
+      state.token = null
       state.error = null
     },
   },
@@ -37,7 +37,7 @@ const userSlice = createSlice({
     [userLogin.fulfilled]: (state, { payload }) => {
       state.loading = false
       state.userInfo = payload
-      state.userToken = payload.userToken
+      state.token = payload.token
     },
     [userLogin.rejected]: (state, { payload }) => {
       state.loading = false

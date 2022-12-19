@@ -103,7 +103,8 @@ const Horse = () => {
                             <td> <Moment fromNow ago>
                                   {item.DOB}
                                 </Moment></td>
-                            <td>{cookiedata === 'en' ? item.SexModelData.NameEn : item.SexModelData.NameEn}</td>
+                            <td>{cookiedata === 'en' ? (item.SexModelData === null ? <>N/A</> :
+                             item.SexModelData.NameEn) : (item.SexModelData === null ? <>N/A</> : item.SexModelData.NameAr)}</td>
                             <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
                             <td>{cookiedata === 'en' ? item.ActiveOwnerData.NameEn : item.ActiveOwnerData.NameEn}</td>
                             <td>{cookiedata === 'en' ? item.BreederData.NameEn : item.BreederData.NameEn}</td>

@@ -12,7 +12,7 @@ import {useTranslation} from 'react-i18next';
 
 const Auth = () => {
   const {t} = useTranslation()
-  const { userInfo, userToken } = useSelector((state) => state.user);
+  const { userInfo, token } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
   useEffect(() => {
@@ -31,7 +31,7 @@ const Auth = () => {
  
      
       <div className="cta">
-        {userInfo || userToken ? (
+        {userInfo || token ? (
                <div className="auth">
                <div className="userprofile">
                <span className="profilepic">

@@ -36,7 +36,7 @@ export default getProfile.reducer;
 export const fetchProfile = createAsyncThunk('profileGet/fetch', async () => {
     const config = {
         headers: {
-          Authorization: `Bearer ${Cookies.get('userToken')}`,
+          Authorization: `Bearer ${Cookies.get('token')}`,
         },
       }
     
