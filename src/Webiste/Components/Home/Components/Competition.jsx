@@ -78,9 +78,9 @@ const Competition = () => {
                   <Accordion.Item eventKey={item._id}>
                     <Accordion.Header className="AccordionHeader11">
                       <div className="AccordionHeader">
-                        <p>{Cookies === "en" ? <>{item.NameEn}</> : <>{item.NameAr}</>}
+                        <p>{cookiedata === "en" ? <>{item.NameEn}</> : <>{item.NameAr}</>}
                         
-                        {cookiedata === "en" ? <>{item.NameEn}</>:<>{item.NameAr}</>  }
+                        {/* {cookiedata === "en" ? <>{item.NameEn}</>:<>{item.NameAr}</>  } */}
                         
                         </p>
                         {/* <p>{item.raceNo} Races</p> */}

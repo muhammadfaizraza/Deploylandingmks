@@ -27,6 +27,7 @@
     margin-top: 2.5rem;
     height: fit-content;
     max-height: 380px;
+    padding: 10px;
 }
 .singleCardBlogs img{
     width: 215.76px;

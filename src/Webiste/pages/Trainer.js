@@ -18,8 +18,6 @@ import Lottie from 'react-lottie';
 import Animate from '../assets/loader.json'
 
 const Trainer = () => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const [searchKeyword, setSearchKeyword] = useState('');
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState()

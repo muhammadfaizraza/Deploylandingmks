@@ -21,15 +21,11 @@ const Auth = () => {
     }
    
   }, [userInfo, dispatch]);
-function Redirect(){
-  navigate('/dashboard')
-}
+
   const handleLogout = () => {
     dispatch(logout())
     navigate('/login')
   }
-
-  console.log(userInfo,'userInfo')
   return (
     <>
  
@@ -56,7 +52,7 @@ function Redirect(){
                <div className="authhover">
                 <ul>
                   <li><Link to='/dashboard' className="LinkStyle">{t('Dashboard')}</Link></li>
-                  <li>{t('My Tracker')}</li>
+                  <li><Link to='/tracker' className="LinkStyle">{t('My Tracker')}</Link></li>
                   <li><Link to='/myprofile' className="LinkStyle">{t('My Profile')}</Link></li>
                   <li>{t('Setting')}</li>
                   <li onClick={handleLogout}>{t('LOGOUT')}</li>

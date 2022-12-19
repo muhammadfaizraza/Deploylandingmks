@@ -21,6 +21,7 @@ import Cookies from "js-cookie";
 import { fetchnationality, STATUSES } from "../redux/getReducer/getNationality";
 import Select from "react-select";
 import { Country_Name, Country_NameAr } from "../Components/Reuseable/Country";
+import Moment from 'react-moment';
 
 const MyProfile = () => {
   const navigate = useNavigate();
@@ -39,6 +40,8 @@ const MyProfile = () => {
   const [PassportPicture, setPassportPicture] = useState();
   const [NationalityID, setNationalityID] = useState("");
   const [password, setpassword] = useState("");
+  const [confirmpassword, setconfirmpassword] = useState("");
+  const [Error, setError] = useState("");
 
   const [state1, setState] = useState({
 		FirstName: '',
@@ -89,39 +92,17 @@ const MyProfile = () => {
         `${window.env.API_URL}/register`,
         formData
       );
-      console.log(response.success, "response");
       toast("Successfuly Registered");
       navigate("/login");
     } catch (error) {
       toast(error.response.data.message);
-      console.log(error.response.data.message, "error");
     }
   };
-  let AllNationality =
-    nationality === undefined ? (
-      <></>
-    ) : (
-      nationality.map(function (item) {
-        return {
-          id: item._id,
-          value: item._id,
-          label: item.NameEn,
-        };
-      })
-    );
-  let AllNationalityAr =
-    nationality === undefined ? (
-      <></>
-    ) : (
-      nationality.map(function (item) {
-        return {
-          id: item._id,
-          value: item._id,
-          label: item.NameAr,
-        };
-      })
-    );
-  console.log(userInfo, "data is");
+
+
+  //  if(password !== confirmpassword){
+  //   setError('Password Should be matched')
+  //  }
   return (
     <Fragment>
       <div className="d-flex">
@@ -428,8 +409,11 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label="Password"
                 className="mb-3"
+                onChange={(e) => setpassword(e.target.value)}
               >
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password"
+                value={password}
+                placeholder="Password" />
               </FloatingLabel>
 
               {/* <span className="spanForm"> |</span> */}
@@ -455,16 +439,17 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label="Re-type Password"
                 className="mb-3"
-                // onChange={(e) => setNameEn(e.target.value)}
-                //                   name="Name"
-                //                   value={NameEn}
+                onChange={(e) => setconfirmpassword(e.target.value)}
+
+              
               >
-                <Form.Control type="password" placeholder="Re-type Password" />
+                <Form.Control type="password" value={confirmpassword} placeholder="Re-type Password" />
               </FloatingLabel>
 
               {/* <span className="spanForm"> |</span> */}
             </div>
-{/* 
+            <p>{Error}</p>
+            {/* 
             <div className="col-sm">
               <FloatingLabel
                 controlId="floatingInput"

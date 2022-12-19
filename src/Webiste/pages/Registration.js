@@ -20,12 +20,25 @@ const RegisterScreen = () => {
   const [Address,setAddress] = useState('');
   const [PassportPicture,setPassportPicture] = useState()
   const [DOB, setDOB] = useState('');
+  const [preview, setPreview] = useState();
 
   const onSelectFile = e => {
       setPassportPicture(e.target.files[0])
   }
   const navigate = useNavigate()
 
+  useEffect(() => {
+    if (!PassportPicture) {
+      setPreview(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(PassportPicture);
+    setPreview(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [PassportPicture]);
 
   const RegisterUser = async (e) => {
     e.preventDefault();
@@ -123,7 +136,7 @@ const RegisterScreen = () => {
       <div className='form-group'>
       
         <input
-          type='text'
+          type='password'
           placeholder='password'
           className='form-input'
           name="password"
@@ -132,17 +145,6 @@ const RegisterScreen = () => {
           required
         />
       </div>
-      {/* <div className='form-group'>
-      
-        <input
-          type='text'
-          placeholder='Confirm password'
-          className='form-input'
-          name="email"
-          onChange={(e) => handleChange(e)}
-          required
-        />
-      </div> */}
        <div className='form-group'>
         <input
           type='date'
@@ -187,7 +189,7 @@ const RegisterScreen = () => {
                                 })}
       </select>
       </div>
-     
+     <label className='PassportPicturelabel'>Select Profile Image</label>
       <div className='form-group PassportPicturefile'>
         <input
           type='file'
@@ -197,6 +199,11 @@ const RegisterScreen = () => {
           required
         />
       </div>
+      {PassportPicture && (
+                      <>
+                       <img src={preview} className="PreviewImage" alt="" />
+                      </>
+                    )}
       <button type='submit' className='buttonRegister' >
         Register
       </button>

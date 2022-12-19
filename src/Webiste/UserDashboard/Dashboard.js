@@ -38,24 +38,30 @@ const Dashboard = () => {
               <div className='GenerateReports'>
                 <Link to='/myselection'>
                 <p>My Selection</p>
-                <h3>0</h3>
+                <h3>00</h3>
                 </Link>
               </div>
               <div className='GenerateReports'>
                 <Link to="/winnerlist">
                 <p>Winner’s List</p>
-                <h3>0</h3>
+                <h3>00</h3>
               </Link>
               </div>
               <div className='GenerateReports'>
+                <Link to="/userresult">
                 <p>Result</p>
-              
+                <h3>00</h3>
+              </Link>
               </div>
               <div className='GenerateReports'>
                 <Link to="/myprofile">
                 <p>My Profile</p>
-                <h3>0</h3>
                 </Link>
+              </div>
+              <div className='GenerateReports'>
+                <Link to="/tracker">
+                <p>Tracker</p>
+              </Link>
               </div>
             </div>
           </div>

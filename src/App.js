@@ -28,7 +28,7 @@ import QueryTool from './Webiste/pages/QueryTool';
 import Profile from './Webiste/pages/AuthPages/Profile';
 import ChangePassword from './Webiste/pages/AuthPages/ChangePassword';
 import UserResult from './Webiste/pages/AuthPages/UserResult';
-import MyTracker from './Webiste/pages/AuthPages/MyTracker';
+import MyTracker from './Webiste/UserDashboard/Tracker';
 import JockeyDetail from './Webiste/pages/JockeyDetail';
 import TrainerDetail from './Webiste/pages/TrainerDetail';
 import { useState, useEffect } from "react";
@@ -83,7 +83,7 @@ function App() {
           <Route path='/userProfile'  element={  <Profile /> } />
           <Route path='/changepassword' element={<ChangePassword />} />
           <Route path='/myresult' element={ <UserResult /> }/>
-          <Route path='/mytracker' element={ <MyTracker /> }/>
+          <Route path='/tracker' element={ <MyTracker /> }/>
         </Route>
       </Routes>
     </BrowserRouter>

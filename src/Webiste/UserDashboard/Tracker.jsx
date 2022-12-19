@@ -22,39 +22,29 @@ const WinnerList = () => {
         <Language />
       </div>
       <div className="userHeader">
-        <h3>Winner’s List</h3>
+        <h3>Tracker</h3>
       </div>
+      <div className="ButtonTracker">
+            <button className="updateButton Trackerbtn">Horse</button>
+            <button className="updateButton Trackerbtn">Trainer</button>
+            <button className="updateButton Trackerbtn">Jockey</button>
+          </div>
       <div className="userHeader2">
-        <h6>Competitions</h6>
-
-        <h6>Races</h6>
+        <div className="trackerhead">
+        <h6>Horse Name</h6>
+        <h5>Status</h5>
+        </div>
+        <h6>Edit</h6>
       </div>
       <div>
-        <div className="row winnerRow">
-          <h6>Competition Name</h6>
+        <div className="winnerRow">
+        <div className="trackerbody">
+        <h6>Horse Name</h6>
+        <h5>Status</h5>
         </div>
-        <div className="row winnerRow">
-          <h6>Competition Name</h6>
+        <h6>Remove</h6>
         </div>
-
-        <div className="row compDetail">
-          <h5>Competition Name</h5>
-          <div className="winnerDetail">
-            <h6>Winners</h6>
-
-            <h6>Race 01</h6>
-          </div>
-          <div className="winnerDetail">
-            <h6>Winners</h6>
-
-            <h6>Race 01</h6>
-          </div>
-          <div className="winnerDetail">
-            <h6>Winners</h6>
-
-            <h6>Race 01</h6>
-          </div>
-        </div>
+       
       </div>
     </Fragment>
   );

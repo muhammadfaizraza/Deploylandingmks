@@ -30,63 +30,87 @@ const MySelection = () => {
 <h3>My Selections</h3>
 
 </div>
-<div className="div_maintb">
-          <ScrollContainer className="scroll-container">
-            <table >
-              <thead>
-                <tr> 
-                  <span className='userT'>             
-                <th>Competition Name</th>
-                <th>Type</th>
-                <th>Horse Name</th>
-                <th>Selection(s)</th>
-                </span>
-                <th>Race Course</th>
-               
-                <th>Race Name</th>
-                <th>Race Type</th>
-                <th>Country </th>
-                <th>Owner</th>
-            
-               
+<div className="page">
+        <div className="rightsidedata">
+          <div
+            style={{
+              marginTop: "30px",
+            }}
+          >
            
-                </tr>
-              </thead>
-              <tbody>
-       
-                    <>
-                      <tr className="tr_table_class">
-        
-                      <span className='userT'>        
-                        <td>My </td>
-                        <td>Prob</td>
-                        <td> <Moment fromNow ago></Moment></td>
-                        <td>Done</td>
-                        </span>
-                        <td>Sing</td>
-                      
-                       <td> <Moment format="YYYY/MM/DD"></Moment></td>  
-                       <td>Ok </td>
-                       <td>Done </td>
-                       
-           
-                       <td style={{maxWidth: '400px',  overflow: 'hidden',textOverflow: "ellipsis", whiteSpace: "nowrap"    }}  ></td>
-                        <td style={{maxWidth: '400px',  overflow: 'hidden',textOverflow: "ellipsis", whiteSpace: "nowrap"    }}></td>
-                        <td>
-                          <img src='' alt="" />
-                        </td>                        
-                        <td className="table_delete_btn1 ">
-                         
-                   
-                        </td>
+            <>
+              <div className="div_maintb">
+                <ScrollContainer>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Competition Name</th>
+                        <th>Type</th>
+
+                        <th>Horse Name</th>
+                        <th>Selection(s)</th>
+                        <th>Racecource</th>
+                        <th>Race Name</th>
+
+                        <th>Race Type</th>
+                        <th>Country</th>
+                        <th>Nationality</th>
+
+
                       </tr>
-                    </>
-                 
-              </tbody>
-            </table>
-            </ScrollContainer>
-            </div>
- 
+                    </thead>
+                    <tbody>
+                      {/* {currentPosts.map((item, index) => {
+                        return (
+                          <>
+                            <tr className="tr_table_class">
+                              <td>{item.NameEn}</td>
+                              <td>{item.NameAr}</td>
+
+                              <td>{item.shortCode} </td>
+                              <td>{item.DescriptionEn} </td>
+                              <td>{item.DescriptionAr} </td>
+                              <td>
+                                <img src={item.image} alt="" />
+                              </td>
+
+                              <td className="table_delete_btn1">
+                                <BiEdit
+                                  onClick={() =>
+                                    history("/editbreeder", {
+                                      state: {
+                                        breederid: item,
+                                      },
+                                    })
+                                  }
+                                />
+                                <MdDelete
+                                  style={{
+                                    fontSize: "22px",
+                                  }}
+                                  onClick={() => handleRemove(item._id)}
+                                />
+                                <BsEyeFill onClick={() => handleShow(item)
+                                }/>
+                              </td>
+                            </tr>
+                          </>
+                        );
+                      })} */}
+                    </tbody>
+                  </table>
+                </ScrollContainer>
+              </div>
+            </>
+          </div>
+          <span className="plusIconStyle"></span>
+          {/* <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={breeder.length}
+          paginate={paginate}
+        /> */}
+        </div>
+      </div>
 
 
   </Fragment>

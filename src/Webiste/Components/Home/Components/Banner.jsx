@@ -1,10 +1,15 @@
 import Frame from '../../../assets/Frame.png'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
+
 
 const Banner = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { userToken } = useSelector((state) => state.user);
+
   return (
     <>
      <div className="bannerHome">
@@ -13,7 +18,10 @@ const Banner = () => {
         <div className='bannerText'>
           <h1 className='bannerText1'>{t('bannerText1')}</h1>
           <h1 className='bannerText2'>{t('bannerText2')}</h1>
-          <button className='registerbtn' onClick={() => navigate('/login')}>{t('RegisterNow')}</button>
+          {
+            userToken !== null ? <></> : <button className='registerbtn' onClick={() => navigate('/login')}>{t('RegisterNow')}</button>
+
+          }
         </div>
        </div>
      </div>

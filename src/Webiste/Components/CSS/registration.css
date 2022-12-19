@@ -13,7 +13,7 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .form-group{
-  padding: 20px;
+  padding: 15px;
 }
 .form-group > input{
   width: 100%;
@@ -30,10 +30,30 @@
   width: 90%;
   margin: 25px;
 }
-.forgetclass{
-  border: 1px solid #000;
+.forgetclass {
+  border: 1px solid #747272;
+  height: 60px;
+  border-radius: 20px;
 }
 
 select#exampleFormControlSelect1 {
     border: transparent !important;
+}
+.PreviewImage{
+  height: 150px;
+  width: 150px;
+  padding: 20px;
+}
+.form-group.PassportPicturefile > input{
+  width: 160px;
+}
+
+:focus-visible {
+  outline: none !important;
+}
+
+label.PassportPicturelabel {
+  color: #fff;
+  font-size: 14px;
+  padding-left: 18px;
 }

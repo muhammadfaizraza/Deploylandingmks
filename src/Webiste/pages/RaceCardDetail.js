@@ -70,6 +70,8 @@ const RaceCardDetail = () => {
       <h2
         style={{
           margin: "100px",
+          width:'50%'
+
         }}
       >
         Something went wrong!

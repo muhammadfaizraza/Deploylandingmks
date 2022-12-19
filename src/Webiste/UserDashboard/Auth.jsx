@@ -56,7 +56,12 @@ const Auth = () => {
                     Dashboard
                   </Link>
                 </li>
-                <li>My Tracker</li>
+                <li>
+                <Link to="/tracker" className="LinkStyle">
+                    {" "}
+                    My Tracker
+                  </Link>
+                </li>
                 <li>My Profile</li>
                 <li>Setting</li>
                 <li onClick={handleLogout}>Logout</li>
