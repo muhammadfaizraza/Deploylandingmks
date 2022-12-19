@@ -1,13 +1,12 @@
 import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet } from 'react-router-dom'
-import '../CSS/pagesCSS/unauthorized.css'
+// import '../CSS/unauthorized.css'
 import { getUserDetails } from "../../redux/postReducer/UserPost";
 import { useEffect } from "react";
 
 const ProtectedRoute = () => {
   const dispatch = useDispatch();
-
   const { userToken,userInfo } = useSelector((state) => state.user)
   useEffect(() => {
     if (userToken) {

@@ -112,7 +112,7 @@ const Horse = () => {
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.GSireData.NameEn : item.GSireData.NameAr}</>}</td>
                             <td>{item.isGelted === 1 ? <>Yes</> : <>No</>}</td>
                             <td>{item.PurchasePrice === null ? <>No Data</> : <>{item.PurchasePrice }AED</>}</td>
-                            <td>{item.Remarks === null ? <>No Data</> : <>{item.Remarks }</>}</td>
+                            <td>{item.RemarksEn === null ? <>No Data</> : <>{item.RemarksEn }</>}</td>
                             <td>{item.NationalityData === null ? <>No Data</> : <>{item.NationalityData.NameEn }</>}</td>
 
                             </tr>

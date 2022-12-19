@@ -7,6 +7,21 @@ background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
 border-radius: 0px 0px 50px 0px;
 
 }
+
+.EmailForget{
+    width: 100% !important;
+  }
+  .EmailForgetBtn{
+    margin: 25px;
+  }
+  .ForgetPassword p {
+    text-align: center;
+    padding: 15px;
+    color: #ef3f3f;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
 .header1{
     height: 96px;
 width: 100%;

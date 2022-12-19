@@ -6,6 +6,7 @@ import Copyrights from '../Components/Reuseable/Copyrights';
 import axios from 'axios';
 import {  toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
+import { Country_Name, Country_NameAr } from "../Components/Reuseable/Country";
 
 const RegisterScreen = () => { 
 
@@ -15,7 +16,10 @@ const RegisterScreen = () => {
   const [PhoneNumber,setPhoneNumber] = useState('');
   const [password,setpassword] = useState('');
   const [Email,setEmail] = useState('');
+  const [NationalityID,setNationalityID] = useState('');
+  const [Address,setAddress] = useState('');
   const [PassportPicture,setPassportPicture] = useState()
+  const [DOB, setDOB] = useState('');
 
   const onSelectFile = e => {
       setPassportPicture(e.target.files[0])
@@ -33,9 +37,12 @@ const RegisterScreen = () => {
     formData.append("PhoneNumber", PhoneNumber)
     formData.append("password", password)
     formData.append("Email", Email)
+    formData.append("NationalityID", NationalityID)
+    formData.append("Address", Address);
+    formData.append("DOB", DOB)
     formData.append("PassportPicture", PassportPicture)
 
-    const response = await axios.post(`https://sumairroudani.com/api/v1/register`,formData)
+    const response = await axios.post(`${window.env.API_URL}/register`,formData)
     console.log(response.success,'response')
     toast('Successfuly Registered')
     navigate('/login')
@@ -136,6 +143,51 @@ const RegisterScreen = () => {
           required
         />
       </div> */}
+       <div className='form-group'>
+        <input
+          type='date'
+          className='form-input'
+          placeholder='Date of Birth'
+          name="DOB"
+          onChange={(e) => setDOB(e.target.value)}
+          value={DOB}
+          required
+        />
+      </div>
+     
+      <div className='form-group'>
+        <input
+          type='text'
+          className='form-input'
+          placeholder='Address'
+          name="Address"
+          onChange={(e) => setAddress(e.target.value)}
+          value={Address}
+          required
+        />
+      </div>
+     
+      <div className='form-group'>
+      <select
+                                class="form-control"
+                                id="exampleFormControlSelect1"
+                                onChange={(e) => setNationalityID(e.target.value)}
+                                name="country"
+                                required
+                              >
+                                {Country_Name.map((item) => {
+                                  return (
+                                    <option
+                                      key={item.country_id}
+                                      name="country"
+                                    >
+                                      {item.country_name}
+                                    </option>
+                                  );
+                                })}
+      </select>
+      </div>
+     
       <div className='form-group PassportPicturefile'>
         <input
           type='file'
@@ -150,8 +202,8 @@ const RegisterScreen = () => {
       </button>
     </form>
    </div>
-   <Footer />
-   <Copyrights />
+   {/* <Footer />
+   <Copyrights /> */}
     </>
   )
 }

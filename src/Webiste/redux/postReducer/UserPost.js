@@ -18,6 +18,7 @@ export const userLogin = createAsyncThunk(
       )
       Cookies.set('userToken', data.token)
       Cookies.set('id', data.user._id)
+      
       return data
     } catch (error) {
       if (error.response && error.response.data.message) {

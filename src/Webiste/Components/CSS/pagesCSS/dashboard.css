@@ -452,6 +452,7 @@ input::file-selector-button {
   }
   input#floatingInput {
     margin-right: -22px;
+    height: 47px;
   }
 
 input.react-date-picker__inputGroup__input.react-date-picker__inputGroup__day::placeholder {

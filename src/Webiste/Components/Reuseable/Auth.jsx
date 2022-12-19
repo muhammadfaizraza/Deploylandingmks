@@ -15,12 +15,12 @@ const Auth = () => {
   const { userInfo, userToken } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  // useEffect(() => {
-  //   if (userToken) {
-  //     dispatch(getUserDetails());
-  //   }
+  useEffect(() => {
+    if (userInfo === null) {
+      dispatch(getUserDetails());
+    }
    
-  // }, [userToken, dispatch]);
+  }, [userInfo, dispatch]);
 function Redirect(){
   navigate('/dashboard')
 }
@@ -28,6 +28,8 @@ function Redirect(){
     dispatch(logout())
     navigate('/login')
   }
+
+  console.log(userInfo,'userInfo')
   return (
     <>
  
@@ -37,7 +39,7 @@ function Redirect(){
                <div className="auth">
                <div className="userprofile">
                <span className="profilepic">
-                   <img src={userInfo === null ? <> </> : userInfo.data.PassportPicture} alt="" />
+                   <img src={userInfo === null ? <>Loading ... </> : userInfo.data.PassportPicture} alt="" />
                  </span>
                  <span className="profilename">
                    <p className="username">{userInfo === null ? <> </> : userInfo.data.FirstName} {userInfo === null ? <> </> :userInfo.data.LastName}</p>
@@ -55,7 +57,7 @@ function Redirect(){
                 <ul>
                   <li><Link to='/dashboard' className="LinkStyle">{t('Dashboard')}</Link></li>
                   <li>{t('My Tracker')}</li>
-                  <li>{t('My Profile')}</li>
+                  <li><Link to='/myprofile' className="LinkStyle">{t('My Profile')}</Link></li>
                   <li>{t('Setting')}</li>
                   <li onClick={handleLogout}>{t('LOGOUT')}</li>
                 </ul>

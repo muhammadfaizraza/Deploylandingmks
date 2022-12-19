@@ -30,3 +30,10 @@
   width: 90%;
   margin: 25px;
 }
+.forgetclass{
+  border: 1px solid #000;
+}
+
+select#exampleFormControlSelect1 {
+    border: transparent !important;
+}
