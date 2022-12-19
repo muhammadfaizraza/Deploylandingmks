@@ -92,8 +92,8 @@ const MyProfile = () => {
         `${window.env.API_URL}/register`,
         formData
       );
-      toast("Successfuly Registered");
-      navigate("/login");
+      toast("Successfuly Updated");
+      navigate("/myprofile");
     } catch (error) {
       toast(error.response.data.message);
     }
