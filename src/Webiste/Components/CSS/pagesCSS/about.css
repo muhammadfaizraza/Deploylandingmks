@@ -1,7 +1,7 @@
 .aboutpageheader{
     height: 260px;
     width: 100%;
-    background-image: linear-gradient(rgba(195, 212, 227, 0.5), rgba(0, 87, 156, 0.5)),url('../../../assets/about.jpg');
+    background-image: url('../../../assets/about.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,5 +15,94 @@
 }
 .aboutpagesection{
     height: fit-content;
-    margin: 20px;
+
+    display: flex;
+    flex-direction: row;
+    min-height: 600px;
+padding: 100px 400px;
+
 }
+.bannerAbout{
+    background: linear-gradient(180deg, #078BE6 0%, #19469D 100%);
+    border-radius: 20px;
+    height: min(20rem,40rem);
+width: 80%;
+margin: 100px auto;
+}
+.aboutCard > img{
+    float: right;
+    margin: 2rem;
+}
+.middlebanner{
+
+    height: 734px;
+    width: 100%;
+    background-image: url('../../../assets/aboutmiddlebanner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+
+}
+.middlebanner section {
+    width: 585px;
+    height: 675px;
+    background-color: white;
+    position: relative;
+    top: 27%;
+    left: 8%;
+}
+.middlebanner section {
+    padding: 120px 60px;
+
+}
+.middlebanner section h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    
+    color: #19469D;
+    
+}
+.middlebanner section p{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 19px;
+line-height: 153.52%;
+
+
+color: #000000;
+}
+.aboutData {
+    width: 439px;
+    margin-right: 100px;
+    padding-top: 100px;
+}
+.aboutData p{
+
+  
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 19px;
+line-height: 153.52%;
+}
+.aboutData h3{
+
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    
+    color: #19469D;
+    }
+    .imgDiv img{
+        width: 533px;
+        height: 564px;
+    }

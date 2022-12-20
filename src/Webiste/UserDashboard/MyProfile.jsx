@@ -28,24 +28,25 @@ const MyProfile = () => {
   const { state } = useLocation();
   const dispatch = useDispatch();
   const { userInfo, token } = useSelector((state) => state.user);
-  const { data: nationality, status } = useSelector(
-    (state) => state.nationality
-  );
+  
   useEffect(() => {
     if (userInfo === null) {
       dispatch(getUserDetails());
     }
   }, [userInfo, dispatch]);
-
+  const onSelectFile = e => {
+    setPassportPicture(e.target.files[0])
+}
   const [PassportPicture, setPassportPicture] = useState();
   const [NationalityID, setNationalityID] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
   const [Error, setError] = useState("");
 
-  // const ProfileId ='1'
-  const ProfileId = userInfo.data._id;
-  // console.log(ProfileId,'ProfileId')
+  const ProfileId = Cookies.get("id")
+  
+
+
   const [state1, setState] = useState({
 		FirstName: '',
     LastName:'',
@@ -308,9 +309,7 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label="Passport Scan Copy"
                 className="mb-3"
-                // onChange={(e) => setNameEn(e.target.value)}
-                //                   name="Name"
-                //                   value={NameEn}
+                onChange={onSelectFile}
               >
                 <Form.Control type="file" />
               </FloatingLabel>
