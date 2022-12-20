@@ -96,7 +96,7 @@ const MyProfile = () => {
         formData
       );
       toast("Successfuly Updated");
-      navigate("/myprofile");
+      navigate("/dashboard");
     } catch (error) {
       toast(error.response.data.message);
     }

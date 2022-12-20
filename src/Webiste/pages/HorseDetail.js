@@ -1,4 +1,3 @@
-import shirt from "../assets/image 5.png";
 import "../Components/CSS/pagesCSS/horse.css";
 import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";
@@ -34,22 +33,23 @@ const HorseDetail = (data) => {
 
   const handleTrack = async (Id) => {
     try {
-      alert(token);
-      const res = await axios.post(
-
-        `${window.env.API_URL}/trackhorse`, { Horse: Id }, {
+      const config = {
+        method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          withCredentials: true,
+          Authorization: "Bearer " + Cookies.get("token"),
         },
-      }
+      };
+      const res = await axios.post(
+        `${window.env.API_URL}/trackhorse`, { Horse: Id }, config
       );
       console.log(res);
     } catch (error) {
-      console.log(error, 'error 232');
+      console.log(error, 'error');
     }
   };
+
 
 
   return (
