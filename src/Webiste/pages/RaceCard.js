@@ -64,6 +64,7 @@ const RaceCourse = () => {
     );
   }
 
+  console.log(racecourse,'racecourse')
 
   return (
     <>
@@ -119,9 +120,9 @@ const RaceCourse = () => {
                         </div>
                       </div>
                     </div>
-                    {item.RaceCourseData === undefined ? (
+                    {item.RaceCourseData.length === 0 ? (
                       <>
-                        <h1> There is No race in this racecouse </h1>{" "}
+                        <h6 style={{textAlign:'center'}}> There is No race in this racecouse </h6>{" "}
                       </>
                     ) : (
                       item.RaceCourseData.map((data, ind) => (
@@ -158,11 +159,11 @@ const RaceCourse = () => {
 
                                   <p>
                                     Distance :{" "}
-                                    {data.TrackLengthData.TrackLength}
+                                    {data.TrackLengthData.TrackLength === null ? <>N/A</> : data.TrackLengthData.TrackLength}
                                   </p>
                                   <p> {data.RaceTypeModelData.NameEn} </p>
-                                  <p>Surface : {data.GroundData.NameEn}</p>
-                                  <p>Going : {data.RaceKindData.NameEn}</p>
+                                  <p>Surface : { !data.GroundData ? <>N/A</> : data.GroundData.NameEn}</p>
+                                  <p>Going : {!data.GroundData ? <>N/A</> : data.RaceKindData.NameEn}</p>
                                 </div>{" "}
                               </div>
                               <span
@@ -172,7 +173,7 @@ const RaceCourse = () => {
                                   lineHeight: "15px",
                                 }}
                               >
-                                {item.owner}
+                                {item.owner === null ? <>N/A</> : data.owner}
                               </span>
                               <span
                                 style={{
