@@ -30,21 +30,27 @@ const HorseDetail = (data) => {
     margin: '6px'
   };
 
+  function authHeader() {
+    // return authorization header with basic auth credentials
+
+    if ( token) {
+        return { Authorization: `Bearer ${token}` };
+    } else {
+        return (
+          alert('data')
+        )
+    }
+}
 
   const handleTrack = async (Id) => {
     try {
-      const config = {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + Cookies.get("token"),
-        },
-      };
-      const res = await axios.post(
-        `${window.env.API_URL}/trackhorse`, { Horse: Id }, config
+     const res = await axios.post(
+        `${window.env.API_URL}/trackhorse`, { Horse: Id },  {
+                withCredentials: true,
+                headers: { 'Content-Type': 'multipart/form-data' },
+            }
       );
-      console.log(res);
+      console.log(res,'data')
     } catch (error) {
       console.log(error, 'error');
     }
