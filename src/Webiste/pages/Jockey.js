@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import JockeyDetail from "./JockeyDetail";
 import { Modal } from "react-bootstrap";
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 
 

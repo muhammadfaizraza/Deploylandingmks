@@ -12,7 +12,7 @@ import { Modal } from "react-bootstrap";
 import HorseDetail from "./HorseDetail";
 import { useTranslation } from "react-i18next";
 import Moment from "react-moment";
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 
 const Horse = () => {

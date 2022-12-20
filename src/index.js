@@ -8,7 +8,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Webiste/Components/CSS/mediaquery.css'
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import Animate from './Webiste/assets/loader.json'
 
 i18next

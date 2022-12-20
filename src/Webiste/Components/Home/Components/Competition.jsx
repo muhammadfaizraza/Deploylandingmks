@@ -10,7 +10,7 @@ import {
   STATUSES,
 } from "../../../redux/getReducer/getCompetition";
 import Animate from "../../../assets/loader.json";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 

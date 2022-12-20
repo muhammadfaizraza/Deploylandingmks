@@ -6,7 +6,7 @@ import Copyrights from '../Components/Reuseable/Copyrights';
 import {Helmet} from "react-helmet";
 import { fetchSeo, STATUSES } from "../../Webiste/redux/getReducer/getSeo";
 import { useDispatch, useSelector } from "react-redux";
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 import Cookies from 'js-cookie';
 

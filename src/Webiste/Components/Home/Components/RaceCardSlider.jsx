@@ -11,7 +11,7 @@ import { fetchRace, STATUSES } from "../../../redux/getReducer/getRaceCard";
 import Cookies from "js-cookie";
 import Moment from "react-moment"
 import Animate from "../../../assets/loader.json"
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import { useTranslation } from "react-i18next";
 
 

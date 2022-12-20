@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import Layout from "../Components/Reuseable/layout";
 import Footer from "../Components/Reuseable/Footer";
 import CopyRight from "../Components/Reuseable/Copyrights";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import Animate from "../assets/loader.json";
 import { Modal } from "react-bootstrap";
 import Moment from "react-moment";

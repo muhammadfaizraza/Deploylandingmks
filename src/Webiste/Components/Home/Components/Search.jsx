@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import HorseDetail from "../../../pages/HorseDetail";
 import Animate from "../../../assets/loader.json"
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 
 const Search = () => {
   const [item, SearchData] = useState("");
