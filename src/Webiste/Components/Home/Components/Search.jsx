@@ -46,14 +46,7 @@ const Search = () => {
     })();
   }, [item]);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
+ 
 
   return (
     <div className="searchparent">
@@ -124,11 +117,7 @@ const Search = () => {
                 </>
               )}
             </div>
-          </div> :  <Lottie 
-	    options={defaultOptions}
-        height={200}
-        width={200}
-      />
+          </div> :  <Lottie animationData={Animate} loop={true} className="Lottie searchLottie" />
           }
         </div>
       </div>

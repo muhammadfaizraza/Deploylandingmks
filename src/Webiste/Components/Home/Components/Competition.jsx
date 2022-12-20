@@ -22,14 +22,7 @@ const Competition = () => {
   const { data: competition, status } = useSelector(
     (state) => state.competition
   );
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+
 
   console.log(competition, "competition");
   useEffect(() => {
@@ -38,7 +31,7 @@ const Competition = () => {
   if (status === STATUSES.LOADING) {
     return (
       <div>
-        <Lottie options={defaultOptions} height={400} width={400} />
+        <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
       </div>
     );
   }

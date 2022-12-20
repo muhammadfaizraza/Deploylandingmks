@@ -39,17 +39,10 @@ const RaceCourse = () => {
 
   }, []);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+ 
 
   if (status === STATUSES.LOADING) {
-    return <Lottie options={defaultOptions} height={400} width={400} />;
+    return <Lottie animationData={Animate} loop={true} className="Lottie" />;
   }
 
   if (status === STATUSES.ERROR) {

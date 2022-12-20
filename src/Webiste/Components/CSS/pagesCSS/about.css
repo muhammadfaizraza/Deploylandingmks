@@ -1,108 +1,143 @@
-.aboutpageheader{
-    height: 260px;
-    width: 100%;
-    background-image: url('../../../assets/about.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.aboutpageheader {
+  height: 330px;
+  width: 100%;
+  background-image: url("../../../assets/header.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.aboutpageheader h2{
-    color: #fff;
-    font-weight: 600;
+.aboutpageheader h2 {
+  color: #fff;
+  font-weight: 600;
 }
-.aboutpagesection{
-    height: fit-content;
+.aboutpagesection {
+  height: fit-content;
 
-    display: flex;
-    flex-direction: row;
-    min-height: 600px;
-padding: 100px 400px;
-
+ width: 80%;
+  display: flex;
+  flex-direction: row;
+  min-height: 600px;
+margin: 0 auto;
+padding: 40px;
 }
-.bannerAbout{
-    background: linear-gradient(180deg, #078BE6 0%, #19469D 100%);
+.bannerAbout {
+    background: linear-gradient(180deg, #078be6 0%, #19469d 100%);
     border-radius: 20px;
-    height: min(20rem,40rem);
-width: 80%;
-margin: 100px auto;
+    height: min(20rem, 40rem);
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 80px;
 }
-.aboutCard > img{
-    float: right;
-    margin: 2rem;
+.aboutCard > img {
+  float: right;
+  margin: 2rem;
 }
-.middlebanner{
-
-    height: 734px;
-    width: 100%;
-    background-image: url('../../../assets/aboutmiddlebanner.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  
-
+.middlebanner {
+  height: 734px;
+  width: 100%;
+  background-image: url("../../../assets/aboutmiddlebanner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 100px;
 }
 .middlebanner section {
     width: 585px;
     height: 675px;
     background-color: white;
     position: relative;
-    top: 27%;
-    left: 8%;
-}
-.middlebanner section {
+    top: 25%;
+    left: 12.1%;
     padding: 120px 60px;
-
 }
-.middlebanner section h3{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-    
-    color: #19469D;
-    
+
+.middlebanner section h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #19469d;
 }
-.middlebanner section p{
-    
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 19px;
-line-height: 153.52%;
+.middlebanner section p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 153.52%;
 
-
-color: #000000;
+  color: #000000;
 }
 .aboutData {
-    width: 439px;
-    margin-right: 100px;
+    width: 6    0%;
+  margin-right: 100px;
+  padding-top: 100px;
+ 
+}
+.aboutData p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 153.52%;
+}
+.aboutData h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #19469d;
+}
+
+.imgDiv img {
+  width: 584px;
+  height: 564px;
+}
+.aboutpagesection2 {
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  min-height: 600px;
+  padding: 100px 260px;
+}
+.aboutData2 {
+    width: 50%;
     padding-top: 100px;
+    margin-left: 100px;
 }
-.aboutData p{
 
-  
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 19px;
-line-height: 153.52%;
-}
-.aboutData h3{
-
-    
-    font-family: 'Inter';
+.aboutData2 p {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 153.52%;
+  }
+  .aboutData2 h3 {
+    font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
-    
-    color: #19469D;
-    }
-    .imgDiv img{
-        width: 533px;
-        height: 564px;
-    }
+  
+    color: #19469d;
+  }
+  .policy {
+    width: 80%;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+  .policy p{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 199.02%;
+  }
