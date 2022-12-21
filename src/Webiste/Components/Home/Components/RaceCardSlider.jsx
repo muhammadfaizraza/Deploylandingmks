@@ -18,14 +18,7 @@ import { useTranslation } from "react-i18next";
 const RaceCardSlider = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
+ 
   const { data: racecard, status } = useSelector((state) => state.racecard);
 
   const [days, setDays] = useState(0);
@@ -84,11 +77,7 @@ const RaceCardSlider = () => {
   if (status === STATUSES.LOADING) {
     return (
       <div>
-      <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}
-      />
+     {/* <Lottie animationData={Animate} loop={true}  className='Lottie slideLottie'/> */}
       </div>
     );
   }

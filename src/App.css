@@ -71,3 +71,21 @@ a{
 .react-calendar__month-view__days__day--weekend {
   color: #000;
 }
+.searchLottie{
+
+  height: 100px !important; 
+
+}
+.homeLottie{
+  height: 500px !important; 
+position: absolute;
+top: 40%;
+left: 40%;
+}
+.compLottie{
+height: 200px;
+
+}
+.slideLottie{
+  height: 300px !important; 
+}

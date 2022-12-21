@@ -28,23 +28,13 @@ i18next
       loadPath: '/assets/locales/{{lng}}/translation.json',
     },
   })
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }}
+ 
 
     // react: { useSuspense: false },
 const loadingMarkup = (
   <div className="py-4 text-center">
     <div>
-      <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}
-      />
+    <Lottie animationData={Animate} loop={true} />
     </div>
   </div>
 )

@@ -52,6 +52,9 @@
         width: 11.5%;
       
       }
+      .middlebanner section {
+        left: 12.5% !important;
+    }
 }
 @media (max-width: 1619px) and (min-width: 1490px){
     button.slick-arrow.slick-next {
@@ -60,6 +63,9 @@
         background: #D9D9D9;
         border-radius: 10px;
         /* margin-right: 10px; */
+    }
+    .middlebanner section {
+        left: 12.5% !important;
     }
     .menuNav p {
         font-size: 14px;
@@ -162,6 +168,13 @@
     }
 }
 @media (max-width: 1490px) and (min-width: 1320px){
+    .middlebanner section {
+        left: 12.9% !important;
+      
+    }
+    .aboutpage p{
+font-size: 16px !important;
+    }
     .HomeRightSection {
         min-height: 500px;
     }
