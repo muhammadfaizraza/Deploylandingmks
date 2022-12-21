@@ -107,7 +107,7 @@ const Horse = () => {
                              item.SexModelData.NameEn) : (item.SexModelData === null ? <>N/A</> : item.SexModelData.NameAr)}</td>
                             <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
                             <td>{cookiedata === 'en' ? item.ActiveOwnerData.NameEn : item.ActiveOwnerData.NameEn}</td>
-                            <td>{cookiedata === 'en' ? item.BreederData.NameEn : item.BreederData.NameEn}</td>
+                            <td>{cookiedata === 'en' ? (item.BreederData === null ? <>N/A</> :item.BreederData.NameEn ) : (item.BreederData === null ? <>N/A</> :item.BreederData.NameAr)}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.DamData.NameEn : item.DamData.NameAr}</>}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.SireData.NameEn : item.SireData.NameAr}</>}</td>
                             <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.GSireData.NameEn : item.GSireData.NameAr}</>}</td>

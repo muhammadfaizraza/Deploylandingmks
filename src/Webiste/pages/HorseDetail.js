@@ -8,12 +8,12 @@ import Cookies from "js-cookie";
 import Moment from "react-moment";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const HorseDetail = (data) => {
   const cookiedata = Cookies.get('i18next');
   const token = Cookies.get("token");
-
-  console.log(token, 'token');
+  const navigate = useNavigate();
   const btnNew1 = {
     display: "flex",
     flexDirection: "row",
@@ -54,6 +54,8 @@ const HorseDetail = (data) => {
     } catch (error) {
       console.log(error, 'error');
     }
+    toast('Tracked Success')
+    navigate('/tracker')
   };
 
 
@@ -176,7 +178,7 @@ const HorseDetail = (data) => {
               >
                 <b style={{
                   padding: "10px",
-                }}>B</b>{data.data.BreederData === undefined ? <>N/A</> : <>{data.data.BreederData.NameEn}</>}
+                }}>B</b>{data.data.BreederData === null ? <>N/A</> : <>{data.data.BreederData.NameEn}</>}
               </p>
             </span>
           </div>

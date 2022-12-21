@@ -21,6 +21,7 @@ import getSingleCourse from './getReducer/getSingleCourse';
 import getCompetition from './getReducer/getCompetition';
 import getRaceResult from './getReducer/getRaceResult';
 import getNationality from './getReducer/getNationality';
+import getSingleUser from './getReducer/getSingleUser';
 
 const store = configureStore({
     reducer: {
@@ -45,7 +46,8 @@ const store = configureStore({
         singlecourse:getSingleCourse,
         competition:getCompetition,
         raceresult:getRaceResult,
-        nationality:getNationality
+        nationality:getNationality,
+        singleUser:getSingleUser
     },
 });
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment ,useEffect } from "react";
 import Header from "../Components/Reuseable/Header";
 import Auth from "../Components/Reuseable/Auth";
 import Notification from "../Components/Home/Components/Notification";
@@ -6,8 +6,25 @@ import Tracker from "../Components/Home/Components/Tracker";
 import Search from "../Components/Home/Components/Search";
 import ExNews from "../Components/Home/Components/ExNews";
 import Language from "../Components/Home/Components/Language";
+import { getUserDetails } from "../redux/postReducer/UserPost";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Animate from '../assets/loader.json'
+import Lottie from 'lottie-react';
+import { fetchsingleUser } from "../redux/getReducer/getSingleUser";
 
 const WinnerList = () => {
+
+  const { data: singleUser, status } = useSelector((state) => state.singleUser);
+
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(fetchsingleUser());
+  }, [ dispatch]);
+
+  console.log(singleUser,'asadasds1')
   return (
     <Fragment>
       <div className="d-flex">
@@ -25,7 +42,7 @@ const WinnerList = () => {
         <h3>Tracker</h3>
       </div>
       <div className="ButtonTracker">
-            <button className="updateButton Trackerbtn">Horse</button>
+            <button className="SubmitButton Trackerbtn">Horse</button>
             <button className="updateButton Trackerbtn">Trainer</button>
             <button className="updateButton Trackerbtn">Jockey</button>
           </div>
@@ -34,16 +51,27 @@ const WinnerList = () => {
         <h6>Horse Name</h6>
         <h5>Status</h5>
         </div>
-        <h6>Edit</h6>
+        <h6>Action</h6>
       </div>
       <div>
-        <div className="winnerRow">
-        <div className="trackerbody">
-        <h6>Horse Name</h6>
-        <h5>Status</h5>
-        </div>
-        <h6>Remove</h6>
-        </div>
+        {
+          singleUser.HorseModels === undefined ? <></> :  <>
+         {
+         singleUser.HorseModels.map((item) => {
+            return(
+              <div className="winnerRow">
+          <div className="trackerbody">
+          <h6>{item.NameEn}</h6>
+          <h5>{item.HorseStatus === true ? <>Running</>:<>Not Running</>}</h5>
+          </div>
+          <h6>Remove</h6>
+          </div>
+            )
+          })
+         } 
+          </>
+                  }
+       
        
       </div>
     </Fragment>
