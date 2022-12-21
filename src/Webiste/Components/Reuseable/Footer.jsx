@@ -8,9 +8,30 @@ import youtube from '../../assets/YouTube.png'
 import facebook from '../../assets/Facebook.png'
 import Twitter from '../../assets/Twitter Squared.png'
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 const Footer = () => {
     const {t} = useTranslation();
+
+    const [EmailSend , setEmailSend] = useState('')
+
+    const submit = async (event) => {
+        event.preventDefault();
+        try {
+          const formData = new FormData();
+          formData.append("email",EmailSend);
+          const res = await axios.post(`${window.env.API_URL}/addnewsletter`, formData);
+          const msg = res.data.message
+          toast(msg)
+        } catch (error) {
+          const err = error.response.data.message;
+          toast(err)
+        }
+        setEmailSend('')
+      };
   return (
     <>
       <div className='footer1'>
@@ -72,12 +93,12 @@ const Footer = () => {
                 </div>
                 <div className="col-lg-3 col-md-6">
                     <h5 className="text-black mb-3 mtfooter">{t('SubscribeNewsletter')}</h5>
-                    <form action="#">
+                    <form onSubmit={submit}>
                         <div className='formclass1'>
-                        <input type='email' placeholder={t('email')} />
+                        <input type='email' placeholder={t('email')} onChange={(e) => setEmailSend(e.target.value)} value={EmailSend}/>
                         </div>
                         <div className='formclass2'>
-                        <button>{t('Submit')}</button>
+                        <button type='submit'>{t('Submit')}</button>
                         </div>
                     </form>
                 </div>
