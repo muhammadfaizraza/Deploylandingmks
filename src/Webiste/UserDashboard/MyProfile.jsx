@@ -5,7 +5,6 @@ import Search from "../Components/Home/Components/Search";
 import ExNews from "../Components/Home/Components/ExNews";
 import Notification from "../Components/Home/Components/Notification";
 import Tracker from "../Components/Home/Components/Tracker";
-import { fetchProfile } from "../redux/getReducer/getUserProfile";
 import { Form } from "react-bootstrap";
 import { FloatingLabel } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
