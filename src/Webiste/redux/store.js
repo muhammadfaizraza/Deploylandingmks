@@ -9,6 +9,7 @@ import getSlider from './getReducer/getSlider';
 import userReducer from './getReducer/UserSlice'
 import getRaceCourse from './getReducer/getRaceCourse';
 import getJockeySlice from './getReducer/getJockeySlice';
+import getOwnerSlice from './getReducer/getOwnerSlice';
 import { getUserDetails } from './postReducer/UserPost';
 import getUserProfile from './getReducer/getUserProfile';
 import getSingleHorse from './getReducer/getSingleHorse';
@@ -35,10 +36,11 @@ const store = configureStore({
         user: userReducer,
         racecourse: getRaceCourse,
         jockey: getJockeySlice,
+        owner:getOwnerSlice,
         userProfile: getUserDetails,
         profile: getUserProfile,
         singlehorse: getSingleHorse,
-        singlejockey: getSingleJockey,
+    singlejockey: getSingleJockey,
         singletrainer: getSingleTrainer,
         singlerace: getSingleRace,
         Seo: getSeo,

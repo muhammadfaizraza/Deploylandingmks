@@ -65,6 +65,9 @@ const Footer = () => {
                         <Link to='/trainer' className="LinkStyle">
                         <li><p>{t('Trainer')}</p></li>
                         </Link>
+                        <Link to='/owner' className="LinkStyle">
+                        <li><p>{t('Owner')}</p></li>
+                        </Link>
                         <Link to='/mytracker' className="LinkStyle">
                         <li><p>{t('My_Tracker')}</p></li>
                         </Link>

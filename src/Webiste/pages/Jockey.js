@@ -96,13 +96,13 @@ const Trainer = () => {
                   } style={{
                     cursor:'pointer'
                   }}>
-                  <td >{item.NameEn}</td>
+                  <td >{item.NameEn&& item.NameEn}</td>
                   <td><Moment fromNow ago>
                                   {item.DOB}
                                 </Moment></td>
                                 <td>{item.RemarksEn}</td>
                                 <td>{item.Rating}</td>
-                                <td>{item.JockeyNationalityData.NameEn} </td>
+                                <td>{item.JockeyNationalityData&& item.JockeyNationalityData.NameEn } </td>
                                
                   <td>
                     <img src={item.image} alt=""  style={{

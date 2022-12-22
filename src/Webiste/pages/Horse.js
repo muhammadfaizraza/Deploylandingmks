@@ -108,9 +108,9 @@ const Horse = () => {
                             <td>{item.ColorIDData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.ColorIDData.NameEn : item.ColorIDData.NameAr}</>}</td>
                             <td>{cookiedata === 'en' ? item.ActiveOwnerData.NameEn : item.ActiveOwnerData.NameEn}</td>
                             <td>{cookiedata === 'en' ? (item.BreederData === null ? <>N/A</> :item.BreederData.NameEn ) : (item.BreederData === null ? <>N/A</> :item.BreederData.NameAr)}</td>
-                            <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.DamData.NameEn : item.DamData.NameAr}</>}</td>
-                            <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.SireData.NameEn : item.SireData.NameAr}</>}</td>
-                            <td>{item.Dam === null ? <>No Data</> : <>{cookiedata === 'en' ? item.GSireData.NameEn : item.GSireData.NameAr}</>}</td>
+                            <td>{item.DamData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.DamData.NameEn : item.DamData.NameAr}</>}</td>
+                            <td>{item.SireData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.SireData.NameEn : item.SireData.NameAr}</>}</td>
+                            <td>{item.GSireData === null ? <>No Data</> : <>{cookiedata === 'en' ? item.GSireData.NameEn : item.GSireData.NameAr}</>}</td>
                             <td>{item.isGelted === 1 ? <>Yes</> : <>No</>}</td>
                             <td>{item.PurchasePrice === null ? <>No Data</> : <>{item.PurchasePrice }AED</>}</td>
                             <td>{item.RemarksEn === null ? <>No Data</> : <>{item.RemarksEn }</>}</td>

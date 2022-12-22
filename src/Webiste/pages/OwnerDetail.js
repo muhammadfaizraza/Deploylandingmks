@@ -8,23 +8,66 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { BsFillCaretRightFill } from 'react-icons/bs';
 import '../Components/CSS/pagesCSS/owner.css'
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-const HorseDetail = () => {
+const OwnerDetail = (data) => {
+  const cookiedata = Cookies.get('i18next');
+  const token = Cookies.get("token");
+
+ 
+  const navigate = useNavigate();
+  const btnNew1 = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "13px 10px",
+    gap: "10px",
+ 
+
+    background: "#FF0000",
+    borderRadius: "10px",
+    border: "none",
+    color: "#fff",
+    margin: '6px'
+  };
+
+  const handleTrack = async (Id) => {
+    try {
+     const res = await axios.post(
+        `${window.env.API_URL}/trackowner`, { Owner: Id },  {
+                withCredentials: true,
+                headers: { 'Content-Type': 'multipart/form-data' },
+            }
+      );
+      console.log(res,'data')
+    } catch (error) {
+      console.log(error, 'error');
+    }
+    toast('Tracked Success')
+    // navigate('/tracker')
+  };
   return (
     <div className="RaceDetailCard">
       <div className="ownerdetailhead">
         <div className="ownername">
             <span>
-                <img src={profile} alt='' />
+                <img src={data.data.image} alt='' style={{
+height:"40px",width:"40px"
+            
+            }}   />
             </span>
             <span style={{
                 fontWeight: '700',
                 fontSize: '19.6px',
                 lineHeight: '24px',
                 color:'#19469D'
-            }}>Miss Alice Keighley</span>
+            }}>{data.data.NameEn}</span>
             <span>
-            <img src={flag} alt='' />
+      
             </span>
         </div>
         <div className="ownerimage">
@@ -33,6 +76,12 @@ const HorseDetail = () => {
             </span>
         </div>
       </div>
+      <button
+            style={btnNew1}
+            onClick={() => handleTrack(data.data._id)}
+          >
+            Track Owner
+          </button>
       <div className='horsebody'>
             <ListGroup >
             <ListGroup.Item className='horsebodyitem horsebodyitemfirst'>
@@ -181,4 +230,4 @@ const HorseDetail = () => {
     </div>
   );
 };
-export default HorseDetail;
+export default OwnerDetail;
