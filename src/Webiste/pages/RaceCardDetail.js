@@ -629,10 +629,10 @@ const RaceCardDetail = () => {
                                                       B
                                                       <b>
                                                         {cookiedata === "en"
-                                                          ? data.BreederData
-                                                              .NameEn
-                                                          : data.BreederData
-                                                              .NameAr}{" "}
+                                                          ? (data.BreederData === null ? <>N/A</>:
+                                                          data.BreederData.NameEn)
+                                                          :( data.BreederData === null ? <>N/A</>:
+                                                          data.BreederData.NameAr)}
                                                       </b>
                                                     </p>
                                                   </div>

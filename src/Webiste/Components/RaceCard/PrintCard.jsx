@@ -177,10 +177,11 @@ const Card = () => {
                                                 <p>
                                                   B
                                                   <b>
-                                                    {cookiedata === "en"
-                                                      ? data.BreederData.NameEn
-                                                      : data.BreederData
-                                                          .NameAr}{" "}
+                                                  {cookiedata === "en"
+                                                          ? (data.BreederData === null ? <>N/A</>:
+                                                          data.BreederData.NameEn)
+                                                          :( data.BreederData === null ? <>N/A</>:
+                                                          data.BreederData.NameAr)}
                                                   </b>
                                                 </p>
                                               </div>
