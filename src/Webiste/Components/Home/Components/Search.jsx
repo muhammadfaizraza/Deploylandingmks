@@ -41,7 +41,7 @@ const Search = () => {
           setData3([]);
         }
       } catch (err) {
-        alert(err);
+       
       }
     })();
   }, [item]);

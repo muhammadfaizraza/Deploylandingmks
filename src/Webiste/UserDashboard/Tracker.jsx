@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Animate from '../assets/loader.json'
 import Lottie from 'lottie-react';
-import { fetchsingleUser } from "../redux/getReducer/getSingleUser";
+import { fetchsingleUser ,STATUSES } from "../redux/getReducer/getSingleUser";
 
 const WinnerList = () => {
 
@@ -25,6 +25,38 @@ const WinnerList = () => {
   }, [ dispatch]);
 
   console.log(singleUser,'asadasds1')
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Animate,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }}
+ 
+ 
+
+  if (status === STATUSES.LOADING) {
+    return (
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
+    );
+  }
+  if (status === STATUSES.ERROR) {
+    return (
+      <h2
+        style={{
+          margin: "100px",
+        }}
+      >
+        Something went wrong!
+      </h2>
+    );
+  };
+
   return (
     <Fragment>
       <div className="d-flex">

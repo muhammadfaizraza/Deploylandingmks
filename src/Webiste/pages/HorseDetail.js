@@ -37,7 +37,7 @@ const HorseDetail = (data) => {
         return { Authorization: `Bearer ${token}` };
     } else {
         return (
-          alert('data')
+          console.log('data')
         )
     }
 }

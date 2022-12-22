@@ -196,6 +196,9 @@ const Card = () => {
                                             <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
+
+
+
                                     <div className="cardraces4">
                                             <p
                                               style={{
@@ -262,6 +265,7 @@ const Card = () => {
                                             <p>AW :47 (2 - 8 - 4) </p>
                                           </div>
                                         </div>
+                                        
                                       </Accordion.Header>
                                       <Accordion.Body className="AccordionBody11">
                                         <div className="mycardclass1">

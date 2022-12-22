@@ -37,8 +37,8 @@ const RaceCardDetail = () => {
   const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
-  console.log(singlerace, "singlerace");
-  const [TriData, setTriData] = useState([]);
+
+      const [TriData, setTriData] = useState([]);
   const [CastData, setCastData] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -120,7 +120,6 @@ const RaceCardDetail = () => {
     color: "#fff",
   };
 
-  console.log(singlerace, "asdsd");
   const cookiedata = Cookies.get("i18next");
   const toUpperCaseFilter = (d) => {
     return d.toUpperCase();
@@ -647,7 +646,10 @@ const RaceCardDetail = () => {
                                             <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
-                                              <div className="cardraces4">
+
+
+
+                                               <div className="cardraces4">
                                                 <p
                                                   style={{
                                                     fontWeight: "300",
@@ -659,7 +661,7 @@ const RaceCardDetail = () => {
                                                 >
                                                   TT OR:
                                                   {singlerace.JockeyModels
-                                                    .length < 1 ? (
+                                                    .length === 0 ? (
                                                     <>N/A</>
                                                   ) : singlerace.JockeyModels[
                                                       index
@@ -754,7 +756,7 @@ const RaceCardDetail = () => {
                                                     <li>BF</li>
                                                   </ul>
                                                 </div>
-                                              </div>
+                                              </div> 
                                             </div>
                                             <div>
                                               <div className="pmclass">
@@ -780,6 +782,30 @@ const RaceCardDetail = () => {
                                                 <p>AW :47 (2 - 8 - 4) </p>
                                               </div>
                                             </div>
+                                              <div style={{
+                                                display:'flex'
+                                              }}>
+                                              <button
+                                              style={btnNew}
+                                              onClick={() =>
+                                                handleShowTri(
+                                                  singlerace.CompetitionRacesPointsModelData
+                                                )
+                                              }
+                                            >
+                                            {t("Tri Cast")}
+                                            </button>
+                                            <button
+                                              style={btnNew1}
+                                              onClick={() =>
+                                                handleShow(
+                                                  singlerace.CompetitionRacesPointsModelData
+                                                )
+                                              }
+                                            >
+                                            {t("Pick Six")}
+                                            </button>
+                                              </div>
                                           </Accordion.Header>
                                           <Accordion.Body className="AccordionBody11">
                                             <div className="mycardclass1">
