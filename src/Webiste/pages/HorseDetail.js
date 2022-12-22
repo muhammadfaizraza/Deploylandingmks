@@ -58,6 +58,9 @@ const HorseDetail = (data) => {
     navigate('/tracker')
   };
 
+  
+
+ 
 
 
   return (

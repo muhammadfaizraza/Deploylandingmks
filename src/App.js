@@ -39,6 +39,7 @@ import WinnerList from './Webiste/UserDashboard/WinnerList';
 import RaceDetails from './Webiste/pages/RaceDetails';
 import BlogDetails from './Webiste/pages/BlogDetails';
 import Policy from './Webiste/pages/Policy';
+import TestPedigree from './Webiste/pages/Test';
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
         <Route path='/trainerdetail'  element={  <TrainerDetail /> } />
         <Route path='/blogdetails'  element={  <BlogDetails /> } />
         <Route path='/competitionmodal'  element={  <CompetitionModal /> } />
+        <Route path='/testpedigree'  element={  <TestPedigree /> } />
 
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
