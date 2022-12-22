@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 import shirt from "../assets/image 5.png";
 import profile from "../assets/Ellipse 7.png";
 import flag from "../assets/France.png";
-
+import axios from "axios";
 import "../Components/CSS/pagesCSS/horse.css";
 import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";
@@ -16,8 +16,14 @@ import "../Components/CSS/pagesCSS/owner.css";
 import Cookies from "js-cookie";
 import Moment from "react-moment";
 
+
+
+
+
 const JockeyDetail = (data) => {
+
   console.log(data,' jockey Data')
+
   const cookiedata = Cookies.get('i18next')
 
   return (
@@ -29,6 +35,7 @@ const JockeyDetail = (data) => {
           <img src={ data.data.image} alt="image" className="horseshirtimage" style={{
             height:'90px'
           }}/>
+           
         </div>
         <div className="horsecardtop">
           <p>{data.data.Rating}</p>

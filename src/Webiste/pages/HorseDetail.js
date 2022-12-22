@@ -159,7 +159,7 @@ const HorseDetail = (data) => {
             </p>
           </span>
           <div className="horsedetailimage">
-            <img src={data.data.ActiveTrainerData.image} alt="" />
+            <img src={data.data.ActiveTrainerData.image&&  data.data.ActiveTrainerData.image} alt="" />
             <span>
               <p
                 style={{

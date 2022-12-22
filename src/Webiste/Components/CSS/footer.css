@@ -1,8 +1,4 @@
-a {
-    color: white;
-    text-decoration: none;
 
-}
 /* a:hover{
     color: white;
     text-decoration: none;
@@ -101,3 +97,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     flex: 2;
     margin-top: 10px;
   }
+.Policies a{
+
+    color: white;
+}

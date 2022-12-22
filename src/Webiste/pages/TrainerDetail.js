@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 import shirt from "../assets/image 5.png";
 import profile from "../assets/Ellipse 7.png";
 import flag from "../assets/France.png";
-
+import axios from "axios";
 import "../Components/CSS/pagesCSS/horse.css";
 import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";
@@ -15,11 +15,42 @@ import { BsFillCaretRightFill } from "react-icons/bs";
 import "../Components/CSS/pagesCSS/owner.css";
 import Cookies from "js-cookie";
 import Moment from "react-moment";
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const TrainerDetail = (data) => {
+  const btnNew1 = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "13px 10px",
+    gap: "10px",
+    width: "112px",
+    height: "24px",
+    background: "#FF0000",
+    borderRadius: "10px",
+    border: "none",
+    color: "#fff",
+    margin: '6px'
+  };
   console.log(data,' Trainer Data')
   const cookiedata = Cookies.get('i18next')
+  const handleTrack = async (Id) => {
+    try {
+     const res = await axios.post(
+        `${window.env.API_URL}/tracktrainer`, { Trainer: Id },  {
+                withCredentials: true,
+                headers: { 'Content-Type': 'multipart/form-data' },
+            }
+      );
+      console.log(res,'data')
+    } catch (error) {
+      console.log(error, 'error');
+    }
+    toast('Tracked Success')
 
+  };
   return (
     <>
       <div className="aboutpage">
@@ -29,6 +60,12 @@ const TrainerDetail = (data) => {
           <img src={ data.data.image} alt="image" className="horseshirtimage" style={{
             height:'90px'
           }}/>
+              <button
+            style={btnNew1}
+            onClick={() => handleTrack(data.data._id)}
+          >
+            TrackTrainer
+          </button>
         </div>
         {/* <div className="horsecardtop">
           <p>{data.data.Rating}</p>

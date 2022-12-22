@@ -40,6 +40,7 @@ import RaceDetails from './Webiste/pages/RaceDetails';
 import BlogDetails from './Webiste/pages/BlogDetails';
 import Policy from './Webiste/pages/Policy';
 import TestPedigree from './Webiste/pages/Test';
+import Owner from './Webiste/pages/Owner';
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
         <Route path='/horse'  element={  <Horse /> } />
         <Route path='/trainer'  element={  <Trainer /> } />
         <Route path='/jockey'  element={  <Jockey /> } />
+        <Route path='/owner'  element={  <Owner /> } />
         <Route path='/horsedetail'  element={  <HorseDetail /> } />
         <Route path='/ownerdetail'  element={  <OwnerDetail /> } />
         <Route path='/querytool'  element={  <QueryTool /> } />

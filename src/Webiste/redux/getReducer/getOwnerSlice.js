@@ -7,8 +7,8 @@ export const STATUSES = Object.freeze({
     LOADING: 'loading',
 });
 
-const getJockeySlice = createSlice({
-    name: 'jockey',
+const getOwnerSlice = createSlice({
+    name: 'owner',
 
     initialState: {
         data:[],
@@ -18,24 +18,24 @@ const getJockeySlice = createSlice({
 
     extraReducers: (builder) => {
         builder
-        .addCase(fetchJockey.pending, (state, action) => {
+        .addCase(fetchowner.pending, (state, action) => {
             state.status = STATUSES.LOADING;
         })
-        .addCase(fetchJockey.fulfilled, (state, action) => {
+        .addCase(fetchowner.fulfilled, (state, action) => {
             state.data = action.payload;
             state.status = STATUSES.IDLE
         })
-        .addCase(fetchJockey.rejected , (state,action) => {
+        .addCase(fetchowner.rejected , (state,action) => {
             state.status = STATUSES.ERROR;
         })
     }
 });
 
-export const {setJockey , setStatus} = getJockeySlice.actions;
-export default getJockeySlice.reducer;
+export const {setowner , setStatus} = getOwnerSlice.actions;
+export default getOwnerSlice.reducer;
 
-export const fetchJockey = createAsyncThunk('/Jockeyget/fetch', async({ pageNumber , searchKeyword }) => {
-    const res = await axios.get(`${window.env.API_URL}/Jockeyget?keyword=${ searchKeyword }&page=${ pageNumber }&limit=${''}`);
+export const fetchowner = createAsyncThunk('/Ownerget/fetch', async({ pageNumber , searchKeyword }) => {
+    const res = await axios.get(`${window.env.API_URL}/Ownerget?keyword=${ searchKeyword }&page=${ pageNumber }&limit=${''}`);
     const jockeyData = res.data;
     return jockeyData.data;
 })  
