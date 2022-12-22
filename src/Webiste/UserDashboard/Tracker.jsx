@@ -28,22 +28,14 @@ const WinnerList = () => {
 
   console.log(singleUser,'asadasds1')
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }}
  
  
 
   if (status === STATUSES.LOADING) {
     return (
       <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}
+      animationData={Animate}
+      className="homeLottie"
       />
     );
   }
@@ -78,11 +70,12 @@ const WinnerList = () => {
       </div>
       <Tabs
       defaultActiveKey="1"
-      id="fill-tab-example"
+      transition={false}
+      id="noanim-tab-example"
       className="mb-3 trackerTab"
-      fill
     >
-      <Tab eventKey="1" title="Horse" className="tracker">
+      <Tab eventKey="1" title="Horse" 
+        >
       <div className="userHeader2">
         <div className="trackerhead">
         <h6>Horse Name</h6>
