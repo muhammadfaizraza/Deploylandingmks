@@ -14,9 +14,12 @@ const Copyrights = () => {
           <p>{t('Policies')}</p>
           </Link>
           <p>{t('Help')}t</p>
-          <p>{t('TermsCondition')}</p>
+          <Link to='/termscondition'>
+          <p>{t('Terms&Conditions')}</p>
+          </Link>
         </div>
       </div>
+      
     </>
   )
 }
