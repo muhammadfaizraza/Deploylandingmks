@@ -8,8 +8,9 @@ const Test = () => {
   const { data: Pedigree, status } = useSelector((state) => state.Pedigree);
   const dispatch = useDispatch();
 
+  const id = 'f6ce4bd2-bf2f-4af7-96ad-71acbea41cfc'
   useEffect(() => {
-    dispatch(fetchPedigree());
+    dispatch(fetchPedigree({id}));
   }, []);
 
   console.log(Pedigree, "da");

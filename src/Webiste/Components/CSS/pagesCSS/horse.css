@@ -22,7 +22,7 @@
   }
   .horseTable{
     width: 90%;
-    margin: auto;
+    margin-inline: auto;
   }
 
   /* Horse form data */
@@ -89,6 +89,7 @@
   }
   .wrapper{
     display: flex;
+    justify-content: center;
   }
   .sire{
     box-sizing: border-box;

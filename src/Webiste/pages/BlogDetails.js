@@ -2,7 +2,7 @@ import React ,{Fragment , useEffect}from 'react';
 import Layout from "../Components/Reuseable/layout";
 import Footer from "../Components/Reuseable/Footer.jsx";
 import CoptRight from "../Components/Reuseable/Copyrights";
-import { fetchNews, STATUSES } from "../../Webiste/redux/getReducer/getNewsSlice";
+import { fetchNews, STATUSES } from "../redux/getReducer/getNewsSlice";
 import { useSelector,useDispatch } from 'react-redux';
 
 const BlogDetails = () => {
