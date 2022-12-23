@@ -39,6 +39,7 @@ import WinnerList from './Webiste/UserDashboard/WinnerList';
 import RaceDetails from './Webiste/pages/RaceDetails';
 import BlogDetails from './Webiste/pages/BlogDetails';
 import Policy from './Webiste/pages/Policy';
+import TermsAndCondition from './Webiste/pages/TermsAndCondition';
 import TestPedigree from './Webiste/pages/Test';
 import Owner from './Webiste/pages/Owner';
 
@@ -63,7 +64,8 @@ function App() {
         <Route path='/racecourse'  element={  <RaceCourse /> } />
         <Route path='/about'  element={  <About /> } />
         <Route path='/policies'  element={  <Policy /> } />
-        <Route path='/result'  element={  <Result /> } />
+        <Route path='/termscondition'  element={  <TermsAndCondition /> } />
+        <Route path='/TermsAndCondition'  element={  <Result /> } />
         <Route path='/competition'  element={  <Competition /> } />
         <Route path='/sponsor'  element={  <Sponsor /> } />
         <Route path='/statistics'  element={  <Stats /> } />
