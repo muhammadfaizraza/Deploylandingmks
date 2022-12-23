@@ -63,7 +63,9 @@ const Search = () => {
             <div className="col-sm">
               <h5>Horse</h5>
             </div>
-
+            <div className="col-sm">
+              <h5>Jockey</h5>
+            </div>
             <div className="col-sm">
               <h5>Trainer</h5>
             </div>
@@ -91,6 +93,17 @@ const Search = () => {
                         {data2.NameEn}
                       </p>
                     );
+                  })}
+                </>
+              )}
+            </div>
+            <div className="col-sm">
+              {Data2.length === 0 ? (
+                <p className="searchdatalist1">No Data Found</p>
+              ) : (
+                <>
+                  {Data2.map((data2) => {
+                    return <p className="searchname">{data2.NameEn}</p>;
                   })}
                 </>
               )}
