@@ -10,6 +10,7 @@ const Search = () => {
   const [Data, setData] = useState([]);
   const [Data2, setData2] = useState([]);
   const [Data3, setData3] = useState([]);
+  const [Data4, setData4] = useState([]);
 
   const [LoaderData, setLoaderData] = useState(false);
 
@@ -33,12 +34,14 @@ const Search = () => {
         setData(res.data.data1);
         setData2(res.data.data2);
         setData3(res.data.data3);
+        setData4(res.data.data4);
         setLoaderData(false);
 
         if (item === "") {
           setData([]);
           setData2([]);
           setData3([]);
+          setData4([]);
         }
       } catch (err) {
        
@@ -98,11 +101,11 @@ const Search = () => {
               )}
             </div>
             <div className="col-sm">
-              {Data2.length === 0 ? (
+              {Data4.length === 0 ? (
                 <p className="searchdatalist1">No Data Found</p>
               ) : (
                 <>
-                  {Data2.map((data2) => {
+                  {Data4.map((data2) => {
                     return <p className="searchname">{data2.NameEn}</p>;
                   })}
                 </>
