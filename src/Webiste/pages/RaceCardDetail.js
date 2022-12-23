@@ -344,21 +344,17 @@ const RaceCardDetail = () => {
                       >
                         <button
                           style={btnNew}
-                          onClick={() =>
-                            handleShowTri(
-                              singlerace.CompetitionRacesPointsModelData
-                            )
-                          }
+                          // onClick={() =>
+                          //   handleShowTri(
+                          //     singlerace.CompetitionRacesPointsModelData
+                          //   )
+                          // }
                         >
                          {t("Tri Cast")}
                         </button>
                         <button
                           style={btnNew1}
-                          onClick={() =>
-                            handleShow(
-                              singlerace.CompetitionRacesPointsModelData
-                            )
-                          }
+                         
                         >
                          {t("Pick Six")}
                         </button>
@@ -787,21 +783,21 @@ const RaceCardDetail = () => {
                                               }}>
                                               <button
                                               style={btnNew}
-                                              onClick={() =>
-                                                handleShowTri(
-                                                  singlerace.CompetitionRacesPointsModelData
-                                                )
-                                              }
+                                              // onClick={() =>
+                                              //   handleShowTri(
+                                              //     singlerace.CompetitionRacesPointsModelData
+                                              //   )
+                                              // }
                                             >
                                             {t("Tri Cast")}
                                             </button>
                                             <button
                                               style={btnNew1}
-                                              onClick={() =>
-                                                handleShow(
-                                                  singlerace.CompetitionRacesPointsModelData
-                                                )
-                                              }
+                                              // onClick={() =>
+                                              //   handleShow(
+                                              //     singlerace.CompetitionRacesPointsModelData
+                                              //   )
+                                              // }
                                             >
                                             {t("Pick Six")}
                                             </button>
