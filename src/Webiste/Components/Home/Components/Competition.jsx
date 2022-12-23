@@ -55,6 +55,8 @@ const Competition = () => {
       },
     });
   }
+
+  console.log(competition,'competition')
   return (
     <>
       <div className="Competition">
@@ -76,11 +78,11 @@ const Competition = () => {
                         {/* {cookiedata === "en" ? <>{item.NameEn}</>:<>{item.NameAr}</>  } */}
                         
                         </p>
-                        {/* <p>{item.raceNo} Races</p> */}
+                        <p>{item.CompetitionRacesPointsModelData.length} Races</p>
                       </div>
                     </Accordion.Header>
                     <Accordion.Body>
-                      {item.CompetitionRacesPointsModelData.map((data) => {
+                      {item.CompetitionRacesPointsModelData.map((data,index) => {
                         return (
                           <div
                             className="Competition_Matches"
@@ -88,19 +90,19 @@ const Competition = () => {
                           >
                             <p>
                             {cookiedata === "en" ? (
-                                item.RaceNameModelData === undefined ? (
+                                data.RaceNameModelData === undefined ? (
                                   <>N/A</>
                                 ) : (
-                                  item.RaceNameModelData.NameEn
+                                  data.RaceNameModelData.NameEn
                                 )
-                              ) : item.RaceNameModelData === undefined ? (
+                              ) : data.RaceNameModelData === undefined ? (
                                 <>N/A</>
                               ) : (
-                                item.RaceNameModelData.NameAr
+                                data.RaceNameModelData.NameAr
                               )}
                             
                             </p>
-                            <p>{data.WeatherType}</p>
+                            <p>{index + 1}</p>
                           </div>
                         );
                       })}
