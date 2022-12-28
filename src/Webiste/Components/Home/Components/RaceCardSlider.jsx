@@ -47,7 +47,7 @@ const RaceCardSlider = () => {
     dispatch(fetchRace());
   }, [dispatch]);
 
-
+  const d = new Date();
 
   const [userIsDesktop, setUserIsDesktop] = useState(true);
 
@@ -192,7 +192,7 @@ const RaceCardSlider = () => {
                         )}m
                       </p>
                       </div>
-                      <p className="racetime"> <Moment fromNow>{item.Day}</Moment></p>
+                      <p className="racetime">{d.getMinutes(item.Day)} m</p>
                     </span>
                     <span className="singleracecardbtn">
                       <button>FORM</button>

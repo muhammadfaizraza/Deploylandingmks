@@ -118,3 +118,11 @@
 .accordion-button:focus {
     box-shadow: none;
 }
+
+.CastCompetitionCategory{
+    display: flex;
+}
+.CastCompetitionCategory > input{
+    margin: 5px;
+    height: 10px;
+}

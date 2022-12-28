@@ -28,8 +28,9 @@ import arrow1 from "../assets/image 13 (Traced).png";
 import Moment from "react-moment";
 import PrintOut from "../Components/RaceCard/Printout";
 import { IoPartlySunnyOutline, IoCloudyOutline } from "react-icons/io5";
-import TriCompetition from "../Components/Competition/TriCompetition";
+// import TriCompetition from "../Components/Competition/TriCompetition";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const RaceCardDetail = () => {
   const { t } = useTranslation();
@@ -37,8 +38,7 @@ const RaceCardDetail = () => {
   const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
-
-      const [TriData, setTriData] = useState([]);
+  const [TriData, setTriData] = useState([]);
   const [CastData, setCastData] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -70,8 +70,7 @@ const RaceCardDetail = () => {
       <h2
         style={{
           margin: "100px",
-          width:'50%'
-
+          width: "50%",
         }}
       >
         Something went wrong!
@@ -124,6 +123,14 @@ const RaceCardDetail = () => {
   const toUpperCaseFilter = (d) => {
     return d.toUpperCase();
   };
+  const castClick = async (data) => {
+    // await setTriData(data);
+    setShowtri(!showtri)
+    toast('cast')
+    
+  };
+  
+  console.log(singlerace, "singlerace data");
   return (
     <>
       {/* <Layout /> */}
@@ -342,13 +349,13 @@ const RaceCardDetail = () => {
                           gap: "10px",
                         }}
                       >
-                        <button
+                        {/* <button
                           style={btnNew}
-                          // onClick={() =>
-                          //   handleShowTri(
-                          //     singlerace.CompetitionRacesPointsModelData
-                          //   )
-                          // }
+                          onClick={() =>
+                            handleShowTri(
+                              singlerace.CompetitionRacesPointsModelData
+                            )
+                          }
                         >
                          {t("Tri Cast")}
                         </button>
@@ -357,7 +364,7 @@ const RaceCardDetail = () => {
                          
                         >
                          {t("Pick Six")}
-                        </button>
+                        </button> */}
                       </div>
                     ) : (
                       <></>
@@ -511,7 +518,7 @@ const RaceCardDetail = () => {
                                                     </b>
                                                   </p>
                                                   <p style={myPara}>
-                                                  {t("Sire")}
+                                                    {t("Sire")}
                                                     <b>
                                                       :
                                                       {cookiedata === "en" ? (
@@ -530,7 +537,7 @@ const RaceCardDetail = () => {
                                                     </b>
                                                   </p>
                                                   <p style={myPara}>
-                                                  {t("GSire")}
+                                                    {t("GSire")}
                                                     <b>
                                                       :
                                                       {cookiedata === "en" ? (
@@ -623,11 +630,21 @@ const RaceCardDetail = () => {
                                                     <p>
                                                       B
                                                       <b>
-                                                        {cookiedata === "en"
-                                                          ? (data.BreederData === null ? <>N/A</>:
-                                                          data.BreederData.NameEn)
-                                                          :( data.BreederData === null ? <>N/A</>:
-                                                          data.BreederData.NameAr)}
+                                                        {cookiedata === "en" ? (
+                                                          data.BreederData ===
+                                                          null ? (
+                                                            <>N/A</>
+                                                          ) : (
+                                                            data.BreederData
+                                                              .NameEn
+                                                          )
+                                                        ) : data.BreederData ===
+                                                          null ? (
+                                                          <>N/A</>
+                                                        ) : (
+                                                          data.BreederData
+                                                            .NameAr
+                                                        )}
                                                       </b>
                                                     </p>
                                                   </div>
@@ -643,9 +660,7 @@ const RaceCardDetail = () => {
                                           </div>
                                         </div> */}
 
-
-
-                                               <div className="cardraces4">
+                                              <div className="cardraces4">
                                                 <p
                                                   style={{
                                                     fontWeight: "300",
@@ -668,32 +683,34 @@ const RaceCardDetail = () => {
                                                       index
                                                     ].Rating
                                                   )}
-               
-                                  
-
                                                 </p>
                                                 <div className="cardracesjockey">
                                                   <div className="cardracesjockeyleft">
                                                     <p>
                                                       J
                                                       <b>
-                                                        {
-                                                          cookiedata === "en" ?
-                                                        singlerace.JockeyModels
-                                                          .length < 1 ? (
-                                                          <>N/A</>
-                                                        ) : singlerace
-                                                            .JockeyModels[index]
-                                                            .NameEn ===
-                                                          undefined ? (
-                                                          <>N/A</>
+                                                        {cookiedata === "en" ? (
+                                                          singlerace
+                                                            .JockeyModels
+                                                            .length < 1 ? (
+                                                            <>N/A</>
+                                                          ) : singlerace
+                                                              .JockeyModels[
+                                                              index
+                                                            ].NameEn ===
+                                                            undefined ? (
+                                                            <>N/A</>
+                                                          ) : (
+                                                            singlerace
+                                                              .JockeyModels[
+                                                              index
+                                                            ].NameEn
+                                                          )
                                                         ) : (
                                                           singlerace
                                                             .JockeyModels[index]
-                                                            .NameEn
-                                                        ) :    singlerace
-                                                        .JockeyModels[index]
-                                                        .NameAr}
+                                                            .NameAr
+                                                        )}
                                                       </b>
                                                     </p>
                                                     <p>
@@ -752,7 +769,7 @@ const RaceCardDetail = () => {
                                                     <li>BF</li>
                                                   </ul>
                                                 </div>
-                                              </div> 
+                                              </div>
                                             </div>
                                             <div>
                                               <div className="pmclass">
@@ -778,30 +795,70 @@ const RaceCardDetail = () => {
                                                 <p>AW :47 (2 - 8 - 4) </p>
                                               </div>
                                             </div>
-                                              <div style={{
-                                                display:'flex'
-                                              }}>
-                                              <button
-                                              style={btnNew}
-                                              // onClick={() =>
-                                              //   handleShowTri(
-                                              //     singlerace.CompetitionRacesPointsModelData
-                                              //   )
-                                              // }
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                              }}
                                             >
-                                            {t("Tri Cast")}
-                                            </button>
-                                            <button
+                                              {singlerace
+                                                .CompetitionRacesPointsModelData
+                                                .length === 0 ? (
+                                                <></>
+                                              ) : (
+                                                <>
+                                                  {singlerace
+                                                    .CompetitionRacesPointsModelData[0]
+                                                    .CompetitionCategory === 'pick' ? (
+                                                    <button style={btnNew1}>
+                                                      {
+                                                        singlerace
+                                                          .CompetitionRacesPointsModelData[0]
+                                                          .CompetitionCategory
+                                                      }
+                                                    </button>
+                                                  ) : (
+                                                    <>
+                                                    {
+                                                      !showtri?<button style={btnNew1}onClick={() =>
+                                                        castClick(
+                                                          singlerace.CompetitionRacesPointsModelData
+                                                        )
+                                                      }>
+                                                        {
+                                                          singlerace
+                                                            .CompetitionRacesPointsModelData[0]
+                                                            .CompetitionCategory
+                                                        }
+  
+                                                      </button>:<></>
+                                                    }
+                                                    {
+                                                      showtri? 
+                                                      <span className="CastCompetitionCategory">
+                                                        <input type='radio' value='1'/>
+                                                        <input type='radio' value='1'/>
+                                                        <input type='radio' value='1'/>
+                                                      </span>
+                                                      : <></>
+                                                    }
+                                                    
+                                                    </>
+                                                    
+                                                  )}
+                                                </>
+                                              )}
+
+                                              {/* <button
                                               style={btnNew1}
-                                              // onClick={() =>
-                                              //   handleShow(
-                                              //     singlerace.CompetitionRacesPointsModelData
-                                              //   )
-                                              // }
+                                              onClick={() =>
+                                                handleShow(
+                                                  singlerace.CompetitionRacesPointsModelData
+                                                )
+                                              }
                                             >
                                             {t("Pick Six")}
-                                            </button>
-                                              </div>
+                                            </button> */}
+                                            </div>
                                           </Accordion.Header>
                                           <Accordion.Body className="AccordionBody11">
                                             <div className="mycardclass1">
@@ -983,7 +1040,7 @@ const RaceCardDetail = () => {
             </Modal.Footer>
           </Modal>
 
-          <Modal
+          {/* <Modal
             show={showtri}
             onHide={handleCloseTri}
             size="lg"
@@ -995,7 +1052,7 @@ const RaceCardDetail = () => {
               <TriCompetition data={TriData} />
             </Modal.Body>
             <Modal.Footer></Modal.Footer>
-          </Modal>
+          </Modal> */}
         </div>
       </Zoom>
       {/* <Footer />
