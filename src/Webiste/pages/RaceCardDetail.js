@@ -31,6 +31,7 @@ import { IoPartlySunnyOutline, IoCloudyOutline } from "react-icons/io5";
 // import TriCompetition from "../Components/Competition/TriCompetition";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const RaceCardDetail = () => {
   const { t } = useTranslation();
@@ -38,11 +39,12 @@ const RaceCardDetail = () => {
   const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
-  const [TriData, setTriData] = useState([]);
+  const [Disable, setDisable] = useState(false);
   const [CastData, setCastData] = useState([]);
 
   const [show, setShow] = useState(false);
   const [showtri, setShowtri] = useState(false);
+  const [PositionNumber, setPositionNumber] = useState('1');
 
   const handleClose = () => setShow(false);
   const handleCloseTri = () => setShowtri(false);
@@ -53,10 +55,10 @@ const RaceCardDetail = () => {
   };
   const handleShowTri = async (data) => {
     await setShowtri(true);
-    setTriData(data);
   };
 
   const { id } = state;
+  
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
   }, [id]);
@@ -123,15 +125,60 @@ const RaceCardDetail = () => {
   const toUpperCaseFilter = (d) => {
     return d.toUpperCase();
   };
-  const castClick = async (data) => {
-    // await setTriData(data);
-    setShowtri(!showtri)
-    toast('cast')
-    
+
+
+  const castClick = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        `${window.env.API_URL}/voting/${'3b1f6064-da45-4506-813f-59f32da1c0ed'}/${id}/${PositionNumber}`,
+        { Horse: '2c7a27f3-20ec-48c1-8eae-f5e25c616edb' },{
+          withCredentials: true,
+          headers: { 'Content-Type': 'multipart/form-data' },
+      }
+      );
+    } catch (error) {
+      console.log(error,'response')
+      const err = error.response.data.message; 
+    }
   };
-  
-  console.log(singlerace, "singlerace data");
+  const pickClick = async (event) => {
+    event.preventDefault();
+    try {
+      setDisable(true)
+      const response = await axios.post(
+        `${window.env.API_URL}/voting/${'c98a1bcb-8564-4b07-bc85-adee4b8785a7'}/${id}/${PositionNumber}`,
+        { Horse: 'e661d378-0d64-44c1-ba92-107b65e4d78e' },{
+          withCredentials: true,
+          headers: { 'Content-Type': 'multipart/form-data' },
+      }
+      );
+      const msgdata = response.data.msg;      
+    } catch (error) {
+      console.log(error,'response')
+  }
+  };
+
+
+  let menuItems = [];
+    for (var i = 0; i < 4; i++) {
+        menuItems.push(
+          <form>
+          <input type="radio" name="contact"/> 
+          </form>
+        );
+    }
+
+    const handleCastdata = () => {
+      console.log()
+    }
+    const runCallback = (cb) => {
+      return cb();
+    };
+
+    console.log(singlerace,'single')
   return (
+    
     <>
       {/* <Layout /> */}
       <Zoom>
@@ -809,7 +856,9 @@ const RaceCardDetail = () => {
                                                   {singlerace
                                                     .CompetitionRacesPointsModelData[0]
                                                     .CompetitionCategory === 'pick' ? (
-                                                    <button style={btnNew1}>
+                                                    <button style={btnNew1} onClick={
+                                                      pickClick
+                                                    } disabled={Disable}>
                                                       {
                                                         singlerace
                                                           .CompetitionRacesPointsModelData[0]
@@ -819,10 +868,8 @@ const RaceCardDetail = () => {
                                                   ) : (
                                                     <>
                                                     {
-                                                      !showtri?<button style={btnNew1}onClick={() =>
-                                                        castClick(
-                                                          singlerace.CompetitionRacesPointsModelData
-                                                        )
+                                                      !showtri?<button style={btnNew} onClick={() =>
+                                                        handleShowTri()
                                                       }>
                                                         {
                                                           singlerace
@@ -834,10 +881,23 @@ const RaceCardDetail = () => {
                                                     }
                                                     {
                                                       showtri? 
-                                                      <span className="CastCompetitionCategory">
-                                                        <input type='radio' value='1'/>
-                                                        <input type='radio' value='1'/>
-                                                        <input type='radio' value='1'/>
+                                                      <span >
+                                                         <form className="CastCompetitionCategory">
+                                                         {runCallback(() => {
+                                                              const row = [];
+                                                              const total = singlerace
+                                                              .CompetitionRacesPointsModelData[0]
+                                                              .CategoryCount;
+                                                              for (var i = 0; i < total; i++) {
+                                                                row.push(<input type="radio" value={i+1} name="cast"
+                                                                onChange={(e) => setPositionNumber(e.target.value)}
+                                                                onClick={castClick}
+                                                                /> 
+                                                                 );
+                                                              }
+                                                              return row;
+                                                            })}
+                                                          </form>
                                                       </span>
                                                       : <></>
                                                     }

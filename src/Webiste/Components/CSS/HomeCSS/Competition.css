@@ -126,3 +126,7 @@
     margin: 5px;
     height: 10px;
 }
+
+button:disabled {
+    background: #989693 !important;
+}
