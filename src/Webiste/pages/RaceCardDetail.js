@@ -142,20 +142,23 @@ const RaceCardDetail = () => {
       const err = error.response.data.message; 
     }
   };
-  const pickClick = async (event) => {
+  const pickClick = async (event,horseid,compid) => {
     event.preventDefault();
     try {
       setDisable(true)
       const response = await axios.post(
-        `${window.env.API_URL}/voting/${'c98a1bcb-8564-4b07-bc85-adee4b8785a7'}/${id}/${PositionNumber}`,
-        { Horse: 'e661d378-0d64-44c1-ba92-107b65e4d78e' },{
+        `${window.env.API_URL}/voting/${compid}/${id}/${PositionNumber}`,
+        { Horse: horseid },{
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
-      const msgdata = response.data.msg;      
+      const msgdata = response.data.msg;     
+      setDisable(false) 
     } catch (error) {
       console.log(error,'response')
+      setDisable(false) 
+
   }
   };
 
@@ -856,8 +859,11 @@ const RaceCardDetail = () => {
                                                   {singlerace
                                                     .CompetitionRacesPointsModelData[0]
                                                     .CompetitionCategory === 'pick' ? (
-                                                    <button style={btnNew1} onClick={
-                                                      pickClick
+                                                    <button style={btnNew1} onClick={(event) =>
+                                                      pickClick(event,data._id,singlerace
+                                                        .CompetitionRacesPointsModelData[0]
+                                                        ._id)
+                                                      
                                                     } disabled={Disable}>
                                                       {
                                                         singlerace
