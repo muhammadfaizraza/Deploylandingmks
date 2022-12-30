@@ -127,12 +127,12 @@ const RaceCardDetail = () => {
   };
 
 
-  const castClick = async (event) => {
+  const castClick = async (event,horseid,compid) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        `${window.env.API_URL}/voting/${'3b1f6064-da45-4506-813f-59f32da1c0ed'}/${id}/${PositionNumber}`,
-        { Horse: '2c7a27f3-20ec-48c1-8eae-f5e25c616edb' },{
+        `${window.env.API_URL}/voting/${compid}/${id}/${PositionNumber}`,
+        { Horse: horseid },{
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
       }
@@ -897,7 +897,10 @@ const RaceCardDetail = () => {
                                                               for (var i = 0; i < total; i++) {
                                                                 row.push(<input type="radio" value={i+1} name="cast"
                                                                 onChange={(e) => setPositionNumber(e.target.value)}
-                                                                onClick={castClick}
+                                                                onClick={(event) =>
+                                                                  castClick(event,data._id,singlerace
+                                                                    .CompetitionRacesPointsModelData[0]
+                                                                    ._id)}
                                                                 /> 
                                                                  );
                                                               }
