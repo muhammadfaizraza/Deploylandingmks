@@ -337,10 +337,10 @@ flex: 9;
 .adstitlepos{
     font-weight: 400;
     position: absolute;
-    padding: 55px;
-    top: 5%;
-    left: 5%;
-    height: 120px;
+    /* padding: 15px; */
+    /* top: 5%; */
+    /* left: 5%; */
+    /* height: 120px; */
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -348,6 +348,12 @@ flex: 9;
     line-height: 40px;
     color: #C4C4C4;
 }
+
+.adscardmapping {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
 .RaceLoader{
     width: 67%;
 }

@@ -64,9 +64,3 @@ const Ads = () => {
   )
 }
 export default Ads
-
-{/* <h2 style={{
-              position: 'absolute',
-              top: '17px',
-              left: '15px'
-            }}>{item.DescriptionEn}</h2> */}
