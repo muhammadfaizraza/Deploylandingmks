@@ -99,7 +99,7 @@ const Login = () => {
             <NavLink className="buttonLogin" to="/login">
             {t("Login")}
           </NavLink>
-          <NavLink className="buttonSubscribe" to="/registration">
+          <NavLink className="buttonSubscribe" to="/register">
           {t("Subscibe")}
           </NavLink>
           </div>

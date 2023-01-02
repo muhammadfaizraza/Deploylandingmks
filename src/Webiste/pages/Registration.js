@@ -173,7 +173,7 @@ const RegisterScreen = () => {
             >
               {Country_Name.map((item) => {
                 return (
-                  <option key={item.country_id} name="country">
+                  <option key={item.country_id} value={item.country_name} name="country">
                     {item.country_name}
                   </option>
                 );

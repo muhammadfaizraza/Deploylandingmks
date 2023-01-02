@@ -60,7 +60,7 @@ function App() {
         <Route path={'/racedetail'} element={  <Home /> } />
         <Route path={'/racedetails'} element={  <RaceDetails /> } />
         <Route path='/login'  element={  <Login /> } />
-        <Route path='/registration'  element={  <Registration /> } />
+        <Route path='/register'  element={  <Registration /> } />
         <Route path='/racecourse'  element={  <RaceCourse /> } />
         <Route path='/about'  element={  <About /> } />
         <Route path='/policies'  element={  <Policy /> } />
