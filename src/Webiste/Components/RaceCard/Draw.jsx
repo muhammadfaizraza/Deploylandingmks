@@ -23,7 +23,7 @@ const Draw = () => {
       height="315px"
       data={data}
       options={options}
-    />
+      />
     </div>
   )
 }

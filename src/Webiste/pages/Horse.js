@@ -43,11 +43,7 @@ const Horse = () => {
   if (status === STATUSES.LOADING) {
     return (
       <div>
-      <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}
-      />
+              <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
     </div>
     );
   }

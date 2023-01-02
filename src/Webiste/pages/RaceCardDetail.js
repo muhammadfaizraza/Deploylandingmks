@@ -47,24 +47,21 @@ const RaceCardDetail = () => {
   const [PositionNumber, setPositionNumber] = useState('1');
 
   const handleClose = () => setShow(false);
-  const handleCloseTri = () => setShowtri(false);
-
-  const handleShow = async (data) => {
-    await setShow(true);
-    setCastData(data);
-  };
+ 
   const handleShowTri = async (data) => {
     await setShowtri(true);
   };
 
-  const { id } = state;
+  const { id  } = state;
   
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
   }, [id]);
 
   if (status === STATUSES.LOADING) {
-    return <h2 className="loader1"></h2>;
+    return <h2 className="loader1">
+      
+    </h2>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -122,9 +119,7 @@ const RaceCardDetail = () => {
   };
 
   const cookiedata = Cookies.get("i18next");
-  const toUpperCaseFilter = (d) => {
-    return d.toUpperCase();
-  };
+
 
 
   const castClick = async (event) => {
@@ -138,24 +133,27 @@ const RaceCardDetail = () => {
       }
       );
     } catch (error) {
-      console.log(error,'response')
       const err = error.response.data.message; 
     }
   };
-  const pickClick = async (event) => {
+
+  const pickClick = async (event,compid,horseid) => {
     event.preventDefault();
     try {
       setDisable(true)
       const response = await axios.post(
-        `${window.env.API_URL}/voting/${'c98a1bcb-8564-4b07-bc85-adee4b8785a7'}/${id}/${PositionNumber}`,
-        { Horse: 'e661d378-0d64-44c1-ba92-107b65e4d78e' },{
+        `${window.env.API_URL}/voting/${compid}/${id}/${PositionNumber}`,
+        { Horse: horseid },{
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
+      setDisable(false);
       const msgdata = response.data.msg;      
     } catch (error) {
-      console.log(error,'response')
+      console.log(error,'response');
+      setDisable(false)
+
   }
   };
 
@@ -856,9 +854,8 @@ const RaceCardDetail = () => {
                                                   {singlerace
                                                     .CompetitionRacesPointsModelData[0]
                                                     .CompetitionCategory === 'pick' ? (
-                                                    <button style={btnNew1} onClick={
-                                                      pickClick
-                                                    } disabled={Disable}>
+                                                    <button style={btnNew1} onClick={(event) => pickClick(event ,singlerace
+                                                      .CompetitionRacesPointsModelData[0]._id, data._id)} disabled={Disable}>
                                                       {
                                                         singlerace
                                                           .CompetitionRacesPointsModelData[0]
@@ -882,16 +879,16 @@ const RaceCardDetail = () => {
                                                     {
                                                       showtri? 
                                                       <span >
-                                                         <form className="CastCompetitionCategory">
+                                                         <form className="CastCompetitionCategory" onClick={castClick}>
                                                          {runCallback(() => {
                                                               const row = [];
                                                               const total = singlerace
                                                               .CompetitionRacesPointsModelData[0]
                                                               .CategoryCount;
                                                               for (var i = 0; i < total; i++) {
-                                                                row.push(<input type="radio" value={i+1} name="cast"
+                                                                row.push(<input type="radio" name="cast"
                                                                 onChange={(e) => setPositionNumber(e.target.value)}
-                                                                onClick={castClick}
+                                                                
                                                                 /> 
                                                                  );
                                                               }

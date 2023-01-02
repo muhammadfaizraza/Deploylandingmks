@@ -11,7 +11,8 @@ import '../Components/CSS/pagesCSS/stats.css'
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import Animate from "../assets/loader.json";
+import Lottie from "lottie-react";
 import ListGroup from 'react-bootstrap/ListGroup';
 
 
@@ -38,13 +39,8 @@ const Stats = () => {
 
   if (status === STATUSES.ERROR) {
     return (
-      <h2
-        style={{
-          margin: "100px",
-        }}
-      >
-        Something went wrong!
-      </h2>
+      <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
+
     );
   }
   return (

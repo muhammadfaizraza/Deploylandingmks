@@ -14,42 +14,40 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import TrainerDetail from "./TrainerDetail";
 import { Modal } from "react-bootstrap";
-import Lottie from 'lottie-react';
-import Animate from '../assets/loader.json'
+import Lottie from "lottie-react";
+import Animate from "../assets/loader.json";
 
 const Trainer = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const [modaldata, setmodaldata] = useState()
+  const [modaldata, setmodaldata] = useState();
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
-      setmodaldata(data)
-      await setShow(true)
+    setmodaldata(data);
+    await setShow(true);
   };
   const dispatch = useDispatch();
   const { data: trainer, status } = useSelector((state) => state.trainer);
-  
+
   useEffect(() => {
     dispatch(fetchTrainer());
   }, [dispatch]);
 
- 
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: Animate,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }}
- 
- 
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   if (status === STATUSES.LOADING) {
     return (
-      <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}
+      <Lottie
+        animationData={Animate}
+        loop={true}
+        className="Lottie compLottie"
       />
     );
   }
@@ -75,7 +73,7 @@ const Trainer = () => {
         <div className="aboutpagesection">
           <div className="horseTable">
             {/* <input type='text' value={searchKeyword} placeholder='Search' onChange={e => setSearchKeyword(e.target.value)}/> */}
-            
+
             <table id="customers">
               <tr>
                 <th>Name</th>
@@ -87,44 +85,60 @@ const Trainer = () => {
               </tr>
               {trainer.map((item) => {
                 return (
-                  <tr  onClick={()=> handleShow(item) 
-                  } style={{
-                    cursor:'pointer'
-                  }}>
-                  <td >{item.NameEn}</td>
-                  <td><Moment fromNow ago>
-                                  {item.DOB}
-                                </Moment></td>
-                                <td>{item.Remarks}</td>
-                                <td>{item.Detail}</td>
+                  <tr
+                    onClick={() => handleShow(item)}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    <td>{item.NameEn}</td>
+                    <td>
+                      <Moment fromNow ago>
+                        {item.DOB}
+                      </Moment>
+                    </td>
+                    <td>{item.RemarksEn}</td>
+                    <td>{item.DetailEn}</td>
 
-                                <td>{item.TrainerNationalityData === null ? <>N/A</> : item.TrainerNationalityData.NameEn} </td>
-                               
-                  <td>
-                    <img src={item.image} alt=""  style={{
-                      height:'30px',
-                      width:'30px'
-                    }}/>
-                  </td>
-                </tr>
+                    <td>
+                      {item.TrainerNationalityData === null ? (
+                        <>N/A</>
+                      ) : (
+                        item.TrainerNationalityData.NameEn
+                      )}{" "}
+                    </td>
+
+                    <td>
+                      <img
+                        src={item.image}
+                        alt=""
+                        style={{
+                          height: "30px",
+                          width: "30px",
+                        }}
+                      />
+                    </td>
+                  </tr>
                 );
               })}
             </table>
-            
           </div>
         </div>
-        <Modal show={show} onHide={handleClose}   size="lg"
-                  aria-labelledby="contained-modal-title-vcenter"
-                  centered>
-                <Modal.Header className="popupheader" closeButton >
-                    <h3>Trainer Detail</h3>
-                </Modal.Header>
-                <Modal.Body>
-                <TrainerDetail data={modaldata} />
-                </Modal.Body>
-                <Modal.Footer>
-                </Modal.Footer>
-            </Modal>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header className="popupheader" closeButton>
+            <h3>Trainer Detail</h3>
+          </Modal.Header>
+          <Modal.Body>
+            <TrainerDetail data={modaldata} />
+          </Modal.Body>
+          <Modal.Footer></Modal.Footer>
+        </Modal>
       </div>
       <Footer />
       <CoptRight />

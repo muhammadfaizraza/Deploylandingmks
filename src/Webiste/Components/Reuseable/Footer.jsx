@@ -68,7 +68,7 @@ const Footer = () => {
                         <Link to='/owner' className="LinkStyle">
                         <li><p>{t('Owner')}</p></li>
                         </Link>
-                        <Link to='/mytracker' className="LinkStyle">
+                        <Link to='/tracker' className="LinkStyle">
                         <li><p>{t('My_Tracker')}</p></li>
                         </Link>
                     </ul>
@@ -80,7 +80,7 @@ const Footer = () => {
                     <ul className="list-unstyled text-muted">
                         <li><p><b>{t('Contact')}</b></p></li>
                         <li><p>{t('Location')}</p></li>
-                        <li><p><a href="callto:1-800-123-4567">+971 123 456 789</a></p></li>
+                        <li><p><a href="callto:1-800-123-4567">{t('TelePhone')}</a></p></li>
                         <li><p><a href="mailto:email@example.com" >info@mksracing.com</a></p></li>
                         <li><p>{t('followus')}</p></li>
                         <li style={{

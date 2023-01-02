@@ -126,7 +126,7 @@ const Match = () => {
                             </h2>
                             <img
                               src={
-                                item.NationalityDataRaceCourse.image ===
+                                item.NationalityDataRaceCourse ===
                                 null ? (
                                   <>N/A</>
                                 ) : (

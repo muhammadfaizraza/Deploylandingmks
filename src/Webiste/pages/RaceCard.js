@@ -42,7 +42,9 @@ const RaceCourse = () => {
  
 
   if (status === STATUSES.LOADING) {
-    return <Lottie animationData={Animate} loop={true} className="Lottie" />;
+    return  <div>
+    <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
+  </div>
   }
 
   if (status === STATUSES.ERROR) {
