@@ -122,12 +122,12 @@ const RaceCardDetail = () => {
 
 
 
-  const castClick = async (event) => {
+  const castClick = async (event,horseid,compid) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        `${window.env.API_URL}/voting/${'3b1f6064-da45-4506-813f-59f32da1c0ed'}/${id}/${PositionNumber}`,
-        { Horse: '2c7a27f3-20ec-48c1-8eae-f5e25c616edb' },{
+        `${window.env.API_URL}/voting/${compid}/${id}/${PositionNumber}`,
+        { Horse: horseid },{
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
       }
@@ -136,8 +136,12 @@ const RaceCardDetail = () => {
       const err = error.response.data.message; 
     }
   };
+<<<<<<< HEAD
 
   const pickClick = async (event,compid,horseid) => {
+=======
+  const pickClick = async (event,horseid,compid) => {
+>>>>>>> a277d96b2363595daf729810515f0a471789d98e
     event.preventDefault();
     try {
       setDisable(true)
@@ -148,11 +152,19 @@ const RaceCardDetail = () => {
           headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
+<<<<<<< HEAD
       setDisable(false);
       const msgdata = response.data.msg;      
     } catch (error) {
       console.log(error,'response');
       setDisable(false)
+=======
+      const msgdata = response.data.msg;     
+      setDisable(false) 
+    } catch (error) {
+      console.log(error,'response')
+      setDisable(false) 
+>>>>>>> a277d96b2363595daf729810515f0a471789d98e
 
   }
   };
@@ -854,8 +866,17 @@ const RaceCardDetail = () => {
                                                   {singlerace
                                                     .CompetitionRacesPointsModelData[0]
                                                     .CompetitionCategory === 'pick' ? (
+<<<<<<< HEAD
                                                     <button style={btnNew1} onClick={(event) => pickClick(event ,singlerace
                                                       .CompetitionRacesPointsModelData[0]._id, data._id)} disabled={Disable}>
+=======
+                                                    <button style={btnNew1} onClick={(event) =>
+                                                      pickClick(event,data._id,singlerace
+                                                        .CompetitionRacesPointsModelData[0]
+                                                        ._id)
+                                                      
+                                                    } disabled={Disable}>
+>>>>>>> a277d96b2363595daf729810515f0a471789d98e
                                                       {
                                                         singlerace
                                                           .CompetitionRacesPointsModelData[0]
@@ -888,7 +909,14 @@ const RaceCardDetail = () => {
                                                               for (var i = 0; i < total; i++) {
                                                                 row.push(<input type="radio" name="cast"
                                                                 onChange={(e) => setPositionNumber(e.target.value)}
+<<<<<<< HEAD
                                                                 
+=======
+                                                                onClick={(event) =>
+                                                                  castClick(event,data._id,singlerace
+                                                                    .CompetitionRacesPointsModelData[0]
+                                                                    ._id)}
+>>>>>>> a277d96b2363595daf729810515f0a471789d98e
                                                                 /> 
                                                                  );
                                                               }

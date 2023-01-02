@@ -7,7 +7,6 @@ import ScrollContainer from 'react-indiana-drag-scroll'
 import {useTranslation} from 'react-i18next';
 import Cookies from 'js-cookie';
 import Moment from "react-moment";
-import moment from 'moment';
 
 const Blog = () => {
   const dispatch = useDispatch();
@@ -42,7 +41,6 @@ const Blog = () => {
       </h2>
     );
   }
-  const start = moment().add(Date.now(), 'm');
 
   const cookiedata = Cookies.get('i18next')
   return (
