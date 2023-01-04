@@ -80,6 +80,7 @@ const Trainer = () => {
                 <th>Age</th>
                 <th>Remarks </th>
                 <th>Detail</th>
+                <th>Title</th>
                 <th>Nationality</th>
                 <th>Image</th>
               </tr>
@@ -99,7 +100,7 @@ const Trainer = () => {
                     </td>
                     <td>{item.RemarksEn}</td>
                     <td>{item.DetailEn}</td>
-
+                    <td>{item.TitleEn}</td>
                     <td>
                       {item.TrainerNationalityData === null ? (
                         <>N/A</>

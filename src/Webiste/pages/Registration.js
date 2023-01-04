@@ -66,6 +66,7 @@ const RegisterScreen = () => {
       console.log(error.response.data.message, "error");
     }
   };
+  var today = new Date();
 
   return (
     <>
@@ -145,7 +146,8 @@ const RegisterScreen = () => {
               className="form-input"
               placeholder="Date of Birth"
               name="DOB"
-              onChange={(e) => setDOB(e.target.value)}
+              max="2023-01-"
+                            onChange={(e) => setDOB(e.target.value)}
               value={DOB}
               required
             />

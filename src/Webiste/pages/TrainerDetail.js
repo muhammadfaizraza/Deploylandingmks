@@ -85,7 +85,7 @@ const TrainerDetail = (data) => {
                 color: "#19469D",
               }}
             >
-              {data.data.TitleEn === null ? <>No Data</> : <>{data.data.TitleEn }</>}
+              {data.data.NameEn === null ? <>No Data</> : <>{data.data.NameEn }</>}
             </p>
             <p
               style={{

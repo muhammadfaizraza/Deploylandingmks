@@ -505,7 +505,11 @@ const RaceCardDetail = () => {
                                                   alt=""
                                                 />
                                                 <span className="cardraces1box">
-                                                  <p>1-3-22</p>
+                                                  <p>
+                                                  <Moment format="DD-MM-YY">
+                                                  {data.DOB}
+                                                       </Moment>
+                                                  </p>
                                                   <h3>0{data.Foal}</h3>
                                                 </span>
                                               </div>
