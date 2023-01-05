@@ -43,6 +43,8 @@ body::-webkit-scrollbar {
     opacity: .5;
     transition: opacity .6s ease;
     border-radius: 50% !important;
+    color: rgb(53, 53, 53) !important;
+
 }
 a{
   color: #000;

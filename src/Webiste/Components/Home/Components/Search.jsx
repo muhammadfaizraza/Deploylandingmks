@@ -2,6 +2,10 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import HorseDetail from "../../../pages/HorseDetail";
+import TrainerDetail from '../../../pages/TrainerDetail';
+import OwnerDetail from '../../../pages/OwnerDetail';
+import JockeyDetail from '../../../pages/JockeyDetail';
+
 import Animate from "../../../assets/loader.json"
 import Lottie from 'lottie-react';
 
@@ -22,6 +26,35 @@ const Search = () => {
     SearchData('')
     await setShow(true);
   };
+
+  const [showJocley, setShowJockey] = useState(false);
+  const [modaldataJockey, setmodaldataJockey] = useState();
+  const handleCloseJockey = () => setShowJockey(false);
+  const handleShowJocley = async (data) => {
+    setmodaldataJockey(data);
+    SearchData('')
+    await setShowJockey(true);
+  };
+
+  const [showtrainer, setShowtrainer] = useState(false);
+  const [modaldatatrainer, setmodaldatatrainer] = useState();
+  const handleClosetrainer = () => setShowtrainer(false);
+  const handleShowtrainer = async (data) => {
+    setmodaldatatrainer(data);
+    SearchData('')
+    await setShowtrainer(true);
+  };
+
+
+  const [showowner, setShowowner] = useState(false);
+  const [modaldataowner, setmodaldataowner] = useState();
+  const handleCloseowner = () => setShowowner(false);
+  const handleShowowner = async (data) => {
+    setmodaldataowner(data);
+    SearchData('')
+    await setShowowner(true);
+  };
+
 
   useEffect(() => {
     (async () => {
@@ -106,7 +139,7 @@ const Search = () => {
               ) : (
                 <>
                   {Data4.map((data2) => {
-                    return <p className="searchname">{data2.NameEn}</p>;
+                    return <p className="searchname" onClick={() => handleShowJocley(data2)}>{data2.NameEn}</p>;
                   })}
                 </>
               )}
@@ -117,7 +150,7 @@ const Search = () => {
               ) : (
                 <>
                   {Data2.map((data2) => {
-                    return <p className="searchname">{data2.NameEn}</p>;
+                    return <p className="searchname" onClick={() => handleShowtrainer(data2)}>{data2.NameEn}</p>;
                   })}
                 </>
               )}
@@ -128,7 +161,7 @@ const Search = () => {
               ) : (
                 <>
                   {Data3.map((data2) => {
-                    return <p className="searchname">{data2.NameEn}</p>;
+                    return <p className="searchname" onClick={() => handleShowowner(data2)}>{data2.NameEn}</p>;
                   })}
                 </>
               )}
@@ -147,6 +180,48 @@ const Search = () => {
         <Modal.Header className="popupheader" closeButton></Modal.Header>
         <Modal.Body>
           <HorseDetail data={modaldata} />
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
+      </Modal>
+
+      <Modal
+        show={showJocley}
+        onHide={handleCloseJockey}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header className="popupheader" closeButton></Modal.Header>
+        <Modal.Body>
+          <JockeyDetail data={modaldataJockey} />
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
+      </Modal>
+
+      <Modal
+        show={showtrainer}
+        onHide={handleClosetrainer}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header className="popupheader" closeButton></Modal.Header>
+        <Modal.Body>
+          <TrainerDetail data={modaldatatrainer} />
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
+      </Modal>
+
+      <Modal
+        show={showowner}
+        onHide={handleCloseowner}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header className="popupheader" closeButton></Modal.Header>
+        <Modal.Body>
+          <OwnerDetail data={modaldataowner} />
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
