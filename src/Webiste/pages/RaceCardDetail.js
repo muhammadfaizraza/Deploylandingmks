@@ -342,7 +342,7 @@ const RaceCardDetail = () => {
                         </p>
                         <span className="distance">
                           <p>
-                            {singlerace.TrackLengthData.TrackLength}m a
+                            {singlerace.TrackLengthData === null ? <>N/A</> : singlerace.TrackLengthData.TrackLength}m a
                             {singlerace.WeatherDegree}F
                           </p>
                         </span>
