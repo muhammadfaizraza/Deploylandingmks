@@ -109,9 +109,9 @@ const handleOwner = ()=>{
 
 <div>
 {      
-          singleUser.HorseModels === undefined ? <></> :  <>
+          singleUser.TrackHorses === undefined ? <></> :  <>
          {
-         singleUser.HorseModels.map((item) => {
+         singleUser.TrackHorses.map((item) => {
             return(
               <div className="winnerRow">
           <div className="trackerbody">
@@ -131,8 +131,41 @@ const handleOwner = ()=>{
 </> :<></> }
 
    
-   
-{traineDetail ? 
+{
+    traineDetail ? 
+    <>
+<div className="userHeader2">
+
+<div className="trackerhead">
+<h6>Trainer Name</h6>
+    <h5>Status</h5>
+    </div>
+    <h6>Action</h6>
+</div>
+
+<div>
+{      
+          singleUser.TrackTrainers === undefined ? <></> :  <>
+         {
+         singleUser.TrackTrainers.map((item) => {
+            return(
+              <div className="winnerRow">
+          <div className="trackerbody">
+          <h6>{item.NameEn}</h6>
+          <h5>Not Running</h5>
+          </div>
+          <h6>Remove</h6>
+          </div>
+            )
+          })
+         } 
+          </>
+                  }
+       
+       
+      </div>
+</> :<></> }
+{/* {traineDetail ? 
   <div className="userHeader2">
     <div className="trackerhead">
     <h6>Trainer Name</h6>
@@ -143,7 +176,7 @@ const handleOwner = ()=>{
   </div> 
   
   
-  :<></>}
+  :<></>} */}
  
 
  {
@@ -160,9 +193,9 @@ const handleOwner = ()=>{
 
 <div>
 {      
-          singleUser.OwnerModels === undefined ? <></> :  <>
+          singleUser.TrackOwners === undefined ? <></> :  <>
          {
-         singleUser.OwnerModels.map((item) => {
+         singleUser.TrackOwners.map((item) => {
             return(
               <div className="winnerRow">
           <div className="trackerbody">

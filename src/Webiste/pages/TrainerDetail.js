@@ -131,7 +131,7 @@ const TrainerDetail = (data) => {
           >
             <b style={{
               padding: "10px",
-            }}>Value            </b>{data.data.TrainerNationalityData.Value === undefined ? <>N/A</>:<>{data.data.TrainerNationalityData.Value}</>}
+            }}>Nationality </b>{data.data.TrainerNationalityData.Value === undefined ? <>N/A</>:<>{data.data.TrainerNationalityData.Value}</>}
           </p>
            </span>
               </> : <>N/A</>

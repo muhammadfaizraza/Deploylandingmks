@@ -7,8 +7,27 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Country_Name, Country_NameAr } from "../Components/Reuseable/Country";
+import { fetchnationality } from "../redux/getReducer/getNationality";
+import { useSelector , useDispatch } from "react-redux";
+
 
 const RegisterScreen = () => {
+
+  const { data: nationality } = useSelector((state) => state.nationality);
+  const dispatch = useDispatch();
+
+  let AllNationality =
+    nationality === undefined ? (
+      <></>
+    ) : (
+      nationality.map(function (item) {
+        return {
+          id: item._id,
+          value: item.NameEn,
+          label: item.NameEn
+        };
+      })
+    );
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [PassportNo, setPassportNo] = useState("");
@@ -39,6 +58,7 @@ const RegisterScreen = () => {
     return () => URL.revokeObjectURL(objectUrl);
   }, [PassportPicture]);
 
+  console.log(NationalityID,'NationalityID')
   const RegisterUser = async (e) => {
     e.preventDefault();
     try {
@@ -66,6 +86,9 @@ const RegisterScreen = () => {
       console.log(error.response.data.message, "error");
     }
   };
+  useEffect(() => {
+    dispatch(fetchnationality());
+  },[dispatch])
   var today = new Date();
 
   return (
@@ -173,10 +196,10 @@ const RegisterScreen = () => {
               name="country"
               required
             >
-              {Country_Name.map((item) => {
+              {nationality.map((item) => {
                 return (
-                  <option key={item.country_id} value={item.country_name} name="country">
-                    {item.country_name}
+                  <option key={item._id} value={item._id} name="country">
+                    {item.NameEn}
                   </option>
                 );
               })}
