@@ -105,9 +105,10 @@ const handleOwner = ()=>{
 <h5>Status</h5>
 </div>
 <h6>Action</h6>
-</div></> :<></> }
-      <div>
-        {
+</div>
+
+<div>
+{      
           singleUser.HorseModels === undefined ? <></> :  <>
          {
          singleUser.HorseModels.map((item) => {
@@ -127,6 +128,9 @@ const handleOwner = ()=>{
        
        
       </div>
+</> :<></> }
+
+   
    
 {traineDetail ? 
   <div className="userHeader2">
@@ -135,7 +139,11 @@ const handleOwner = ()=>{
     <h5>Status</h5>
     </div>
     <h6>Action</h6>
-  </div> :<></>}
+
+  </div> 
+  
+  
+  :<></>}
  
 
   {ownerDetail ? 
@@ -145,8 +153,8 @@ const handleOwner = ()=>{
     <h5>Status</h5>
     </div>
     <h6>Action</h6>
-  </div> :<></>}
-  <div>
+    <div>
+  
     {
       singleUser.OwnerModels === undefined ? <></> :  <>
       {
@@ -165,9 +173,9 @@ const handleOwner = ()=>{
       </>
               }
     
-    
   </div>
-     
+  </div> :<></>}
+  
     </Fragment>
   );
 };

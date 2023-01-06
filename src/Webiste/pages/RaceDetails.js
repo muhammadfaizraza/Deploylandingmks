@@ -30,8 +30,6 @@ import arrow1 from "../assets/image 13 (Traced).png";
 import Moment from 'react-moment';
 import PrintOut from "../Components/RaceCard/Printout"
 import Header from "../Components/Reuseable/Header";
-import Footer from "../Components/Reuseable/Footer";
-import ScrollContainer from "react-indiana-drag-scroll";
 import { IoPartlySunnyOutline ,IoCloudyOutline } from 'react-icons/io5'
 
 
