@@ -19,6 +19,9 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
 const TrainerDetail = (data) => {
+
+  const navigate = useNavigate();
+
   const btnNew1 = {
     display: "flex",
     flexDirection: "row",
@@ -39,16 +42,19 @@ const TrainerDetail = (data) => {
   const handleTrack = async (Id) => {
     try {
      const res = await axios.post(
-        `${window.env.API_URL}/tracktrainer`, { Trainer: Id },  {
+        `/tracktrainer`, { Trainer: Id },  {
                 withCredentials: true,
                 headers: { 'Content-Type': 'multipart/form-data' },
             }
       );
       console.log(res,'data')
+      toast('Tracked Success')
+
     } catch (error) {
       console.log(error, 'error');
     }
-    toast('Tracked Success')
+    navigate('/tracker')
+
 
   };
   return (

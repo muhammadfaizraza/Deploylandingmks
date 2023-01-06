@@ -38,17 +38,18 @@ const OwnerDetail = (data) => {
   const handleTrack = async (Id) => {
     try {
      const res = await axios.post(
-        `${window.env.API_URL}/trackowner`, { Owner: Id },  {
+        `/trackowner`, { Owner: Id },  {
                 withCredentials: true,
                 headers: { 'Content-Type': 'multipart/form-data' },
             }
       );
+      toast('Tracked Success')
+
       console.log(res,'data')
     } catch (error) {
       console.log(error, 'error');
     }
-    toast('Tracked Success')
-    // navigate('/tracker')
+    navigate('/tracker')
   };
   return (
     <div className="RaceDetailCard">

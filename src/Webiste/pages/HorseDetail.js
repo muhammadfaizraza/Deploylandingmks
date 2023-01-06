@@ -47,16 +47,17 @@ const HorseDetail = (data) => {
   const handleTrack = async (Id) => {
     try {
      const res = await axios.post(
-        `${window.env.API_URL}/trackhorse`, { Horse: Id },  {
+        `/trackhorse`, { Horse: Id },  {
                 withCredentials: true,
                 headers: { 'Content-Type': 'multipart/form-data' },
             }
       );
       console.log(res,'data')
+      toast('Tracked Success')
+
     } catch (error) {
       console.log(error, 'error');
     }
-    toast('Tracked Success')
     navigate('/tracker')
   };
 

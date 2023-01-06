@@ -95,8 +95,9 @@ const handleOwner = ()=>{
           </div>
         
           
-  {
-    horseDetail ? <>
+          {
+    horseDetail ? 
+    <>
 <div className="userHeader2">
 
 <div className="trackerhead">
@@ -135,27 +136,7 @@ const handleOwner = ()=>{
     </div>
     <h6>Action</h6>
   </div> :<></>}
-  <div>
-    {
-      singleUser.TrainerModels === undefined ? <></> :  <>
-      {
-      singleUser.TrainerModels.map((item) => {
-        return(
-          <div className="winnerRow">
-      <div className="trackerbody">
-      <h6>{item.NameEn}</h6>
-      <h5>{item.HorseStatus === true ? <>Active </>:<>Not Active </>}</h5>
-      </div>
-      <h6>Remove</h6>
-      </div>
-        )
-      })
-      } 
-      </>
-              }
-    
-    
-  </div>
+ 
 
   {ownerDetail ? 
   <div className="userHeader2">
@@ -169,12 +150,12 @@ const handleOwner = ()=>{
     {
       singleUser.OwnerModels === undefined ? <></> :  <>
       {
-      singleUser.TrainerModels.map((item) => {
+      singleUser.OwnerModels.map((item) => {
         return(
           <div className="winnerRow">
       <div className="trackerbody">
       <h6>{item.NameEn}</h6>
-      <h5>{item.HorseStatus === true ? <>Active </>:<>Not Active </>}</h5>
+      <h5>Not Running</h5>
       </div>
       <h6>Remove</h6>
       </div>

@@ -126,7 +126,7 @@ const RaceCardDetail = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        `${window.env.API_URL}/voting/${compid}/${id}/${PositionNumber}`,
+        `/voting/${compid}/${id}/${PositionNumber}`,
         { Horse: horseid },{
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
@@ -143,7 +143,7 @@ const RaceCardDetail = () => {
     try {
       setDisable(true)
       const response = await axios.post(
-        `${window.env.API_URL}/voting/${compid}/${id}/${PositionNumber}`,
+        `/voting/${compid}/${id}/${PositionNumber}`,
         { Horse: horseid },{
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
