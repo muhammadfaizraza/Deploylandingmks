@@ -9,7 +9,7 @@ import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-import { RaceCardData } from "../data/data";
+
 import { useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
@@ -18,8 +18,7 @@ import { Modal } from "react-bootstrap";
 import Competition from "../Components/Competition/Competition";
 import img from "../assets/image 10.png";
 import img1 from "../assets/image 10 (1).png";
-import weather from "../assets/Partly Cloudy Day.png";
-import arrow from "../assets/image 3 (Traced).png";
+
 import Summary from "../Components/RaceCard/Summary";
 import Draw from "../Components/RaceCard/Draw";
 import Predictor from "../Components/RaceCard/Predictor";
@@ -127,13 +126,20 @@ const RaceCardDetail = () => {
     try {
       const response = await axios.post(
         `/voting/${compid}/${id}/${PositionNumber}`,
-        { Horse: horseid },{
+        { Horse: horseid }, {
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
+      const msgdata = response.data.data.message; 
+      toast(msgdata) 
+      setDisable(false)
+
     } catch (error) {
-      const err = error.response.data.message; 
+      const err = error.response.data.message;
+      toast(err)
+      setDisable(false)
+
     }
   };
 
@@ -144,17 +150,19 @@ const RaceCardDetail = () => {
       setDisable(true)
       const response = await axios.post(
         `/voting/${compid}/${id}/${PositionNumber}`,
-        { Horse: horseid },{
+        { Horse: horseid }, {
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
+      const msgdata = response.data.data.message; 
+      toast(msgdata) 
       setDisable(false);
-      const msgdata = response.data.msg;      
+          
     } catch (error) {
-      console.log(error,'response');
+      const err = error.response.data.message;
+      toast(err)
       setDisable(false)
-
   }
   };
 
@@ -205,7 +213,7 @@ const RaceCardDetail = () => {
                     </span>
                     <p className="itemtime">
                       <Moment format="MMMM Do YYYY">
-                        {singlerace.DayNTime}
+                        {singlerace.EndTime}
                       </Moment>
                     </p>
                     {/* <p className="itemtime"> 

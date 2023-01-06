@@ -192,7 +192,7 @@ const RaceCardSlider = () => {
                         )}m
                       </p>
                       </div>
-                      <p className="racetime">{d.getMinutes(item.Day)} m</p>
+                      <p className="racetime">{item.EndTime} m</p>
                     </span>
                     <span className="singleracecardbtn">
                       <button>FORM</button>

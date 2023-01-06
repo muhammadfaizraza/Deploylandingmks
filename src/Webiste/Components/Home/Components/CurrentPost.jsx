@@ -160,14 +160,14 @@ const Match = () => {
                                         )}
                                       </p>
                                       <p>
-                                        {" "}
+                                        {/* {" "}
                                         <Moment
                                           add={{ hours: 12 }}
                                           format="hh:mm"
                                         >
                                           {item.DayNTime}
-                                        </Moment>
-                                        min
+                                        </Moment> */}
+                                        {/* min */}
                                       </p>
                                     </div>
                                   </Accordion.Header>
@@ -268,14 +268,14 @@ const Match = () => {
                                         )}
                                       </p>
                                       <p>
-                                        {" "}
+                                        {/* {" "}
                                         <Moment
                                           add={{ hours: 12 }}
                                           format="hh:mm"
                                         >
                                           {item.DayNTime}
                                         </Moment>
-                                        min
+                                        min */}
                                       </p>
                                     </div>
                                   </Accordion.Header>
@@ -371,14 +371,14 @@ const Match = () => {
                                         )}
                                       </p>
                                       <p>
-                                        {" "}
+                                        {/* {" "}
                                         <Moment
                                           add={{ hours: 12 }}
                                           format="hh:mm"
                                         >
                                           {item.DayNTime}
                                         </Moment>
-                                        min
+                                        min */}
                                       </p>
                                     </div>
                                   </Accordion.Header>
