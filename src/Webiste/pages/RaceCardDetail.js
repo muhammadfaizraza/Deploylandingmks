@@ -128,7 +128,7 @@ const RaceCardDetail = () => {
         `/voting/${compid}/${id}/${PositionNumber}`,
         { Horse: horseid }, {
           withCredentials: true,
-          headers: { 'Content-Type': 'multipart/form-data' },
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       }
       );
       const msgdata = response.data.data.message; 
