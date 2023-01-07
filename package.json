@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://sumairroudani.com/api/v1/",
-  "homepage": "https://sumairroudani.com/api/v1/",
+  "homepage": "https://mksracing.vercel.app/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
