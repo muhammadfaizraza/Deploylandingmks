@@ -153,6 +153,7 @@ const RaceCardDetail = () => {
         { Horse: horseid }, {
           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' },
+          
       }
       );
       const msgdata = response.data.data.message; 
@@ -899,7 +900,7 @@ const RaceCardDetail = () => {
                                                               .CompetitionRacesPointsModelData[0]
                                                               .CategoryCount;
                                                               for (var i = 0; i < total; i++) {
-                                                                row.push(<input type="radio" name="cast"
+                                                                row.push(<input type="radio" name="cast" value={i + 1}
                                                                 onChange={(e) => setPositionNumber(e.target.value)}
                                                               
                                                                 onClick={(event) =>
