@@ -2,8 +2,8 @@
   "name": "mkslanding",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://sumairroudani.com/api/v1/",
-  "homepage": "https://mksracing.vercel.app/",
+  "proxy": "https://sumairroudani.com/api/v1/",
+  "homepage": "https://mksracing.vercel.app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
@@ -13,6 +13,7 @@
     "bootstrap": "^5.2.0",
     "chart.js": "^3.9.1",
     "html-to-text": "^9.0.2",
+    "http-proxy-middleware": "^2.0.6",
     "i18next": "^21.9.1",
     "i18next-browser-languagedetector": "^6.1.5",
     "i18next-http-backend": "^1.4.1",
