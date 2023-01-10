@@ -354,7 +354,7 @@ const RaceCardDetail = () => {
                         </span>
                         <div className="Favourite">
                           <div>
-                            <p>Favourite 1</p>
+                            <p>Favourite</p>
                             <br />
                             {/* <div
                               style={{

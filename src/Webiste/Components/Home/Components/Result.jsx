@@ -37,10 +37,11 @@ const Result = () => {
           margin: "100px",
         }}
       >
-        Something went wrong!
+        No Result Found
       </h2>
     );
   }
+  
   return (
     <>
     <div className="resultCard">
