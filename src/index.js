@@ -28,13 +28,13 @@ i18next
       loadPath: '/assets/locales/{{lng}}/translation.json',
     },
   })
- 
 
-    // react: { useSuspense: false },
+
+// react: { useSuspense: false },
 const loadingMarkup = (
   <div className="py-4 text-center">
     <div>
-    <Lottie animationData={Animate} loop={true} />
+      <Lottie animationData={Animate} loop={true} />
     </div>
   </div>
 )

@@ -26,15 +26,15 @@ const Trainer = () => {
   const [modaldata, setmodaldata] = useState()
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
-      setmodaldata(data)
-      await setShow(true)
+    setmodaldata(data)
+    await setShow(true)
   };
   const dispatch = useDispatch();
   const { data: jockey, status } = useSelector((state) => state.jockey);
-  
+
   useEffect(() => {
-    dispatch(fetchJockey({ pageNumber,searchKeyword }));
-  }, [dispatch, pageNumber,searchKeyword]);
+    dispatch(fetchJockey({ pageNumber, searchKeyword }));
+  }, [dispatch, pageNumber, searchKeyword]);
 
   const defaultOptions = {
     loop: true,
@@ -42,17 +42,21 @@ const Trainer = () => {
     animationData: Animate,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
-    }}
- 
+    }
+  }
+
   const HandleJockey = (Id) => {
-    Cookies.set('sjockey',Id)
+    Cookies.set('sjockey', Id)
     navigate('/jockeydetail')
   };
 
   if (status === STATUSES.LOADING) {
     return (
-      <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
-    );
+      <div className="py-4 text-center">
+        <Lottie animationData={Animate} loop={true} className="Lottie" />
+      </div>
+    )
+      ;
   }
   if (status === STATUSES.ERROR) {
     return (
@@ -76,7 +80,7 @@ const Trainer = () => {
         <div className="aboutpagesection">
           <div className="horseTable">
             {/* <input type='text' value={searchKeyword} placeholder='Search' onChange={e => setSearchKeyword(e.target.value)}/> */}
-            
+
             <table id="customers">
               <tr>
                 <th>Name</th>
@@ -88,43 +92,43 @@ const Trainer = () => {
               </tr>
               {jockey.map((item) => {
                 return (
-                  <tr onClick={()=> handleShow(item) 
+                  <tr onClick={() => handleShow(item)
                   } style={{
-                    cursor:'pointer'
+                    cursor: 'pointer'
                   }}>
-                  <td >{item.NameEn&& item.NameEn}</td>
-                  <td><Moment fromNow ago>
-                                  {item.DOB}
-                                </Moment></td>
-                                <td>{item.RemarksEn}</td>
-                                <td>{item.Rating}</td>
-                                <td>{item.JockeyNationalityData&& item.JockeyNationalityData.NameEn } </td>
-                               
-                  <td>
-                    <img src={item.image} alt=""  style={{
-                      height:'30px',
-                      width:'30px'
-                    }}/>
-                  </td>
-                </tr>
+                    <td >{item.NameEn && item.NameEn}</td>
+                    <td><Moment fromNow ago>
+                      {item.DOB}
+                    </Moment></td>
+                    <td>{item.RemarksEn}</td>
+                    <td>{item.Rating}</td>
+                    <td>{item.JockeyNationalityData && item.JockeyNationalityData.NameEn} </td>
+
+                    <td>
+                      <img src={item.image} alt="" style={{
+                        height: '30px',
+                        width: '30px'
+                      }} />
+                    </td>
+                  </tr>
                 );
               })}
             </table>
-            
+
           </div>
         </div>
-        <Modal show={show} onHide={handleClose}   size="lg"
-                  aria-labelledby="contained-modal-title-vcenter"
-                  centered>
-                <Modal.Header className="popupheader" closeButton >
-                    <h3>Jockey Detail</h3>
-                </Modal.Header>
-                <Modal.Body>
-                <JockeyDetail data={modaldata} />
-                </Modal.Body>
-                <Modal.Footer>
-                </Modal.Footer>
-            </Modal>
+        <Modal show={show} onHide={handleClose} size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered>
+          <Modal.Header className="popupheader" closeButton >
+            <h3>Jockey Detail</h3>
+          </Modal.Header>
+          <Modal.Body>
+            <JockeyDetail data={modaldata} />
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal>
       </div>
       <Footer />
       <CoptRight />
