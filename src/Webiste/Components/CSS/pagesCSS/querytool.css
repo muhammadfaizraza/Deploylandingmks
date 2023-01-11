@@ -50,6 +50,8 @@ border-radius: 18px;
     padding-top: 20px;
     top: 77px;
     right: 0;
+    height: 300px;
+    overflow: auto;
 }
 .searchdatalist {
     text-align: center;

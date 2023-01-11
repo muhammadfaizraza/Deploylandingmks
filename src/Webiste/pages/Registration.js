@@ -75,7 +75,7 @@ const RegisterScreen = () => {
       formData.append("PassportPicture", PassportPicture);
 
       const response = await axios.post(
-        `${window.env.API_URL}/register`,
+        `https://sumairroudani.com/api/v1/register`,
         formData
       );
       console.log(response.success, "response");

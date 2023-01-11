@@ -61,7 +61,7 @@ const Search = () => {
       try {
         setLoaderData(true)
         const res = await axios.post(
-          `${window.env.API_URL}/searchhorse_trainer_jockey`,
+          `https://sumairroudani.com/api/v1/searchhorse_trainer_jockey`,
           { Query: item }
         );
         setData(res.data.data1);

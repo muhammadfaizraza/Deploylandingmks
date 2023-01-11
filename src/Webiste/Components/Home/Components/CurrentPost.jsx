@@ -42,7 +42,7 @@ const Match = () => {
     (async () => {
       try {
         const res = await axios.post(
-          `${window.env.API_URL}/GetRaceWithDayntime`,
+          `https://sumairroudani.com/api/v1/GetRaceWithDayntime`,
           { DayNTime: value }
         );
         setDayData(res.data.data);
@@ -56,7 +56,7 @@ const Match = () => {
 
   //   event.preventDefault();
   //   try {
-  //     await axios.post(`${window.env.API_URL}/GetRaceWithDayntime`, value);
+  //     await axios.post(`https://sumairroudani.com/api/v1/GetRaceWithDayntime`, value);
 
   //   } catch (error) {
   //     const err = error.response.data.message;

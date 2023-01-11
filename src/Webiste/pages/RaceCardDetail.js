@@ -212,7 +212,10 @@ const RaceCardDetail = () => {
                       <img src={flag} alt="" />
                     </span>
                     <p className="itemtime">
-                    {singlerace.EndTime}
+                    <Moment format="D MMM YYYY" withTitle>
+                    {singlerace.Day}
+                  </Moment>
+                   
                     </p>
                     {/* <p className="itemtime"> 
                     <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
