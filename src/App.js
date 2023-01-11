@@ -42,6 +42,7 @@ import Policy from './Webiste/pages/Policy';
 import TermsAndCondition from './Webiste/pages/TermsAndCondition';
 import TestPedigree from './Webiste/pages/Test';
 import Owner from './Webiste/pages/Owner';
+import Moment from 'react-moment';
 
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
   useEffect(() => {
     window.innerWidth > 360 ? setUserIsDesktop(true) : setUserIsDesktop(false);
   }, [userIsDesktop]);
+
+  Moment.globalLocal = true;
+
   return (
     <>
     <ToastContainer /> 

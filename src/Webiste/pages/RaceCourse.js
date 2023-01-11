@@ -78,7 +78,12 @@ const RaceCourse = () => {
                             {item.TrackNameEn}
                             {/* {item.raceName} */}
                           </span>
-                          <p>{item.NationalityDataRaceCourse.NameEn}</p>
+                          <p>
+                          <Moment format="D MMM YYYY" withTitle>
+                      {
+                        item.Day
+                      }
+                  </Moment></p>
                         </div>
 
                         <div className="raceStatus">

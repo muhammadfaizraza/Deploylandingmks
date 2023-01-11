@@ -108,6 +108,8 @@ const JockeyDetail = (data) => {
             {
               data.data.TrainerNationalityData ? <>
               <img src={data.data.TrainerNationalityData.image} alt="" />
+              </> : <>N/A</>
+            }
             <span>
            <p
             style={{
@@ -119,7 +121,7 @@ const JockeyDetail = (data) => {
             <b  style={{
               padding: "10px",
               
-            }}>Nationality</b>{data.data.TrainerNationalityData.NameEn} 
+            }}>Nationality</b>{data.data.TrainerNationalityData ? <>{data.data.TrainerNationalityData.NameEn}</>:<>N/A</>} 
           </p>
           <p
             style={{
@@ -129,12 +131,9 @@ const JockeyDetail = (data) => {
           >
             <b style={{
               padding: "10px",
-            }}>Value            </b>{data.data.TrainerNationalityData.Value === undefined ? <>N/A</>:<>{data.data.TrainerNationalityData.Value}</>}
+            }}>Abbreviation </b>{data.data.TrainerNationalityData ? <>{data.data.TrainerNationalityData.ShortNameEn}</>:<>N/A</>}
           </p>
            </span>
-              </> : <>N/A</>
-            }
-            
           </div>
         </div>
         {/* <div className="horseimage">
