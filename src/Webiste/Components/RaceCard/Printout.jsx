@@ -1,17 +1,10 @@
-import React, { useRef } from 'react';
-import ReactToPrint from 'react-to-print';
-import Card from './PrintCard';
-import { useState } from 'react';
+import React, { useRef } from "react";
+import ReactToPrint from "react-to-print";
+import Card from "./PrintCard";
 
 class ComponentToPrint extends React.Component {
-  
   render() {
-    
- 
-    return (
-
-      <Card />
-    );
+    return <Card />;
   }
 }
 
@@ -20,11 +13,13 @@ const Test = () => {
   return (
     <div>
       <ReactToPrint
-        trigger={() => <button className='PrintOutClass'>Print this out!</button>}
+        trigger={() => (
+          <button className="PrintOutClass">Print this out!</button>
+        )}
         content={() => componentRef.current}
       />
       <ComponentToPrint ref={componentRef} />
     </div>
   );
 };
-export default Test
+export default Test;

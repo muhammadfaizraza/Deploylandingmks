@@ -31,43 +31,19 @@ import { IoPartlySunnyOutline, IoCloudyOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import axios from "axios";
-import moment from 'moment';
 
 const RaceCardDetail = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
-  const start = moment().add(-4, 'm');
 
   const [Disable, setDisable] = useState(false);
   const [CastData, setCastData] = useState([]);
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+
   const [show, setShow] = useState(false);
   const [showtri, setShowtri] = useState(false);
   const [PositionNumber, setPositionNumber] = useState('1');
-
-  const deadline = "December, 31, 2023";
-
-  const getTime = () => {
-
-    const time = Date.parse(singlerace.EndTime) - Date.getTime;
-
-    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
-    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-    setMinutes(Math.floor((time / 1000 / 60) % 60));
-    setSeconds(Math.floor((time / 1000) % 60));
-  };
-  
-  useEffect(() => {
-    const interval = setInterval(() => getTime(deadline), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-
 
   const handleClose = () => setShow(false);
  
@@ -145,9 +121,6 @@ const RaceCardDetail = () => {
 
 
 
-
-  
-
   const castClick = async (event,horseid,compid) => {
     event.preventDefault();
     try {
@@ -211,10 +184,6 @@ const RaceCardDetail = () => {
     };
 
     console.log(singlerace,'single')
-    console.log(seconds,'seconds 1111');
-    console.log(singlerace.EndTime,'seconds 222')
-
-    
   return (
     
     <>
@@ -243,11 +212,7 @@ const RaceCardDetail = () => {
                       <img src={flag} alt="" />
                     </span>
                     <p className="itemtime">
-                    <Moment format="D MMM YYYY" withTitle>
-                      {
-                        singlerace.Day
-                      }
-                  </Moment>                    
+                    {singlerace.EndTime}
                     </p>
                     {/* <p className="itemtime"> 
                     <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
