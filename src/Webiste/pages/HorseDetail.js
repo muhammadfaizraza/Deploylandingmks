@@ -74,7 +74,7 @@ const HorseDetail = (data) => {
     <div className="RaceDetailCard">
       <div className="horseheader1">
         <div className="horseshirt">
-          <img src={data.data.ActiveOwnerData.image} alt="image" className="horseshirtimage" />
+          <img src={data.data.ActiveOwnerData === null ? <></> : data.data.ActiveOwnerData.image} alt="image" className="horseshirtimage" />
         </div>
         <div className="horsecardtop">
           <p>{data.data.STARS}</p>
@@ -154,7 +154,7 @@ const HorseDetail = (data) => {
                 color: "#FF0000",
               }}
             >
-              <b>O </b>{cookiedata === 'en' ? data.data.ActiveOwnerData.NameEn : data.data.ActiveOwnerData.NameEn}
+              <b>O </b>{cookiedata === 'en' ? (data.data.ActiveOwnerData === null ? <></> : data.data.ActiveOwnerData.NameEn) : (data.data.ActiveOwnerData === null ? <></> : data.data.ActiveOwnerData.NameAr)}
             </p>
             <p
               style={{
@@ -178,7 +178,7 @@ const HorseDetail = (data) => {
                 <b style={{
                   padding: "10px",
 
-                }}>T</b>{data.data.ActiveTrainerData.NameEn}  (8 - 3 - 2 - 8 - 4)
+                }}>T</b>{data.data.ActiveTrainerData === null ? <></> : data.data.ActiveTrainerData.NameEn}  (8 - 3 - 2 - 8 - 4)
               </p>
               <p
                 style={{
