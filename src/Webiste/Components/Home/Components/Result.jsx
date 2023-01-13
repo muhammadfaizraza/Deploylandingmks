@@ -48,7 +48,15 @@ const Result = () => {
       <div className='resultCardHeader'>
         <h2>{t('Live_Results')}</h2>
         {
-          raceresult.length !== 0 ? <>
+          raceresult === null || raceresult.RaceResultData === undefined ? 
+          <h3
+          style={{
+            textAlign: "center",
+          }}
+        >
+          No Data
+        </h3> :
+          <>
           <div className='livedatacard'>
             <div key={raceresult._id}>
                 <p className='result_match_name'>{raceresult.MeetingCode}</p>
@@ -100,7 +108,7 @@ const Result = () => {
 
               </div>
         </div>
-          </>:<>No Result</>
+          </>
         }
         
       </div>
