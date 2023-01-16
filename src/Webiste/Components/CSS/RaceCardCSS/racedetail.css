@@ -1,11 +1,12 @@
-.RaceCardDetail{
+.RaceCardDetail {
     width: 100%;
     /* margin-top: 20px; */
 }
+
 .RaceDetailHeader {
     background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
     border-radius: 18px;
-  
+
     /* max-height: 900px; */
     height: fit-content;
     margin-inline: auto;
@@ -16,17 +17,19 @@
 .RaceAndHorseModelDataCSS {
     border: 1px solid rgb(112, 111, 111);
 }
+
 .match {
     margin-top: -17px;
 }
-.RaceDetailCard{
+
+.RaceDetailCard {
     box-sizing: border-box;
     width: 100%;
     height: fit-content;
     /* background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D; */
     border-radius: 18px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    margin-inline: auto ;
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -34,59 +37,65 @@
     background: #fff;
 }
 
-.racedisc{
+.racedisc {
     width: 98%;
-height: 162px;
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 18px;
-margin-inline: auto;
+    height: 162px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    margin-inline: auto;
 }
-.prizecard{
+
+.prizecard {
     box-sizing: border-box;
     width: 98%;
-height: 152px;
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 18px;
-margin-inline: auto;
-margin-top: 10px;
+    height: 152px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    margin-inline: auto;
+    margin-top: 10px;
 }
-.prizecard > p{
+
+.prizecard>p {
     margin: 10px;
 }
 
-.profile-tabitem{
+.profile-tabitem {
     font-size: 14px;
 }
 
-.prizeposition{
+.prizeposition {
     display: flex;
     justify-content: space-evenly;
 }
-.innerprize{
+
+.innerprize {
     display: flex;
 }
-.itemraces{
 
-}
-.inner_itemraces{
-display: flex;
-/* justify-content: space-between; */
-}
-.itemraces_left{
-display: flex;
+.itemraces {}
 
-}
-.itemraces_right{
-display: flex;
-margin: 0px 15px 0px 0px
-}
-.itemraces_left > .race{
+.inner_itemraces {
     display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+    /* justify-content: space-between; */
+}
+
+.itemraces_left {
+    display: flex;
+
+}
+
+.itemraces_right {
+    display: flex;
+    margin: 0px 15px 0px 0px
+}
+
+.itemraces_left>.race {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 3px;
     width: 58px;
     height: 77px;
@@ -95,32 +104,35 @@ align-items: center;
     margin: 17px 10px 0 16px;
     color: #fff;
     font-weight: 300;
-font-size: 13px;
-line-height: 1px;
+    font-size: 13px;
+    line-height: 1px;
 }
-.itemraces_left > .sponsor{
+
+.itemraces_left>.sponsor {
     flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px 0.96617px;
-gap: 10.76px;
-width: 84px;
-height: 77px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0.96617px;
+    gap: 10.76px;
+    width: 84px;
+    height: 77px;
 
-background: #CFCFCF;
-border-radius: 12.98px;
+    background: #CFCFCF;
+    border-radius: 12.98px;
 }
-.itemraces > p{    
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12.8px;
-line-height: 17px;
-color: #000000;
-margin: 10px 10px 0 16px;
+
+.itemraces>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12.8px;
+    line-height: 17px;
+    color: #000000;
+    margin: 10px 10px 0 16px;
 
 }
-.itemraces_right .distance{
+
+.itemraces_right .distance {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -135,47 +147,52 @@ margin: 10px 10px 0 16px;
     border: 4px solid #BA7E25;
     border-radius: 20px;
 }
-.distance > p{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 12.1729px;
-line-height: 15px;
-text-align: center;
-color: #727272;
-margin-top: 15px;
+
+.distance>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12.1729px;
+    line-height: 15px;
+    text-align: center;
+    color: #727272;
+    margin-top: 15px;
 
 }
-.itemraces_right .Favourite{
+
+.itemraces_right .Favourite {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-style: normal;
-font-weight: 300;
-font-size: 12px;
-line-height: 5px;
-margin-top: 22px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 5px;
+    margin-top: 22px;
 }
-.racenameflex{
-display: flex;
-margin-left: 12px;
-margin-top: 40px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 22.5949px;
-line-height: 27px;
+
+.racenameflex {
+    display: flex;
+    margin-left: 12px;
+    margin-top: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.5949px;
+    line-height: 27px;
 }
-.racenameflex > p{
+
+.racenameflex>p {
     margin: 5px 16px 9px 18px;
     font-style: normal;
     font-weight: 700;
     font-size: 22.5949px;
-    line-height: 27px; 
+    line-height: 27px;
     color: #FFFFFF;
 }
-.racenameflex > img{
+
+.racenameflex>img {
     margin: 6px 20px 0 0;
     font-style: normal;
     font-weight: 700;
@@ -184,139 +201,153 @@ line-height: 27px;
     color: #FFFFFF;
     height: 29px;
     width: 29px;
-    
+
 }
-.itemtime{
+
+.itemtime {
     margin: 0px 3px 9px 30px;
     color: #fff;
     font-style: normal;
-font-weight: 400;
-font-size: 22.5949px;
-line-height: 27px;
+    font-weight: 400;
+    font-size: 22.5949px;
+    line-height: 27px;
 
 }
 
 
-.predict{
+.predict {
     display: flex;
     justify-content: space-between;
     /* width: 688px; */
     height: 50px;
-background: #5EC40F;
-border-radius: 18px;
-margin: 9px 0 0 0px;
+    background: #5EC40F;
+    border-radius: 18px;
+    margin: 9px 0 0 0px;
 
 }
-.predictdata{
+
+.predictdata {
     display: flex;
 }
-.predictdata img{
+
+.predictdata img {
     width: 60px;
-height: 35px;
-margin-left: 20px;
-margin-top: 8px;
+    height: 35px;
+    margin-left: 20px;
+    margin-top: 8px;
 }
+
 span.innerpredictdata {
     margin-top: 10px;
 }
+
 .AccordionBody11 {
     margin: -9px -4px 1px 0px;
     width: 100%;
     background: transparent;
 }
-.innerpredictdata h6{
+
+.innerpredictdata h6 {
     font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 126.02%;
-margin-left: 20px;
-/* or 15px */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 126.02%;
+    margin-left: 20px;
+    /* or 15px */
 
 
-color: #FFFFFF;
-}
-.innerpredictdata p{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 24.02%;
-margin-left: 20px;
-/* or 15px */
-
-
-color: #FFFFFF;
+    color: #FFFFFF;
 }
 
-.predict button{
+.innerpredictdata p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24.02%;
+    margin-left: 20px;
+    /* or 15px */
+
+
+    color: #FFFFFF;
+}
+
+.predict button {
     width: 49px;
-height: 42px;
-left: 1023px;
-top: 707px;
-background: #FF0000;
-border-radius: 18px;
-border: none;
-margin-top: 3px;
+    height: 42px;
+    left: 1023px;
+    top: 707px;
+    background: #FF0000;
+    border-radius: 18px;
+    border: none;
+    margin-top: 3px;
 
-color: #FFFFFF;
+    color: #FFFFFF;
 }
-.Summary{
+
+.Summary {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 10px;
 }
-.SummaryDistance{
+
+.SummaryDistance {
     box-sizing: border-box;
-width: 316px;
-height: 332px;
-background: #FFFFFF;
-border: 1px solid #D9D9D9;
-border-radius: 18px;
-margin-top: 10px;
+    width: 316px;
+    height: 332px;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 18px;
+    margin-top: 10px;
 }
-.SummaryDistance > p{
+
+.SummaryDistance>p {
     font-style: normal;
-font-weight: 700;
-font-size: 19.6px;
-line-height: 24px;
-color: #000000;
-margin: 17px 16px 9px 18px;
+    font-weight: 700;
+    font-size: 19.6px;
+    line-height: 24px;
+    color: #000000;
+    margin: 17px 16px 9px 18px;
 
 }
-.Summarydata{
+
+.Summarydata {
     display: flex;
     justify-content: space-evenly;
     padding: 4px;
 }
-.Summarydata img{
+
+.Summarydata img {
     width: 51px;
     height: 37px;
 }
-.Summarydata p{
-    font-style: normal;
-font-weight: 300;
-font-size: 15px;
-line-height: 18px;
 
-color: #000000;
+.Summarydata p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #000000;
 }
 
 .customers {
     margin-left: 6px;
     width: 100%;
-  }
-  
-  .customers td, .customers th {
+}
+
+.customers td,
+.customers th {
     border: transparent;
     padding: 8px;
     background-color: #5EC40F;
     color: #fff;
-  }
-  
-  
-  .customers th {
+}
+
+
+.customers th {
     padding-top: 20px;
 
     text-align: left;
@@ -324,71 +355,81 @@ color: #000000;
     color: #000;
     width: 15.5%;
 }
+
 .customers2 {
     width: 98%;
 
     margin: auto;
-  }
-  
-  .customers2 td, .customers2 th {
+}
+
+.customers2 td,
+.customers2 th {
     border: transparent;
     padding: 8px;
     background-color: transparent;
     color: #fff;
-  }
-  
-  
-  .customers2 th {
+}
+
+
+.customers2 th {
     padding-top: 18px;
     padding-bottom: 12px;
     text-align: left;
     color: #fff;
     width: 12.7%;
     font-weight: 300;
-font-size: 12px;
-line-height: 15px;
-  }
-  th{
     font-size: 12px;
-  }
-  td{
-    font-size: 12px;
-  }
+    line-height: 15px;
+}
 
-  .drawchart{
+th {
+    font-size: 12px;
+}
+
+td {
+    font-size: 12px;
+}
+
+.drawchart {
     width: 500px !important;
     height: 430px;
     margin: auto;
-  }
-  .Printout{
+}
+
+.Printout {
     height: 500px;
-  }
-  .LinkStyle{
+}
+
+.LinkStyle {
     list-style: none;
     text-decoration: none;
     color: inherit;
-  }
-  .LinkStyle:hover{
+}
+
+.LinkStyle:hover {
     list-style: none;
     text-decoration: none;
     color: inherit;
-  }
-  .PrintOutClass{
+}
+
+.PrintOutClass {
     border: none;
     width: 100%;
     margin-top: 10px;
-  }
-  .itemraces_center{
+}
+
+.itemraces_center {
     margin-top: 20px;
     flex: 2;
     margin-left: 20px;
-  }
+}
 
-.colorheader{
+.colorheader {
     display: flex;
     justify-content: space-between;
 }
-.racestatuscolor{
+
+.racestatuscolor {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -397,7 +438,8 @@ line-height: 15px;
     width: 35%;
     padding-top: 9px;
 }
-.racestatuscolor > li {
+
+.racestatuscolor>li {
     list-style: none;
     text-align: center;
     width: 24px;
@@ -410,13 +452,16 @@ line-height: 15px;
     border-radius: 5px;
     color: #fff;
 }
-.racestatuscolor > li:nth-child(3){
+
+.racestatuscolor>li:nth-child(3) {
     background: #ED6203;
 }
-.racestatuscolor > li:nth-child(7){
+
+.racestatuscolor>li:nth-child(7) {
     background: #FF0000;
 }
-.itemraces_center > h5{
+
+.itemraces_center>h5 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -425,14 +470,16 @@ line-height: 15px;
     color: #000000;
     text-transform: capitalize;
 }
-.itemraces_center > p{
+
+.itemraces_center>p {
     font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 12px;
-line-height: 15px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
 }
-.Trophydata_P > h6 {
+
+.Trophydata_P>h6 {
     margin-top: 10px;
     font-family: 'Inter';
     font-style: normal;
@@ -441,110 +488,135 @@ line-height: 15px;
     line-height: 15px;
     margin-left: 10px;
 }
-.prizecardheaders{
+
+.prizecardheaders {
     display: flex;
     justify-content: space-between;
     width: 92%;
     margin: auto;
     padding-top: 15px;
 }
-.videoicon{
+
+.videoicon {
     margin-top: -3px;
     height: 11px;
     width: 6px;
     margin-right: 15px;
 }
-b, strong {
+
+b,
+strong {
     font-weight: 800;
 }
-.cardraces1 > img{
+
+.cardraces1>img {
     width: 92px;
-height: 67px;
-margin-top: 15px;
+    height: 67px;
+    margin-top: 15px;
 }
 
-.cardracesjockey{
+.cardracesjockey {
     display: flex;
 }
-.cardracesjockeyleft >p{
+
+.cardracesjockeyleft>p {
     font-style: normal;
-font-weight: 700;
-font-size: 12px;
-line-height: 15px;
-/* identical to box height */
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
 
 
-color: #000000;
+    color: #000000;
 }
-.cardracesjockeyimg{
+
+.cardracesjockeyimg {
     width: 50px;
     height: 50px;
 }
+
 .cardraces2 {
     flex: 3;
 }
-.cardracesjockeycards >ul li:nth-child(2){
+
+.cardracesjockeycards>ul li:nth-child(2) {
     background: #078BE6;
 }
-.cardracesjockeycards >ul li:nth-child(3){
+
+.cardracesjockeycards>ul li:nth-child(3) {
     background: #979695;
 }
-.cardracesjockeycards >ul li{
-list-style: none;
-width: 22px;
-height: 21px;
-left: 937px;
-top: 800px;
-color: #fff;
-background: #FFB800;
-text-align: center;
-font-weight: 400;
-font-size: 9px;
-line-height: 11px;
-padding-top: 5px;
+
+.cardracesjockeycards>ul li {
+    list-style: none;
+    width: 22px;
+    height: 21px;
+    left: 937px;
+    top: 800px;
+    color: #fff;
+    background: #FFB800;
+    text-align: center;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+    padding-top: 5px;
 
 }
-.cardracesjockeycards >ul{
+
+.cardracesjockeycards>ul {
     display: flex;
     justify-content: space-evenly;
 }
-.race_trainerbreader >p{
+
+.race_trainerbreader>p {
     font-style: normal;
 
     font-size: 12px;
     line-height: 6px;
- 
+
     margin-left: 10px;
-    
+
     color: #000000;
 }
-.trainerbreader_section{
+
+.trainerbreader_section {
     display: flex;
 }
-.trainerbreader_image{
+
+.trainerbreader_image {
     width: 30px;
-height: 30px;
+    height: 30px;
 }
 
 .RaceAndHorseModelDataCSS {
     border: 1px solid rgb(214 211 211);
     border-radius: 20px;
 }
+
 .RaceAndHorseModelDataCSSFlex {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.weatherIcon{
+.weatherIcon {
     width: 26px;
     height: 26px;
     color: rgb(112, 112, 112);
 }
-.RaceDetailsName{
+
+.RaceDetailsName {
     display: flex;
 }
-.RaceDetailsName h6{
+
+.RaceDetailsName h6 {
 
     margin: 10px 40px;
+}
+
+.cardraces2 img {
+
+    width: 19px;
+    height: 19px;
+    margin: 0 5px;
 }

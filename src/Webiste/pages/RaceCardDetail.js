@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import flag from "../assets/United Arab Emirates.png";
-import prizeImage from "../assets/image 10 (1).png";
-import RaceNav from "../../Webiste/Components/RaceCard/RaceNav";
-import Layout from "../Components/Reuseable/layout";
+import Defaultimg from "../assets/Frame.png"
+
+
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
 
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useParams } from "react-router-dom";
+
 import Zoom from "react-reveal/Zoom";
 import { Modal } from "react-bootstrap";
 import Competition from "../Components/Competition/Competition";
@@ -46,20 +47,20 @@ const RaceCardDetail = () => {
   const [PositionNumber, setPositionNumber] = useState('1');
 
   const handleClose = () => setShow(false);
- 
+
   const handleShowTri = async (data) => {
     await setShowtri(true);
   };
 
-  const { id  } = state;
-  
+  const { id } = state;
+
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
-  }, [id]);
+  }, []);
 
   if (status === STATUSES.LOADING) {
     return <h2 className="loader1">
-      
+
     </h2>;
   }
 
@@ -77,16 +78,14 @@ const RaceCardDetail = () => {
   }
 
   const myPara = {
-    fontWeight: "700",
+    fontWeight: "400",
     fontSize: "12px",
     color: "rgba(0, 0, 0, 0.5)",
     paddingLeft: "3px",
+
+
   };
-  const myPara1 = {
-    fontWeight: "700",
-    fontSize: "12px",
-    color: "#000",
-  };
+
   const btnNew = {
     display: "flex",
     flexDirection: "row",
@@ -121,18 +120,18 @@ const RaceCardDetail = () => {
 
 
 
-  const castClick = async (event,horseid,compid) => {
+  const castClick = async (event, horseid, compid) => {
     event.preventDefault();
     try {
       const response = await axios.post(
         `/voting/${compid}/${id}/${PositionNumber}`,
         { Horse: horseid }, {
-          withCredentials: true,
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       }
       );
-      const msgdata = response.data.data.message; 
-      toast(msgdata) 
+      const msgdata = response.data.data.message;
+      toast(msgdata)
       setDisable(false)
 
     } catch (error) {
@@ -144,48 +143,46 @@ const RaceCardDetail = () => {
   };
 
 
-  const pickClick = async (event,compid,horseid) => {
+  const pickClick = async (event, compid, horseid) => {
     event.preventDefault();
     try {
       setDisable(true)
       const response = await axios.post(
         `/voting/${compid}/${id}/${PositionNumber}`,
         { Horse: horseid }, {
-          withCredentials: true,
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-       }
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      }
       );
-      const msgdata = response.data.data.message; 
-      toast(msgdata) 
+      const msgdata = response.data.data.message;
+      toast(msgdata)
       setDisable(false);
-          
+
     } catch (error) {
       const err = error.response.data.message;
       toast(err)
       setDisable(false)
-  }
+    }
   };
 
 
   let menuItems = [];
-    for (var i = 0; i < 4; i++) {
-        menuItems.push(
-          <form>
-          <input type="radio" name="contact"/> 
-          </form>
-        );
-    }
+  for (var i = 0; i < 4; i++) {
+    menuItems.push(
+      <form>
+        <input type="radio" name="contact" />
+      </form>
+    );
+  }
 
-    const handleCastdata = () => {
-      console.log()
-    }
-    const runCallback = (cb) => {
-      return cb();
-    };
 
-    console.log(singlerace,'single')
+  const runCallback = (cb) => {
+    return cb();
+  };
+
+  console.log(singlerace, 'single')
   return (
-    
+
     <>
       {/* <Layout /> */}
       <Zoom>
@@ -212,10 +209,10 @@ const RaceCardDetail = () => {
                       <img src={flag} alt="" />
                     </span>
                     <p className="itemtime">
-                    <Moment format="D MMM YYYY" withTitle>
-                    {singlerace.Day}
-                  </Moment>
-                   
+                      <Moment format="D MMM YYYY" withTitle>
+                        {singlerace.Day}
+                      </Moment>
+
                     </p>
                     {/* <p className="itemtime"> 
                     <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
@@ -238,24 +235,22 @@ const RaceCardDetail = () => {
                         <span
                           className="race"
                           style={{
-                            backgroundColor: `${
-                              singlerace.RaceStatus === "Cancel"
-                                ? "#000000"
-                                : singlerace.RaceStatus === "End"
+                            backgroundColor: `${singlerace.RaceStatus === "Cancel"
+                              ? "#000000"
+                              : singlerace.RaceStatus === "End"
                                 ? "#FF0000"
                                 : singlerace.RaceStatus === "Live"
-                                ? "#5EC30F"
-                                : "#FF9900"
-                            }`,
-                            color: `${
-                              singlerace.RaceStatus === "Cancel"
-                                ? "#ffff"
-                                : singlerace.RaceStatus === "End"
+                                  ? "#5EC30F"
+                                  : "#FF9900"
+                              }`,
+                            color: `${singlerace.RaceStatus === "Cancel"
+                              ? "#ffff"
+                              : singlerace.RaceStatus === "End"
                                 ? "#00000"
                                 : singlerace.RaceStatus === "Live"
-                                ? "#00000"
-                                : "#000000"
-                            }`,
+                                  ? "#00000"
+                                  : "#000000"
+                              }`,
                           }}
                         >
                           <p>Race 1</p>
@@ -289,7 +284,7 @@ const RaceCardDetail = () => {
                             <>N/A</>
                           ) : (
                             singlerace.RaceNameModelData.NameAr
-                          )}{" "}
+                          )}
                         </h5>
                         <div
                           style={{
@@ -498,7 +493,7 @@ const RaceCardDetail = () => {
                           <Accordion defaultActiveKey="0">
                             <div className="RaceAndHorseModelDataCSSFlex">
                               {singlerace.RaceAndHorseModelData ===
-                              undefined ? (
+                                undefined ? (
                                 <div className="NAclass">N/A</div>
                               ) : (
                                 singlerace.RaceAndHorseModelData.map(
@@ -514,10 +509,12 @@ const RaceCardDetail = () => {
                                                   alt=""
                                                 />
                                                 <span className="cardraces1box">
+
+
                                                   <p>
-                                                  <Moment format="DD-MM-YY">
-                                                  {data.DOB}
-                                                       </Moment>
+                                                    <Moment format="DD-MM-YY">
+                                                      {data.DOB}
+                                                    </Moment>
                                                   </p>
                                                   <h3>0{data.Foal}</h3>
                                                 </span>
@@ -543,6 +540,8 @@ const RaceCardDetail = () => {
                                                         : data.NameAr}
                                                     </span>
                                                   </p>
+                                                  <img src={data.NationalityData.image ? data.NationalityData.image : Defaultimg} alt="" />
+
                                                   <p style={myPara}>
                                                     <Moment fromNow ago>
                                                       {data.DOB}
@@ -563,7 +562,7 @@ const RaceCardDetail = () => {
                                                       :
                                                       {cookiedata === "en" ? (
                                                         data.DamData ===
-                                                        null ? (
+                                                          null ? (
                                                           <>N/A</>
                                                         ) : (
                                                           data.DamData.NameEn
@@ -582,7 +581,7 @@ const RaceCardDetail = () => {
                                                       :
                                                       {cookiedata === "en" ? (
                                                         data.SireData ===
-                                                        null ? (
+                                                          null ? (
                                                           <>N/A</>
                                                         ) : (
                                                           data.SireData.NameEn
@@ -597,11 +596,11 @@ const RaceCardDetail = () => {
                                                   </p>
                                                   <p style={myPara}>
                                                     {t("GSire")}
-                                                    <b>
+                                                    <b style={{ marginLeft: "12px" }}>
                                                       :
                                                       {cookiedata === "en" ? (
                                                         data.GSireData ===
-                                                        null ? (
+                                                          null ? (
                                                           <>N/A</>
                                                         ) : (
                                                           data.GSireData.NameEn
@@ -620,6 +619,13 @@ const RaceCardDetail = () => {
                                                     display: "flex",
                                                   }}
                                                 >
+                                                  <p style={{
+                                                    fontWeight: "400",
+                                                    fontSize: "12px",
+                                                    lineHeight: "15px",
+                                                    color: "#FF0000",
+                                                    margin: "0px 10px 0px 3px",
+                                                  }}>O</p>
                                                   <p
                                                     style={{
                                                       fontWeight: "400",
@@ -630,7 +636,7 @@ const RaceCardDetail = () => {
                                                   >
                                                     {cookiedata === "en" ? (
                                                       data.ActiveOwnerData ===
-                                                      null ? (
+                                                        null ? (
                                                         <>N/A</>
                                                       ) : (
                                                         data.ActiveOwnerData
@@ -659,7 +665,7 @@ const RaceCardDetail = () => {
                                                 <div className="trainerbreader_section">
                                                   <img
                                                     src={
-                                                      data.ActiveOwnerData.image
+                                                      data.ActiveOwnerData.image ? data.ActiveOwnerData.image : Defaultimg
                                                     }
                                                     alt=""
                                                     className="trainerbreader_image"
@@ -667,10 +673,10 @@ const RaceCardDetail = () => {
                                                   <div className="race_trainerbreader">
                                                     <p>
                                                       T{" "}
-                                                      <b>
+                                                      <b style={{ marginLeft: "9px" }}>
                                                         {cookiedata === "en" ? (
                                                           data.ActiveTrainerData ===
-                                                          undefined ? (
+                                                            undefined ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data
@@ -688,10 +694,10 @@ const RaceCardDetail = () => {
                                                     </p>
                                                     <p>
                                                       B
-                                                      <b>
+                                                      <b style={{ marginLeft: "12px" }}>
                                                         {cookiedata === "en" ? (
                                                           data.BreederData ===
-                                                          null ? (
+                                                            null ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data.BreederData
@@ -734,8 +740,8 @@ const RaceCardDetail = () => {
                                                     .length === 0 ? (
                                                     <>N/A</>
                                                   ) : singlerace.JockeyModels[
-                                                      index
-                                                    ].Rating === undefined ? (
+                                                    index
+                                                  ].Rating === undefined ? (
                                                     <>N/A</>
                                                   ) : (
                                                     singlerace.JockeyModels[
@@ -747,16 +753,16 @@ const RaceCardDetail = () => {
                                                   <div className="cardracesjockeyleft">
                                                     <p>
                                                       J
-                                                      <b>
+                                                      <b style={{ margin: "0px 12px" }}>
                                                         {cookiedata === "en" ? (
                                                           singlerace
                                                             .JockeyModels
                                                             .length < 1 ? (
                                                             <>N/A</>
                                                           ) : singlerace
-                                                              .JockeyModels[
-                                                              index
-                                                            ].NameEn ===
+                                                            .JockeyModels[
+                                                            index
+                                                          ].NameEn ===
                                                             undefined ? (
                                                             <>N/A</>
                                                           ) : (
@@ -777,8 +783,8 @@ const RaceCardDetail = () => {
                                                         .length < 1 ? (
                                                         <>N/A</>
                                                       ) : singlerace
-                                                          .JockeyModels[index]
-                                                          .MaximumJockeyWeight ===
+                                                        .JockeyModels[index]
+                                                        .MaximumJockeyWeight ===
                                                         undefined ? (
                                                         <>N/A</>
                                                       ) : (
@@ -806,14 +812,16 @@ const RaceCardDetail = () => {
                                                         .length < 1 ? (
                                                         <>N/A</>
                                                       ) : singlerace
-                                                          .JockeyModels[index]
-                                                          .image ===
+                                                        .JockeyModels[index]
+                                                        .image ===
                                                         undefined ? (
                                                         <>N/A</>
                                                       ) : (
                                                         singlerace.JockeyModels[
                                                           index
-                                                        ].image
+                                                        ].image ? singlerace.JockeyModels[
+                                                          index
+                                                        ].image : Defaultimg
                                                       )
                                                     }
                                                     alt=""
@@ -868,10 +876,10 @@ const RaceCardDetail = () => {
                                                   {singlerace
                                                     .CompetitionRacesPointsModelData[0]
                                                     .CompetitionCategory === 'pick' ? (
-                                                    <button style={btnNew1} onClick={(event) => pickClick(event ,singlerace
+                                                    <button style={btnNew1} onClick={(event) => pickClick(event, singlerace
                                                       .CompetitionRacesPointsModelData[0]._id, data._id)} disabled={Disable}>
 
-                                                
+
                                                       {
                                                         singlerace
                                                           .CompetitionRacesPointsModelData[0]
@@ -880,46 +888,46 @@ const RaceCardDetail = () => {
                                                     </button>
                                                   ) : (
                                                     <>
-                                                    {
-                                                      !showtri?<button style={btnNew} onClick={() =>
-                                                        handleShowTri()
-                                                      }>
-                                                        {
-                                                          singlerace
-                                                            .CompetitionRacesPointsModelData[0]
-                                                            .CompetitionCategory
-                                                        }
-  
-                                                      </button>:<></>
-                                                    }
-                                                    {
-                                                      showtri? 
-                                                      <span >
-                                                         <form className="CastCompetitionCategory" onClick={castClick}>
-                                                         {runCallback(() => {
-                                                              const row = [];
-                                                              const total = singlerace
+                                                      {
+                                                        !showtri ? <button style={btnNew} onClick={() =>
+                                                          handleShowTri()
+                                                        }>
+                                                          {
+                                                            singlerace
                                                               .CompetitionRacesPointsModelData[0]
-                                                              .CategoryCount;
-                                                              for (var i = 0; i < total; i++) {
-                                                                row.push(<input type="radio" name="cast" value={i + 1}
-                                                                onChange={(e) => setPositionNumber(e.target.value)}
-                                                              
-                                                                onClick={(event) =>
-                                                                  castClick(event,data._id,singlerace
-                                                                    .CompetitionRacesPointsModelData[0]
-                                                                    ._id)}                                                                /> 
-                                                                 );
-                                                              }
-                                                              return row;
-                                                            })}
-                                                          </form>
-                                                      </span>
-                                                      : <></>
-                                                    }
-                                                    
+                                                              .CompetitionCategory
+                                                          }
+
+                                                        </button> : <></>
+                                                      }
+                                                      {
+                                                        showtri ?
+                                                          <span >
+                                                            <form className="CastCompetitionCategory" onClick={castClick}>
+                                                              {runCallback(() => {
+                                                                const row = [];
+                                                                const total = singlerace
+                                                                  .CompetitionRacesPointsModelData[0]
+                                                                  .CategoryCount;
+                                                                for (var i = 0; i < total; i++) {
+                                                                  row.push(<input type="radio" name="cast" value={i + 1}
+                                                                    onChange={(e) => setPositionNumber(e.target.value)}
+
+                                                                    onClick={(event) =>
+                                                                      castClick(event, data._id, singlerace
+                                                                        .CompetitionRacesPointsModelData[0]
+                                                                        ._id)} />
+                                                                  );
+                                                                }
+                                                                return row;
+                                                              })}
+                                                            </form>
+                                                          </span>
+                                                          : <></>
+                                                      }
+
                                                     </>
-                                                    
+
                                                   )}
                                                 </>
                                               )}
