@@ -47,8 +47,12 @@ const RaceCourse = () => {
 
 
   if (status === STATUSES.LOADING) {
-    return <div>
-      <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
+
+
+    return <div className="py-4 text-center">
+      <div >
+        <Lottie animationData={Animate} loop={true} className="load" />
+      </div>
     </div>
   }
 

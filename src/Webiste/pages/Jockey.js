@@ -16,9 +16,13 @@ import JockeyDetail from "./JockeyDetail";
 import { Modal } from "react-bootstrap";
 import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
-
+import { useTranslation } from "react-i18next";
 
 const Trainer = () => {
+  const { t } = useTranslation()
+  const cookiedata = Cookies.get('i18next')
+
+
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState('');
   const navigate = useNavigate();
@@ -36,14 +40,6 @@ const Trainer = () => {
     dispatch(fetchJockey({ pageNumber, searchKeyword }));
   }, [dispatch, pageNumber, searchKeyword]);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  }
 
   const HandleJockey = (Id) => {
     Cookies.set('sjockey', Id)
@@ -53,7 +49,7 @@ const Trainer = () => {
   if (status === STATUSES.LOADING) {
     return (
       <div className="py-4 text-center">
-        <Lottie animationData={Animate} loop={true} className="Lottie" />
+        <Lottie animationData={Animate} loop={true} className="load" />
       </div>
     )
       ;
@@ -83,12 +79,19 @@ const Trainer = () => {
 
             <table id="customers">
               <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>RemarksEn </th>
-                <th>Rating</th>
-                <th>Nationality</th>
-                <th>Image</th>
+                <th>{t('Name')}</th>
+                <th>{t("Short Name")}</th>
+                <th>{t("Age")}</th>
+                <th>{t("License Date")}</th>
+                <th>{t("Minimum Weight")}</th>
+                <th>{t("Maximum Weight")}</th>
+                <th>{t("Allowance")}</th>
+
+
+                <th>{t("Remarks")} </th>
+                <th>{t("Rating")}</th>
+                <th>{t("Nationality")}</th>
+                <th>{t("Image")}</th>
               </tr>
               {jockey.map((item) => {
                 return (
@@ -96,13 +99,27 @@ const Trainer = () => {
                   } style={{
                     cursor: 'pointer'
                   }}>
-                    <td >{item.NameEn && item.NameEn}</td>
+                    <td >{cookiedata === "en" ? (item.NameEn ? item.NameEn : "N/A") : (item.NameAr ? item.NameAr : "N/A")}</td>
+                    <td>{cookiedata === "en" ? (item.ShortNameEn ? item.ShortNameEn : "N/A") : (item.ShortNameAr ? item.ShortNameAr : "N/A")}</td>
                     <td><Moment fromNow ago>
                       {item.DOB}
                     </Moment></td>
-                    <td>{item.RemarksEn}</td>
-                    <td>{item.Rating}</td>
-                    <td>{item.JockeyNationalityData && item.JockeyNationalityData.NameEn} </td>
+
+
+
+                    <td><Moment format="YYYY/MM/DD">
+                      {item.JockeyLicenseDate}
+                    </Moment></td>
+                    <td>{item.MiniumumJockeyWeight}</td>
+                    <td>{item.MaximumJockeyWeight}</td>
+                    <td>{item.JockeyAllowance}</td>
+                    <td>
+
+                      {cookiedata === "en" ? (item.RemarksEn ? item.RemarksEn : "N/A") : (item.RemarksAr ? item.RemarksAr : "N/A")}
+
+                    </td>
+                    <td>{item.Rating ? item.Rating : "N/A"}</td>
+                    <td>{cookiedata === "en" ? (item.JockeyNationalityData.NameEn ? item.JockeyNationalityData.NameEn : "N/A") : (item.JockeyNationalityData.NameAr ? item.JockeyNationalityData.NameAr : "N/A")} </td>
 
                     <td>
                       <img src={item.image} alt="" style={{
@@ -121,7 +138,7 @@ const Trainer = () => {
           aria-labelledby="contained-modal-title-vcenter"
           centered>
           <Modal.Header className="popupheader" closeButton >
-            <h3>Jockey Detail</h3>
+
           </Modal.Header>
           <Modal.Body>
             <JockeyDetail data={modaldata} />

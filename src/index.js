@@ -21,7 +21,7 @@ i18next
     debug: false,
     // Options for language detector
     detection: {
-      order: ['path', 'cookie', 'htmlTag'],
+      order: ['cookie', 'path', 'htmlTag'],
       caches: ['cookie'],
     },
     backend: {
@@ -34,7 +34,7 @@ i18next
 const loadingMarkup = (
   <div className="py-4 text-center">
     <div>
-      <Lottie animationData={Animate} loop={true} />
+      <Lottie animationData={Animate} loop={true} className="load" />
     </div>
   </div>
 )

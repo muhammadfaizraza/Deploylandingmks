@@ -3,7 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { BsFillCaretRightFill } from "react-icons/bs";
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Cookies from "js-cookie";
 import Moment from "react-moment";
 import axios from "axios";
@@ -11,10 +11,14 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { fetchPedigree, STATUSES } from "../redux/getReducer/getPedigree";
 import { useDispatch, useSelector } from "react-redux";
+import DefaultImg from "../assets/Frame.png"
+import { useTranslation } from 'react-i18next';
 
 const HorseDetail = (data) => {
+  const { t } = useTranslation()
   const cookiedata = Cookies.get('i18next');
   const token = Cookies.get("token");
+
   const navigate = useNavigate();
   const btnNew1 = {
     display: "flex",
@@ -35,24 +39,24 @@ const HorseDetail = (data) => {
   function authHeader() {
     // return authorization header with basic auth credentials
 
-    if ( token) {
-        return { Authorization: `Bearer ${token}` };
+    if (token) {
+      return { Authorization: `Bearer ${token}` };
     } else {
-        return (
-          console.log('data')
-        )
+      return (
+        console.log('data')
+      )
     }
-}
+  }
 
   const handleTrack = async (Id) => {
     try {
-     const res = await axios.post(
-        `/trackhorse`, { Horse: Id },  {
-                withCredentials: true,
-                headers: { 'Content-Type': 'multipart/form-data' },
-            }
+      const res = await axios.post(
+        `/trackhorse`, { Horse: Id }, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      }
       );
-      console.log(res,'data')
+      console.log(res, 'data')
       toast('Tracked Success')
 
     } catch (error) {
@@ -67,14 +71,14 @@ const HorseDetail = (data) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPedigree({id}));
+    dispatch(fetchPedigree({ id }));
   }, []);
 
   return (
     <div className="RaceDetailCard">
       <div className="horseheader1">
         <div className="horseshirt">
-          <img src={data.data.ActiveOwnerData === null ? <></> : data.data.ActiveOwnerData.image} alt="image" className="horseshirtimage" />
+          <img src={!data.data.ActiveOwnerData ? DefaultImg : data.data.ActiveOwnerData.image} alt="" className="horseshirtimage" />
         </div>
         <div className="horsecardtop">
           <p>{data.data.STARS}</p>
@@ -92,10 +96,14 @@ const HorseDetail = (data) => {
                 fontSize: " 19.6px",
                 lineHeight: "24px",
                 color: "#19469D",
+                margin: "0px 10px",
               }}
             >
-              {data.data.NameEn === null ? <>No Data</> : <>{data.data.NameEn}</>}
+
+
+              {cookiedata === 'en' ? (data.data === null ? <></> : data.data.NameEn) : (data.data === null ? <></> : data.data.NameAr)}
             </p>
+            <img src={data.data.NationalityData.image ? data.data.NationalityData.image : DefaultImg} alt="" style={{ height: "18px", margin: "0px 10px" }} />
             <p
               style={{
                 fontSize: "12px",
@@ -119,9 +127,13 @@ const HorseDetail = (data) => {
                 paddingLeft: "10px"
               }}
             >
-              Dam<b style={{
+              <b style={{
                 paddingLeft: "5px"
-              }}>{data.data.DamData === null ? <>N/A</> : <>{data.data.DamData.NameEn}</>}</b>
+              }}>{cookiedata === 'en' ? (data.data.DamData === null ? <></> : data.data.DamData.NameEn) : (data.data.DamData ? data.data.DamData.NameAr : "N/A")}
+              </b>
+
+
+
             </p>
             <p
               style={{
@@ -129,18 +141,21 @@ const HorseDetail = (data) => {
                 paddingLeft: "10px"
               }}
             >
-              Sire<b style={{
+              {t("Sire")}<b style={{
                 paddingLeft: "5px"
-              }}>{data.data.SireData === null ? <>N/A</> : <>{data.data.SireData.NameEn}</>}</b>
+              }}>      {cookiedata === 'en' ? (data.data.SireData ? data.data.SireData.NameEn : "N/A") : (data.data.SireData ? data.data.SireData.NameAr : "N/A")}
+              </b>
+
+
             </p>
             <p
               style={{
                 fontSize: "12px",
               }}
             >
-              G Sire <b style={{
+              {t("G Sire")} <b style={{
                 paddingLeft: "5px"
-              }}>{data.data.GSireData === null ? <>N/A</> : <>{data.data.GSireData.NameEn}</>}</b>
+              }}>  {cookiedata === 'en' ? (data.data.GSireData ? data.data.GSireData.NameEn : "N/A") : (data.data.GSireData ? data.data.GSireData.NameAr : "N/A")}</b>
             </p>
           </span>
           <span
@@ -166,7 +181,7 @@ const HorseDetail = (data) => {
             </p>
           </span>
           <div className="horsedetailimage">
-            <img src={data.data.ActiveTrainerData.image&&  data.data.ActiveTrainerData.image} alt="" />
+            <img src={data.data.ActiveTrainerData.image ? data.data.ActiveTrainerData.image : DefaultImg} alt="" />
             <span>
               <p
                 style={{
@@ -178,7 +193,7 @@ const HorseDetail = (data) => {
                 <b style={{
                   padding: "10px",
 
-                }}>T</b>{data.data.ActiveTrainerData === null ? <></> : data.data.ActiveTrainerData.NameEn}  (8 - 3 - 2 - 8 - 4)
+                }}>T</b>{cookiedata === "en" ? (data.data.ActiveTrainerData === null ? <></> : data.data.ActiveTrainerData.NameEn) : (data.data.ActiveTrainerData === null ? <></> : data.data.ActiveTrainerData.NameAr)}  (8 - 3 - 2 - 8 - 4)
               </p>
               <p
                 style={{
@@ -188,7 +203,9 @@ const HorseDetail = (data) => {
               >
                 <b style={{
                   padding: "10px",
-                }}>B</b>{data.data.BreederData === null ? <>N/A</> : <>{data.data.BreederData.NameEn}</>}
+                }}>B</b>{cookiedata === "en" ? (data.data.BreederData === null ? <></> : data.data.BreederData.NameEn) : (data.data.BreederData === null ? <></> : data.data.BreederData.NameAr)}
+
+
               </p>
             </span>
           </div>
@@ -199,7 +216,7 @@ const HorseDetail = (data) => {
             style={btnNew1}
             onClick={() => handleTrack(data.data._id)}
           >
-            Track Horse
+            {t("Track Horse")}
           </button>
         </div>
       </div>
@@ -376,151 +393,151 @@ const HorseDetail = (data) => {
             title="Pedigree"
             tabClassName="profile-tabitem"
           >
-             <div className="RaceDetailCard">
-        <div className="Pedigree">
-          {Pedigree.length === 0 ? (
-            <h3>Loading ...</h3>
-          ) : (
-            <div className="wrapper">
-              <div className="one">
-                <div className="sire pedigreeclass">
-                  {Pedigree.generation1 === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation1.SireData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation1.SireData.NameEn
-                  )}
-                </div>
-                <div className="dam pedigreeclass">
-                  {Pedigree.generation1 === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation1.DamData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation1.DamData.NameEn
-                  )}
-                </div>
-              </div>
-              <div className="two">
-                <div className="gsire pedigreeclass">
-               { Pedigree.generation2b === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation2b.SireData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation2b.SireData.NameEn
-                  )}
-                </div>
-                <div className="gdam pedigreeclass">
-                {Pedigree.generation2b === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation2b.DamData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation2b.DamData.NameEn
-                  )}
-                </div>
-                <div className="gsire pedigreeclass">
-                {Pedigree.generation2a === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation2a.SireData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation2a.SireData.NameEn
-                  )}
-                </div>
-                <div className="gdam pedigreeclass">
-                {Pedigree.generation2a === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation2a.DamData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation2a.DamData.NameEn
-                  )}
-                </div>
-              </div>
-              <div className="three">
-              <div className="ggsire pedigreeclass">
-              {Pedigree.generation3d === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3d.SireData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3d.SireData.NameEn
-                  )}
-                </div>
-                <div className="ggdam pedigreeclass">
-                {Pedigree.generation3d === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3d.DamData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3d.DamData.NameEn
-                  )}
-                </div>
-                <div className="ggsire pedigreeclass">
-                {Pedigree.generation3c === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3c.SireData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3c.SireData.NameEn
-                  )}
-                </div>
-                <div className="ggdam pedigreeclass">
-                {Pedigree.generation3c === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3c.DamData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3c.DamData.NameEn
-                  )}
-                </div>
-                <div className="ggsire pedigreeclass">
-                  {Pedigree.generation3b === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3b.SireData === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3b.SireData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3b.SireData.NameEn
-                  )}
-                </div>
-                <div className="ggdam pedigreeclass">
-                  {Pedigree.generation3b === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3a.DamData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3b.DamData.NameEn === null ? <>N/A</> :  Pedigree.generation3b.DamData.NameEn
-                  )}
-                </div>
-                <div className="ggsire pedigreeclass">
-                  {Pedigree.generation3a === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3a.SireData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3a.SireData.NameEn
-                  )}
-                </div>
-                <div className="ggdam pedigreeclass">
-                  {Pedigree.generation3a === null ? (
-                    <>N/A</>
-                  ) : Pedigree.generation3a.DamData === null ? (
-                    <>N/A</>
-                  ) : (
-                    Pedigree.generation3a.DamData.NameEn
-                  )}
-                </div>
-                
+            <div className="RaceDetailCard">
+              <div className="Pedigree">
+                {Pedigree.length === 0 ? (
+                  <h3>Loading ...</h3>
+                ) : (
+                  <div className="wrapper">
+                    <div className="one">
+                      <div className="sire pedigreeclass">
+                        {Pedigree.generation1 === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation1.SireData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation1.SireData.NameEn
+                        )}
+                      </div>
+                      <div className="dam pedigreeclass">
+                        {Pedigree.generation1 === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation1.DamData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation1.DamData.NameEn
+                        )}
+                      </div>
+                    </div>
+                    <div className="two">
+                      <div className="gsire pedigreeclass">
+                        {Pedigree.generation2b === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation2b.SireData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation2b.SireData.NameEn
+                        )}
+                      </div>
+                      <div className="gdam pedigreeclass">
+                        {Pedigree.generation2b === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation2b.DamData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation2b.DamData.NameEn
+                        )}
+                      </div>
+                      <div className="gsire pedigreeclass">
+                        {Pedigree.generation2a === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation2a.SireData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation2a.SireData.NameEn
+                        )}
+                      </div>
+                      <div className="gdam pedigreeclass">
+                        {Pedigree.generation2a === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation2a.DamData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation2a.DamData.NameEn
+                        )}
+                      </div>
+                    </div>
+                    <div className="three">
+                      <div className="ggsire pedigreeclass">
+                        {Pedigree.generation3d === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3d.SireData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3d.SireData.NameEn
+                        )}
+                      </div>
+                      <div className="ggdam pedigreeclass">
+                        {Pedigree.generation3d === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3d.DamData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3d.DamData.NameEn
+                        )}
+                      </div>
+                      <div className="ggsire pedigreeclass">
+                        {Pedigree.generation3c === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3c.SireData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3c.SireData.NameEn
+                        )}
+                      </div>
+                      <div className="ggdam pedigreeclass">
+                        {Pedigree.generation3c === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3c.DamData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3c.DamData.NameEn
+                        )}
+                      </div>
+                      <div className="ggsire pedigreeclass">
+                        {Pedigree.generation3b === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3b.SireData === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3b.SireData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3b.SireData.NameEn
+                        )}
+                      </div>
+                      <div className="ggdam pedigreeclass">
+                        {Pedigree.generation3b === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3a.DamData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3b.DamData.NameEn === null ? <>N/A</> : Pedigree.generation3b.DamData.NameEn
+                        )}
+                      </div>
+                      <div className="ggsire pedigreeclass">
+                        {Pedigree.generation3a === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3a.SireData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3a.SireData.NameEn
+                        )}
+                      </div>
+                      <div className="ggdam pedigreeclass">
+                        {Pedigree.generation3a === null ? (
+                          <>N/A</>
+                        ) : Pedigree.generation3a.DamData === null ? (
+                          <>N/A</>
+                        ) : (
+                          Pedigree.generation3a.DamData.NameEn
+                        )}
+                      </div>
+
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-          )}
-        </div>
-      </div>
           </Tab>
         </Tabs>
       </div>

@@ -1,4 +1,4 @@
-.ownerdetailhead{
+.ownerdetailhead {
     height: 251px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -6,25 +6,34 @@
     display: flex;
     justify-content: space-between;
 }
-.horsebodyitemfirst{
+
+.horsebodyitemfirst {
     background: #606060;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 18px;
     margin: 5px;
 }
-.ownername{
-padding: 1rem;
+
+.ownername {
+    padding: 1rem;
 }
-.ownername span{
+
+.ownername span {
     padding: 10px;
 }
-.ownerimage{
-padding: 10px;
+
+.ownerimage {
+    padding: 10px;
 }
+
 span h6 {
     justify-content: end;
     text-align: end;
     position: relative;
     bottom: 115px;
     left: 80px;
+}
+
+.ownerTrack {
+    margin-top: 110px;
 }

@@ -1,9 +1,9 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Components/Reuseable/layout';
 import HomeLayout from '../Components/Home/HomeLayout';
 import Footer from '../Components/Reuseable/Footer';
 import Copyrights from '../Components/Reuseable/Copyrights';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { fetchSeo, STATUSES } from "../../Webiste/redux/getReducer/getSeo";
 import { useDispatch, useSelector } from "react-redux";
 import Lottie from 'lottie-react';
@@ -14,7 +14,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const { data: Seo, status } = useSelector((state) => state.Seo);
-  
+
   useEffect(() => {
     dispatch(fetchSeo());
   }, [dispatch]);
@@ -23,9 +23,9 @@ const Home = () => {
 
   if (status === STATUSES.LOADING) {
     return (
-      <Lottie 
-	    animationData={Animate}
-        className="homeLottie"
+      <Lottie
+        animationData={Animate}
+        className="load"
       />
     );
   }
@@ -45,15 +45,15 @@ const Home = () => {
   return (
     <>
 
-    <Helmet>
-    {
-        Seo.slice(-1).map((item) => {
-          return(
-            <title>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</title>
-          )
-        })
-      }
-    </Helmet>
+      <Helmet>
+        {
+          Seo.slice(-1).map((item) => {
+            return (
+              <title>{cookiedata === 'en' ? item.TitleEn : item.TitleAr}</title>
+            )
+          })
+        }
+      </Helmet>
       <Header />
       <HomeLayout />
       <Footer />

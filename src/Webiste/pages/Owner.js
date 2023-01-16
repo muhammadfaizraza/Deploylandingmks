@@ -46,7 +46,7 @@ const Owner = () => {
   if (status === STATUSES.LOADING) {
     return (
 
-      <Lottie animationData={Animate} loop={true} className="Lottie" />
+      <Lottie animationData={Animate} loop={true} className="load" />
     );
   }
   if (status === STATUSES.ERROR) {

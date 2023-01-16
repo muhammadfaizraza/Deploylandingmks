@@ -18,7 +18,7 @@ import RaceDetailPopup from "../Components/Home/Popup/RaceDetail";
 const RaceCourse = () => {
   const dispatch = useDispatch();
   const { data: racecourse, status } = useSelector((state) => state.racecourse);
-  
+
   const [modaldata, setmodaldata] = useState();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -31,17 +31,15 @@ const RaceCourse = () => {
     dispatch(fetchCourse());
   }, []);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+
 
   if (status === STATUSES.LOADING) {
-    return <Lottie options={defaultOptions} height={400} width={400} />;
+
+    <div>
+      <Lottie animationData={Animate} loop={true} className="load" />
+    </div>
+
+
   }
 
   if (status === STATUSES.ERROR) {
@@ -60,7 +58,7 @@ const RaceCourse = () => {
       <Layout />
       {racecourse.length === 0 ? (
         <>
-         <div className="NAclass">No Data</div>
+          <div className="NAclass">No Data</div>
         </>
       ) : (
         <>
@@ -79,11 +77,11 @@ const RaceCourse = () => {
                             {/* {item.raceName} */}
                           </span>
                           <p>
-                          <Moment format="D MMM YYYY" withTitle>
-                      {
-                        item.Day
-                      }
-                  </Moment></p>
+                            <Moment format="D MMM YYYY" withTitle>
+                              {
+                                item.Day
+                              }
+                            </Moment></p>
                         </div>
 
                         <div className="raceStatus">
@@ -116,148 +114,146 @@ const RaceCourse = () => {
                     </div>
                     {item.RaceCourseData.length === 0 ? (
                       <>
-                        <h6 style={{textAlign:'center'}}> There is No race in this racecouse </h6>{" "}
+                        <h6 style={{ textAlign: 'center' }}> There is No race in this racecouse </h6>{" "}
                       </>
                     ) : (
                       item.RaceCourseData.map((data, ind) => (
-                          <div className="racepagesection" onClick={() => handleShow(data)}>
-                            <div className="racepageitem" key={data._id}>
-                              <div>
-                                <div className="RaceDetailsName">
-                                  <span
-                                    style={{
-                                      fontWeight: "300",
-                                      fontSize: "20px",
-                                      lineHeight: "24px",
-                                    }}
-                                  >
-                                    <h5>Race {ind + 1}</h5>
-                                  </span>
-                                  <h6>{data.RaceNameModelData.NameEn}</h6>
-                                  <br />
-                                </div>
-                                <div className="RaceDesc">
-                                  <p
-                                    style={{
-                                      maxWidth: "400px",
-                                      overflow: "hidden",
-                                      textOverflow: "ellipsis",
-                                      whiteSpace: "nowrap",
-                                    }}
-                                  >
-                                    {data.DescriptionEn}
-                                  </p>
-                                </div>
-                                <div className="racedown">
-                                  {/* <p>Distance : {item.RaceCourseData === null ? <></> : <>{item.RaceCourseData.TrackLength}</>}</p> */}
-
-                                  <p>
-                                    Distance :{" "}
-                                    {data.TrackLengthData.TrackLength === null ? <>N/A</> : data.TrackLengthData.TrackLength}
-                                  </p>
-                                  <p> {data.RaceTypeModelData.NameEn} </p>
-                                  <p>Surface : { !data.GroundData ? <>N/A</> : data.GroundData.NameEn}</p>
-                                  <p>Going : {!data.GroundData ? <>N/A</> : data.RaceKindData.NameEn}</p>
-                                </div>{" "}
-                              </div>
-                              <span
-                                style={{
-                                  fontWeight: "300",
-                                  fontSize: "12px",
-                                  lineHeight: "15px",
-                                }}
-                              >
-                                {item.owner === null ? <>N/A</> : data.owner}
-                              </span>
-                              <span
-                                style={{
-                                  fontWeight: "300",
-                                  fontSize: "12px",
-                                  lineHeight: "15px",
-                                  color: " rgba(0, 0, 0, 0.5)",
-                                }}
-                              >
-                                {item.runner}
-                              </span>
-                              <br />
-
-                              <div className="racestatusright">
-                              <span
-                                  className="racestatusclass"
+                        <div className="racepagesection" onClick={() => handleShow(data)}>
+                          <div className="racepageitem" key={data._id}>
+                            <div>
+                              <div className="RaceDetailsName">
+                                <span
                                   style={{
-                                    backgroundColor: `${
-                                      data.RaceStatus === "Cancel"
-                                        ? "#000000"
-                                        : RaceStatus === "End"
-                                        ? "#FF0000"
-                                        : RaceStatus === "Live"
+                                    fontWeight: "300",
+                                    fontSize: "20px",
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  <h5>Race {ind + 1}</h5>
+                                </span>
+                                <h6>{data.RaceNameModelData.NameEn}</h6>
+                                <br />
+                              </div>
+                              <div className="RaceDesc">
+                                <p
+                                  style={{
+                                    maxWidth: "400px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                  }}
+                                >
+                                  {data.DescriptionEn}
+                                </p>
+                              </div>
+                              <div className="racedown">
+                                {/* <p>Distance : {item.RaceCourseData === null ? <></> : <>{item.RaceCourseData.TrackLength}</>}</p> */}
+
+                                <p>
+                                  Distance :{" "}
+                                  {data.TrackLengthData.TrackLength === null ? <>N/A</> : data.TrackLengthData.TrackLength}
+                                </p>
+                                <p> {data.RaceTypeModelData.NameEn} </p>
+                                <p>Surface : {!data.GroundData ? <>N/A</> : data.GroundData.NameEn}</p>
+                                <p>Going : {!data.GroundData ? <>N/A</> : data.RaceKindData.NameEn}</p>
+                              </div>{" "}
+                            </div>
+                            <span
+                              style={{
+                                fontWeight: "300",
+                                fontSize: "12px",
+                                lineHeight: "15px",
+                              }}
+                            >
+                              {item.owner === null ? <>N/A</> : data.owner}
+                            </span>
+                            <span
+                              style={{
+                                fontWeight: "300",
+                                fontSize: "12px",
+                                lineHeight: "15px",
+                                color: " rgba(0, 0, 0, 0.5)",
+                              }}
+                            >
+                              {item.runner}
+                            </span>
+                            <br />
+
+                            <div className="racestatusright">
+                              <span
+                                className="racestatusclass"
+                                style={{
+                                  backgroundColor: `${data.RaceStatus === "Cancel"
+                                    ? "#000000"
+                                    : RaceStatus === "End"
+                                      ? "#FF0000"
+                                      : RaceStatus === "Live"
                                         ? "#5EC30F"
                                         : "#FF9900"
                                     }`,
-                                    color: `${
-                                      RaceStatus === "Cancel"
-                                        ? "#ffff"
-                                        : RaceStatus === "End"
-                                        ? "#00000"
-                                        : RaceStatus === "Live"
+                                  color: `${RaceStatus === "Cancel"
+                                    ? "#ffff"
+                                    : RaceStatus === "End"
+                                      ? "#00000"
+                                      : RaceStatus === "Live"
                                         ? "#00000"
                                         : "#000000"
                                     }`,
+                                }}
+                              >
+                                <p className="racestatusclasstime"><Moment format="hh:mm:ss" className="racestatusclasstime">{item.DayNTime}</Moment></p>
+                              </span>
+                              <div>
+                                <p
+                                  style={{
+                                    fontStyle: "normal",
+                                    fontWeight: "300",
+                                    fontSize: "9px",
+                                    lineHeight: "11px",
+                                    color: "rgba(0, 0, 0, 0.5)",
                                   }}
                                 >
-                                  <p className="racestatusclasstime"><Moment format="hh:mm:ss" className="racestatusclasstime">{item.DayNTime}</Moment></p> 
-                                </span>
-                                <div>
-                                  <p
-                                    style={{
-                                      fontStyle: "normal",
-                                      fontWeight: "300",
-                                      fontSize: "9px",
-                                      lineHeight: "11px",
-                                      color: "rgba(0, 0, 0, 0.5)",
-                                    }}
-                                  >
-                                    Favourite
-                                  </p>
-                                  <p
-                                    style={{
-                                      fontStyle: "normal",
-                                      fontWeight: "300",
-                                      fontSize: "12px",
-                                      lineHeight: "11px",
-                                      color: "#000",
-                                    }}
-                                  >
-                                    {item.Favourite}
-                                  </p>
-                                </div>
-                                <div>
-                                  <p
-                                    style={{
-                                      fontStyle: "normal",
-                                      fontWeight: "300",
-                                      fontSize: "9px",
-                                      lineHeight: "11px",
-                                      color: "rgba(0, 0, 0, 0.5)",
-                                    }}
-                                  >
-                                    Non-Runner
-                                  </p>
-                                  <p
-                                    style={{
-                                      fontStyle: "normal",
-                                      fontWeight: "300",
-                                      fontSize: "12px",
-                                      lineHeight: "11px",
-                                      color: "#000",
-                                    }}
-                                  >
-                                    {item.runner}
-                                  </p>
-                                </div>
+                                  Favourite
+                                </p>
+                                <p
+                                  style={{
+                                    fontStyle: "normal",
+                                    fontWeight: "300",
+                                    fontSize: "12px",
+                                    lineHeight: "11px",
+                                    color: "#000",
+                                  }}
+                                >
+                                  {item.Favourite}
+                                </p>
+                              </div>
+                              <div>
+                                <p
+                                  style={{
+                                    fontStyle: "normal",
+                                    fontWeight: "300",
+                                    fontSize: "9px",
+                                    lineHeight: "11px",
+                                    color: "rgba(0, 0, 0, 0.5)",
+                                  }}
+                                >
+                                  Non-Runner
+                                </p>
+                                <p
+                                  style={{
+                                    fontStyle: "normal",
+                                    fontWeight: "300",
+                                    fontSize: "12px",
+                                    lineHeight: "11px",
+                                    color: "#000",
+                                  }}
+                                >
+                                  {item.runner}
+                                </p>
                               </div>
                             </div>
                           </div>
+                        </div>
                       ))
                     )}
                   </React.Fragment>
@@ -276,12 +272,12 @@ const RaceCourse = () => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        
+
         <Modal.Body>
           <RaceDetailPopup data={modaldata} />
         </Modal.Body>
         <Modal.Footer>
-          
+
         </Modal.Footer>
       </Modal>
     </>

@@ -16,8 +16,11 @@ import TrainerDetail from "./TrainerDetail";
 import { Modal } from "react-bootstrap";
 import Lottie from "lottie-react";
 import Animate from "../assets/loader.json";
+import { useTranslation } from "react-i18next";
 
 const Trainer = () => {
+  const { t } = useTranslation()
+  const cookiedata = Cookies.get('i18next')
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState();
@@ -33,21 +36,14 @@ const Trainer = () => {
     dispatch(fetchTrainer());
   }, [dispatch]);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Animate,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+
 
   if (status === STATUSES.LOADING) {
     return (
       <Lottie
         animationData={Animate}
         loop={true}
-        className="Lottie compLottie"
+        className="load"
       />
     );
   }
@@ -76,13 +72,16 @@ const Trainer = () => {
 
             <table id="customers">
               <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Remarks </th>
-                <th>Detail</th>
-                <th>Title</th>
-                <th>Nationality</th>
-                <th>Image</th>
+                <th>{t("Name")}</th>
+                <th>{t("Short Name")}</th>
+                <th>{t("Title")}</th>
+
+                <th>{t("Age")}</th>
+                <th>{t("License Date")}</th>
+                <th>{t("Remarks ")}</th>
+                <th>{t("Detail")}</th>
+                <th>{t("Nationality")}</th>
+                <th>{t("Image")}</th>
               </tr>
               {trainer.map((item) => {
                 return (
@@ -92,15 +91,19 @@ const Trainer = () => {
                       cursor: "pointer",
                     }}
                   >
-                    <td>{item.NameEn}</td>
+                    <td>{cookiedata === "en" ? (item.NameEn ? item.NameEn : "N/A") : (item.NameAr ? item.NameAr : "N/A")}</td>
+
+                    <td>{cookiedata === "en" ? (item.ShortNameEn ? item.ShortNameEn : "N/A") : (item.ShortNameAr ? item.ShortNameAr : "N/A")}</td>
+                    <td>{cookiedata === "en" ? (item.TitleEn ? item.TitleEn : "N/A") : (item.TitleAr ? item.TitleAr : "N/A")}</td>
+
                     <td>
                       <Moment fromNow ago>
                         {item.DOB}
                       </Moment>
                     </td>
-                    <td>{item.RemarksEn}</td>
-                    <td>{item.DetailEn}</td>
-                    <td>{item.TitleEn}</td>
+                    <td><Moment format="YYYY/MM/DD">  {item.TrainerLicenseDate} </Moment></td>
+                    <td>{cookiedata === "en" ? (item.RemarksEn ? item.RemarksEn : "N/A") : (item.RemarksAr ? item.RemarksAr : "N/A")}</td>
+                    <td>{cookiedata === "en" ? (item.DetailEn ? item.DetailEn : "N/A") : (item.DetailAr ? item.DetailAr : "N/A")}</td>
                     <td>
                       {item.TrainerNationalityData === null ? (
                         <>N/A</>
@@ -133,7 +136,6 @@ const Trainer = () => {
           centered
         >
           <Modal.Header className="popupheader" closeButton>
-            <h3>Trainer Detail</h3>
           </Modal.Header>
           <Modal.Body>
             <TrainerDetail data={modaldata} />

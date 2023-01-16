@@ -32,7 +32,8 @@ import { IoPartlySunnyOutline, IoCloudyOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import axios from "axios";
-
+import { Lottie } from "lottie-react";
+import Animate from "../assets/loader.json"
 const RaceCardDetail = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -59,9 +60,13 @@ const RaceCardDetail = () => {
   }, []);
 
   if (status === STATUSES.LOADING) {
-    return <h2 className="loader1">
 
-    </h2>;
+    <div className="py-4 text-center">
+      <div>
+        <Lottie animationData={Animate} loop={true} className="load" />
+      </div>
+    </div>
+
   }
 
   if (status === STATUSES.ERROR) {
