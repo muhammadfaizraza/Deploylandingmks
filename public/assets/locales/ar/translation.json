@@ -95,5 +95,12 @@
   "Maximum Weight": "الحد الأقصى للوزن",
   "Minimum Weight": "الوزن الأدنى",
   "Allowance": "مخصص",
-  "Short Name": "اسم قصير"
+  "Short Name": "اسم قصير",
+  "Detail": "تفاصيل",
+  "Title": "لقب",
+  "Regd": "تاريخ التسجيل",
+  "Track Owner": "مالك المسار",
+  "cast": "يقذف",
+  "Search": "يبحث",
+  "LOGIN/REGISTER": "دخولتسجيل"
 }

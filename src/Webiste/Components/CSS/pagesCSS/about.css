@@ -9,32 +9,37 @@
   justify-content: center;
   align-items: center;
 }
+
 .aboutpageheader h2 {
   color: #fff;
   font-weight: 600;
 }
+
 .aboutpagesection {
   height: fit-content;
 
- width: 80%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   min-height: 600px;
-margin: 0 auto;
-padding: 40px;
+  margin: 0 auto;
+  padding: 40px;
 }
+
 .bannerAbout {
-    background: linear-gradient(180deg, #078be6 0%, #19469d 100%);
-    border-radius: 20px;
-    height: min(20rem, 40rem);
-    width: 80%;
-    margin: 0px auto;
-    margin-top: 80px;
+  background: linear-gradient(180deg, #078be6 0%, #19469d 100%);
+  border-radius: 20px;
+  height: min(20rem, 40rem);
+  width: 80%;
+  margin: 0px auto;
+  margin-top: 80px;
 }
-.aboutCard > img {
+
+.aboutCard>img {
   float: right;
   margin: 2rem;
 }
+
 .middlebanner {
   height: 734px;
   width: 100%;
@@ -44,14 +49,17 @@ padding: 40px;
   background-size: cover;
   margin-top: 100px;
 }
+
 .middlebanner section {
-    width: 585px;
-    height: 675px;
-    background-color: white;
-    position: relative;
-    top: 25%;
-    left: 12.1%;
-    padding: 120px 60px;
+
+  width: 31.7%;
+
+  height: 675px;
+  background-color: white;
+  position: relative;
+  top: 25%;
+  left: 12.1%;
+  padding: 120px 60px;
 }
 
 .middlebanner section h3 {
@@ -63,6 +71,7 @@ padding: 40px;
 
   color: #19469d;
 }
+
 .middlebanner section p {
   font-family: "Inter";
   font-style: normal;
@@ -72,12 +81,14 @@ padding: 40px;
 
   color: #000000;
 }
+
 .aboutData {
-    width: 6    0%;
+  width: 6 0%;
   margin-right: 100px;
   padding-top: 100px;
- 
+
 }
+
 .aboutData p {
   font-family: "Inter";
   font-style: normal;
@@ -85,6 +96,7 @@ padding: 40px;
   font-size: 19px;
   line-height: 153.52%;
 }
+
 .aboutData h3 {
   font-family: "Inter";
   font-style: normal;
@@ -99,6 +111,7 @@ padding: 40px;
   width: 584px;
   height: 564px;
 }
+
 .aboutpagesection2 {
   height: fit-content;
 
@@ -107,37 +120,41 @@ padding: 40px;
   min-height: 600px;
   padding: 100px 260px;
 }
+
 .aboutData2 {
-    width: 50%;
-    padding-top: 100px;
-    margin-left: 100px;
+  width: 50%;
+  padding-top: 100px;
+  margin-left: 100px;
 }
 
 .aboutData2 p {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 153.52%;
-  }
-  .aboutData2 h3 {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-  
-    color: #19469d;
-  }
-  .policy {
-    width: 80%;
-    margin: 0 auto;
-    padding: 100px 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 153.52%;
 }
-  .policy p{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 17px;
-line-height: 199.02%;
-  }
+
+.aboutData2 h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #19469d;
+}
+
+.policy {
+  width: 80%;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.policy p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 199.02%;
+}

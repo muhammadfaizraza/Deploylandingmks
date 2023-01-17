@@ -37,3 +37,9 @@ span h6 {
 .ownerTrack {
     margin-top: 110px;
 }
+
+.detailsForm {
+    width: 100%;
+    text-align: left;
+
+}

@@ -78,7 +78,7 @@ const Trainer = () => {
 
                 <th>{t("Age")}</th>
                 <th>{t("License Date")}</th>
-                <th>{t("Remarks ")}</th>
+                <th>{t("Remarks")}</th>
                 <th>{t("Detail")}</th>
                 <th>{t("Nationality")}</th>
                 <th>{t("Image")}</th>

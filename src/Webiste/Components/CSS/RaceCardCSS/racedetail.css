@@ -39,7 +39,7 @@
 
 .racedisc {
     width: 98%;
-    height: 162px;
+    height: fit-content;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 18px;

@@ -14,8 +14,10 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import Moment from "react-moment";
 import Defaultimg from "../assets/Frame.png"
+import { useTranslation } from "react-i18next";
 
 const OwnerDetail = (data) => {
+  const { t } = useTranslation()
   const cookiedata = Cookies.get('i18next');
   const token = Cookies.get("token");
 
@@ -79,7 +81,7 @@ const OwnerDetail = (data) => {
                     color: "#19469D",
                   }}
                 >
-                  {data.data.NameEn === null ? <>No Data</> : <>{data.data.NameEn}</>}
+                  {cookiedata === "en" ? (data.data.NameEn ? data.data.NameEn : "N/A") : (data.data.NameAr ? data.data.NameAr : "N/A")}
                 </p>
                 <p
                   style={{
@@ -103,37 +105,30 @@ const OwnerDetail = (data) => {
                     fontSize: "12px",
                     paddingLeft: "10px"
                   }}
-                > Title
+                > {t("Title")}
                   <b style={{
                     paddingLeft: "5px"
-                  }}> {data.data.TitleEn === null ? <>N/A</> : <>{data.data.TitleEn}</>}</b>
+                  }}>       {cookiedata === "en" ? (data.data.TitleEn ? data.data.TitleEn : "N/A") : (data.data.TitleAr ? data.data.TitleAr : "N/A")}
+                  </b>
                 </p>
                 <p
                   style={{
                     fontSize: "10px",
                     paddingLeft: "6px"
                   }}
-                >Regd
+                >{t("Regd")}
                   <b style={{
                     paddingLeft: "5px"
                   }}> {data.data.RegistrationDate === null ? <>No Data</> : <><Moment fromNow ago>
                     {data.data.RegistrationDate}
                   </Moment></>}</b>
                 </p>
-                <p
-                  style={{
-                    fontSize: "12px",
-                  }}
-                >
-                  <b style={{
-                    paddingLeft: "5px"
-                  }}>{data.data.JockeyAllowance === null ? <>N/A</> : <>{data.data.JockeyAllowance}</>}</b>
-                </p>
+
               </span>
               <div className="horsedetailimage">
                 {
                   data.data.OwnerDataNationalityData ? <>
-                    <img src={data.data.OwnerDataNationalityData.image} alt="" />
+                    <img src={data.data.OwnerDataNationalityData.image ? data.data.OwnerDataNationalityData.image : Defaultimg} alt="" />
 
                   </> : <>N/A</>
                 }
@@ -148,7 +143,7 @@ const OwnerDetail = (data) => {
                     <b style={{
                       padding: "10px",
 
-                    }}>Nationality</b>{data.data.OwnerDataNationalityData ? data.data.OwnerDataNationalityData.NameEn : <></>}
+                    }}>{t("Nationality")}</b>{cookiedata === "en" ? (data.data.OwnerDataNationalityData.NameEn ? data.data.OwnerDataNationalityData.NameEn : "N/A") : (data.data.OwnerDataNationalityData.NameAr ? data.data.OwnerDataNationalityData.NameAr : "N/A")}
                   </p>
                   <p
                     style={{
@@ -158,7 +153,7 @@ const OwnerDetail = (data) => {
                   >
                     <b style={{
                       padding: "10px",
-                    }}>Short Name </b>{data.data.ShortEn}
+                    }}>{t("Short Name")} </b>{cookiedata === "en" ? (data.data.ShortEn ? data.data.ShortEn : "N/A") : (data.data.ShortAr ? data.data.ShortAr : "N/A")}
                   </p>
                 </span>
 
@@ -173,7 +168,7 @@ const OwnerDetail = (data) => {
                 style={btnNew1}
                 onClick={() => handleTrack(data.data._id)}
               >
-                Track Owner
+                {t("Track Owner")}
               </button>
             </div>
           </div>

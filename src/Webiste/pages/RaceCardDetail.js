@@ -915,7 +915,7 @@ const RaceCardDetail = () => {
                                                                   .CompetitionRacesPointsModelData[0]
                                                                   .CategoryCount;
                                                                 for (var i = 0; i < total; i++) {
-                                                                  row.push(<input type="radio" name="cast" value={i + 1}
+                                                                  row.push(<input type="radio" name={t("cast")} value={i + 1}
                                                                     onChange={(e) => setPositionNumber(e.target.value)}
 
                                                                     onClick={(event) =>

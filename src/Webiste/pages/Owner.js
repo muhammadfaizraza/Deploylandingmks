@@ -12,14 +12,15 @@ import {
 } from "../../Webiste/redux/getReducer/getOwnerSlice";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import JockeyDetail from "./JockeyDetail";
 import { Modal } from "react-bootstrap";
 import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 import OwnerDetail from "./OwnerDetail";
-
+import { useTranslation } from "react-i18next";
 
 const Owner = () => {
+  const { t } = useTranslation();
+  const cookiedata = Cookies.get('i18next')
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState('');
   const navigate = useNavigate();
@@ -74,12 +75,13 @@ const Owner = () => {
 
             <table id="customers">
               <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Title </th>
-                <th>Short Name </th>
-                <th>Nationality</th>
-                <th>Image</th>
+                <th>{t("Name")}</th>
+                <th>{t("Age")}</th>
+                <th>{t("Title")} </th>
+                <th>{t("Short Name")} </th>
+                <th>{t("Registration Date")} </th>
+                <th>{t("Nationality")}</th>
+                <th>{t("Image")}</th>
               </tr>
               {owner.map((item) => {
                 return (
@@ -87,14 +89,14 @@ const Owner = () => {
                   } style={{
                     cursor: 'pointer'
                   }}>
-                    <td >{item.NameEn && item.NameEn}</td>
+                    <td >{cookiedata === "en" ? (item.NameEn ? item.NameEn : "N/A") : (item.NameAr ? item.NameAr : "N/A")} </td>
                     <td><Moment fromNow ago>
                       {item.DOB}
                     </Moment></td>
-                    <td>{item.TitleEn}</td>
-                    <td>{item.ShortEn}</td>
-                    <td>{item.OwnerDataNationalityData && item.OwnerDataNationalityData.NameEn} </td>
-
+                    <td>{cookiedata === "en" ? (item.TitleEn ? item.TitleEn : "N/A") : (item.TitleAr ? item.TitleAr : "N/A")}</td>
+                    <td>{cookiedata === "en" ? (item.ShortEn ? item.ShortEn : "N/A") : (item.ShortAr ? item.ShortAr : "N/A")}</td>
+                    <td> {item.RegistrationDate} </td>
+                    <td>{cookiedata === "en" ? (item.OwnerDataNationalityData.NameEn ? item.OwnerDataNationalityData.NameEn : "N/A") : (item.OwnerDataNationalityData.NameAr ? item.OwnerDataNationalityData.NameAr : "N/A")}</td>
                     <td>
                       <img src={item.image} alt="" style={{
                         height: '30px',
