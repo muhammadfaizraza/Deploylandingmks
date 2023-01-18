@@ -16,18 +16,18 @@ const RegisterScreen = () => {
   const { data: nationality } = useSelector((state) => state.nationality);
   const dispatch = useDispatch();
 
-  let AllNationality =
-    nationality === undefined ? (
-      <></>
-    ) : (
-      nationality.map(function (item) {
-        return {
-          id: item._id,
-          value: item.NameEn,
-          label: item.NameEn
-        };
-      })
-    );
+  // let AllNationality =
+  //   nationality === undefined ? (
+  //     <></>
+  //   ) : (
+  //     nationality.map(function (item) {
+  //       return {
+  //         id: item._id,
+  //         value: item.NameEn,
+  //         label: item.NameEn
+  //       };
+  //     })
+  //   );
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [PassportNo, setPassportNo] = useState("");
@@ -58,7 +58,7 @@ const RegisterScreen = () => {
     return () => URL.revokeObjectURL(objectUrl);
   }, [PassportPicture]);
 
-  console.log(NationalityID,'NationalityID')
+  console.log(nationality,'NationalityID')
   const RegisterUser = async (e) => {
     e.preventDefault();
     try {
@@ -75,7 +75,7 @@ const RegisterScreen = () => {
       formData.append("PassportPicture", PassportPicture);
 
       const response = await axios.post(
-        `https://sumairroudani.com/api/v1/register`,
+        `${window.env.API_URL}/register`,
         formData
       );
       console.log(response.success, "response");
@@ -198,9 +198,12 @@ const RegisterScreen = () => {
             >
               {nationality.map((item) => {
                 return (
-                  <option key={item._id} value={item._id} name="country">
+                 <>
+                 <option >Select Nationality</option>
+                  <option key={item._id} value={item._id} defaultValue={item._id} name="country">
                     {item.NameEn}
                   </option>
+                 </>
                 );
               })}
             </select>

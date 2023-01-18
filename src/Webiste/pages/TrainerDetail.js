@@ -33,8 +33,7 @@ const TrainerDetail = (data) => {
     color: "#fff",
     margin: '6px'
   };
-  console.log(data, ' Trainer Data')
-  const cookiedata = Cookies.get('i18next')
+  const cookiedata = Cookies.get('i18next');
   const handleTrack = async (Id) => {
     try {
       const res = await axios.post(
@@ -50,8 +49,6 @@ const TrainerDetail = (data) => {
       console.log(error, 'error');
     }
     navigate('/tracker')
-
-
   };
   return (
     <>

@@ -38,19 +38,19 @@ const Match = () => {
     });
   }
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.post(
-          `https://sumairroudani.com/api/v1/GetRaceWithDayntime`,
-          { DayNTime: value }
-        );
-        setDayData(res.data.data);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, [value]);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const res = await axios.post(
+  //         `https://sumairroudani.com/api/v1/GetRaceWithStartTime`,
+  //         { StartTime: '10:00' }
+  //       );
+  //       setDayData(res.data.data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   })();
+  // }, [value]);
 
   // const submit = async (event) => {
 
