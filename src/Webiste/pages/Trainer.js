@@ -17,6 +17,7 @@ import { Modal } from "react-bootstrap";
 import Lottie from "lottie-react";
 import Animate from "../assets/loader.json";
 import { useTranslation } from "react-i18next";
+import DefaultImg from "../assets/default.png"
 
 const Trainer = () => {
   const { t } = useTranslation()
@@ -114,7 +115,7 @@ const Trainer = () => {
 
                     <td>
                       <img
-                        src={item.image}
+                        src={item.image ? item.image : DefaultImg}
                         alt=""
                         style={{
                           height: "30px",

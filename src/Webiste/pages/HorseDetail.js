@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { fetchPedigree, STATUSES } from "../redux/getReducer/getPedigree";
 import { useDispatch, useSelector } from "react-redux";
-import DefaultImg from "../assets/Frame.png"
+import DefaultImg from "../assets/default.png"
 import { useTranslation } from 'react-i18next';
 
 const HorseDetail = (data) => {
@@ -126,9 +126,10 @@ const HorseDetail = (data) => {
                 paddingLeft: "10px"
               }}
             >
+              Dam
               <b style={{
                 paddingLeft: "5px"
-              }}>{cookiedata === 'en' ? (data.data.DamData === null ? <></> : data.data.DamData.NameEn) : (data.data.DamData ? data.data.DamData.NameAr : "N/A")}
+              }}>{cookiedata === 'en' ? (data.data.DamData ? data.data.DamData.NameEn : "N/A") : (data.data.DamData ? data.data.DamData.NameAr : "N/A")}
               </b>
 
 
@@ -210,7 +211,7 @@ const HorseDetail = (data) => {
           </div>
         </div>
         <div className="horseimage">
-          <img src={data.data.HorseImage} alt='' />
+          <img src={data.data.HorseImage ? data.data.HorseImage : DefaultImg} alt='' />
           <button
             style={btnNew1}
             onClick={() => handleTrack(data.data._id)}

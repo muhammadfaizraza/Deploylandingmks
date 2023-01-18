@@ -9,7 +9,7 @@ import "../Components/CSS/pagesCSS/owner.css";
 import Cookies from "js-cookie";
 import Moment from "react-moment";
 import { useTranslation } from "react-i18next";
-
+import DefaultImg from "../assets/default.png"
 
 
 
@@ -27,7 +27,7 @@ const JockeyDetail = (data) => {
         <div className="RaceDetailCard">
           <div className="horseheader1">
             <div className="horseshirt">
-              <img src={data.data.image} alt="" className="horseshirtimage" style={{
+              <img src={data.data.image ? data.data.image : DefaultImg} alt="" className="horseshirtimage" style={{
                 height: '90px'
               }} />
 
@@ -102,7 +102,7 @@ const JockeyDetail = (data) => {
               <div className="horsedetailimage">
                 {
                   data.data.JockeyNationalityData ? <>
-                    <img src={data.data.JockeyNationalityData.image} alt="" />
+                    <img src={data.data.JockeyNationalityData.image ? data.data.JockeyNationalityData.image : DefaultImg} alt="" />
 
                   </> : <>N/A</>
                 }

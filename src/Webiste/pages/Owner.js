@@ -17,6 +17,7 @@ import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 import OwnerDetail from "./OwnerDetail";
 import { useTranslation } from "react-i18next";
+import DefaultImg from "../assets/default.png"
 
 const Owner = () => {
   const { t } = useTranslation();
@@ -98,7 +99,7 @@ const Owner = () => {
                     <td> {item.RegistrationDate} </td>
                     <td>{cookiedata === "en" ? (item.OwnerDataNationalityData.NameEn ? item.OwnerDataNationalityData.NameEn : "N/A") : (item.OwnerDataNationalityData.NameAr ? item.OwnerDataNationalityData.NameAr : "N/A")}</td>
                     <td>
-                      <img src={item.image} alt="" style={{
+                      <img src={item.image ? item.image : DefaultImg} alt="" style={{
                         height: '30px',
                         width: '30px'
                       }} />

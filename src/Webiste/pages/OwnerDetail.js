@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Moment from "react-moment";
-import Defaultimg from "../assets/Frame.png"
+import Defaultimg from "../assets/default.png"
 import { useTranslation } from "react-i18next";
 
 const OwnerDetail = (data) => {

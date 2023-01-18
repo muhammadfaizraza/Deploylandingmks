@@ -16,6 +16,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import DefaulImg from "../../../assets/default.png";
 
 const Match = () => {
   const navigate = useNavigate();
@@ -70,9 +71,7 @@ const Match = () => {
         style={{
           margin: "100px",
         }}
-      >
-        
-      </h2>
+      ></h2>
     );
   }
 
@@ -126,12 +125,9 @@ const Match = () => {
                             </h2>
                             <img
                               src={
-                                item.NationalityDataRaceCourse ===
-                                null ? (
-                                  <>N/A</>
-                                ) : (
-                                  item.NationalityDataRaceCourse.image
-                                )
+                                item.NationalityDataRaceCourse.image
+                                  ? item.NationalityDataRaceCourse.image
+                                  : DefaulImg
                               }
                               alt=""
                               style={{
@@ -234,12 +230,9 @@ const Match = () => {
                             </h2>
                             <img
                               src={
-                                item.NationalityDataRaceCourse.image ===
-                                null ? (
-                                  <>N/A</>
-                                ) : (
-                                  item.NationalityDataRaceCourse.image
-                                )
+                                item.NationalityDataRaceCourse.image
+                                  ? item.NationalityDataRaceCourse.image
+                                  : DefaulImg
                               }
                               alt=""
                               style={{
