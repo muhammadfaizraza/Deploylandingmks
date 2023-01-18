@@ -43,10 +43,16 @@ const Login = () => {
   }, [navigate, userInfo])
 
   const submitForm = (data) => {
-    dispatch(userLogin(data))  
-    toast(error || customError)
+    
+     dispatch(userLogin(data))
+    if (error) {
+       toast(error)
+    } else {
+      toast('Email or password is incorrect')
+    }
   }
-
+  
+console.log(error)
   useEffect(() => {
     if (userInfo) {
       window.location.reload(); 

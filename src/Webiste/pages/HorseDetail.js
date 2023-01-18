@@ -56,7 +56,6 @@ const HorseDetail = (data) => {
         headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
-      console.log(res, 'data')
       toast('Tracked Success')
 
     } catch (error) {

@@ -147,7 +147,6 @@ const RaceCardDetail = () => {
     }
   };
 
-
   const pickClick = async (event, compid, horseid) => {
     event.preventDefault();
     try {
@@ -185,7 +184,6 @@ const RaceCardDetail = () => {
     return cb();
   };
 
-  console.log(singlerace, 'single')
   return (
 
     <>
