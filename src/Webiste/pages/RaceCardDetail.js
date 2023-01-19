@@ -2,24 +2,18 @@ import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import flag from "../assets/United Arab Emirates.png";
 import Defaultimg from "../assets/Frame.png"
-
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-
 import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
-
-import Zoom from "react-reveal/Zoom";
+import Zoom from "react-reveal/Zoom"
 import { Modal } from "react-bootstrap";
 import Competition from "../Components/Competition/Competition";
 import img from "../assets/image 10.png";
 import img1 from "../assets/image 10 (1).png";
-
 import Summary from "../Components/RaceCard/Summary";
 import Draw from "../Components/RaceCard/Draw";
 import Predictor from "../Components/RaceCard/Predictor";
@@ -33,7 +27,9 @@ import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Lottie } from "lottie-react";
-import Animate from "../assets/loader.json"
+import Animate from "../assets/loader.json";
+
+
 const RaceCardDetail = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -187,7 +183,6 @@ const RaceCardDetail = () => {
   return (
 
     <>
-      {/* <Layout /> */}
       <Zoom>
         <div className="RaceCardDetail">
           {singlerace.length !== 0 ? (
@@ -951,7 +946,9 @@ const RaceCardDetail = () => {
                                             <div className="mycardclass1">
                                               <div className="BodyNew">
                                                 <table className="customers">
-                                                  <tr>
+                                                <thead>
+                      
+                                                <tr>
                                                     <th>Date</th>
                                                     <th>Cr</th>
                                                     <th>Dist</th>
@@ -968,10 +965,12 @@ const RaceCardDetail = () => {
                                                     <th>Kgs</th>
                                                     <th>Draw</th>
                                                   </tr>
+                    </thead>
                                                 </table>
                                               </div>
                                               <div className="BodyNew1">
                                                 <table className="customers2">
+                                                  <thead>
                                                   <tr>
                                                     <th>12 Oct 22</th>
                                                     <th>Wol (T)</th>
@@ -994,6 +993,7 @@ const RaceCardDetail = () => {
                                                       />
                                                     </th>
                                                   </tr>
+                                                  </thead>
                                                 </table>
                                               </div>
                                               <div className="BodyNew2">

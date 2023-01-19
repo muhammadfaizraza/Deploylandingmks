@@ -5,17 +5,15 @@ import { fetchCourse, STATUSES } from "../../../redux/getReducer/getRaceCourse";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-import Calendar1 from "./Calendar";
 import { BsCalendarDate } from "react-icons/bs";
-import flag from "../../../assets/United Arab Emirates.png";
 import { useParams, useNavigate } from "react-router-dom";
 import { Bounce, Fade } from "react-reveal";
 import { useTranslation } from "react-i18next";
-import Moment from "react-moment";
 import Cookies from "js-cookie";
 import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import moment from 'moment';
 
 const Match = () => {
   const navigate = useNavigate();
@@ -38,25 +36,27 @@ const Match = () => {
     });
   }
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const res = await axios.post(
-  //         `https://sumairroudani.com/api/v1/GetRaceWithStartTime`,
-  //         { StartTime: '10:00' }
-  //       );
-  //       setDayData(res.data.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   })();
-  // }, [value]);
+  const datedata = moment.utc(value).format('YYYY-MM-DD')
+
+
+  console.log(datedata,'datedata 1')
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get(
+          `${window.env.API_URL}/GetRaceWithStartTime/${datedata}`,
+        );
+        setDayData(res.data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [value]);
 
   // const submit = async (event) => {
-
   //   event.preventDefault();
   //   try {
-  //     await axios.post(`https://sumairroudani.com/api/v1/GetRaceWithDayntime`, value);
+  //     await axios.post(`${window.env.API_URL}/GetRaceWithStartTime`, value);
 
   //   } catch (error) {
   //     const err = error.response.data.message;

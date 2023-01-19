@@ -13,6 +13,7 @@ import Moment from "react-moment"
 import Animate from "../../../assets/loader.json"
 import Lottie from 'lottie-react';
 import { useTranslation } from "react-i18next";
+import moment from 'moment';
 
 
 const RaceCardSlider = () => {
@@ -25,23 +26,25 @@ const RaceCardSlider = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  // const timerace = racecard.map((item) => item.DayNTime);
+  const timerace = racecard.map((item) => item.Day);
   const {t} = useTranslation();
-  const timerace = 11
-  const deadline = timerace;
-  // const getTime = () => {
-  //   const time = Date.parse(deadline) - Date.now();
+  // const deadline = "12, 31, 2023";
+  console.log(timerace[0],'dasdasda')
+  const datedata = moment.utc(timerace[0]).format('MM, DD,YYYY')
+  console.log(datedata,'datedata')
 
-  //   setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
-  //   setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-  //   setMinutes(Math.floor((time / 1000 / 60) % 60));
-  //   setSeconds(Math.floor((time / 1000) % 60));
-  // };
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => getTime(deadline), 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  const getTime = () => {
+    const time = Date.parse(datedata) - Date.now();
+    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+    setMinutes(Math.floor((time / 1000 / 60) % 60));
+    setSeconds(Math.floor((time / 1000) % 60));
+  };
+  
+  useEffect(() => {
+    const interval = setInterval(() => getTime(datedata), 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     dispatch(fetchRace());
@@ -55,6 +58,7 @@ const RaceCardSlider = () => {
     window.innerWidth > 440 ? setUserIsDesktop(true) : setUserIsDesktop(false);
   }, [userIsDesktop]);
 
+  
   function HandleJockey(id){
     if( userIsDesktop === true) {
       navigate("/racedetail", {
@@ -192,7 +196,7 @@ const RaceCardSlider = () => {
                         )}m
                       </p>
                       </div>
-                      <p className="racetime">{item.StartTime} m</p>
+                      <p className="racetime">{minutes} m</p>
                     </span>
                     <span className="singleracecardbtn">
                       <button>FORM</button>

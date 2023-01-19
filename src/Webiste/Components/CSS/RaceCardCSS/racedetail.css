@@ -353,7 +353,7 @@ span.innerpredictdata {
     text-align: left;
     background-color: transparent;
     color: #000;
-    width: 15.5%;
+    width: 7%;
 }
 
 .customers2 {
@@ -372,11 +372,11 @@ span.innerpredictdata {
 
 
 .customers2 th {
-    padding-top: 18px;
+    padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     color: #fff;
-    width: 12.7%;
+    width: 7%;
     font-weight: 300;
     font-size: 12px;
     line-height: 15px;
