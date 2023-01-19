@@ -17,6 +17,7 @@ import { Modal } from "react-bootstrap";
 import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 import { useTranslation } from "react-i18next";
+import Defaultimg from "../assets/default.png"
 
 const Trainer = () => {
   const { t } = useTranslation()
@@ -122,7 +123,7 @@ const Trainer = () => {
                     <td>{cookiedata === "en" ? (item.JockeyNationalityData.NameEn ? item.JockeyNationalityData.NameEn : "N/A") : (item.JockeyNationalityData.NameAr ? item.JockeyNationalityData.NameAr : "N/A")} </td>
 
                     <td>
-                      <img src={item.image} alt="" style={{
+                      <img src={item.image ? item.image : Defaultimg} alt="" style={{
                         height: '30px',
                         width: '30px'
                       }} />

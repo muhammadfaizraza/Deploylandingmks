@@ -12,7 +12,8 @@ import Cookies from "js-cookie";
 import Moment from "react-moment";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import Defaultimg from "../assets/Frame.png"
+import Defaultimg from "../assets/default.png"
+
 import { useTranslation } from 'react-i18next';
 const TrainerDetail = (data) => {
 

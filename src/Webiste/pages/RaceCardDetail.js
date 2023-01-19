@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import flag from "../assets/United Arab Emirates.png";
 import Defaultimg from "../assets/Frame.png"
+
+
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
@@ -205,6 +208,8 @@ const RaceCardDetail = () => {
                         )}
                       </p>
                       <img src={flag} alt="" />
+
+
                     </span>
                     <p className="itemtime">
                       <Moment format="D MMM YYYY" withTitle>
@@ -260,13 +265,8 @@ const RaceCardDetail = () => {
                         <img
                           className="sponsor"
                           src={
-                            singlerace.SponsorData === null ? (
-                              <></>
-                            ) : (
-                              singlerace.SponsorData.image
-                            )
-                          }
-                          alt=""
+                            singlerace.SponsorData.image ? singlerace.SponsorData.image : Defaultimg
+                          } alt=""
                         />
                       </span>
                       <span className="itemraces_center">
