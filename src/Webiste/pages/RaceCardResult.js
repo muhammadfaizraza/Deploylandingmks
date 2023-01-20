@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import flag from "../assets/United Arab Emirates.png";
-import Defaultimg from "../assets/Frame.png";
-
-
-
+import Defaultimg from "../assets/Frame.png"
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-import { useLocation, useNavigate ,useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
-import Zoom from "react-reveal/Zoom";
+import Zoom from "react-reveal/Zoom"
 import { Modal } from "react-bootstrap";
 import Competition from "../Components/Competition/Competition";
 import img from "../assets/image 10.png";
@@ -31,20 +28,14 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { Lottie } from "lottie-react";
 import Animate from "../assets/loader.json";
-import Policy from '../pages/Test';
 
 
-
-const RaceCardDetail = () => {
+const RaceCardResult = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { state } = useLocation();
-  const navigate = useNavigate();
-
-
-
+  // const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
-  console.log(state, 'state id 11');
+
   const [Disable, setDisable] = useState(false);
   const [CastData, setCastData] = useState([]);
 
@@ -52,25 +43,15 @@ const RaceCardDetail = () => {
   const [showtri, setShowtri] = useState(false);
   const [PositionNumber, setPositionNumber] = useState('1');
 
-  
-  function DataOne(){
-    if (!state) {
-      return (
-        window.location.href = "http://localhost:3000/"
-      );
-    }
-  }
-  DataOne();
   const handleClose = () => setShow(false);
 
-  const handleShowTri = async (data) => {
-    await setShowtri(true);
-  };
-  const { id } = state;
+
+
+  const  id  = 'ae98c424-f512-4e11-a5f8-acd8de29777f';
 
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
-  }, [dispatch]);
+  }, []);
 
   if (status === STATUSES.LOADING) {
 
@@ -78,7 +59,7 @@ const RaceCardDetail = () => {
       <div>
         <Lottie animationData={Animate} loop={true} className="load" />
       </div>
-    </div>;
+    </div>
 
   }
 
@@ -100,83 +81,14 @@ const RaceCardDetail = () => {
     fontSize: "12px",
     color: "rgba(0, 0, 0, 0.5)",
     paddingLeft: "3px",
+
+
   };
 
-  const btnNew = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "13px 10px",
-    gap: "10px",
-    width: "112px",
-    height: "24px",
-    background: "#19469D",
-    borderRadius: "10px",
-    border: "none",
-    color: "#fff",
-    marginLeft: "10px",
-  };
-  const btnNew1 = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "13px 10px",
-    gap: "10px",
-    width: "112px",
-    height: "24px",
-    background: "#FF0000",
-    borderRadius: "10px",
-    border: "none",
-    color: "#fff",
-  };
+
 
   const cookiedata = Cookies.get("i18next");
 
-  const castClick = async (event, horseid, compid) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(
-        `/voting/${compid}/${id}/${PositionNumber}`,
-        { Horse: horseid }, {
-        withCredentials: true,
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      }
-      );
-      const msgdata = response.data.data.message;
-      toast(msgdata);
-      setDisable(false);
-
-    } catch (error) {
-      const err = error.response.data.message;
-      toast(err);
-      setDisable(false);
-
-    }
-  };
-
-  const pickClick = async (event, compid, horseid) => {
-    event.preventDefault();
-    try {
-      setDisable(true);
-      const response = await axios.post(
-        `/voting/${compid}/${id}/${PositionNumber}`,
-        { Horse: horseid }, {
-        withCredentials: true,
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      }
-      );
-      const msgdata = response.data.data.message;
-      toast(msgdata);
-      setDisable(false);
-
-    } catch (error) {
-      const err = error.response.data.message;
-      toast(err);
-      setDisable(false);
-    }
-  };
 
 
   let menuItems = [];
@@ -187,11 +99,6 @@ const RaceCardDetail = () => {
       </form>
     );
   }
-
-
-  const runCallback = (cb) => {
-    return cb();
-  };
 
   return (
 
@@ -407,22 +314,7 @@ const RaceCardDetail = () => {
                           gap: "10px",
                         }}
                       >
-                        {/* <button
-                          style={btnNew}
-                          onClick={() =>
-                            handleShowTri(
-                              singlerace.CompetitionRacesPointsModelData
-                            )
-                          }
-                        >
-                         {t("Tri Cast")}
-                        </button>
-                        <button
-                          style={btnNew1}
-                         
-                        >
-                         {t("Pick Six")}
-                        </button> */}
+                   
                       </div>
                     ) : (
                       <></>
@@ -870,139 +762,59 @@ const RaceCardDetail = () => {
                                                 <p>AW :47 (2 - 8 - 4) </p>
                                               </div>
                                             </div>
-                                            <div
-                                              style={{
-                                                display: "flex",
-                                              }}
-                                            >
-                                              {singlerace
-                                                .CompetitionRacesPointsModelData
-                                                .length === 0 ? (
-                                                <></>
-                                              ) : (
-                                                <>
-                                                  {singlerace
-                                                    .CompetitionRacesPointsModelData[0]
-                                                    .CompetitionCategory === 'pick' ? (
-                                                    <button style={btnNew1} onClick={(event) => pickClick(event, singlerace
-                                                      .CompetitionRacesPointsModelData[0]._id, data._id)} disabled={Disable}>
-
-
-                                                      {
-                                                        singlerace
-                                                          .CompetitionRacesPointsModelData[0]
-                                                          .CompetitionCategory
-                                                      }
-                                                    </button>
-                                                  ) : (
-                                                    <>
-                                                      {
-                                                        !showtri ? <button style={btnNew} onClick={() =>
-                                                          handleShowTri()
-                                                        }>
-                                                          {
-                                                            singlerace
-                                                              .CompetitionRacesPointsModelData[0]
-                                                              .CompetitionCategory
-                                                          }
-
-                                                        </button> : <></>
-                                                      }
-                                                      {
-                                                        showtri ?
-                                                          <span >
-                                                            <form className="CastCompetitionCategory" onClick={castClick}>
-                                                              {runCallback(() => {
-                                                                const row = [];
-                                                                const total = singlerace
-                                                                  .CompetitionRacesPointsModelData[0]
-                                                                  .CategoryCount;
-                                                                for (var i = 0; i < total; i++) {
-                                                                  row.push(<input type="radio" name={t("cast")} value={i + 1}
-                                                                    onChange={(e) => setPositionNumber(e.target.value)}
-
-                                                                    onClick={(event) =>
-                                                                      castClick(event, data._id, singlerace
-                                                                        .CompetitionRacesPointsModelData[0]
-                                                                        ._id)} />
-                                                                  );
-                                                                }
-                                                                return row;
-                                                              })}
-                                                            </form>
-                                                          </span>
-                                                          : <></>
-                                                      }
-
-                                                    </>
-
-                                                  )}
-                                                </>
-                                              )}
-
-                                              {/* <button
-                                              style={btnNew1}
-                                              onClick={() =>
-                                                handleShow(
-                                                  singlerace.CompetitionRacesPointsModelData
-                                                )
-                                              }
-                                            >
-                                            {t("Pick Six")}
-                                            </button> */}
-                                            </div>
+                                            
                                           </Accordion.Header>
                                           <Accordion.Body className="AccordionBody11">
                                             <div className="mycardclass1">
                                               <div className="BodyNew">
                                                 <table className="customers">
-                                                  <thead>
-
-                                                    <tr>
-                                                      <th>Date</th>
-                                                      <th>Cr</th>
-                                                      <th>Dist</th>
-                                                      <th>TC</th>
-                                                      <th>Type</th>
-                                                      <th>Dts</th>
-                                                      <th>time</th>
-                                                      <th>Jockey</th>
-                                                      <th>Wgt</th>
-                                                      <th>FP</th>
-                                                      <th>Les</th>
-                                                      <th>RS</th>
-                                                      <th>BtBy</th>
-                                                      <th>Kgs</th>
-                                                      <th>Draw</th>
-                                                    </tr>
-                                                  </thead>
+                                                <thead>
+                      
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Cr</th>
+                                                    <th>Dist</th>
+                                                    <th>TC</th>
+                                                    <th>Type</th>
+                                                    <th>Dts</th>
+                                                    <th>time</th>
+                                                    <th>Jockey</th>
+                                                    <th>Wgt</th>
+                                                    <th>FP</th>
+                                                    <th>Les</th>
+                                                    <th>RS</th>
+                                                    <th>BtBy</th>
+                                                    <th>Kgs</th>
+                                                    <th>Draw</th>
+                                                  </tr>
+                    </thead>
                                                 </table>
                                               </div>
                                               <div className="BodyNew1">
                                                 <table className="customers2">
                                                   <thead>
-                                                    <tr>
-                                                      <th>12 Oct 22</th>
-                                                      <th>Wol (T)</th>
-                                                      <th>2400</th>
-                                                      <th>D</th>
-                                                      <th>S</th>
-                                                      <th>Novice</th>
-                                                      <th>02:05:55</th>
-                                                      <th>Miss </th>
-                                                      <th>58</th>
-                                                      <th>6</th>
-                                                      <th>16.25</th>
-                                                      <th>5</th>
-                                                      <th>67</th>
-                                                      <th>5</th>
-                                                      <th>
-                                                        <img
-                                                          src={arrow1}
-                                                          alt=""
-                                                        />
-                                                      </th>
-                                                    </tr>
+                                                  <tr>
+                                                    <th>12 Oct 22</th>
+                                                    <th>Wol (T)</th>
+                                                    <th>2400</th>
+                                                    <th>D</th>
+                                                    <th>S</th>
+                                                    <th>Novice</th>
+                                                    <th>02:05:55</th>
+                                                    <th>Miss </th>
+                                                    <th>58</th>
+                                                    <th>6</th>
+                                                    <th>16.25</th>
+                                                    <th>5</th>
+                                                    <th>67</th>
+                                                    <th>5</th>
+                                                    <th>
+                                                      <img
+                                                        src={arrow1}
+                                                        alt=""
+                                                      />
+                                                    </th>
+                                                  </tr>
                                                   </thead>
                                                 </table>
                                               </div>
@@ -1158,4 +970,4 @@ const RaceCardDetail = () => {
   );
 };
 
-export default RaceCardDetail;
+export default RaceCardResult;

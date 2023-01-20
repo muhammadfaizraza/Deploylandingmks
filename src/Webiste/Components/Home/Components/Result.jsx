@@ -15,8 +15,6 @@ const Result = () => {
   const { data: raceresult, status } = useSelector((state) => state.raceresult);
   const cookiedata = Cookies.get("i18next");
 
-  console.log(raceresult, "raceresult data");
-  // console.log(raceresult.length,'raceresult lenght')
 
   useEffect(() => {
     dispatch(fetchraceresult());

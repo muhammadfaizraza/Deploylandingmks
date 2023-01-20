@@ -43,6 +43,7 @@ import TermsAndCondition from './Webiste/pages/TermsAndCondition';
 import TestPedigree from './Webiste/pages/Test';
 import Owner from './Webiste/pages/Owner';
 import Moment from 'react-moment';
+import NotFound from './Webiste/pages/NotFound';
 
 
 function App() {
@@ -69,7 +70,7 @@ function App() {
         <Route path='/about'  element={  <About /> } />
         <Route path='/policies'  element={  <Policy /> } />
         <Route path='/termscondition'  element={  <TermsAndCondition /> } />
-        <Route path='/TermsAndCondition'  element={  <Result /> } />
+        <Route path='/result'  element={  <Result /> } />
         <Route path='/competition'  element={  <Competition /> } />
         <Route path='/sponsor'  element={  <Sponsor /> } />
         <Route path='/statistics'  element={  <Stats /> } />
@@ -85,6 +86,7 @@ function App() {
         <Route path='/blogdetails'  element={  <BlogDetails /> } />
         <Route path='/competitionmodal'  element={  <CompetitionModal /> } />
         <Route path='/testpedigree'  element={  <TestPedigree /> } />
+        <Route path="*" element={<NotFound />} />
 
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>

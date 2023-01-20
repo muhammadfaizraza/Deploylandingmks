@@ -192,8 +192,12 @@ gap: 25px;
     line-height: 11px;
     color: rgba(0, 0, 0, 0.5);
 }
-.mycardclass1{
+.mycardclass1 {
     background-color: #d9d6d6;
+    width: 104.5%;
+    margin: initial;
+    /* height: 200px; */
+    border-radius: 25px;
 }
 .BodyNew{
     height: 55px;

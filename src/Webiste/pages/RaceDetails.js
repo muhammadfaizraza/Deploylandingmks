@@ -52,6 +52,14 @@ const RaceDetails = () => {
     await setShowtri(true);
   };
 
+  function DataOne(){
+    if (!state) {
+      return (
+        window.location.href = "http://localhost:3000/"
+      );
+    }
+  }
+  DataOne();
   const { id } = state;
   console.log(id, 'detail id')
 
