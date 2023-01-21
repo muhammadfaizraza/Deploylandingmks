@@ -58,7 +58,6 @@ const RaceDetail = (modaldata) => {
         color: "#fff",
       };
       const cookiedata = Cookies.get('i18next')
-      console.log(modaldata,'modaldata.data')
   return (
     <div className="RaceCardDetail">
           {modaldata.length !== 0 ? (

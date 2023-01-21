@@ -982,6 +982,7 @@ const RaceCardDetail = () => {
                                                               onClick={
                                                                 castClick
                                                               }
+                                                              id={index}
                                                             >
                                                               {runCallback(
                                                                 () => {
