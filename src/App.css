@@ -26,6 +26,10 @@ body::-webkit-scrollbar-thumb {
   width: 0.1em;
 }
 
+.LeaderData::-webkit-scrollbar {
+  width: 0.1em;
+}
+
 .newpost::-webkit-scrollbar {
   width: 0.1em;
 }

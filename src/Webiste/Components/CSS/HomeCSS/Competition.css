@@ -83,12 +83,13 @@
     max-width: 630px;
     margin-bottom: 25px;
 }
-.LeaderData{
+.LeaderData {
     width: 100%;
     margin: auto;
+    height: -moz-fit-content;
     height: fit-content;
     overflow: auto;
-    /* height: 700px; */
+    height: 550px;
     margin-bottom: 25px;
 }
 .accordion-item:last-of-type .accordion-button.collapsed {
