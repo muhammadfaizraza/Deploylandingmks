@@ -1,4 +1,3 @@
-// import { RaceCardData } from "../../data/data";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 const TrackRecord = () => {

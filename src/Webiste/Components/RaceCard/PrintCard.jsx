@@ -113,7 +113,7 @@ const Card = () => {
         <Accordion defaultActiveKey="0">
           <div className="RaceAndHorseModelDataCSSFlex">
             <>
-              {singlerace.JockeyModels.length ===
+              {singlerace.JockeyModels.length !==
               singlerace.RaceAndHorseModelData.length ? (
                 <>N/A</>
               ) : (
@@ -124,7 +124,7 @@ const Card = () => {
                     singlerace.RaceAndHorseModelData.map((data, index) => {
                       return (
                         <div className="RaceAndHorseModelDataCSS">
-                          <Accordion.Item eventKey={index}>
+                          <Accordion.Item eventKey="0">
                             <Accordion.Header>
                               <div className="cardracesAccordion">
                                 <div className="cardraces1">
@@ -420,116 +420,7 @@ const Card = () => {
                                   <p>AW :47 (2 - 8 - 4) </p>
                                 </div>
                               </div>
-                              <div
-                                style={{
-                                  display: "flex",
-                                }}
-                              >
-                                {singlerace.CompetitionRacesPointsModelData
-                                  .length === 0 ? (
-                                  <></>
-                                ) : (
-                                  <>
-                                    {singlerace
-                                      .CompetitionRacesPointsModelData[0]
-                                      .CompetitionCategory === "pick" ? (
-                                      <button
-                                        style={btnNew1}
-                                        onClick={(event) =>
-                                          pickClick(
-                                            event,
-                                            singlerace
-                                              .CompetitionRacesPointsModelData[0]
-                                              ._id,
-                                            data._id
-                                          )
-                                        }
-                                        disabled={Disable}
-                                      >
-                                        {
-                                          singlerace
-                                            .CompetitionRacesPointsModelData[0]
-                                            .CompetitionCategory
-                                        }
-                                      </button>
-                                    ) : (
-                                      <>
-                                        {!showtri ? (
-                                          <button
-                                            style={btnNew}
-                                            onClick={() => handleShowTri()}
-                                          >
-                                            {
-                                              singlerace
-                                                .CompetitionRacesPointsModelData[0]
-                                                .CompetitionCategory
-                                            }
-                                          </button>
-                                        ) : (
-                                          <></>
-                                        )}
-                                        {showtri ? (
-                                          <span>
-                                            <form
-                                              className="CastCompetitionCategory"
-                                              onClick={castClick}
-                                            >
-                                              {runCallback(() => {
-                                                const row = [];
-                                                const total =
-                                                  singlerace
-                                                    .CompetitionRacesPointsModelData[0]
-                                                    .CategoryCount;
-                                                for (
-                                                  var i = 0;
-                                                  i < total;
-                                                  i++
-                                                ) {
-                                                  row.push(
-                                                    <input
-                                                      type="radio"
-                                                      name="cast"
-                                                      value={i + 1}
-                                                      onChange={(e) =>
-                                                        setPositionNumber(
-                                                          e.target.value
-                                                        )
-                                                      }
-                                                      onClick={(event) =>
-                                                        castClick(
-                                                          event,
-                                                          data._id,
-                                                          singlerace
-                                                            .CompetitionRacesPointsModelData[0]
-                                                            ._id
-                                                        )
-                                                      }
-                                                    />
-                                                  );
-                                                }
-                                                return row;
-                                              })}
-                                            </form>
-                                          </span>
-                                        ) : (
-                                          <></>
-                                        )}
-                                      </>
-                                    )}
-                                  </>
-                                )}
-
-                                {/* <button
-                                              style={btnNew1}
-                                              onClick={() =>
-                                                handleShow(
-                                                  singlerace.CompetitionRacesPointsModelData
-                                                )
-                                              }
-                                            >
-                                            {t("Pick Six")}
-                                            </button> */}
-                              </div>
+                              
                             </Accordion.Header>
                             <Accordion.Body className="AccordionBody11">
                               <div className="mycardclass1">

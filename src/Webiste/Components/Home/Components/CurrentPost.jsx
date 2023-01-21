@@ -37,22 +37,20 @@ const Match = () => {
     });
   }
 
-  const datedata = moment.utc(value).format('YYYY-MM-DD')
+  // const datedata = moment.utc(value).format('YYYY-MM-DD')
 
-
-  console.log(datedata,'datedata 1')
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.get(
-          `${window.env.API_URL}/GetRaceWithStartTime/${datedata}`,
-        );
-        setDayData(res.data.data);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, [value]);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const res = await axios.get(
+  //         `${window.env.API_URL}/GetRaceWithStartTime/${datedata}`,
+  //       );
+  //       setDayData(res.data.data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   })();
+  // }, [value]);
 
   // const submit = async (event) => {
   //   event.preventDefault();
@@ -87,7 +85,6 @@ const Match = () => {
     );
   }
   const cookiedata = Cookies.get("i18next");
-  console.log(DayData, "DayData");
   return (
     <div className="match">
       {racecourse === undefined ? (

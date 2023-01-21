@@ -620,3 +620,26 @@ strong {
     height: 19px;
     margin: 0 5px;
 }
+
+.ShowPreviousHistory{
+    border: none !important;
+    /* border-bottom: 1px solid black !important; */
+    margin: auto;
+    background: transparent;
+    width: 100%;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 9px;
+line-height: 11px;
+/* identical to box height */
+
+text-decoration-line: underline;
+
+color: rgba(0, 0, 0, 0.5);
+}
+
+.RaceAndHorseModelDataCSS .card {
+    border-radius: 15px;
+    border: none;
+}

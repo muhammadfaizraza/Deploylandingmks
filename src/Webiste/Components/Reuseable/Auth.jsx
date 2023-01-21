@@ -18,8 +18,7 @@ const Auth = () => {
   useEffect(() => {
     if (userInfo === null) {
       dispatch(getUserDetails());
-    }
-   
+    } 
   }, [userInfo, dispatch]);
 
   const handleLogout = () => {
@@ -28,9 +27,7 @@ const Auth = () => {
   }
   return (
     <>
- 
-     
-      <div className="cta">
+    <div className="cta">
         {userInfo || token ? (
                <div className="auth">
                <div className="userprofile">

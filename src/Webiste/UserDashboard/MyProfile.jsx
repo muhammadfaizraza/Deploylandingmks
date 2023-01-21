@@ -102,7 +102,7 @@ const MyProfile = () => {
     }
   };
   const date = new Date(state1.DOB);
-    console.log(date,'dadadada')
+    console.log(date.toDateString(),'dadadada')
   //  if(password !== confirmpassword){
   //   setError('Password Should be matched')
   //  }
@@ -239,8 +239,9 @@ const MyProfile = () => {
               >
                 <Form.Control
                   type="text"
-                  value={date}
+                  value={date.toDateString()}
                   placeholder="User Name"
+                  readOnly
                 />
               </FloatingLabel>
 

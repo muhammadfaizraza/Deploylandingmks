@@ -1,16 +1,16 @@
 import { Chart } from "react-google-charts";
 export const data = [
-  ["Year", "Votes", "Expenses", "Profit"],
-  ["2014", 1000, 400, 200],
-  ["2015", 1170, 460, 250],
-  ["2016", 660, 1120, 300],
-  ["2017", 1030, 540, 350],
+  ["Year", "Gate", "Wiiner"],
+  ["1 32", 1000, 400],
+  ["5 56", 1170, 460],
+  ["7    42", 660, 1120],
+  ["9 38", 1030, 540],
 ];
 
 export const options = {
   chart: {
-    title: "Horse Performance",
-    subtitle: "Votes, Expenses, and Profit: 2014-2017",
+    title: "Horse Draw",
+    subtitle: "Gate, Wiiner",
   },
 };
 

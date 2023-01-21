@@ -22,9 +22,6 @@ const Competition = () => {
   const { data: competition, status } = useSelector(
     (state) => state.competition
   );
-
-
-  console.log(competition, "competition");
   useEffect(() => {
     dispatch(fetchcompetition());
   }, []);
@@ -55,8 +52,6 @@ const Competition = () => {
       },
     });
   }
-
-  console.log(competition,'competition')
   return (
     <>
       <div className="Competition">

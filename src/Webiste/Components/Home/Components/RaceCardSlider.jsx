@@ -22,29 +22,29 @@ const RaceCardSlider = () => {
  
   const { data: racecard, status } = useSelector((state) => state.racecard);
 
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const timerace = racecard.map((item) => item.Day);
+  // const [days, setDays] = useState(0);
+  // const [hours, setHours] = useState(0);
+  // const [minutes, setMinutes] = useState(0);
+  // const [seconds, setSeconds] = useState(0);
+  // const timerace = racecard.map((item) => item.Day);
   const {t} = useTranslation();
   // const deadline = "12, 31, 2023";
-  console.log(timerace[0],'dasdasda')
-  const datedata = moment.utc(timerace[0]).format('MM, DD,YYYY')
-  console.log(datedata,'datedata')
+  // console.log(timerace[0],'dasdasda')
+  // const datedata = moment.utc(timerace[0]).format('MM, DD,YYYY')
+  // console.log(datedata,'datedata')
 
-  const getTime = () => {
-    const time = Date.parse(datedata) - Date.now();
-    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
-    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-    setMinutes(Math.floor((time / 1000 / 60) % 60));
-    setSeconds(Math.floor((time / 1000) % 60));
-  };
+  // const getTime = () => {
+  //   const time = Date.parse(datedata) - Date.now();
+  //   setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+  //   setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+  //   setMinutes(Math.floor((time / 1000 / 60) % 60));
+  //   setSeconds(Math.floor((time / 1000) % 60));
+  // };
   
-  useEffect(() => {
-    const interval = setInterval(() => getTime(datedata), 30000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => getTime(datedata), 30000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   useEffect(() => {
     dispatch(fetchRace());
@@ -196,7 +196,7 @@ const RaceCardSlider = () => {
                         )}m
                       </p>
                       </div>
-                      <p className="racetime">{minutes} m</p>
+                      <p className="racetime">{item.StartTime} m</p>
                     </span>
                     <span className="singleracecardbtn">
                       <button>FORM</button>
