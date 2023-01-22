@@ -1083,7 +1083,8 @@ const RaceCardDetail = () => {
                                                       </thead>
                                                     </table>
                                                   </div>
-                                                  <div className="BodyNew1">
+                                                  {
+                                                    <div className="BodyNew1">
                                                     <table className="customers2">
                                                       <thead>
                                                         <tr>
@@ -1099,7 +1100,7 @@ const RaceCardDetail = () => {
                                                           <th>6</th>
                                                           <th>16.25</th>
                                                           <th>5</th>
-                                                          <th>67</th>
+                                                          <th>{data.BeatenByData === undefined ? <></> : data.BeatenByData.CumulativeDistance}</th>
                                                           <th>5</th>
                                                           <th>
                                                             <img
@@ -1111,6 +1112,8 @@ const RaceCardDetail = () => {
                                                       </thead>
                                                     </table>
                                                   </div>
+                                                  }
+                                                  
                                                   <div className="BodyNew2">
                                                     <table className="customers2">
                                                       <tr>

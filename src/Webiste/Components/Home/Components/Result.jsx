@@ -95,7 +95,7 @@ const Result = () => {
                       <th>Place</th>
                       <th>Off Time </th>
                     </thead> */}
-                      {raceresult.RaceResultData.slice(0, 3).map(
+                      {/* {raceresult.RaceResultData.slice(0, 3).map(
                         (data, index) => {
                           return (
                             <tr key={data._id}>
@@ -117,7 +117,7 @@ const Result = () => {
                             </tr>
                           );
                         }
-                      )}
+                      )} */}
                     </table>
                   </div>
                 </div>
