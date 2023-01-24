@@ -58,10 +58,11 @@ const HorseDetail = (data) => {
       );
       toast('Tracked Success')
 
+      navigate('/tracker')
     } catch (error) {
-      console.log(error, 'error');
+      const err = error.response.data.message;
+      toast(err)
     }
-    navigate('/tracker')
   };
 
   const id = data.data._id
@@ -216,7 +217,7 @@ const HorseDetail = (data) => {
             style={btnNew1}
             onClick={() => handleTrack(data.data._id)}
           >
-            {t("Track Horse")}
+            {t("Track")}
           </button>
         </div>
       </div>

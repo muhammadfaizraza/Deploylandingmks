@@ -27,7 +27,8 @@ const TrainerDetail = (data) => {
     alignItems: "center",
     padding: "13px 10px",
     gap: "10px",
-
+    width: "112px",
+    height: "24px",
     background: "#FF0000",
     borderRadius: "10px",
     border: "none",
@@ -43,13 +44,12 @@ const TrainerDetail = (data) => {
         headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
-      console.log(res, 'data')
       toast('Tracked Success')
-
+      navigate('/tracker')
     } catch (error) {
-      console.log(error, 'error');
+      const err = error.response.data.message;
+      toast(err)
     }
-    navigate('/tracker')
   };
   return (
     <>
@@ -166,7 +166,7 @@ const TrainerDetail = (data) => {
                 style={btnNew1}
                 onClick={() => handleTrack(data.data._id)}
               >
-                Track Trainer
+                Track
               </button>
             </div>
           </div>

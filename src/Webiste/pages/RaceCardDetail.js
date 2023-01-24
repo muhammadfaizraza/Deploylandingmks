@@ -1084,13 +1084,14 @@ const RaceCardDetail = () => {
                                                     </table>
                                                   </div>
                                                   {
-                                                    singlerace.RaceResultData.map((item,index) => {
+                                                    data.HorseIDData.map((item,index) => {
                                                       return(
-                                                        <div className="BodyNew1">
+                                                        <div className="BodyNew1" key={index}>
                                                     <table className="customers2">
                                                       <thead>
                                                         <tr>
-                                                          <th><Moment format="D MMM YYYY" withTitle>{item.RaceResultData.Day}</Moment></th>
+                                                          {/* <th><Moment format="D MMM YYYY" withTitle></Moment></th> */}
+                                                          <th>Wol (T)</th>
                                                           <th>Wol (T)</th>
                                                           <th>2400</th>
                                                           <th>D</th>
