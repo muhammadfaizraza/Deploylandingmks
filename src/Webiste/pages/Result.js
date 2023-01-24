@@ -56,7 +56,7 @@ const Result = () => {
   // }
   // DataOne();
 
-  const id = "ae98c424-f512-4e11-a5f8-acd8de29777f";
+  const id = "6a046d55-75db-4083-8a1e-55aa4c2c6aec";
 
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));

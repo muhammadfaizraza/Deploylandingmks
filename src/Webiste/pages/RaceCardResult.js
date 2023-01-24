@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import flag from "../assets/United Arab Emirates.png";
-import Defaultimg from "../assets/Frame.png"
+import Defaultimg from "../assets/Frame.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
@@ -9,7 +9,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
 import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
-import Zoom from "react-reveal/Zoom"
+import Zoom from "react-reveal/Zoom";
 import { Modal } from "react-bootstrap";
 import Competition from "../Components/Competition/Competition";
 import img from "../assets/image 10.png";
@@ -41,16 +41,16 @@ const RaceCardResult = () => {
 
   const [show, setShow] = useState(false);
   const [showtri, setShowtri] = useState(false);
-  const [PositionNumber, setPositionNumber] = useState('1');
+  const [PositionNumber, setPositionNumber] = useState('6a046d55-75db-4083-8a1e-55aa4c2c6aec');
 
   const handleClose = () => setShow(false);
 
 
 
-  const  id  = 'ae98c424-f512-4e11-a5f8-acd8de29777f';
+  const id = '6a046d55-75db-4083-8a1e-55aa4c2c6aec';
 
   useEffect(() => {
-    dispatch(fetchsinglerace({ id }));
+    dispatch(fetchsinglerace({ PositionNumber }));
   }, []);
 
   if (status === STATUSES.LOADING) {
@@ -59,7 +59,7 @@ const RaceCardResult = () => {
       <div>
         <Lottie animationData={Animate} loop={true} className="load" />
       </div>
-    </div>
+    </div>;
 
   }
 
@@ -81,16 +81,9 @@ const RaceCardResult = () => {
     fontSize: "12px",
     color: "rgba(0, 0, 0, 0.5)",
     paddingLeft: "3px",
-
-
   };
 
-
-
   const cookiedata = Cookies.get("i18next");
-
-
-
   let menuItems = [];
   for (var i = 0; i < 4; i++) {
     menuItems.push(
@@ -314,7 +307,7 @@ const RaceCardResult = () => {
                           gap: "10px",
                         }}
                       >
-                   
+
                       </div>
                     ) : (
                       <></>
@@ -762,59 +755,59 @@ const RaceCardResult = () => {
                                                 <p>AW :47 (2 - 8 - 4) </p>
                                               </div>
                                             </div>
-                                            
+
                                           </Accordion.Header>
                                           <Accordion.Body className="AccordionBody11">
                                             <div className="mycardclass1">
                                               <div className="BodyNew">
                                                 <table className="customers">
-                                                <thead>
-                      
-                                                <tr>
-                                                    <th>Date</th>
-                                                    <th>Cr</th>
-                                                    <th>Dist</th>
-                                                    <th>TC</th>
-                                                    <th>Type</th>
-                                                    <th>Dts</th>
-                                                    <th>time</th>
-                                                    <th>Jockey</th>
-                                                    <th>Wgt</th>
-                                                    <th>FP</th>
-                                                    <th>Les</th>
-                                                    <th>RS</th>
-                                                    <th>BtBy</th>
-                                                    <th>Kgs</th>
-                                                    <th>Draw</th>
-                                                  </tr>
-                    </thead>
+                                                  <thead>
+
+                                                    <tr>
+                                                      <th>Date</th>
+                                                      <th>Cr</th>
+                                                      <th>Dist</th>
+                                                      <th>TC</th>
+                                                      <th>Type</th>
+                                                      <th>Dts</th>
+                                                      <th>time</th>
+                                                      <th>Jockey</th>
+                                                      <th>Wgt</th>
+                                                      <th>FP</th>
+                                                      <th>Les</th>
+                                                      <th>RS</th>
+                                                      <th>BtBy</th>
+                                                      <th>Kgs</th>
+                                                      <th>Draw</th>
+                                                    </tr>
+                                                  </thead>
                                                 </table>
                                               </div>
                                               <div className="BodyNew1">
                                                 <table className="customers2">
                                                   <thead>
-                                                  <tr>
-                                                    <th>12 Oct 22</th>
-                                                    <th>Wol (T)</th>
-                                                    <th>2400</th>
-                                                    <th>D</th>
-                                                    <th>S</th>
-                                                    <th>Novice</th>
-                                                    <th>02:05:55</th>
-                                                    <th>Miss </th>
-                                                    <th>58</th>
-                                                    <th>6</th>
-                                                    <th>16.25</th>
-                                                    <th>5</th>
-                                                    <th>67</th>
-                                                    <th>5</th>
-                                                    <th>
-                                                      <img
-                                                        src={arrow1}
-                                                        alt=""
-                                                      />
-                                                    </th>
-                                                  </tr>
+                                                    <tr>
+                                                      <th>12 Oct 22</th>
+                                                      <th>Wol (T)</th>
+                                                      <th>2400</th>
+                                                      <th>D</th>
+                                                      <th>S</th>
+                                                      <th>Novice</th>
+                                                      <th>02:05:55</th>
+                                                      <th>Miss </th>
+                                                      <th>58</th>
+                                                      <th>6</th>
+                                                      <th>16.25</th>
+                                                      <th>5</th>
+                                                      <th>67</th>
+                                                      <th>5</th>
+                                                      <th>
+                                                        <img
+                                                          src={arrow1}
+                                                          alt=""
+                                                        />
+                                                      </th>
+                                                    </tr>
                                                   </thead>
                                                 </table>
                                               </div>

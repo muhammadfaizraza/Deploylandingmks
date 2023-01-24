@@ -1084,11 +1084,13 @@ const RaceCardDetail = () => {
                                                     </table>
                                                   </div>
                                                   {
-                                                    <div className="BodyNew1">
+                                                    singlerace.RaceResultData.map((item,index) => {
+                                                      return(
+                                                        <div className="BodyNew1">
                                                     <table className="customers2">
                                                       <thead>
                                                         <tr>
-                                                          <th>12 Oct 22</th>
+                                                          <th><Moment format="D MMM YYYY" withTitle>{item.RaceResultData.Day}</Moment></th>
                                                           <th>Wol (T)</th>
                                                           <th>2400</th>
                                                           <th>D</th>
@@ -1100,21 +1102,26 @@ const RaceCardDetail = () => {
                                                           <th>6</th>
                                                           <th>16.25</th>
                                                           <th>5</th>
-                                                          <th>{data.BeatenByData === undefined ? <></> : data.BeatenByData.CumulativeDistance}</th>
+                                                          <th>{item.Distance}</th>
                                                           <th>5</th>
                                                           <th>
+                                                            <a href={item.VideoLink} target="_blank">
                                                             <img
                                                               src={arrow1}
                                                               alt=""
                                                             />
+                                                            </a>
                                                           </th>
                                                         </tr>
                                                       </thead>
                                                     </table>
                                                   </div>
+                                                      )
+                                                    })
                                                   }
                                                   
-                                                  <div className="BodyNew2">
+                                                  
+                                                  {/* <div className="BodyNew2">
                                                     <table className="customers2">
                                                       <tr>
                                                         <th>12 Oct 22</th>
@@ -1165,7 +1172,7 @@ const RaceCardDetail = () => {
                                                         </th>
                                                       </tr>
                                                     </table>
-                                                  </div>
+                                                  </div> */}
                                                 </div>
                                               </Card.Body>
                                             </Accordion.Collapse>
