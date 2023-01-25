@@ -430,7 +430,7 @@ const Result = () => {
                                                 <Accordion.Header>
                                                   <div className="cardracesAccordion">
                                                     <p className="resultcardposition">
-                                                      1st
+                                                      {index + 1}st
                                                     </p>
                                                     <div className="cardraces1">
                                                       <img

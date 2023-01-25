@@ -48,7 +48,7 @@ const Dashboard = () => {
               </Link>
               </div>
               <div className='GenerateReports'>
-                <Link to="/userresult">
+                <Link to="/myresult">
                 <p>Result</p>
                 <h3>00</h3>
               </Link>
