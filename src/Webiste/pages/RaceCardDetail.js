@@ -1237,7 +1237,7 @@ const RaceCardDetail = () => {
               </div>
             </div>
           ) : (
-            <div className="NAclass">No Data</div>
+            <div className="NAclass">Loading ...</div>
           )}
           <Modal
             show={show}
