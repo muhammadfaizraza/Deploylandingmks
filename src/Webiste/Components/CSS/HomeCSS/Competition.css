@@ -129,9 +129,9 @@
     width: 25px;
 }
 
-button:disabled {
+/* button:disabled {
     background: #989693 !important;
-}
+} */
 
 .racecardlottie{
     width: 100% !important;

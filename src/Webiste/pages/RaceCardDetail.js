@@ -163,6 +163,7 @@ const RaceCardDetail = () => {
 
   const pickClick = async (event, compid, horseid) => {
     event.preventDefault();
+    console.log(horseid,'horse')
     try {
       setDisable(true);
       const response = await axios.post(
@@ -170,10 +171,11 @@ const RaceCardDetail = () => {
         { Horse: horseid },
         {
           withCredentials: true,
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+         
         }
       );
-      const msgdata = response.data.data.message;
+      console.log(response.data.message,'response')
+      const msgdata = response.data.message;
       toast(msgdata);
       setDisable(false);
     } catch (error) {
@@ -182,7 +184,6 @@ const RaceCardDetail = () => {
       setDisable(false);
     }
   };
-
   let menuItems = [];
   for (var i = 0; i < 4; i++) {
     menuItems.push(
