@@ -87,24 +87,24 @@ const Result = () => {
                   </div>
                   <div className="customers13">
                     <table className="customers1">
-                      {/*                   
-                  <thead className='resulttablehome'>
+                                        
+                  {/* <thead className='resulttablehome'>
                       <th>Positions</th>
                       <th>Win</th>
                       <th>Win</th>
                       <th>Place</th>
                       <th>Off Time </th>
                     </thead> */}
-                      {/* {raceresult.RaceResultData.slice(0, 3).map(
+                      {raceresult.RaceResultData.slice(0, 3).map(
                         (data, index) => {
                           return (
                             <tr key={data._id}>
-                              <td>{data.Rank}</td>
-                              <td>{data.HorseIDDataHorse.NameEn}</td>
-                              <td>{data.Rank}</td>
+                              <td>{index + 1}</td>
+                              <td>{data.HorseIDData.NameEn}</td>
+                              <td>{data.CumulativeDistance}</td>
 
                               <td>
-                                {data.HorseStatus === true ? <>Yes</> : <>No</>}
+                                {data.HorseIDData.HorseStatus === true ? <>Yes</> : <>No</>}
                               </td>
                               <td
                                 style={{
@@ -117,7 +117,7 @@ const Result = () => {
                             </tr>
                           );
                         }
-                      )} */}
+                      )}
                     </table>
                   </div>
                 </div>

@@ -196,10 +196,10 @@ const RegisterScreen = () => {
               name="country"
               required
             >
+              <option >Select Nationality</option>
               {nationality.map((item) => {
                 return (
                  <>
-                 <option >Select Nationality</option>
                   <option key={item._id} value={item._id} defaultValue={item._id} name="country">
                     {item.NameEn}
                   </option>

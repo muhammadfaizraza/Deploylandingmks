@@ -118,8 +118,7 @@
 .customers12 {
   background-color: #fff;
   height: 50px;
-  border-radius: 18px;
-
+  border-radius: 18px 18px 0px 0px;
   /* width: fit-content; */
   display: flex;
   width: 100%;

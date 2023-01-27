@@ -899,38 +899,15 @@ const Result = () => {
                                                         </thead>
                                                       </table>
                                                     </div>
-                                                    <div className="BodyNew1">
-                                                      <table className="customers2">
-                                                        <thead>
-                                                          <tr>
-                                                            <th>12 Oct 22</th>
-                                                            <th>Wol (T)</th>
-                                                            <th>2400</th>
-                                                            <th>D</th>
-                                                            <th>S</th>
-                                                            <th>Novice</th>
-                                                            <th>02:05:55</th>
-                                                            <th>Miss </th>
-                                                            <th>58</th>
-                                                            <th>6</th>
-                                                            <th>16.25</th>
-                                                            <th>5</th>
-                                                            <th>67</th>
-                                                            <th>5</th>
-                                                            <th>
-                                                              <img
-                                                                src={arrow1}
-                                                                alt=""
-                                                              />
-                                                            </th>
-                                                          </tr>
-                                                        </thead>
-                                                      </table>
-                                                    </div>
-                                                    <div className="BodyNew2">
-                                                      <table className="customers2">
+                                                    {
+                                                    data.HorseIDData.map((item,index) => {
+                                                      return(
+                                                        <div className="BodyNew1" key={index}>
+                                                    <table className="customers2">
+                                                      <thead>
                                                         <tr>
-                                                          <th>12 Oct 22</th>
+                                                          {/* <th><Moment format="D MMM YYYY" withTitle></Moment></th> */}
+                                                          <th>Wol (T)</th>
                                                           <th>Wol (T)</th>
                                                           <th>2400</th>
                                                           <th>D</th>
@@ -942,43 +919,23 @@ const Result = () => {
                                                           <th>6</th>
                                                           <th>16.25</th>
                                                           <th>5</th>
-                                                          <th>67</th>
+                                                          <th>{item.Distance}</th>
                                                           <th>5</th>
                                                           <th>
+                                                            <a href={item.VideoLink} target="_blank">
                                                             <img
                                                               src={arrow1}
                                                               alt=""
                                                             />
+                                                            </a>
                                                           </th>
                                                         </tr>
-                                                      </table>
-                                                    </div>
-                                                    <div className="BodyNew3">
-                                                      <table className="customers2">
-                                                        <tr>
-                                                          <th>12 Oct 22</th>
-                                                          <th>Wol (T)</th>
-                                                          <th>2400</th>
-                                                          <th>D</th>
-                                                          <th>S</th>
-                                                          <th>Novice</th>
-                                                          <th>02:05:55</th>
-                                                          <th>Miss </th>
-                                                          <th>58</th>
-                                                          <th>6</th>
-                                                          <th>16.25</th>
-                                                          <th>5</th>
-                                                          <th>67</th>
-                                                          <th>5</th>
-                                                          <th>
-                                                            <img
-                                                              src={arrow1}
-                                                              alt=""
-                                                            />
-                                                          </th>
-                                                        </tr>
-                                                      </table>
-                                                    </div>
+                                                      </thead>
+                                                    </table>
+                                                  </div>
+                                                      )
+                                                    })
+                                                  }
                                                   </div>
                                                 </Accordion.Body>
                                               </Accordion.Item>

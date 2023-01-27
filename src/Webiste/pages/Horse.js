@@ -6,7 +6,6 @@ import "../Components/CSS/pagesCSS/horse.css";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHorse, STATUSES } from "../../Webiste/redux/getReducer/getHorseSlice";
-
 import Cookies from "js-cookie";
 import { Modal } from "react-bootstrap";
 import HorseDetail from "./HorseDetail";
@@ -14,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import Moment from "react-moment";
 import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
-
+import Pagination from "./Pagination";
 const Horse = () => {
 
   const { t } = useTranslation();
@@ -27,7 +26,19 @@ const Horse = () => {
     console.log('horse data', data)
     await setShow(true)
   };
+
+
   const { data: horse, status } = useSelector((state) => state.horse);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(8);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = horse.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+
 
   const cookiedata = Cookies.get('i18next')
 
@@ -80,9 +91,9 @@ const Horse = () => {
 
               </tr>
               {
-                horse === undefined ? <></> : <>
+                currentPosts === undefined ? <></> : <>
                   {
-                    horse.map((item) => {
+                    currentPosts.map((item) => {
                       return (
                         <React.Fragment>
                           <tr onClick={() => handleShow(item)
@@ -115,8 +126,14 @@ const Horse = () => {
               }
             </table>
           </div>
-
+        
         </div>
+        <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={horse.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
       </div>
       <Modal show={show} onHide={handleClose} size="lg"
         aria-labelledby="contained-modal-title-vcenter"
