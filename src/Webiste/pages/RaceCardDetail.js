@@ -32,6 +32,7 @@ import Animate from "../assets/loader.json";
 import Policy from "../pages/Test";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
+import JockeyDetail from "./JockeyDetail";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -1239,7 +1240,7 @@ const RaceCardDetail = () => {
           ) : (
             <div className="NAclass">Loading ...</div>
           )}
-          <Modal
+          {/* <Modal
             show={show}
             onHide={handleClose}
             size="lg"
@@ -1251,9 +1252,8 @@ const RaceCardDetail = () => {
               <Competition data={CastData} />
             </Modal.Body>
             <Modal.Footer>
-              {/* <button onClick={handleClose}>Close</button> */}
             </Modal.Footer>
-          </Modal>
+          </Modal> */}
 
           {/* <Modal
             show={showtri}
