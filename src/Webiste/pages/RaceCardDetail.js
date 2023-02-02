@@ -510,11 +510,11 @@ const RaceCardDetail = () => {
                           <div>
                             <Accordion defaultActiveKey={0}>
                               <div className="RaceAndHorseModelDataCSSFlex">
-                                {singlerace.RaceAndHorseModelData ===
+                                {singlerace.RacehorsesData ===
                                 undefined ? (
                                   <div className="NAclass">N/A</div>
                                 ) : (
-                                  singlerace.RaceAndHorseModelData.map(
+                                  singlerace.RacehorsesData.map(
                                     (data, index) => {
                                       return (
                                         <div className="RaceAndHorseModelDataCSS">
@@ -523,16 +523,16 @@ const RaceCardDetail = () => {
                                               <div className="cardracesAccordion">
                                                 <div className="cardraces1">
                                                   <img
-                                                    src={data.HorseImage}
+                                                    src={data.HorseModelIdData1.HorseImage}
                                                     alt=""
                                                   />
                                                   <span className="cardraces1box">
                                                     <p>
                                                       <Moment format="DD-MM-YY">
-                                                        {data.DOB}
+                                                        {data.HorseModelIdData1.DOB}
                                                       </Moment>
                                                     </p>
-                                                    <h3>0{data.Foal}</h3>
+                                                    <h3>0{data.HorseModelIdData1.Foal}</h3>
                                                   </span>
                                                 </div>
 
@@ -553,29 +553,29 @@ const RaceCardDetail = () => {
                                                     >
                                                       <span>
                                                         {cookiedata === "en"
-                                                          ? data.NameEn
-                                                          : data.NameAr}
+                                                          ? data.HorseModelIdData1.NameEn
+                                                          : data.HorseModelIdData1.NameAr}
                                                       </span>
                                                     </p>
-                                                    <img
+                                                    {/* <img
                                                       src={
-                                                        data.NationalityData
+                                                        data.HorseModelIdData1.NationalityData
                                                           .image
-                                                          ? data.NationalityData
+                                                          ? data.HorseModelIdData1.NationalityData
                                                               .image
                                                           : Defaultimg
                                                       }
                                                       alt=""
-                                                    />
+                                                    /> */}
 
                                                     <p style={myPara}>
                                                       <Moment fromNow ago>
-                                                        {data.DOB}
+                                                        {data.HorseModelIdData1.DOB}
                                                       </Moment>{" "}
-                                                      GR H ({data.Height})
+                                                      GR H ({data.HorseModelIdData1.Height})
                                                     </p>
                                                   </div>
-                                                  <div
+                                                  {/* <div
                                                     style={{
                                                       display: "flex",
                                                       lineHeight: "1px",
@@ -764,7 +764,7 @@ const RaceCardDetail = () => {
                                                         </b>
                                                       </p>
                                                     </div>
-                                                  </div>
+                                                  </div> */}
                                                 </div>
                                                 {/* <div className="cardraces3">
                                           <div>
@@ -776,133 +776,13 @@ const RaceCardDetail = () => {
                                           </div>
                                         </div> */}
 
-                                                <div className="cardraces4">
-                                                  <p
-                                                    style={{
-                                                      fontWeight: "300",
-                                                      fontSize: "12px",
-                                                      lineHeight: "15px",
-                                                      color:
-                                                        "rgba(0, 0, 0, 0.5)",
-                                                      textAlign: "end",
-                                                    }}
-                                                  >
-                                                    TT OR:
-                                                    {singlerace.JockeyModels
-                                                      .length === 0 ? (
-                                                      <>N/A</>
-                                                    ) : singlerace.JockeyModels[
-                                                        index
-                                                      ].Rating === undefined ? (
-                                                      <>N/A</>
-                                                    ) : (
-                                                      singlerace.JockeyModels[
-                                                        index
-                                                      ].Rating
-                                                    )}
-                                                  </p>
-                                                  <div className="cardracesjockey">
-                                                    <div className="cardracesjockeyleft">
-                                                      <p>
-                                                        J
-                                                        <b
-                                                          style={{
-                                                            margin: "0px 12px",
-                                                          }}
-                                                        >
-                                                          {cookiedata ===
-                                                          "en" ? (
-                                                            singlerace
-                                                              .JockeyModels
-                                                              .length < 1 ? (
-                                                              <>N/A</>
-                                                            ) : singlerace
-                                                                .JockeyModels[
-                                                                index
-                                                              ].NameEn ===
-                                                              undefined ? (
-                                                              <>N/A</>
-                                                            ) : (
-                                                              singlerace
-                                                                .JockeyModels[
-                                                                index
-                                                              ].NameEn
-                                                            )
-                                                          ) : (
-                                                            singlerace
-                                                              .JockeyModels[
-                                                              index
-                                                            ].NameAr
-                                                          )}
-                                                        </b>
-                                                      </p>
-                                                      <p>
-                                                        {singlerace.JockeyModels
-                                                          .length < 1 ? (
-                                                          <>N/A</>
-                                                        ) : singlerace
-                                                            .JockeyModels[index]
-                                                            .MaximumJockeyWeight ===
-                                                          undefined ? (
-                                                          <>N/A</>
-                                                        ) : (
-                                                          singlerace
-                                                            .JockeyModels[index]
-                                                            .MaximumJockeyWeight
-                                                        )}
-                                                        kg
-                                                      </p>
-                                                      <p
-                                                        style={{
-                                                          fontWeight: "300",
-                                                          fontSize: "9px",
-                                                          lineHeight: "15px",
-                                                          color:
-                                                            "rgba(0, 0, 0, 0.5)",
-                                                        }}
-                                                      >
-                                                        47 (8 - 3 - 2 - 8 - 4)
-                                                      </p>
-                                                    </div>
-                                                    <img
-                                                      src={
-                                                        singlerace.JockeyModels
-                                                          .length < 1 ? (
-                                                          <>N/A</>
-                                                        ) : singlerace
-                                                            .JockeyModels[index]
-                                                            .image ===
-                                                          undefined ? (
-                                                          <>N/A</>
-                                                        ) : singlerace
-                                                            .JockeyModels[index]
-                                                            .image ? (
-                                                          singlerace
-                                                            .JockeyModels[index]
-                                                            .image
-                                                        ) : (
-                                                          Defaultimg
-                                                        )
-                                                      }
-                                                      alt=""
-                                                      className="cardracesjockeyimg"
-                                                    />
-                                                  </div>
-                                                  <div className="cardracesjockeycards">
-                                                    <ul>
-                                                      <li>C</li>
-                                                      <li>D</li>
-                                                      <li>CL</li>
-                                                      <li>BF</li>
-                                                    </ul>
-                                                  </div>
-                                                </div>
+                                                
                                               </div>
                                               <div>
                                                 <div className="pmclass">
                                                   <p>
                                                     PM: AED{" "}
-                                                    <b>{data.PurchasePrice}</b>
+                                                    <b>{data.HorseModelIdData1.PurchasePrice}</b>
                                                   </p>
                                                   <p>
                                                     BTO: AED <b>55,000</b>
@@ -1084,43 +964,7 @@ const RaceCardDetail = () => {
                                                       </thead>
                                                     </table>
                                                   </div>
-                                                  {
-                                                    data.HorseIDData.map((item,index) => {
-                                                      return(
-                                                        <div className="BodyNew1" key={index}>
-                                                    <table className="customers2">
-                                                      <thead>
-                                                        <tr>
-                                                          {/* <th><Moment format="D MMM YYYY" withTitle></Moment></th> */}
-                                                          <th>Wol (T)</th>
-                                                          <th>Wol (T)</th>
-                                                          <th>2400</th>
-                                                          <th>D</th>
-                                                          <th>S</th>
-                                                          <th>Novice</th>
-                                                          <th>02:05:55</th>
-                                                          <th>Miss </th>
-                                                          <th>58</th>
-                                                          <th>6</th>
-                                                          <th>16.25</th>
-                                                          <th>5</th>
-                                                          <th>{item.Distance}</th>
-                                                          <th>5</th>
-                                                          <th>
-                                                            <a href={item.VideoLink} target="_blank">
-                                                            <img
-                                                              src={arrow1}
-                                                              alt=""
-                                                            />
-                                                            </a>
-                                                          </th>
-                                                        </tr>
-                                                      </thead>
-                                                    </table>
-                                                  </div>
-                                                      )
-                                                    })
-                                                  }
+                                                 
                                                   
                                                   
                                                   {/* <div className="BodyNew2">
