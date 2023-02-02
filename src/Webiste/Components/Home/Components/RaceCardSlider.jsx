@@ -51,6 +51,7 @@ const RaceCardSlider = () => {
   }, [dispatch]);
 
   const d = new Date();
+  const start = moment().add(-4, 'm');
 
   const [userIsDesktop, setUserIsDesktop] = useState(true);
 
@@ -187,7 +188,7 @@ const RaceCardSlider = () => {
                       <div style = {{
                         display:'flex'
                       }}>
-                      <p className="raceNo"> {t("Race") } - </p>
+                      <p className="raceNo"> {t("Race") }  {item.RaceNumber}- </p>
                       <p className="racedistance">
                         {item.TrackLengthData === null ? (
                           <>No Data</>
