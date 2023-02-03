@@ -532,7 +532,10 @@ const RaceCardDetail = () => {
                                                         {data.HorseModelIdData1.DOB}
                                                       </Moment>
                                                     </p>
-                                                    <h3>0{data.HorseModelIdData1.Foal}</h3>
+                                                    <h3>0{data.HorseNo}</h3>
+                                                    <p style={{
+                                                      float:"right"
+                                                    }}>({data.GateNo})</p>
                                                   </span>
                                                 </div>
 
@@ -730,8 +733,7 @@ const RaceCardDetail = () => {
 
                                                                 .NameEn
                                                             )
-                                                          ) : data.TrainerOnRaceData1
- ===
+                                                          ) : data.TrainerOnRaceData1 ===
                                                             undefined ? (
                                                             <>N/A</>
                                                           ) : (
@@ -779,7 +781,107 @@ const RaceCardDetail = () => {
                                             <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
-
+                                          
+                                          <div className="cardraces4">
+                                                  <p
+                                                    style={{
+                                                      fontWeight: "300",
+                                                      fontSize: "12px",
+                                                      lineHeight: "15px",
+                                                      color:
+                                                        "rgba(0, 0, 0, 0.5)",
+                                                      textAlign: "end",
+                                                    }}
+                                                  >
+                                                    {data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameEn} OR:
+                                                    {data.JockeyOnRaceData1 === null ? (
+                                                      <>N/A</>
+                                                    ) : data.JockeyOnRaceData1.Rating === undefined ? (
+                                                      <>0</>
+                                                    ) : (
+                                                      data.JockeyOnRaceData1.Rating
+                                                    )}
+                                                  </p>
+                                                  <div className="cardracesjockey">
+                                                    <div className="cardracesjockeyleft">
+                                                      <p>
+                                                        J
+                                                        <b
+                                                          style={{
+                                                            margin: "0px 12px",
+                                                          }}
+                                                        >
+                                                          {cookiedata ===
+                                                          "en" ? (
+                                                            data.JockeyOnRaceData1 === null ? (
+                                                              <>N/A</>
+                                                            ) : data.JockeyOnRaceData1 ===
+                                                              undefined ? (
+                                                              <>N/A</>
+                                                            ) : (
+                                                              data.JockeyOnRaceData1.NameEn
+                                                            )
+                                                          ) : (
+                                                            data.JockeyOnRaceData1.NameAr
+                                                          )}
+                                                        </b>
+                                                      </p>
+                                                      <p>
+                                                        {data.JockeyOnRaceData1 === null ? (
+                                                          <>N/A</>
+                                                        ) : data
+                                                            .JockeyRaceWeight ===
+                                                          undefined ? (
+                                                          <>N/A</>
+                                                        ) : (
+                                                          data.JockeyRaceWeight
+                                                        )}
+                                                        kg
+                                                      </p>
+                                                      <p
+                                                        style={{
+                                                          fontWeight: "300",
+                                                          fontSize: "9px",
+                                                          lineHeight: "15px",
+                                                          color:
+                                                            "rgba(0, 0, 0, 0.5)",
+                                                        }}
+                                                      >
+                                                        47 (8 - 3 - 2 - 8 - 4)
+                                                      </p>
+                                                    </div>
+                                                    <img
+                                                      src={
+                                                        data.JockeyOnRaceData1 === null ? (
+                                                          <>N/A</>
+                                                        ) : data.JockeyOnRaceData1
+                                                            .image ===
+                                                          undefined ? (
+                                                          <>N/A</>
+                                                        ) : data.JockeyOnRaceData1
+                                                            .image ? (
+                                                              data.JockeyOnRaceData1
+                                                            .image
+                                                        ) : (
+                                                          Defaultimg
+                                                        )
+                                                      }
+                                                      alt=""
+                                                      className="cardracesjockeyimg"
+                                                    />
+                                                  </div>
+                                                  <div className="cardracesjockeycards">
+                                                    <ul>
+                                                      <li>C</li>
+                                                      <li>D</li>
+                                                      <li>CL</li>
+                                                      <li>BF</li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div>
+ 
                                                 
                                               </div>
                                               <div>
