@@ -92,7 +92,7 @@ const MyProfile = () => {
       formData.append("PassportPicture", PassportPicture);
 
       const response = await axios.put(
-        `https://sumairroudani.com/api/v1/updatesubscriber/${ProfileId}`,
+        `${window.env.API_URL}/updatesubscriber/${ProfileId}`,
         formData
       );
       toast("Successfuly Updated");

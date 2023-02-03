@@ -23,7 +23,7 @@ const Footer = () => {
         try {
           const formData = new FormData();
           formData.append("email",EmailSend);
-          const res = await axios.post(`https://sumairroudani.com/api/v1/addnewsletter`, formData);
+          const res = await axios.post(`${window.env.API_URL}/api/v1/addnewsletter`, formData);
           const msg = res.data.message
           toast(msg)
         } catch (error) {

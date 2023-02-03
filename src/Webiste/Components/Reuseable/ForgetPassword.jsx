@@ -15,7 +15,7 @@ const ForgetPassword = () => {
         try {
           const formData = new FormData();
           formData.append("Email", email);
-         const res = await axios.post(`https://sumairroudani.com/api/v1/adminpassword/forgot`, formData);
+         const res = await axios.post(`${window.env.API_URL}/api/v1/adminpassword/forgot`, formData);
          const msg = res.data.message
          toast(msg)
           history("/");

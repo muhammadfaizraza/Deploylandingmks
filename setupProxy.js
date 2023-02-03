@@ -4,7 +4,7 @@ module.exports = app => {
     app.use(
         createProxyMiddleware('/voting',
         {
-            target:'https://sumairroudani.com/api/v1/',
+            target: `${window.env.API_URL}`,
             changeOrigin:true
         })
     )
