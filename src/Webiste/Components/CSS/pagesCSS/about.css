@@ -158,3 +158,50 @@
   font-size: 17px;
   line-height: 199.02%;
 }
+
+.blogMain {
+  width: 80%;
+  margin: 80px auto;
+}
+
+.blogMain h4 {
+
+
+  color: #19469D;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+
+}
+
+.blogBanner img {
+  width: 100%;
+
+}
+
+.blogDatas {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.blogDatas img {
+  width: 190%;
+  height: 263px;
+}
+
+
+.blogDesc {
+  padding: 30px 40px;
+  background-color: gainsboro;
+  width: 50%;
+
+}
+
+.blogDesc p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+}
