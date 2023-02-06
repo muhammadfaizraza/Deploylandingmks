@@ -33,6 +33,8 @@ import Policy from "../pages/Test";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
 import JockeyDetail from "./JockeyDetail";
+import HorseDetail from "./HorseDetail";
+
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -72,8 +74,8 @@ const RaceCardDetail = () => {
   DataOne();
   const handleClose = () => setShow(false);
 
-  const handleShowTri = async (data) => {
-    await setShowtri(true);
+  const handleShow = async (data) => {
+    await setShow(true);
   };
   const { id } = state;
 
@@ -946,22 +948,7 @@ const RaceCardDetail = () => {
                                                       </button>
                                                     ) : (
                                                       <>
-                                                        {!showtri ? (
-                                                          <button
-                                                            style={btnNew}
-                                                            onClick={() =>
-                                                              handleShowTri()
-                                                            }
-                                                          >
-                                                            {
-                                                              singlerace
-                                                                .CompetitionRacesPointsModelData[0]
-                                                                .CompetitionCategory
-                                                            }
-                                                          </button>
-                                                        ) : (
-                                                          <></>
-                                                        )}
+                                                        
                                                         {showtri ? (
                                                           <span>
                                                             <form
@@ -1231,7 +1218,7 @@ const RaceCardDetail = () => {
           ) : (
             <div className="NAclass">Loading ...</div>
           )}
-          {/* <Modal
+          <Modal
             show={show}
             onHide={handleClose}
             size="lg"
@@ -1240,11 +1227,11 @@ const RaceCardDetail = () => {
           >
             <Modal.Header closeButton></Modal.Header>
             <Modal.Body>
-              <Competition data={CastData} />
+              <HorseDetail data={CastData} />
             </Modal.Body>
             <Modal.Footer>
             </Modal.Footer>
-          </Modal> */}
+          </Modal>
 
           {/* <Modal
             show={showtri}
@@ -1268,3 +1255,9 @@ const RaceCardDetail = () => {
 };
 
 export default RaceCardDetail;
+
+
+// onClick={() => handleShow(data)
+// } style={{
+//   cursor: 'pointer'
+// }}
