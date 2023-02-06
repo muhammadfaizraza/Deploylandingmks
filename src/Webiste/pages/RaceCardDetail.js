@@ -933,7 +933,7 @@ const RaceCardDetail = () => {
                                                             singlerace
                                                               .CompetitionRacesPointsModelData[0]
                                                               ._id,
-                                                            data._id
+                                                            data.HorseModelIdData1._id
                                                           )
                                                         }
                                                         disabled={Disable}
