@@ -7,7 +7,7 @@
         margin-right: 1px;
     }
 
-    
+
 
     button.slick-arrow.slick-prev {
         width: 25px;
@@ -1424,7 +1424,9 @@
 @media (max-width: 640px) and (min-width: 471px) {
 
 
-
+    .itemraces_left {
+        display: flex;
+    }
 
     .imgDiv img {
 
@@ -1903,6 +1905,17 @@
 
     }
 
+    .nav-tabs .nav-link {
+        color: #fff;
+
+        margin: 11px -10px !important;
+        font-size: 10px;
+    }
+
+
+    .itemraces_left {
+        display: flex;
+    }
 
     .aboutData {
         margin-right: 100px;
@@ -2010,7 +2023,7 @@
 
     .itemraces_right .distance {
 
-        margin: 4px 8px 0 -18px;
+        margin: 4px 8px 0 0px;
         font-size: 10px;
     }
 
@@ -2051,6 +2064,14 @@
     .PredictionCard {
         width: 305px;
         height: 310px;
+    }
+
+    .itemraces_center p {
+        font-size: 12px;
+    }
+
+    .weatherIcon {
+        margin: 27px 16px;
     }
 
     .GraphCard {
@@ -2459,7 +2480,7 @@
     }
 
     .inner_itemraces {
-        display: block;
+        display: flex;
     }
 
     .racedisc {
@@ -2551,6 +2572,7 @@
 
     .RaceDetailHeader {
         max-height: 700px;
+        margin-top: 35px;
     }
 
     .customers2 th {

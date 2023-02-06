@@ -113,8 +113,7 @@ const Card = () => {
         <Accordion defaultActiveKey="0">
           <div className="RaceAndHorseModelDataCSSFlex">
             <>
-              {singlerace.JockeyModels.length !==
-              singlerace.RaceAndHorseModelData.length ? (
+              {singlerace.JockeyModels !== singlerace.RaceAndHorseModelData ? (
                 <>N/A</>
               ) : (
                 <>
@@ -420,7 +419,6 @@ const Card = () => {
                                   <p>AW :47 (2 - 8 - 4) </p>
                                 </div>
                               </div>
-                              
                             </Accordion.Header>
                             <Accordion.Body className="AccordionBody11">
                               <div className="mycardclass1">

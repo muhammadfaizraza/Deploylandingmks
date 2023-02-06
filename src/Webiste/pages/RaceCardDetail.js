@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import flag from "../assets/United Arab Emirates.png";
 import Defaultimg from "../assets/Frame.png";
-
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import Zoom from "react-reveal/Zoom";
-import { Modal } from "react-bootstrap";
-import Competition from "../Components/Competition/Competition";
+
 import img from "../assets/image 10.png";
 import img1 from "../assets/image 10 (1).png";
 import Summary from "../Components/RaceCard/Summary";
@@ -32,6 +30,7 @@ import Animate from "../assets/loader.json";
 import Policy from "../pages/Test";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
+import fetchhorsehistory from "../redux/getReducer/getHorseHistory"
 import JockeyDetail from "./JockeyDetail";
 
 function CustomToggle({ children, eventKey }) {
@@ -57,6 +56,7 @@ const RaceCardDetail = () => {
   const navigate = useNavigate();
 
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
+
   const [Disable, setDisable] = useState(false);
   const [CastData, setCastData] = useState([]);
 
@@ -76,10 +76,12 @@ const RaceCardDetail = () => {
     await setShowtri(true);
   };
   const { id } = state;
+  const horseid = "00152b94-f23d-4c14-a4c5-8f250179012e"
 
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
-  }, [dispatch,id]);
+
+  }, [dispatch, id]);
 
   if (status === STATUSES.LOADING) {
     <div className="py-4 text-center">
@@ -163,7 +165,7 @@ const RaceCardDetail = () => {
 
   const pickClick = async (event, compid, horseid) => {
     event.preventDefault();
-    console.log(horseid,'horse')
+    console.log(horseid, 'horse')
     try {
       setDisable(true);
       const response = await axios.post(
@@ -171,10 +173,10 @@ const RaceCardDetail = () => {
         { Horse: horseid },
         {
           withCredentials: true,
-         
+
         }
       );
-      console.log(response.data.message,'response')
+      console.log(response.data.message, 'response')
       const msgdata = response.data.message;
       toast(msgdata);
       setDisable(false);
@@ -248,24 +250,22 @@ const RaceCardDetail = () => {
                         <span
                           className="race"
                           style={{
-                            backgroundColor: `${
-                              singlerace.RaceStatus === "Cancel"
-                                ? "#000000"
-                                : singlerace.RaceStatus === "End"
+                            backgroundColor: `${singlerace.RaceStatus === "Cancel"
+                              ? "#000000"
+                              : singlerace.RaceStatus === "End"
                                 ? "#FF0000"
                                 : singlerace.RaceStatus === "Live"
-                                ? "#5EC30F"
-                                : "#FF9900"
-                            }`,
-                            color: `${
-                              singlerace.RaceStatus === "Cancel"
-                                ? "#ffff"
-                                : singlerace.RaceStatus === "End"
+                                  ? "#5EC30F"
+                                  : "#FF9900"
+                              }`,
+                            color: `${singlerace.RaceStatus === "Cancel"
+                              ? "#ffff"
+                              : singlerace.RaceStatus === "End"
                                 ? "#00000"
                                 : singlerace.RaceStatus === "Live"
-                                ? "#00000"
-                                : "#000000"
-                            }`,
+                                  ? "#00000"
+                                  : "#000000"
+                              }`,
                           }}
                         >
                           <p>Race 1</p>
@@ -511,7 +511,7 @@ const RaceCardDetail = () => {
                             <Accordion defaultActiveKey={0}>
                               <div className="RaceAndHorseModelDataCSSFlex">
                                 {singlerace.RacehorsesData ===
-                                undefined ? (
+                                  undefined ? (
                                   <div className="NAclass">N/A</div>
                                 ) : (
                                   singlerace.RacehorsesData.map(
@@ -534,7 +534,7 @@ const RaceCardDetail = () => {
                                                     </p>
                                                     <h3>0{data.HorseNo}</h3>
                                                     <p style={{
-                                                      float:"right"
+                                                      float: "right"
                                                     }}>({data.GateNo})</p>
                                                   </span>
                                                 </div>
@@ -591,7 +591,7 @@ const RaceCardDetail = () => {
                                                         :
                                                         {cookiedata === "en" ? (
                                                           data.HorseModelIdData1.DamEn ===
-                                                          null ? (
+                                                            null ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data.HorseModelIdData1.NameEn
@@ -610,12 +610,12 @@ const RaceCardDetail = () => {
                                                         :
                                                         {cookiedata === "en" ? (
                                                           data.HorseModelIdData1.SireNameEn ===
-                                                          null ? (
+                                                            null ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data.HorseModelIdData1.SireNameEn
                                                           )
-                                                        ) : data.HorseModelIdData1.SireNameAr===
+                                                        ) : data.HorseModelIdData1.SireNameAr ===
                                                           null ? (
                                                           <>N/A</>
                                                         ) : (
@@ -633,11 +633,11 @@ const RaceCardDetail = () => {
                                                         :
                                                         {cookiedata === "en" ? (
                                                           data.HorseModelIdData1.GSireNameEn ===
-                                                          null ? (
+                                                            null ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data.HorseModelIdData1.GSireNameEn
-                                                              
+
                                                           )
                                                         ) : data.HorseModelIdData1.GSireNameEn ===
                                                           null ? (
@@ -675,7 +675,7 @@ const RaceCardDetail = () => {
                                                     >
                                                       {cookiedata === "en" ? (
                                                         data.JockeyOnRaceData1 ===
-                                                        null ? (
+                                                          null ? (
                                                           <>N/A</>
                                                         ) : (
                                                           data.JockeyOnRaceData1
@@ -707,7 +707,7 @@ const RaceCardDetail = () => {
                                                         data.JockeyOnRaceData1
                                                           .image
                                                           ? data.JockeyOnRaceData1
-                                                              .image
+                                                            .image
                                                           : Defaultimg
                                                       }
                                                       alt=""
@@ -715,30 +715,30 @@ const RaceCardDetail = () => {
                                                     />{" "}
                                                     <div className="race_trainerbreader">
                                                       <p>
-                                                        T{" "}
+                                                        O{" "}
                                                         <b
                                                           style={{
                                                             marginLeft: "9px",
                                                           }}
                                                         >
                                                           {cookiedata ===
-                                                          "en" ? (
-                                                            data.TrainerOnRaceData1
- ===
-                                                            undefined ? (
+                                                            "en" ? (
+                                                            data.OwnerOnRaceData1
+                                                              ===
+                                                              undefined ? (
                                                               <>N/A</>
                                                             ) : (
                                                               data
-                                                                .TrainerOnRaceData1
+                                                                .OwnerOnRaceData1
 
                                                                 .NameEn
                                                             )
-                                                          ) : data.TrainerOnRaceData1 ===
+                                                          ) : data.OwnerOnRaceData1 ===
                                                             undefined ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data
-                                                              .TrainerOnRaceData1
+                                                              .OwnerOnRaceData1
 
                                                               .NameAr
                                                           )}
@@ -781,8 +781,8 @@ const RaceCardDetail = () => {
                                             <img src={singlerace.Owner.map((data) => data.image)} alt="" />
                                           </div>
                                         </div> */}
-                                          
-                                          <div className="cardraces4">
+
+                                                <div className="cardraces4">
                                                   <p
                                                     style={{
                                                       fontWeight: "300",
@@ -812,7 +812,7 @@ const RaceCardDetail = () => {
                                                           }}
                                                         >
                                                           {cookiedata ===
-                                                          "en" ? (
+                                                            "en" ? (
                                                             data.JockeyOnRaceData1 === null ? (
                                                               <>N/A</>
                                                             ) : data.JockeyOnRaceData1 ===
@@ -830,7 +830,7 @@ const RaceCardDetail = () => {
                                                         {data.JockeyOnRaceData1 === null ? (
                                                           <>N/A</>
                                                         ) : data
-                                                            .JockeyRaceWeight ===
+                                                          .JockeyRaceWeight ===
                                                           undefined ? (
                                                           <>N/A</>
                                                         ) : (
@@ -855,12 +855,12 @@ const RaceCardDetail = () => {
                                                         data.JockeyOnRaceData1 === null ? (
                                                           <>N/A</>
                                                         ) : data.JockeyOnRaceData1
-                                                            .image ===
+                                                          .image ===
                                                           undefined ? (
                                                           <>N/A</>
                                                         ) : data.JockeyOnRaceData1
-                                                            .image ? (
-                                                              data.JockeyOnRaceData1
+                                                          .image ? (
+                                                          data.JockeyOnRaceData1
                                                             .image
                                                         ) : (
                                                           Defaultimg
@@ -881,8 +881,8 @@ const RaceCardDetail = () => {
                                                 </div>
                                               </div>
                                               <div>
- 
-                                                
+
+
                                               </div>
                                               <div>
                                                 <div className="pmclass">
@@ -924,7 +924,7 @@ const RaceCardDetail = () => {
                                                     {singlerace
                                                       .CompetitionRacesPointsModelData[0]
                                                       .CompetitionCategory ===
-                                                    "pick" ? (
+                                                      "pick" ? (
                                                       <button
                                                         style={btnNew1}
                                                         onClick={(event) =>
@@ -1041,7 +1041,7 @@ const RaceCardDetail = () => {
                                             </button> */}
                                               </div>
                                               <CustomToggle eventKey={index}>
-                                                Show Previous History
+                                                Show History
                                               </CustomToggle>
                                             </Card.Header>
                                             <Accordion.Collapse eventKey={index}>
@@ -1072,7 +1072,7 @@ const RaceCardDetail = () => {
                                                   </div>
 
 
-                                                  
+
                                                   {/* <>
                                                   {
                                                     data.HorseIDData.map((item,index) => {
@@ -1112,8 +1112,8 @@ const RaceCardDetail = () => {
                                                     })
                                                   }
                                                   </> */}
-                                                  
-                                                  
+
+
                                                   {/* <div className="BodyNew2">
                                                     <table className="customers2">
                                                       <tr>
