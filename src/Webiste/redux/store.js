@@ -1,4 +1,4 @@
-import { configureStore,  getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import getAdsSlice from './getReducer/getAdsSlice';
 import getHorseSlice from './getReducer/getHorseSlice';
 import getNewsSlice from './getReducer/getNewsSlice';
@@ -13,7 +13,7 @@ import getOwnerSlice from './getReducer/getOwnerSlice';
 import { getUserDetails } from './postReducer/UserPost';
 import getUserProfile from './getReducer/getUserProfile';
 import getSingleHorse from './getReducer/getSingleHorse';
-import  getSingleJockey  from './getReducer/getSingleJockey';
+import getSingleJockey from './getReducer/getSingleJockey';
 import getSingleTrainer from './getReducer/getSingleTrainer';
 import getSingleRace from './getReducer/getSingleRace';
 import getSeo from './getReducer/getSeo';
@@ -24,6 +24,7 @@ import getRaceResult from './getReducer/getRaceResult';
 import getNationality from './getReducer/getNationality';
 import getSingleUser from './getReducer/getSingleUser';
 import getPedigree from './getReducer/getPedigree';
+import getPredictor from "./getReducer/Predictor"
 
 const store = configureStore({
     reducer: {
@@ -37,26 +38,27 @@ const store = configureStore({
         user: userReducer,
         racecourse: getRaceCourse,
         jockey: getJockeySlice,
-        owner:getOwnerSlice,
+        owner: getOwnerSlice,
         userProfile: getUserDetails,
         profile: getUserProfile,
         singlehorse: getSingleHorse,
-    singlejockey: getSingleJockey,
+        singlejockey: getSingleJockey,
         singletrainer: getSingleTrainer,
         singlerace: getSingleRace,
         Seo: getSeo,
         Card: getCard,
-        singlecourse:getSingleCourse,
-        competition:getCompetition,
-        raceresult:getRaceResult,
-        nationality:getNationality,
-        singleUser:getSingleUser,
-        Pedigree:getPedigree
+        singlecourse: getSingleCourse,
+        competition: getCompetition,
+        raceresult: getRaceResult,
+        nationality: getNationality,
+        singleUser: getSingleUser,
+        Pedigree: getPedigree,
+        predictor: getPredictor
     },
     middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 });
 
 export default store;

@@ -9,17 +9,16 @@ import "../../CSS/HomeCSS/blogs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRace, STATUSES } from "../../../redux/getReducer/getRaceCard";
 import Cookies from "js-cookie";
-import Moment from "react-moment"
-import Animate from "../../../assets/loader.json"
-import Lottie from 'lottie-react';
+import Moment from "react-moment";
+import Animate from "../../../assets/loader.json";
+import Lottie from "lottie-react";
 import { useTranslation } from "react-i18next";
-import moment from 'moment';
-
+import moment from "moment";
 
 const RaceCardSlider = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
+
   const { data: racecard, status } = useSelector((state) => state.racecard);
 
   // const [days, setDays] = useState(0);
@@ -27,7 +26,7 @@ const RaceCardSlider = () => {
   // const [minutes, setMinutes] = useState(0);
   // const [seconds, setSeconds] = useState(0);
   // const timerace = racecard.map((item) => item.Day);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   // const deadline = "12, 31, 2023";
   // console.log(timerace[0],'dasdasda')
   // const datedata = moment.utc(timerace[0]).format('MM, DD,YYYY')
@@ -40,7 +39,7 @@ const RaceCardSlider = () => {
   //   setMinutes(Math.floor((time / 1000 / 60) % 60));
   //   setSeconds(Math.floor((time / 1000) % 60));
   // };
-  
+
   // useEffect(() => {
   //   const interval = setInterval(() => getTime(datedata), 30000);
   //   return () => clearInterval(interval);
@@ -51,7 +50,7 @@ const RaceCardSlider = () => {
   }, [dispatch]);
 
   const d = new Date();
-  const start = moment().add(-4, 'm');
+  const start = moment().add(-4, "m");
 
   const [userIsDesktop, setUserIsDesktop] = useState(true);
 
@@ -59,30 +58,25 @@ const RaceCardSlider = () => {
     window.innerWidth > 440 ? setUserIsDesktop(true) : setUserIsDesktop(false);
   }, [userIsDesktop]);
 
-  
-  function HandleJockey(id){
-    if( userIsDesktop === true) {
+  function HandleJockey(id) {
+    if (userIsDesktop === true) {
       navigate("/racedetail", {
         state: {
-          id: id
+          id: id,
+        },
+      });
+    } else {
+      navigate("/racedetails", {
+        state: {
+          id: id,
         },
       });
     }
-    else{
-      navigate("/racedetails",{
-       state : {
-
-        id:id
-       }
-
-      })
-    }
-     
   }
   if (status === STATUSES.LOADING) {
     return (
       <div>
-     {/* <Lottie animationData={Animate} loop={true}  className='Lottie slideLottie'/> */}
+        {/* <Lottie animationData={Animate} loop={true}  className='Lottie slideLottie'/> */}
       </div>
     );
   }
@@ -162,53 +156,89 @@ const RaceCardSlider = () => {
       },
     ],
   };
-  const cookiedata = Cookies.get('i18next')
+  const cookiedata = Cookies.get("i18next");
 
   return (
     <>
       <div className="RaceCardSlider">
         <div className="slidercards">
-          {
-            racecard.length > 0 ?  <Slider {...settings}>
-            {racecard.map((item) => {
-              return (
-         
-                 <div className="singleracecard" key={item.key}     onClick={() => HandleJockey(item._id)}  style={{
-                  cursor:'pointer'
-                }}>
-              
+          {racecard.length > 0 ? (
+            <Slider {...settings}>
+              {racecard.map((item) => {
+                return (
+                  <div
+                    className="singleracecard"
+                    key={item.key}
+                    onClick={() => HandleJockey(item._id)}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
                     <p className="clubname">
-
-                    {cookiedata === 'en' ? (item.RaceCourseData === null ? <>N/A</> : item.RaceCourseData.TrackNameEn) : (item.RaceCourseData === null ? <>N/A</> : item.RaceCourseData.TrackNameAr)}
+                      {cookiedata === "en" ? (
+                        item.RaceCourseData === null ? (
+                          <>N/A</>
+                        ) : (
+                          item.RaceCourseData.TrackNameEn
+                        )
+                      ) : item.RaceCourseData === null ? (
+                        <>N/A</>
+                      ) : (
+                        item.RaceCourseData.TrackNameAr
+                      )}
                     </p>
                     <p className="owner">
-                    {cookiedata === 'en' ? (item.RaceNameModelData  === null ? <>N/A</> : item.RaceNameModelData.NameEn) : (item.RaceNameModelData  === null ? <>N/A</> : item.RaceNameModelData.NameAr )}
+                      {cookiedata === "en" ? (
+                        item.RaceNameModelData === null ? (
+                          <>N/A</>
+                        ) : (
+                          item.RaceNameModelData.NameEn
+                        )
+                      ) : item.RaceNameModelData === null ? (
+                        <>N/A</>
+                      ) : (
+                        item.RaceNameModelData.NameAr
+                      )}
                     </p>
                     <span className="racecardrow">
-                      <div style = {{
-                        display:'flex'
-                      }}>
-                      <p className="raceNo"> {t("Race") }  {item.RaceNumber}- </p>
-                      <p className="racedistance">
-                        {item.TrackLengthData === null ? (
-                          <>No Data</>
-                        ) : (
-                          item.TrackLengthData.TrackLength
-                        )}m
-                      </p>
+                      <div
+                        style={{
+                          display: "flex",
+                        }}
+                      >
+                        <p className="raceNo">
+                          {" "}
+                          {t("Race")} {item.RaceNumber}-{" "}
+                        </p>
+                        <p className="racedistance">
+                          {item.TrackLengthData === null ? (
+                            <>No Data</>
+                          ) : (
+                            item.TrackLengthData.TrackLength
+                          )}
+                          m
+                        </p>
                       </div>
-                      <p className="racetime">{item.StartTime} m</p>
+                      <p className="racetime">
+                        <Moment
+                          date={item.StartTime}
+                          format="hh:mm"
+                          trim
+                          durationFromNow
+                        ></Moment>
+                        m
+                      </p>{" "}
                     </span>
                     <span className="singleracecardbtn">
                       <button>FORM</button>
                     </span>
                   </div>
-          
-              );
-            })}
-          </Slider> : <p>No Race Available</p>
-          }
-          
+                );
+              })}
+            </Slider>
+          ) : (
+            <p>No Race Available</p>
+          )}
         </div>
       </div>
     </>
