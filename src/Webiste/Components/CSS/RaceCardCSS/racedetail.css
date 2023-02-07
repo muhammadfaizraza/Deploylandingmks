@@ -671,3 +671,7 @@ strong {
     background: rgb(25, 70, 157) !important;
 
 }
+
+.trackBtn {
+    float: right;
+}

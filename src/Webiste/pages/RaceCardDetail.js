@@ -103,6 +103,27 @@ const RaceCardDetail = () => {
       </h2>
     );
   }
+  // Track 
+  const handleTrack = async (Id) => {
+
+    try {
+      const res = await axios.post(
+        `/trackhorse`, { Horse: Id }, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      }
+      );
+      toast('Tracked Success')
+
+      document.getElementById("myButton1").value = "Untrack";
+
+      navigate('/tracker')
+    } catch (error) {
+      const err = error.response.data.message;
+      toast(err)
+    }
+  };
+
 
   const myPara = {
     fontWeight: "400",
@@ -700,7 +721,9 @@ const RaceCardDetail = () => {
                                                     >
                                                       (8 - 3 - 2 - 8 - 4)
                                                     </p>
+
                                                   </div>
+
                                                   <div className="trainerbreader_section">
                                                     <img
                                                       src={
@@ -913,6 +936,7 @@ const RaceCardDetail = () => {
                                               <div
                                                 style={{
                                                   display: "flex",
+                                                  justifyContent: "space-between"
                                                 }}
                                               >
                                                 {singlerace
@@ -1039,6 +1063,9 @@ const RaceCardDetail = () => {
                                             >
                                             {t("Pick Six")}
                                             </button> */}
+                                                <div className="trackBtn">
+                                                  <button id="myButton1" style={btnNew1} onClick={() => handleTrack(data.HorseModelIdData1._id)}>Track Horse</button>
+                                                </div>
                                               </div>
                                               <CustomToggle eventKey={index}>
                                                 Show History

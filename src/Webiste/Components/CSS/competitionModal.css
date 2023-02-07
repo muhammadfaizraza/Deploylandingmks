@@ -194,7 +194,8 @@ button#noanim-tab-example-tab-2{
 .Competitiontrophy {
     display: flex;
     justify-content: space-around;
-    overflow: scroll;
+
+    overflow: hidden !important;
 }
 
 .Trophydata>span:nth-child(1) {
