@@ -58,7 +58,9 @@ const RaceCardDetail = () => {
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
   const [Disable, setDisable] = useState(false);
+  const [buttonValue, setbuttonValue] = useState("Track Horse")
   const [CastData, setCastData] = useState([]);
+  const [History, setHistory] = useState([])
 
   const [show, setShow] = useState(false);
   const [showtri, setShowtri] = useState(false);
@@ -104,6 +106,7 @@ const RaceCardDetail = () => {
     );
   }
   // Track 
+  var val = "Track Horse"
   const handleTrack = async (Id) => {
 
     try {
@@ -113,11 +116,11 @@ const RaceCardDetail = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       }
       );
+
+
       toast('Tracked Success')
 
-      document.getElementById("myButton1").value = "Untrack";
-
-      navigate('/tracker')
+      // navigate('/tracker')
     } catch (error) {
       const err = error.response.data.message;
       toast(err)
@@ -152,9 +155,10 @@ const RaceCardDetail = () => {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: "13px 10px",
+    padding: "5px",
     gap: "10px",
     width: "112px",
+
     height: "24px",
     background: "#FF0000",
     borderRadius: "10px",
@@ -219,6 +223,15 @@ const RaceCardDetail = () => {
   const runCallback = (cb) => {
     return cb();
   };
+  const showHorseHistory = async (horseid) => {
+
+    const res =
+      await
+        axios.get(`${window.env.API_URL}/horsehistory/${horseid}`)
+    setHistory(res.data.data)
+
+
+  }
 
   return (
     <>
@@ -1063,12 +1076,20 @@ const RaceCardDetail = () => {
                                             >
                                             {t("Pick Six")}
                                             </button> */}
-                                                <div className="trackBtn">
-                                                  <button id="myButton1" style={btnNew1} onClick={() => handleTrack(data.HorseModelIdData1._id)}>Track Horse</button>
-                                                </div>
+
+                                                {data.HorseModelIdData1.TrackHorses && data.HorseModelIdData1.TrackHorses.length > 0 ?
+                                                  <div div className="trackBtn">
+                                                    <button className="w-100 px-10" style={btnNew1} onClick={() => handleTrack(data.HorseModelIdData1._id)}>Track Horse</button>
+                                                  </div>
+                                                  :
+                                                  <></>
+                                                  // <div div className="trackBtn">
+                                                  //   <button className="w-100 px-10" style={btnNew1}>UnTrack Horse</button>
+                                                  // </div>
+                                                }
                                               </div>
                                               <CustomToggle eventKey={index}>
-                                                Show History
+                                                <button onClick={() => showHorseHistory(data.HorseModelIdData1._id)}>   Show History </button>
                                               </CustomToggle>
                                             </Card.Header>
                                             <Accordion.Collapse eventKey={index}>
@@ -1095,6 +1116,82 @@ const RaceCardDetail = () => {
                                                           <th>Draw</th>
                                                         </tr>
                                                       </thead>
+
+                                                      {
+                                                        History !== undefined ?
+
+                                                          History.map((history, index) => (
+                                                            <tbody>
+
+                                                              <tr>
+
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.Distance}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.BeatenByData.NameEn}
+                                                                </td>
+                                                                <td>
+                                                                  {history.HorseIDData.NameEn}
+                                                                </td>
+                                                                <td>
+
+                                                                  <a href={history.HorseIDData.VideoLink} target="_blank">
+                                                                    <img
+                                                                      src={arrow1}
+                                                                      alt=""
+                                                                    />
+                                                                  </a>
+
+                                                                </td>
+
+                                                              </tr>
+
+
+
+                                                            </tbody>
+
+
+
+
+                                                          ))
+                                                          : <></>
+                                                      }
+
+
                                                     </table>
                                                   </div>
 
@@ -1257,7 +1354,8 @@ const RaceCardDetail = () => {
             </div>
           ) : (
             <div className="NAclass">Loading ...</div>
-          )}
+          )
+          }
           {/* <Modal
             show={show}
             onHide={handleClose}
@@ -1286,8 +1384,8 @@ const RaceCardDetail = () => {
             </Modal.Body>
             <Modal.Footer></Modal.Footer>
           </Modal> */}
-        </div>
-      </Zoom>
+        </div >
+      </Zoom >
       {/* <Footer />
       <CopyRight /> */}
     </>
