@@ -4,14 +4,12 @@
 }
 
 .RaceDetailHeader {
-    background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
+    background: linear-gradient(180deg, #078BE6 0%, #002160 100%), #19469D;
     border-radius: 18px;
-
     /* max-height: 900px; */
+    height: -moz-fit-content;
     height: fit-content;
     margin-inline: auto;
-
-
 }
 
 .RaceAndHorseModelDataCSS {
@@ -671,4 +669,3 @@ strong {
     background: rgb(25, 70, 157) !important;
 
 }
-
