@@ -669,3 +669,13 @@ strong {
     background: rgb(25, 70, 157) !important;
 
 }
+
+.showMore {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.hosekindSection {
+    margin: -17px 25px 0px 188px;
+}

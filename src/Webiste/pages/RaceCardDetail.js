@@ -1,3 +1,4 @@
+//.....................Import..........................//
 import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import flag from "../assets/United Arab Emirates.png";
@@ -7,10 +8,9 @@ import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import Zoom from "react-reveal/Zoom";
-
 import img from "../assets/image 10.png";
 import img1 from "../assets/image 10 (1).png";
 import Summary from "../Components/RaceCard/Summary";
@@ -21,18 +21,15 @@ import arrow1 from "../assets/image 13 (Traced).png";
 import Moment from "react-moment";
 import PrintOut from "../Components/RaceCard/Printout";
 import { IoPartlySunnyOutline, IoCloudyOutline } from "react-icons/io5";
-// import TriCompetition from "../Components/Competition/TriCompetition";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Lottie } from "lottie-react";
 import Animate from "../assets/loader.json";
-import Policy from "../pages/Test";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
-import fetchhorsehistory from "../redux/getReducer/getHorseHistory"
-import JockeyDetail from "./JockeyDetail";
 
+//.....................Function for Toggle History..........................//
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
     console.log("totally custom!")
@@ -48,21 +45,21 @@ function CustomToggle({ children, eventKey }) {
     </button>
   );
 }
-
+//.....................Function..........................//
 const RaceCardDetail = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { state } = useLocation();
-  const navigate = useNavigate();
+
 
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
   const [Disable, setDisable] = useState(false);
-  const [buttonValue, setbuttonValue] = useState("Track Horse")
-  const [CastData, setCastData] = useState([]);
+
+
   const [History, setHistory] = useState([])
 
-  const [show, setShow] = useState(false);
+
   const [showtri, setShowtri] = useState(false);
   const [PositionNumber, setPositionNumber] = useState("1");
 
@@ -72,13 +69,13 @@ const RaceCardDetail = () => {
     }
   }
   DataOne();
-  const handleClose = () => setShow(false);
+
 
   const handleShowTri = async (data) => {
     await setShowtri(true);
   };
   const { id } = state;
-  const horseid = "00152b94-f23d-4c14-a4c5-8f250179012e"
+
 
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
@@ -106,11 +103,11 @@ const RaceCardDetail = () => {
     );
   }
   // Track 
-  var val = "Track Horse"
+
   const handleTrack = async (Id) => {
 
     try {
-      const res = await axios.post(
+      await axios.post(
         `/trackhorse`, { Horse: Id }, {
         withCredentials: true,
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -307,8 +304,8 @@ const RaceCardDetail = () => {
                             {singlerace.DayNTime}
                           </Moment>
                         </span>
-
-                        {/* <img
+                        {/* 
+                        <img
                           className="sponsor"
                           src={
                             singlerace.SponsorData.image === undefined
@@ -358,6 +355,7 @@ const RaceCardDetail = () => {
                               singlerace.RaceKindData.NameAr
                             )}
                           </p>
+
                           <p
                             style={{
                               padding: "5px",
@@ -420,6 +418,25 @@ const RaceCardDetail = () => {
                           </div>
                         </div>
                       </span>
+
+                    </div>
+                    <div className="hosekindSection">                    <p
+                      style={{
+                        padding: "5px",
+                      }}
+                    >
+                      {cookiedata === "en" ? (
+                        singlerace.HorseKindinRaceData === undefined ? (
+                          <>N/A</>
+                        ) : (
+                          singlerace.HorseKindinRaceData.NameEn
+                        )
+                      ) : singlerace.HorseKindinRaceData === undefined ? (
+                        <>N/A</>
+                      ) : (
+                        singlerace.HorseKindinRaceData.NameAr
+                      )}
+                    </p>
                     </div>
                     <p>
                       <b>{t("Description")}</b> :
@@ -443,37 +460,11 @@ const RaceCardDetail = () => {
                           singlerace.FifthPrice +
                           singlerace.SixthPrice}
                       </b>
-                      {singlerace.CurrencyData.NameEn}
+                      {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}
 
                     </p>
 
-                    {singlerace.CompetitionRacesPointsModelData.length > 0 ? (
-                      <div
-                        style={{
-                          display: "flex",
-                          gap: "10px",
-                        }}
-                      >
-                        {/* <button
-                          style={btnNew}
-                          onClick={() =>
-                            handleShowTri(
-                              singlerace.CompetitionRacesPointsModelData
-                            )
-                          }
-                        >
-                         {t("Tri Cast")}
-                        </button>
-                        <button
-                          style={btnNew1}
-                         
-                        >
-                         {t("Pick Six")}
-                        </button> */}
-                      </div>
-                    ) : (
-                      <></>
-                    )}
+
                   </div>
                   <div className="Competitiontrophy">
                     <div className="Trophydata">
@@ -482,7 +473,7 @@ const RaceCardDetail = () => {
                         <img src={img1} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FirstPrice}   {singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.FirstPrice}   {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -491,7 +482,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.SecondPrice}   {singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.SecondPrice} {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -500,7 +491,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.ThirdPrice}   {singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.ThirdPrice}    {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -509,7 +500,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FourthPrice}   {singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.FourthPrice} {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -518,7 +509,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FifthPrice}   {singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.FifthPrice}    {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -527,7 +518,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.SixthPrice}   {singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.SixthPrice}    {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
                       </div>
                     </div>
                   </div>
@@ -1093,7 +1084,7 @@ const RaceCardDetail = () => {
                                                 }
                                               </div>
                                               <CustomToggle eventKey={index}>
-                                                <button onClick={() => showHorseHistory(data.HorseModelIdData1._id)}>   Show History </button>
+                                                <button className="showMore" onClick={() => showHorseHistory(data.HorseModelIdData1._id)}>   Show History </button>
                                               </CustomToggle>
                                             </Card.Header>
                                             <Accordion.Collapse eventKey={index}>
@@ -1173,7 +1164,7 @@ const RaceCardDetail = () => {
                                                                 </td>
                                                                 <td>
 
-                                                                  <a href={history.HorseIDData.VideoLink} target="_blank">
+                                                                  <a href={history.HorseIDData.VideoLink}>
                                                                     <img
                                                                       src={arrow1}
                                                                       alt=""

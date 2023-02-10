@@ -143,7 +143,7 @@ const RaceCourse = () => {
                                   }}
                                 >
 
-                                  <h5>{t("Race")} {ind + 1}</h5>
+                                  <h5>{t("Race")} maKA {ind + 1}</h5>
                                 </span>
                                 <h6>{cookiedata === "en" ? data.RaceNameModelData.NameEn : data.RaceNameModelData.NameAr}</h6>
                                 <br />
@@ -169,7 +169,7 @@ const RaceCourse = () => {
                                 </p>
                                 <p> {cookiedata === "en" ? data.RaceTypeModelData.NameEn : data.RaceTypeModelData.NameAr} </p>
                                 <p>{t("Surface")} : {cookiedata === "en" ? !data.GroundData ? <>N/A</> : data.GroundData.NameEn : !data.GroundData ? <>N/A</> : data.GroundData.NameAr}</p>
-                                <p>{t("Going")} : {cookiedata === "en" ? !data.GroundData ? <>N/A</> : data.RaceKindData.NameEn : !data.GroundData ? <>N/A</> : data.RaceKindData.NameAr}</p>
+                                <p>{t("Going")} : {cookiedata === "en" ? !data.RaceKindData ? <>N/A</> : data.RaceKindData.NameEn : !data.GroundData ? <>N/A</> : data.RaceKindData.NameAr}</p>
 
                               </div>{" "}
                             </div>

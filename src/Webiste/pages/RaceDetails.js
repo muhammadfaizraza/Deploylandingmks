@@ -1,24 +1,20 @@
+//.....................Import..........................//
 import React, { useEffect, useState } from "react";
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
 import { toast } from "react-toastify";
 import flag from "../assets/United Arab Emirates.png";
 import axios from "axios";
-import prizeImage from "../assets/image 10 (1).png";
-import RaceNav from "../Components/RaceCard/RaceNav";
-import Layout from "../Components/Reuseable/layout";
+import { Lottie } from "lottie-react";
+import Animate from "../assets/loader.json";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
 import Accordion from "react-bootstrap/Accordion";
-import shirt from "../../Webiste/assets/image 5.png";
-import pic from "../../Webiste/assets/Ellipse 7.png";
-import { RaceCardData } from "../data/data";
 import { useLocation } from "react-router-dom";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
-import { useParams } from "react-router-dom";
 import Zoom from "react-reveal/Zoom";
 import { Modal } from "react-bootstrap";
 import Competition from "../Components/Competition/Competition";
@@ -31,61 +27,51 @@ import Draw from "../Components/RaceCard/Draw";
 import Predictor from "../Components/RaceCard/Predictor";
 import TrackRecord from "../Components/RaceCard/TrackRecord";
 import arrow1 from "../assets/image 13 (Traced).png";
-import Moment from 'react-moment';
-import PrintOut from "../Components/RaceCard/Printout"
+import Moment from "react-moment";
+import PrintOut from "../Components/RaceCard/Printout";
 import Header from "../Components/Reuseable/Header";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { IoPartlySunnyOutline, IoCloudyOutline } from 'react-icons/io5'
-import Defaultimg from "../assets/default.jpg"
+import { IoPartlySunnyOutline, IoCloudyOutline } from "react-icons/io5";
+import Defaultimg from "../assets/default.jpg";
 
-
+//.....................Function..........................//
 const RaceDetails = () => {
-
-
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { state } = useLocation();
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
 
-
   const [Disable, setDisable] = useState(false);
   const [show, setShow] = useState(false);
   const [showtri, setShowtri] = useState(false);
+  const [History, setHistory] = useState([]);
   const [PositionNumber, setPositionNumber] = useState("1");
-
 
   const handleClose = () => setShow(false);
   const handleCloseTri = () => setShowtri(false);
 
-  const handleShow = async (data) => {
-    await setShow(true);
-  };
   const handleShowTri = async (data) => {
     await setShowtri(true);
   };
 
   function DataOne() {
     if (!state) {
-      return (
-        window.location.href = "http://localhost:3000/"
-      );
+      return (window.location.href = "http://localhost:3000/");
     }
   }
   DataOne();
   const { id } = state;
-  console.log(id, 'detail id')
 
-  console.log(singlerace, "singlerace");
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
   }, [id]);
 
   if (status === STATUSES.LOADING) {
-    return <h2 className="loader1">
-
-
-
-    </h2>;
+    <div className="py-4 text-center">
+      <div>
+        <Lottie animationData={Animate} loop={true} className="load" />
+      </div>
+    </div>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -93,18 +79,30 @@ const RaceDetails = () => {
       <h2
         style={{
           margin: "100px",
-          width: '50%'
+          width: "50%",
         }}
       >
         Something went wrong!
       </h2>
     );
   }
+  //.....................Function for Toggle to History..........................//
   function CustomToggle({ children, eventKey }) {
     const decoratedOnClick = useAccordionButton(eventKey, () =>
       console.log("totally custom!")
     );
+
+    return (
+      <button
+        type="button"
+        className="ShowPreviousHistory"
+        onClick={decoratedOnClick}
+      >
+        {children}
+      </button>
+    );
   }
+  //.....................Function of Competition..........................//
   const castClick = async (event, horseid, compid) => {
     event.preventDefault();
     try {
@@ -126,7 +124,7 @@ const RaceDetails = () => {
   };
   const pickClick = async (event, compid, horseid) => {
     event.preventDefault();
-    console.log(horseid, 'horse')
+
     try {
       setDisable(true);
       const response = await axios.post(
@@ -134,10 +132,9 @@ const RaceDetails = () => {
         { Horse: horseid },
         {
           withCredentials: true,
-
         }
       );
-      console.log(response.data.message, 'response')
+
       const msgdata = response.data.message;
       toast(msgdata);
       setDisable(false);
@@ -160,18 +157,14 @@ const RaceDetails = () => {
     return cb();
   };
 
-
+  //.....................CSS.........................//
   const myPara = {
     fontWeight: "700",
     fontSize: "12px",
     color: "rgba(0, 0, 0, 0.5)",
-    paddingLeft: '3px'
+    paddingLeft: "3px",
   };
-  const myPara1 = {
-    fontWeight: "700",
-    fontSize: "12px",
-    color: "#000",
-  };
+
   const btnNew = {
     display: "flex",
     flexDirection: "row",
@@ -201,9 +194,15 @@ const RaceDetails = () => {
     border: "none",
     color: "#fff",
   };
+  //.....................Function of Horse History..........................//
+  const showHorseHistory = async (horseid) => {
+    const res = await axios.get(
+      `${window.env.API_URL}/horsehistory/${horseid}`
+    );
+    setHistory(res.data.data);
+  };
 
-  console.log(singlerace, "single")
-  const cookiedata = Cookies.get('i18next')
+  const cookiedata = Cookies.get("i18next");
   return (
     <>
       <Header />
@@ -215,7 +214,6 @@ const RaceDetails = () => {
                 <div>
                   <div className="colorheader">
                     <div>
-
                       <span className="racenameflex">
                         <p>
                           {cookiedata === "en" ? (
@@ -233,70 +231,53 @@ const RaceDetails = () => {
                         <img src={flag} alt="" />
                       </span>
                       <p className="itemtime">
-                        <Moment format='MMMM Do YYYY'>{singlerace.DayNTime}</Moment>
+                        <Moment format="MMMM Do YYYY">
+                          {singlerace.DayNTime}
+                        </Moment>
                       </p>
-                      {/* <p className="itemtime"> 
-                    <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
-                          </Moment>  </p> */}
                     </div>
-                    {/* <div className="racestatuscolor">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                 
-                  </div> */}
                   </div>
                   <div className="racedisc">
                     <div className="itemraces">
                       <div className="inner_itemraces">
                         <span className="itemraces_left">
-
                           <span className="race">
                             <p>Race 1</p>
-                            {/* <p><b>16:35</b></p> */}
                           </span>
 
                           <img
                             className="sponsor"
-                            src={singlerace.SponsorData === null ? <></> : singlerace.SponsorData.image}
+                            src={
+                              singlerace.SponsorData === null ? (
+                                <></>
+                              ) : (
+                                singlerace.SponsorData.image
+                              )
+                            }
                             alt=""
                           />
                         </span>
                         <span className="itemraces_center">
-
                           <div
                             style={{
-
                               justifyContent: "start",
                               width: "60%",
                             }}
                           >
-                            <p
-
-                            >
-                              {singlerace.RaceTypeModelData.NameEn}
-                            </p>
-                            <p
-
-                            >
-                              {singlerace.RaceKindData.NameEn}
-                            </p>
+                            <p>{singlerace.RaceTypeModelData.NameEn}</p>
+                            <p>{singlerace.RaceKindData.NameEn}</p>
                             <p className="h6">
                               {singlerace.HorseKindinRaceData.NameEn}
                             </p>
-
                           </div>
                         </span>
-                        {
-                          singlerace.WeatherType === 'Sunny' ? <IoPartlySunnyOutline className="weatherIcon" /> : <IoCloudyOutline className="weatherIcon" />
-                        }
-
+                        {singlerace.WeatherType === "Sunny" ? (
+                          <IoPartlySunnyOutline className="weatherIcon" />
+                        ) : (
+                          <IoCloudyOutline className="weatherIcon" />
+                        )}
                       </div>
                       <div className="raceName">
-
                         <h5>
                           {" "}
                           {cookiedata === "en" ? (
@@ -314,19 +295,12 @@ const RaceDetails = () => {
                       </div>
                       <div className="d-flex">
                         <span className="itemraces_right my-2 mx-4 ml-5">
-
-
-
-
-
-
                           <span className="distance">
                             <p>
-                              {singlerace.TrackLengthData.TrackLength}m{" "}
-                              a{singlerace.WeatherDegree}F
+                              {singlerace.TrackLengthData.TrackLength}m a
+                              {singlerace.WeatherDegree}F
                             </p>
                           </span>
-
                         </span>
 
                         <div className="mt-4 mx-3">
@@ -335,7 +309,6 @@ const RaceDetails = () => {
                         </div>
                       </div>
                       <div className="itemsraces">
-
                         <p>
                           <b>DESCRIPTION</b> :{singlerace.DescriptionEn}
                         </p>
@@ -346,7 +319,7 @@ const RaceDetails = () => {
                     <div className="prizecardheaders">
                       <p>
                         Total Prize:
-                        <b>
+                        <b className="mx-2">
                           {singlerace.FirstPrice +
                             singlerace.SecondPrice +
                             singlerace.ThirdPrice +
@@ -354,23 +327,12 @@ const RaceDetails = () => {
                             singlerace.FifthPrice +
                             singlerace.SixthPrice}
                         </b>
+                        {singlerace.CurrencyData === undefined ? (
+                          <>N/A</>
+                        ) : (
+                          singlerace.CurrencyData.NameEn
+                        )}
                       </p>
-                      <div
-                        style={{
-                          display: "flex",
-                          gap: "10px",
-                        }}
-                      >
-                        <button
-                          style={btnNew}
-                          onClick={() => handleShowTri()}
-                        >
-                          Tricast
-                        </button>
-                        <button style={btnNew1} onClick={() => handleShow()}>
-                          Pick Six
-                        </button>
-                      </div>
                     </div>
                     <ScrollContainer className="scroll-container">
                       <div>
@@ -382,7 +344,14 @@ const RaceDetails = () => {
                             </span>
 
                             <div className="Trophydata_P">
-                              <h6>{singlerace.FirstPrice} AED</h6>
+                              <h6>
+                                {singlerace.FirstPrice}{" "}
+                                {singlerace.CurrencyData === undefined ? (
+                                  <></>
+                                ) : (
+                                  singlerace.CurrencyData.NameEn
+                                )}
+                              </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
@@ -391,7 +360,14 @@ const RaceDetails = () => {
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>{singlerace.SecondPrice} AED</h6>
+                              <h6>
+                                {singlerace.SecondPrice}
+                                {singlerace.CurrencyData === undefined ? (
+                                  <></>
+                                ) : (
+                                  singlerace.CurrencyData.NameEn
+                                )}
+                              </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
@@ -400,7 +376,14 @@ const RaceDetails = () => {
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>{singlerace.ThirdPrice} AED</h6>
+                              <h6>
+                                {singlerace.ThirdPrice}{" "}
+                                {singlerace.CurrencyData === undefined ? (
+                                  <></>
+                                ) : (
+                                  singlerace.CurrencyData.NameEn
+                                )}
+                              </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
@@ -409,7 +392,14 @@ const RaceDetails = () => {
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>{singlerace.FourthPrice} AED</h6>
+                              <h6>
+                                {singlerace.FourthPrice}{" "}
+                                {singlerace.CurrencyData === undefined ? (
+                                  <></>
+                                ) : (
+                                  singlerace.CurrencyData.NameEn
+                                )}
+                              </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
@@ -418,7 +408,14 @@ const RaceDetails = () => {
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>{singlerace.FifthPrice} AED</h6>
+                              <h6>
+                                {singlerace.FifthPrice}{" "}
+                                {singlerace.CurrencyData === undefined ? (
+                                  <></>
+                                ) : (
+                                  singlerace.CurrencyData.NameEn
+                                )}
+                              </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
@@ -427,13 +424,18 @@ const RaceDetails = () => {
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>{singlerace.SixthPrice} AED</h6>
+                              <h6>
+                                {singlerace.SixthPrice}{" "}
+                                {singlerace.CurrencyData === undefined ? (
+                                  <></>
+                                ) : (
+                                  singlerace.CurrencyData.NameEn
+                                )}
+                              </h6>
                             </div>
                           </div>
-
                         </div>
                       </div>
-
                     </ScrollContainer>
                   </div>
                   <div className="RaceNav">
@@ -452,8 +454,7 @@ const RaceDetails = () => {
                             <div>
                               <Accordion defaultActiveKey={0}>
                                 <div className="RaceAndHorseModelDataCSSFlex">
-                                  {singlerace.RacehorsesData ===
-                                    undefined ? (
+                                  {singlerace.RacehorsesData === undefined ? (
                                     <div className="NAclass">N/A</div>
                                   ) : (
                                     singlerace.RacehorsesData.map(
@@ -465,19 +466,30 @@ const RaceDetails = () => {
                                                 <div className="cardracesAccordion1">
                                                   <div className="cardraces1">
                                                     <img
-                                                      src={data.HorseModelIdData1.HorseImage}
+                                                      src={
+                                                        data.HorseModelIdData1
+                                                          .HorseImage
+                                                      }
                                                       alt=""
                                                     />
                                                     <span className="cardraces1box">
                                                       <p>
                                                         <Moment format="DD-MM-YY">
-                                                          {data.HorseModelIdData1.DOB}
+                                                          {
+                                                            data
+                                                              .HorseModelIdData1
+                                                              .DOB
+                                                          }
                                                         </Moment>
                                                       </p>
                                                       <h3>0{data.HorseNo}</h3>
-                                                      <p style={{
-                                                        float: "right"
-                                                      }}>({data.GateNo})</p>
+                                                      <p
+                                                        style={{
+                                                          float: "right",
+                                                        }}
+                                                      >
+                                                        ({data.GateNo})
+                                                      </p>
                                                     </span>
                                                   </div>
 
@@ -488,7 +500,6 @@ const RaceDetails = () => {
                                                         gap: "10px",
                                                       }}
                                                     >
-
                                                       {/* <img
                                                       src={
                                                         data.HorseModelIdData1.NationalityData
@@ -499,8 +510,6 @@ const RaceDetails = () => {
                                                       }
                                                       alt=""
                                                     /> */}
-
-
                                                     </div>
 
                                                     {/* <div
@@ -592,13 +601,24 @@ const RaceDetails = () => {
                                                         textAlign: "end",
                                                       }}
                                                     >
-                                                      {data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameEn} OR:
-                                                      {data.JockeyOnRaceData1 === null ? (
+                                                      {data.EquipmentData1 ===
+                                                        null ? (
                                                         <>N/A</>
-                                                      ) : data.JockeyOnRaceData1.Rating === undefined ? (
+                                                      ) : (
+                                                        data.EquipmentData1
+                                                          .NameEn
+                                                      )}{" "}
+                                                      OR:
+                                                      {data.JockeyOnRaceData1 ===
+                                                        null ? (
+                                                        <>N/A</>
+                                                      ) : data.JockeyOnRaceData1
+                                                        .Rating ===
+                                                        undefined ? (
                                                         <>0</>
                                                       ) : (
-                                                        data.JockeyOnRaceData1.Rating
+                                                        data.JockeyOnRaceData1
+                                                          .Rating
                                                       )}
                                                     </p>
                                                     <div className="cardracesjockey">
@@ -607,29 +627,35 @@ const RaceDetails = () => {
                                                           J
                                                           <b
                                                             style={{
-                                                              margin: "0px 12px",
+                                                              margin:
+                                                                "0px 12px",
                                                             }}
                                                           >
                                                             {cookiedata ===
                                                               "en" ? (
-                                                              data.JockeyOnRaceData1 === null ? (
+                                                              data.JockeyOnRaceData1 ===
+                                                                null ? (
                                                                 <>N/A</>
                                                               ) : data.JockeyOnRaceData1 ===
                                                                 undefined ? (
                                                                 <>N/A</>
                                                               ) : (
-                                                                data.JockeyOnRaceData1.NameEn
+                                                                data
+                                                                  .JockeyOnRaceData1
+                                                                  .NameEn
                                                               )
                                                             ) : (
-                                                              data.JockeyOnRaceData1.NameAr
+                                                              data
+                                                                .JockeyOnRaceData1
+                                                                .NameAr
                                                             )}
                                                           </b>
                                                         </p>
                                                         <p>
-                                                          {data.JockeyOnRaceData1 === null ? (
+                                                          {data.JockeyOnRaceData1 ===
+                                                            null ? (
                                                             <>N/A</>
-                                                          ) : data
-                                                            .JockeyRaceWeight ===
+                                                          ) : data.JockeyRaceWeight ===
                                                             undefined ? (
                                                             <>N/A</>
                                                           ) : (
@@ -656,12 +682,6 @@ const RaceDetails = () => {
                                                       />
                                                     </div>
 
-
-
-
-
-
-
                                                     <div className="cardracesjockeycards">
                                                       <ul>
                                                         <li>C</li>
@@ -683,18 +703,26 @@ const RaceDetails = () => {
                                                   >
                                                     <span>
                                                       {cookiedata === "en"
-                                                        ? data.HorseModelIdData1.NameEn
-                                                        : data.HorseModelIdData1.NameAr}
+                                                        ? data.HorseModelIdData1
+                                                          .NameEn
+                                                        : data.HorseModelIdData1
+                                                          .NameAr}
                                                     </span>
                                                   </p>
                                                   <p style={myPara}>
                                                     <Moment fromNow ago>
-                                                      {data.HorseModelIdData1.DOB}
+                                                      {
+                                                        data.HorseModelIdData1
+                                                          .DOB
+                                                      }
                                                     </Moment>{" "}
-                                                    GR H ({data.HorseModelIdData1.Height})
+                                                    GR H (
+                                                    {
+                                                      data.HorseModelIdData1
+                                                        .Height
+                                                    }
+                                                    )
                                                   </p>
-
-
                                                 </div>
                                                 <div
                                                   style={{
@@ -703,63 +731,79 @@ const RaceDetails = () => {
                                                     flexWrap: "wrap",
                                                   }}
                                                 >
-                                                  <p style={myPara} className="mx-4">
+                                                  <p
+                                                    style={myPara}
+                                                    className="mx-4"
+                                                  >
                                                     {t("Dam")}
                                                     <b className="text-dark ">
                                                       :
                                                       {cookiedata === "en" ? (
-                                                        data.HorseModelIdData1.DamEn ===
-                                                          null ? (
+                                                        data.HorseModelIdData1
+                                                          .DamEn === null ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.NameEn
+                                                          data.HorseModelIdData1
+                                                            .NameEn
                                                         )
-                                                      ) : data.HorseModelIdData1.Dam ===
-                                                        null ? (
+                                                      ) : data.HorseModelIdData1
+                                                        .Dam === null ? (
                                                         <>N/A</>
                                                       ) : (
-                                                        data.HorseModelIdData1.DamAr
+                                                        data.HorseModelIdData1
+                                                          .DamAr
                                                       )}
                                                     </b>
                                                   </p>
-                                                  <p style={myPara} className="mx-4">
+                                                  <p
+                                                    style={myPara}
+                                                    className="mx-4"
+                                                  >
                                                     {t("Sire")}
                                                     <b className="text-dark ">
                                                       :
                                                       {cookiedata === "en" ? (
-                                                        data.HorseModelIdData1.SireNameEn ===
+                                                        data.HorseModelIdData1
+                                                          .SireNameEn ===
                                                           null ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.SireNameEn
+                                                          data.HorseModelIdData1
+                                                            .SireNameEn
                                                         )
-                                                      ) : data.HorseModelIdData1.SireNameAr ===
+                                                      ) : data.HorseModelIdData1
+                                                        .SireNameAr ===
                                                         null ? (
                                                         <>N/A</>
                                                       ) : (
-                                                        data.HorseModelIdData1.SireNameAr
+                                                        data.HorseModelIdData1
+                                                          .SireNameAr
                                                       )}
                                                     </b>
                                                   </p>
-                                                  <p style={myPara} className="mx-4">
+                                                  <p
+                                                    style={myPara}
+                                                    className="mx-4"
+                                                  >
                                                     {t("GSire")}
-                                                    <b
-                                                      className="text-dark "
-                                                    >
+                                                    <b className="text-dark ">
                                                       :
                                                       {cookiedata === "en" ? (
-                                                        data.HorseModelIdData1.GSireNameEn ===
+                                                        data.HorseModelIdData1
+                                                          .GSireNameEn ===
                                                           null ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.GSireNameEn
-
+                                                          data.HorseModelIdData1
+                                                            .GSireNameEn
                                                         )
-                                                      ) : data.HorseModelIdData1.GSireNameEn ===
+                                                      ) : data.HorseModelIdData1
+                                                        .GSireNameEn ===
                                                         null ? (
                                                         <>N/A</>
                                                       ) : (
-                                                        data.HorseModelIdData1.GSireNameAr
+                                                        data.HorseModelIdData1
+                                                          .GSireNameAr
                                                       )}
                                                     </b>
                                                   </p>
@@ -773,25 +817,19 @@ const RaceDetails = () => {
                                                       }}
                                                       className="text-danger"
                                                     >
-                                                      {cookiedata ===
-                                                        "en" ? (
-                                                        data.OwnerOnRaceData1
-                                                          ===
+                                                      {cookiedata === "en" ? (
+                                                        data.OwnerOnRaceData1 ===
                                                           undefined ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data
-                                                            .OwnerOnRaceData1
-
+                                                          data.OwnerOnRaceData1
                                                             .NameEn
                                                         )
                                                       ) : data.OwnerOnRaceData1 ===
                                                         undefined ? (
                                                         <>N/A</>
                                                       ) : (
-                                                        data
-                                                          .OwnerOnRaceData1
-
+                                                        data.OwnerOnRaceData1
                                                           .NameAr
                                                       )}
                                                     </b>
@@ -823,10 +861,13 @@ const RaceDetails = () => {
                                                       </p> */}
                                                 </div>
 
-
                                                 <div className="race_trainerbreader ">
                                                   <div>
-                                                    <img src={Defaultimg} alt="" className="h-25 w-25" />
+                                                    <img
+                                                      src={Defaultimg}
+                                                      alt=""
+                                                      className="h-25 w-25"
+                                                    />
                                                   </div>
                                                   <div>
                                                     <p>
@@ -837,16 +878,13 @@ const RaceDetails = () => {
                                                         }}
                                                         className="text-dark"
                                                       >
-                                                        {cookiedata ===
-                                                          "en" ? (
-                                                          data.TrainerOnRaceData1
-                                                            ===
+                                                        {cookiedata === "en" ? (
+                                                          data.TrainerOnRaceData1 ===
                                                             undefined ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data
                                                               .TrainerOnRaceData1
-
                                                               .NameEn
                                                           )
                                                         ) : data.TrainerOnRaceData1 ===
@@ -855,7 +893,6 @@ const RaceDetails = () => {
                                                         ) : (
                                                           data
                                                             .TrainerOnRaceData1
-
                                                             .NameAr
                                                         )}
                                                       </b>
@@ -867,33 +904,41 @@ const RaceDetails = () => {
                                                           marginLeft: "12px",
                                                         }}
                                                       >
-                                                        {cookiedata ===
-                                                          "en" ? (
-                                                          data.HorseModelIdData1.BreederData ===
+                                                        {cookiedata === "en" ? (
+                                                          data.HorseModelIdData1
+                                                            .BreederData ===
                                                             undefined ? (
                                                             <>N/A</>
                                                           ) : (
-                                                            data.HorseModelIdData1.BreederData
+                                                            data
+                                                              .HorseModelIdData1
+                                                              .BreederData
                                                               .NameEn
                                                           )
-                                                        ) : data.HorseModelIdData1.BreederData ===
+                                                        ) : data
+                                                          .HorseModelIdData1
+                                                          .BreederData ===
                                                           null ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.BreederData
-                                                            .NameAr
+                                                          data.HorseModelIdData1
+                                                            .BreederData.NameAr
                                                         )}
                                                       </b>
                                                     </p>
                                                   </div>
                                                 </div>
 
-
                                                 <div>
                                                   <div className="pmclass">
                                                     <p>
-                                                      PM: AED{" "}
-                                                      <b>{data.HorseModelIdData1.PurchasePrice}</b>
+                                                      PM: AED
+                                                      <b>
+                                                        {
+                                                          data.HorseModelIdData1
+                                                            .PurchasePrice
+                                                        }
+                                                      </b>
                                                     </p>
                                                     <p>
                                                       BTO: AED <b>55,000</b>
@@ -905,14 +950,21 @@ const RaceDetails = () => {
                                                   <ScrollContainer>
                                                     <div className="uaecareer">
                                                       <p>
-                                                        UAE Career: 47 (2 - 8 - 4)
+                                                        UAE Career: 47 (2 - 8 -
+                                                        4)
                                                       </p>
                                                       <p>
                                                         Lifetime: 47 (2 - 8 - 4)
                                                       </p>
-                                                      <p>Turf :47 (2 - 8 - 4) </p>
-                                                      <p>Durt :47 (2 - 8 - 4) </p>
-                                                      <p>Dist: 47 (2 - 8 - 4) </p>
+                                                      <p>
+                                                        Turf :47 (2 - 8 - 4){" "}
+                                                      </p>
+                                                      <p>
+                                                        Durt :47 (2 - 8 - 4){" "}
+                                                      </p>
+                                                      <p>
+                                                        Dist: 47 (2 - 8 - 4){" "}
+                                                      </p>
                                                       <p>AW :47 (2 - 8 - 4) </p>
                                                     </div>
                                                   </ScrollContainer>
@@ -999,7 +1051,8 @@ const RaceDetails = () => {
                                                                             "cast"
                                                                           )}
                                                                           value={
-                                                                            i + 1
+                                                                            i +
+                                                                            1
                                                                           }
                                                                           onChange={(
                                                                             e
@@ -1037,28 +1090,30 @@ const RaceDetails = () => {
                                                     </>
                                                   )}
 
-                                                  {/* <button
-                                              style={btnNew1}
-                                              onClick={() =>
-                                                handleShow(
-                                                  singlerace.CompetitionRacesPointsModelData
-                                                )
-                                              }
-                                            >
-                                            {t("Pick Six")}
-                                            </button> */}
+
                                                 </div>
-                                                {/* <CustomToggle eventKey={index}>
-                                                  Show History
-                                                </CustomToggle> */}
+                                                <CustomToggle eventKey={index}>
+                                                  <button
+                                                    className="showMore"
+                                                    onClick={() =>
+                                                      showHorseHistory(
+                                                        data.HorseModelIdData1
+                                                          ._id
+                                                      )
+                                                    }
+                                                  >
+                                                    {" "}
+                                                    Show History{" "}
+                                                  </button>
+                                                </CustomToggle>
                                               </Card.Header>
-                                              <Accordion.Collapse eventKey={index}>
+                                              <Accordion.Collapse
+                                                eventKey={index}
+                                              >
                                                 <Card.Body>
                                                   <ScrollContainer>
                                                     <div className="mycardclass1">
-
                                                       <div className="BodyNew">
-
                                                         <table className="customers">
                                                           <thead>
                                                             <tr>
@@ -1079,106 +1134,140 @@ const RaceDetails = () => {
                                                               <th>Draw</th>
                                                             </tr>
                                                           </thead>
-                                                        </table>
 
+                                                          {History !==
+                                                            undefined ? (
+                                                            History.map(
+                                                              (
+                                                                history,
+                                                                index
+                                                              ) => (
+                                                                <tbody>
+                                                                  <tr>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history.Distance
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .BeatenByData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      {
+                                                                        history
+                                                                          .HorseIDData
+                                                                          .NameEn
+                                                                      }
+                                                                    </td>
+                                                                    <td>
+                                                                      <a
+                                                                        href={
+                                                                          history
+                                                                            .HorseIDData
+                                                                            .VideoLink
+                                                                        }
+                                                                      >
+                                                                        <img
+                                                                          src={
+                                                                            arrow1
+                                                                          }
+                                                                          alt=""
+                                                                        />
+                                                                      </a>
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              )
+                                                            )
+                                                          ) : (
+                                                            <></>
+                                                          )}
+                                                        </table>
                                                       </div>
 
 
-                                                      {/* <>
-                                                  {
-                                                    data.HorseIDData.map((item,index) => {
-                                                      return(
-                                                        <div className="BodyNew1" key={index}>
-                                                    <table className="customers2">
-                                                      <thead>
-                                                        <tr>
-                                                          <th><Moment format="D MMM YYYY" withTitle></Moment></th>
-                                                          <th>Wol (T)</th>
-                                                          <th>Wol (T)</th>
-                                                          <th>2400</th>
-                                                          <th>D</th>
-                                                          <th>S</th>
-                                                          <th>Novice</th>
-                                                          <th>02:05:55</th>
-                                                          <th>Miss </th>
-                                                          <th>58</th>
-                                                          <th>6</th>
-                                                          <th>16.25</th>
-                                                          <th>5</th>
-                                                          <th>{item.Distance}</th>
-                                                          <th>5</th>
-                                                          <th>
-                                                            <a href={item.VideoLink} target="_blank">
-                                                            <img
-                                                              src={arrow1}
-                                                              alt=""
-                                                            />
-                                                            </a>
-                                                          </th>
-                                                        </tr>
-                                                      </thead>
-                                                    </table>
-                                                  </div>
-                                                      )
-                                                    })
-                                                  }
-                                                  </> */}
-
-
-                                                      {/* <div className="BodyNew2">
-                                                    <table className="customers2">
-                                                      <tr>
-                                                        <th>12 Oct 22</th>
-                                                        <th>Wol (T)</th>
-                                                        <th>2400</th>
-                                                        <th>D</th>
-                                                        <th>S</th>
-                                                        <th>Novice</th>
-                                                        <th>02:05:55</th>
-                                                        <th>Miss </th>
-                                                        <th>58</th>
-                                                        <th>6</th>
-                                                        <th>16.25</th>
-                                                        <th>5</th>
-                                                        <th>67</th>
-                                                        <th>5</th>
-                                                        <th>
-                                                          <img
-                                                            src={arrow1}
-                                                            alt=""
-                                                          />
-                                                        </th>
-                                                      </tr>
-                                                    </table>
-                                                  </div>
-                                                  <div className="BodyNew3">
-                                                    <table className="customers2">
-                                                      <tr>
-                                                        <th>12 Oct 22</th>
-                                                        <th>Wol (T)</th>
-                                                        <th>2400</th>
-                                                        <th>D</th>
-                                                        <th>S</th>
-                                                        <th>Novice</th>
-                                                        <th>02:05:55</th>
-                                                        <th>Miss </th>
-                                                        <th>58</th>
-                                                        <th>6</th>
-                                                        <th>16.25</th>
-                                                        <th>5</th>
-                                                        <th>67</th>
-                                                        <th>5</th>
-                                                        <th>
-                                                          <img
-                                                            src={arrow1}
-                                                            alt=""
-                                                          />
-                                                        </th>
-                                                      </tr>
-                                                    </table>
-                                                  </div> */}
                                                     </div>
-
                                                   </ScrollContainer>
                                                 </Card.Body>
                                               </Accordion.Collapse>
@@ -1241,8 +1330,6 @@ const RaceDetails = () => {
                   </div>
                 </div>
               </div>
-
-
             </>
           ) : (
             <div className="NAclass">No Data</div>
@@ -1274,15 +1361,12 @@ const RaceDetails = () => {
             <Modal.Body>
               <TriCompetition />
             </Modal.Body>
-            <Modal.Footer>
-            </Modal.Footer>
+            <Modal.Footer></Modal.Footer>
           </Modal>
         </div>
-      </Zoom >
-
-
+      </Zoom>
     </>
-  )
-}
+  );
+};
 
-export default RaceDetails
+export default RaceDetails;
