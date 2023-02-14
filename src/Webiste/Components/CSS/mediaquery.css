@@ -1899,6 +1899,61 @@
 
 @media (max-width: 471px) and (min-width: 360px) {
 
+    .racepageheadflex {
+        display: block;
+    }
+
+    .RaceCard {
+        width: 90%;
+        margin: 20px auto;
+
+    }
+
+    .racestatusclass {
+        display: none;
+    }
+
+    .racepageitem {
+        width: auto;
+    }
+
+    .racestatusclassMobile {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5.97744px 8.96617px;
+        gap: 10.76px;
+        width: 58px;
+        height: 77px;
+        left: 791px;
+        top: 514px;
+        color: #fff;
+        border-radius: 12.98px;
+    }
+
+    .racepageitem h5 {
+        margin-left: 9px;
+    }
+
+    .RaceDetailsName h6 {
+        margin: 10px 18px;
+    }
+
+    .RaceDesc p {
+        padding-right: 75px;
+    }
+
+    .raceStatusitem {
+        margin: -44px 7px 45px 12px
+    }
+
+    .raceStatus {
+        margin: 0 -5px;
+        justify-content: start;
+    }
+
     .imgDiv img {
 
         width: 102%;
@@ -2512,11 +2567,11 @@
         max-height: 190px;
     }
 
-    .customers td,
-    .customers th {
+    .customers>td,
+    .customers>th {
         border: inherit;
-        padding: 4px 14px;
-        font-size: 6px;
+        padding: 21px 14px;
+        font-size: 8px;
 
 
     }

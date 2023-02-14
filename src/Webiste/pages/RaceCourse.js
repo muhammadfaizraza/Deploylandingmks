@@ -5,7 +5,6 @@ import {
   STATUSES,
 } from "../../Webiste/redux/getReducer/getRaceCourse";
 import "../Components/CSS/RaceCardCSS/racecard.css";
-import { Link } from "react-router-dom";
 import Layout from "../Components/Reuseable/layout";
 import Footer from "../Components/Reuseable/Footer";
 import CopyRight from "../Components/Reuseable/Copyrights";
@@ -122,6 +121,30 @@ const RaceCourse = () => {
                           <div className="racepageitem" key={data._id}>
                             <div>
                               <div className="RaceDetailsName">
+
+                                <span
+                                  className="racestatusclass racestatusclassMobile"
+                                  style={{
+                                    backgroundColor: `${data.RaceStatus === "Cancel"
+                                      ? "#000000"
+                                      : RaceStatus === "End"
+                                        ? "#FF0000"
+                                        : RaceStatus === "Live"
+                                          ? "#5EC30F"
+                                          : "#FF9900"
+                                      }`,
+                                    color: `${RaceStatus === "Cancel"
+                                      ? "#ffff"
+                                      : RaceStatus === "End"
+                                        ? "#00000"
+                                        : RaceStatus === "Live"
+                                          ? "#00000"
+                                          : "#000000"
+                                      }`,
+                                  }}
+                                >
+                                  <p className="racestatusclasstime"><Moment format="hh:mm:ss" className="racestatusclasstime">{item.DayNTime}</Moment></p>
+                                </span>
                                 <span
                                   style={{
                                     fontWeight: "300",
