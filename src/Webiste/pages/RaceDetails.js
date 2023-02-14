@@ -43,12 +43,12 @@ const RaceDetails = () => {
 
   const [Disable, setDisable] = useState(false);
   const [show, setShow] = useState(false);
-  const [showtri, setShowtri] = useState(false);
   const [History, setHistory] = useState([]);
   const [PositionNumber, setPositionNumber] = useState("1");
 
   const handleClose = () => setShow(false);
   const handleCloseTri = () => setShowtri(false);
+  const [showtri, setShowtri] = useState(false);
 
   const handleShowTri = async (data) => {
     await setShowtri(true);
@@ -56,10 +56,11 @@ const RaceDetails = () => {
 
   function DataOne() {
     if (!state) {
-      return (window.location.href = "http://localhost:3000/");
+      return (window.location.href = "https://mksracing.vercel.app/");
     }
   }
   DataOne();
+
   const { id } = state;
 
   useEffect(() => {

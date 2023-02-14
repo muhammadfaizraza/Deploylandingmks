@@ -25,7 +25,9 @@ body::-webkit-scrollbar-thumb {
 .RaceDetailHeader::-webkit-scrollbar {
   width: 0.1em;
 }
-
+.RaceAndHorseModelDataCSSFlex::-webkit-scrollbar {
+  width: 0.1em;
+}
 .LeaderData::-webkit-scrollbar {
   width: 0.1em;
 }

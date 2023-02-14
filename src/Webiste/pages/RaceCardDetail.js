@@ -28,6 +28,10 @@ import { Lottie } from "lottie-react";
 import Animate from "../assets/loader.json";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
+import HorseDetail from "./RaceCardHorse";
+import JockeyDetail from "./JockeyDetail";
+import { Modal } from "react-bootstrap";
+
 
 //.....................Function for Toggle History..........................//
 function CustomToggle({ children, eventKey }) {
@@ -53,27 +57,47 @@ const RaceCardDetail = () => {
 
 
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
-
   const [Disable, setDisable] = useState(false);
-
-
   const [History, setHistory] = useState([])
 
 
+  const [show, setShow] = useState(false);
+  const [modaldata, setmodaldata] = useState()
+  const handleClose = () => setShow(false);
+  const handleShow = async (data) => {
+    setmodaldata(data)
+    console.log('horse data', data)
+    await setShow(true)
+  };  
+
+
+  const [showJockey, setShowJockey] = useState(false);
+  const [modaldataJockey, setmodaldataJockey] = useState()
+  const handleCloseJockey = () => setShowJockey(false);
+  const handleShowJockey = async (data) => {
+    setmodaldataJockey(data)
+    console.log('horse data', data)
+    await setShowJockey(true)
+  }; 
+
+
+
+  const handleCloseTri = () => setShowtri(false);
   const [showtri, setShowtri] = useState(false);
-  const [PositionNumber, setPositionNumber] = useState("1");
-
-  function DataOne() {
-    if (!state) {
-      return (window.location.href = "http://localhost:3000/");
-    }
-  }
-  DataOne();
-
 
   const handleShowTri = async (data) => {
     await setShowtri(true);
   };
+
+  const [PositionNumber, setPositionNumber] = useState("1");
+
+  function DataOne() {
+    if (!state) {
+      return (window.location.href = "https://mksracing.vercel.app/");
+    }
+  }
+  DataOne();
+
   const { id } = state;
 
 
@@ -229,6 +253,15 @@ const RaceCardDetail = () => {
 
 
   }
+  // let sortedProducts = singlerace ? (singlerace.RacehorsesData === undefined ? <></> : singlerace.RacehorsesData.sort((p1,p2) => 
+  // p1.HorseNo > p2.HorseNo ? 1 : p1.HorseNo < p2.HorseNo ? -1 : 0
+  // )):<></>
+  
+
+  // .RacehorsesData.sort((p1, p2) =>
+  //  p1.HorseNo > p2.HorseNo ? 1 : p1.HorseNo < p2.HorseNo ? -1 : 0
+  // );   
+
 
   return (
     <>
@@ -420,9 +453,11 @@ const RaceCardDetail = () => {
                       </span>
 
                     </div>
-                    <div className="hosekindSection">                    <p
+                    <div className="hosekindSection">                    
+                    <p
                       style={{
                         padding: "5px",
+                        textTransform: 'lowercase'
                       }}
                     >
                       {cookiedata === "en" ? (
@@ -434,7 +469,7 @@ const RaceCardDetail = () => {
                       ) : singlerace.HorseKindinRaceData === undefined ? (
                         <>N/A</>
                       ) : (
-                        singlerace.HorseKindinRaceData.NameAr
+                        (singlerace.HorseKindinRaceData.NameAr)
                       )}
                     </p>
                     </div>
@@ -561,7 +596,8 @@ const RaceCardDetail = () => {
                                                         {data.HorseModelIdData1.DOB}
                                                       </Moment>
                                                     </p>
-                                                    <h3>0{data.HorseNo}</h3>
+                                                    
+                                                    <h3>{data.HorseNo}</h3>
                                                     <p style={{
                                                       float: "right"
                                                     }}>({data.GateNo})</p>
@@ -583,7 +619,12 @@ const RaceCardDetail = () => {
                                                         color: "#19469D",
                                                       }}
                                                     >
-                                                      <span>
+                                                      <span  onClick={() =>
+                                                              handleShow(data)} style={
+                                                                {
+                                                                  cursor:'pointer'
+                                                                }
+                                                              }>
                                                         {cookiedata === "en"
                                                           ? data.HorseModelIdData1.NameEn
                                                           : data.HorseModelIdData1.NameAr}
@@ -604,7 +645,7 @@ const RaceCardDetail = () => {
                                                       <Moment fromNow ago>
                                                         {data.HorseModelIdData1.DOB}
                                                       </Moment>{" "}
-                                                      GR H ({data.HorseModelIdData1.Height})
+                                                      {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} H ({data.HorseModelIdData1.Height})
                                                     </p>
                                                   </div>
                                                   <div
@@ -825,15 +866,20 @@ const RaceCardDetail = () => {
                                                     {data.EquipmentData1 === undefined ? <>N/A</> : data.EquipmentData1.NameEn} OR:
                                                     {data.JockeyOnRaceData1 === null ? (
                                                       <>N/A</>
-                                                    ) : data.JockeyOnRaceData1.Rating === undefined ? (
+                                                    ) : data.Rating === undefined ? (
                                                       <>0</>
                                                     ) : (
-                                                      data.JockeyOnRaceData1.Rating
+                                                      data.Rating
                                                     )}
                                                   </p>
                                                   <div className="cardracesjockey">
                                                     <div className="cardracesjockeyleft">
-                                                      <p>
+                                                      <p  onClick={() =>
+                                                              handleShowJockey(data)} style={
+                                                                {
+                                                                  cursor:'pointer'
+                                                                }
+                                                              }>
                                                         J
                                                         <b
                                                           style={{
@@ -976,7 +1022,7 @@ const RaceCardDetail = () => {
                                                       </button>
                                                     ) : (
                                                       <>
-                                                        {!showtri ? (
+                                                        {/* {!showtri ? (
                                                           <button
                                                             style={btnNew}
                                                             onClick={() =>
@@ -991,7 +1037,7 @@ const RaceCardDetail = () => {
                                                           </button>
                                                         ) : (
                                                           <></>
-                                                        )}
+                                                        )} */}
                                                         {showtri ? (
                                                           <span>
                                                             <form
@@ -1114,70 +1160,70 @@ const RaceCardDetail = () => {
                                                         History !== undefined ?
 
                                                           History.map((history, index) => (
-                                                            <tbody>
+                                                            // <tbody>
 
-                                                              <tr>
+                                                            //   <tr>
 
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.Distance}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.BeatenByData.NameEn}
-                                                                </td>
-                                                                <td>
-                                                                  {history.HorseIDData.NameEn}
-                                                                </td>
-                                                                <td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.Distance}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.BeatenByData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
+                                                            //       {history.HorseIDData.NameEn}
+                                                            //     </td>
+                                                            //     <td>
 
-                                                                  <a href={history.HorseIDData.VideoLink}>
-                                                                    <img
-                                                                      src={arrow1}
-                                                                      alt=""
-                                                                    />
-                                                                  </a>
+                                                            //       <a href={history.HorseIDData.VideoLink}>
+                                                            //         <img
+                                                            //           src={arrow1}
+                                                            //           alt=""
+                                                            //         />
+                                                            //       </a>
 
-                                                                </td>
+                                                            //     </td>
 
-                                                              </tr>
-
-
-
-                                                            </tbody>
+                                                            //   </tr>
 
 
+
+                                                            // </tbody>
+
+                                                            <></>
 
 
                                                           ))
@@ -1364,19 +1410,30 @@ const RaceCardDetail = () => {
             </Modal.Footer>
           </Modal> */}
 
-          {/* <Modal
-            show={showtri}
-            onHide={handleCloseTri}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Modal.Header closeButton></Modal.Header>
-            <Modal.Body>
-              <TriCompetition data={TriData} />
-            </Modal.Body>
-            <Modal.Footer></Modal.Footer>
-          </Modal> */}
+        <Modal show={show} onHide={handleClose} size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered>
+        <Modal.Header className="popupheader" closeButton >
+        </Modal.Header>
+        <Modal.Body>
+          <HorseDetail data={modaldata} />
+        </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
+
+
+      <Modal show={showJockey} onHide={handleCloseJockey} size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered>
+        <Modal.Header className="popupheader" closeButton >
+        </Modal.Header>
+        <Modal.Body>
+          <JockeyDetail data={modaldataJockey} />
+        </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
         </div >
       </Zoom >
       {/* <Footer />

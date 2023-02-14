@@ -18,6 +18,8 @@ import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 import { useTranslation } from "react-i18next";
 import Defaultimg from "../assets/default.png"
+import Pagination from "./Pagination";
+
 
 const Trainer = () => {
   const { t } = useTranslation()
@@ -36,6 +38,14 @@ const Trainer = () => {
   };
   const dispatch = useDispatch();
   const { data: jockey, status } = useSelector((state) => state.jockey);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(8);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = jockey.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
     dispatch(fetchJockey({ pageNumber, searchKeyword }));
@@ -94,7 +104,7 @@ const Trainer = () => {
                 <th>{t("Nationality")}</th>
                 <th>{t("Image")}</th>
               </tr>
-              {jockey.map((item) => {
+              {currentPosts.map((item) => {
                 return (
                   <tr onClick={() => handleShow(item)
                   } style={{
@@ -134,7 +144,15 @@ const Trainer = () => {
             </table>
 
           </div>
+          
         </div>
+        <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={100}
+            paginate={paginate}
+            currentPage={currentPage}
+            TotalPages={10}
+          />
         <Modal show={show} onHide={handleClose} size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered>

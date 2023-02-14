@@ -18,6 +18,7 @@ import Lottie from "lottie-react";
 import Animate from "../assets/loader.json";
 import { useTranslation } from "react-i18next";
 import DefaultImg from "../assets/default.png"
+import Pagination from "./Pagination";
 
 const Trainer = () => {
   const { t } = useTranslation()
@@ -25,6 +26,8 @@ const Trainer = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState();
+  const [TotalData, setTotalData] = useState();
+
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
     setmodaldata(data);
@@ -33,8 +36,16 @@ const Trainer = () => {
   const dispatch = useDispatch();
   const { data: trainer, status } = useSelector((state) => state.trainer);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(8);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = trainer.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   useEffect(() => {
     dispatch(fetchTrainer());
+    setTotalData(trainer.length)
   }, [dispatch]);
 
 
@@ -84,7 +95,7 @@ const Trainer = () => {
                 <th>{t("Nationality")}</th>
                 <th>{t("Image")}</th>
               </tr>
-              {trainer.map((item) => {
+              {currentPosts.map((item) => {
                 return (
                   <tr
                     onClick={() => handleShow(item)}
@@ -129,6 +140,13 @@ const Trainer = () => {
             </table>
           </div>
         </div>
+        <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={TotalData}
+            paginate={paginate}
+            currentPage={currentPage}
+            TotalPages={10}
+          />
         <Modal
           show={show}
           onHide={handleClose}

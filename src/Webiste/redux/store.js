@@ -26,6 +26,7 @@ import getSingleUser from './getReducer/getSingleUser';
 import getPedigree from './getReducer/getPedigree';
 import getPredictor from "./getReducer/Predictor"
 import getHorseHistory from './getReducer/getHorseHistory';
+import getRaceResultAnnounced from './getReducer/getRaceResultAnnounced';
 
 const store = configureStore({
     reducer: {
@@ -56,6 +57,7 @@ const store = configureStore({
         Pedigree: getPedigree,
         predictor: getPredictor,
         horseHistory: getHorseHistory,
+        raceresultDeclared:getRaceResultAnnounced
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

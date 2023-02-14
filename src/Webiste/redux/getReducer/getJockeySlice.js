@@ -35,7 +35,7 @@ export const {setJockey , setStatus} = getJockeySlice.actions;
 export default getJockeySlice.reducer;
 
 export const fetchJockey = createAsyncThunk('/Jockeyget/fetch', async({ pageNumber , searchKeyword }) => {
-    const res = await axios.get(`${window.env.API_URL}/Jockeyget?keyword=${ searchKeyword }&page=${ pageNumber }&limit=${''}`);
+    const res = await axios.get(`${window.env.API_URL}/Jockeyget?keyword=${ searchKeyword }&page=${ pageNumber }&limit=10`);
     const jockeyData = res.data;
     return jockeyData.data;
 })  

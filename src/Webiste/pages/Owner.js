@@ -18,6 +18,7 @@ import Animate from '../assets/loader.json'
 import OwnerDetail from "./OwnerDetail";
 import { useTranslation } from "react-i18next";
 import DefaultImg from "../assets/default.png"
+import Pagination from "./Pagination";
 
 const Owner = () => {
   const { t } = useTranslation();
@@ -35,11 +36,23 @@ const Owner = () => {
   const dispatch = useDispatch();
   const { data: owner, status } = useSelector((state) => state.owner);
 
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(8);
+  const [TotalData, setTotalData] = useState();
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = owner.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   useEffect(() => {
     dispatch(fetchowner({ pageNumber, searchKeyword }));
+    setTotalData(owner.length)
   }, [dispatch, pageNumber, searchKeyword]);
 
 
+  console.log(TotalData,'TotalData')
   const HandleJockey = (Id) => {
     Cookies.set('sjockey', Id)
     navigate('/jockeydetail')
@@ -84,7 +97,7 @@ const Owner = () => {
                 <th>{t("Nationality")}</th>
                 <th>{t("Image")}</th>
               </tr>
-              {owner.map((item) => {
+              {currentPosts.map((item) => {
                 return (
                   <tr onClick={() => handleShow(item)
                   } style={{
@@ -111,6 +124,14 @@ const Owner = () => {
 
           </div>
         </div>
+        <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={TotalData}
+            paginate={paginate}
+            currentPage={currentPage}
+            TotalPages={10}
+          />
+
         <Modal show={show} onHide={handleClose} size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered>

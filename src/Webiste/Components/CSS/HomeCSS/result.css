@@ -198,3 +198,8 @@ color: #19469D;
 .resultimagesRunningTime > h4{
   line-height: 1px;
 }
+
+button.raceresultbtn {
+  border: none;
+  padding: 6px;
+}
