@@ -9,12 +9,34 @@ import arrow1 from "../../assets/image 3 (Traced).png";
 import Moment from "react-moment";
 import Cookies from "js-cookie";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import Defaultimg from "../../assets/Frame.png";
+import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import { useTranslation } from "react-i18next";
+
+
+function CustomToggle({ children, eventKey }) {
+  const decoratedOnClick = useAccordionButton(eventKey, () =>
+    console.log("totally custom!")
+  );
+
+  return (
+    <button
+      type="button"
+      className="ShowPreviousHistory"
+      onClick={decoratedOnClick}
+    >
+      {children}
+    </button>
+  );
+}
+
+
 const Card = () => {
   const [Disable, setDisable] = useState(false);
   const [showtri, setShowtri] = useState(false);
   const [PositionNumber, setPositionNumber] = useState("1");
+  const [History, setHistory] = useState([])
+
   const myPara = {
     fontWeight: "700",
     fontSize: "12px",
@@ -104,15 +126,43 @@ const Card = () => {
       setDisable(false);
     }
   };
+  const handleTrack = async (Id) => {
+
+    try {
+      const res = await axios.post(
+        `/trackhorse`, { Horse: Id }, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      }
+      );
+
+
+      toast('Tracked Success')
+
+      // navigate('/tracker')
+    } catch (error) {
+      const err = error.response.data.message;
+      toast(err)
+    }
+  };
+
+  const showHorseHistory = async (horseid) => {
+
+    const res =
+      await
+        axios.get(`${window.env.API_URL}/horsehistory/${horseid}`)
+    setHistory(res.data.data)
+
+
+  }
+
 
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
   const cookiedata = Cookies.get("i18next");
   return (
     <div className="RaceDetailCard">
       <div className="forfexclass">
-        <Accordion defaultActiveKey="0">
-          
-        </Accordion>
+      
       </div>
     </div>
   );

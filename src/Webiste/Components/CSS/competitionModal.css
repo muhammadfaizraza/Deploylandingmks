@@ -1,57 +1,62 @@
-.CompetitionModal{
+.CompetitionModal {
     width: 100%;
-height: 829px;
-left: 376px;
-top: 191px;
-background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
-border-radius: 18px;
-margin: auto;
+    height: 829px;
+    left: 376px;
+    top: 191px;
+    background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
+    border-radius: 18px;
+    margin: auto;
 }
 
-.CompetitionModalHead{
 
+.CompetitionName {
+    display: flex;
+    padding: 30px 0px 10px 30px;
 }
-.CompetitionName{
-display: flex;
-padding: 30px 0px 10px 30px;
-}
-.CompetitionName h2{
+
+.CompetitionName h2 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 22.5949px;
     line-height: 27px;
-    
+
     color: #FFFFFF;
 }
-.CompetitionName h3{
-padding: 3px 0 0 15px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 16.5949px;
-line-height: 20px;
-color: #FFFFFF;
+
+.CompetitionName h3 {
+    padding: 3px 0 0 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16.5949px;
+    line-height: 20px;
+    color: #FFFFFF;
 }
-.CompetitionPoint{
-/* display: flex; */
-gap: 13.39px;
-padding-left: 30px;
+
+.CompetitionPoint {
+    /* display: flex; */
+    gap: 13.39px;
+    padding-left: 30px;
 }
+
 button#noanim-tab-example-tab {
     margin: 0px 10px 20px 20px;
     width: 42px;
     height: 60px;
     background: #5EC40F !important;
 }
+
 .CompetitionPoint ul li button.nav-link {
     background: #19469d8f !important;
 }
+
 .CompetitionPoint ul li button.nav-link {
-    background: #19469d8f!important;
+    background: #19469d8f !important;
     margin-right: 12px;
     margin-bottom: 15px !important;
 }
+
 .statusrace {
     width: 30% !important;
     justify-content: center !important;
@@ -62,17 +67,21 @@ button#noanim-tab-example-tab {
     padding-bottom: 15px !important;
     /* display: none !important; */
 }
+
 ul.mb-3.cancel.nav.nav-tabs {
     margin-left: 25px;
 }
+
 .CompetitionPoint ul li button.nav-link.active {
     padding: 10px 30px !important;
     transition: all 200ms ease-in-out;
 }
+
 .CompetitionPoint ul li button.nav-link {
     padding: 9px 10px !important;
     transition: all 200ms ease-in-out;
 }
+
 /* button#noanim-tab-example-tab-1{
     margin: 0px 10px 20px 20px;
     width: 42px;
@@ -98,108 +107,119 @@ button#noanim-tab-example-tab-2{
     height: 60px;
     background: #5EC40F !important;
 } */
-.CompetitionCard{
+.CompetitionCard {
     display: flex;
     margin-left: 10px;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 13.3898px;
-color: #fff;
-width: 42px;
-height: 60px;
-left: 395px;
-top: 264px;
-background: #5EC40F;
-
-}
-.CompetitionPoint > div:nth-child(5){
-    width: 91px;
-height: 78px;
-left: 595px;
-top: 264px;
-
-background: #5EC40F;
-border-radius: 6.69492px 6.69492px 0px 0px;
-}
-.CompetitionPoint > div:nth-child(7){
-width: 42px;
-height: 60px;
-left: 395px;
-top: 264px;
-background: #FF0000;
-border-radius: 6.69492px 6.69492px 0px 0px;
-
-}
-.CompetitionPoint > div:nth-child(3){
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 13.3898px;
+    color: #fff;
     width: 42px;
     height: 60px;
     left: 395px;
-background: #ED6203;
-border-radius: 6.69492px 6.69492px 0px 0px;
-}
-.CompetitionPrize{
-    box-sizing: border-box;
-width: 710px;
-height: 129px;
-left: 396px;
-top: 340px;
-margin: auto;
-background: #FFFFFF;
-border: 0.97807px solid rgba(0, 0, 0, 0.1);
-border-radius: 17.6053px;
-margin-bottom: 8px;
-}
-.CompetitionHorse{ 
-box-sizing: border-box;
-width: 710px;
-height: 55px;
-left: 0px;
-top: 0px;
-margin: auto;
-margin-top: 5px;
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 18px;
-display: flex;
-justify-content: space-between;
+    top: 264px;
+    background: #5EC40F;
+
 }
 
-.CompetitionBtn > button{
-margin: 20px;
-bottom: 34.49%;
-background: #FF0000;
-border-radius: 15px;
-float: right;
-border: none;
-Width:287px;
-Height:57px;
-color: #fff;
+.CompetitionPoint>div:nth-child(5) {
+    width: 91px;
+    height: 78px;
+    left: 595px;
+    top: 264px;
+
+    background: #5EC40F;
+    border-radius: 6.69492px 6.69492px 0px 0px;
 }
-.Competitiontrophy{
+
+.CompetitionPoint>div:nth-child(7) {
+    width: 42px;
+    height: 60px;
+    left: 395px;
+    top: 264px;
+    background: #FF0000;
+    border-radius: 6.69492px 6.69492px 0px 0px;
+
+}
+
+.CompetitionPoint>div:nth-child(3) {
+    width: 42px;
+    height: 60px;
+    left: 395px;
+    background: #ED6203;
+    border-radius: 6.69492px 6.69492px 0px 0px;
+}
+
+.CompetitionPrize {
+    box-sizing: border-box;
+    width: 710px;
+    height: 129px;
+    left: 396px;
+    top: 340px;
+    margin: auto;
+    background: #FFFFFF;
+    border: 0.97807px solid rgba(0, 0, 0, 0.1);
+    border-radius: 17.6053px;
+    margin-bottom: 8px;
+}
+
+.CompetitionHorse {
+    box-sizing: border-box;
+    width: 710px;
+    height: 55px;
+    left: 0px;
+    top: 0px;
+    margin: auto;
+    margin-top: 5px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.CompetitionBtn>button {
+    margin: 20px;
+    bottom: 34.49%;
+    background: #FF0000;
+    border-radius: 15px;
+    float: right;
+    border: none;
+    Width: 287px;
+    Height: 57px;
+    color: #fff;
+}
+
+.Competitiontrophy {
     display: flex;
     justify-content: space-around;
+    overflow: hidden !important;
 }
-.Trophydata > span:nth-child(1){
+
+.Trophydata>span:nth-child(1) {
     font-style: normal;
     font-weight: 700;
     font-size: 20.3439px;
     line-height: 25px;
     color: #000000;
 }
-.Trophydata{
+
+.Trophydata {
     margin-top: 15px;
 }
 
-.Trophydata_P > p{
+.Trophydata_P>p {
     font-size: 11px;
     margin-top: 0;
     margin-bottom: 0rem;
 }
-.Trophydata_P > p:nth-child(3){
+
+.Trophydata_P>p:nth-child(3) {
     font-weight: 700;
 }
-.CompetitionHorse > p{
+
+.CompetitionHorse>p {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 300;
@@ -208,27 +228,31 @@ color: #fff;
     color: #19469D;
     padding: 15px;
 }
-.CompetitionHorseselect > ToggleButton{
+
+.CompetitionHorseselect>ToggleButton {
     border: none;
     width: 64px;
-height: 55px;
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 18px;
-margin-left: 14px;
+    height: 55px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    margin-left: 14px;
 }
-.ToggleButton{
+
+.ToggleButton {
     width: 64px;
-height: 55px;
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 18px;
-margin-left: 14px;
-text-align: center;
-padding-top: 15px;
-color: #000;
+    height: 55px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    margin-left: 14px;
+    text-align: center;
+    padding-top: 15px;
+    color: #000;
 }
-.btn-check:focus+.btn, .btn:focus {
+
+.btn-check:focus+.btn,
+.btn:focus {
     box-shadow: none;
 }
 

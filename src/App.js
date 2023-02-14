@@ -6,9 +6,9 @@ import Home from './Webiste/pages/Home';
 import RaceCard from './Webiste/pages/RaceCard';
 import RaceCardDetail from './Webiste/pages/RaceCardDetail';
 import './Webiste/Components/CSS/mediaquery.css'
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import store from './Webiste/redux/store'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import Registration from './Webiste/pages/Registration';
 import Login from './Webiste/pages/Login';
 import Dashboard from './Webiste/UserDashboard/Dashboard';
@@ -56,56 +56,58 @@ function App() {
 
   return (
     <>
-    <ToastContainer /> 
-    {userIsDesktop ?  <Provider store={store}>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' exact element={  <Home /> } />
-        <Route path="/racecard"  element={  <RaceCard /> } />
-        <Route path={'/racedetail'} element={  <Home /> } />
-        <Route path={'/racedetails'} element={  <RaceDetails /> } />
-        <Route path='/login'  element={  <Login /> } />
-        <Route path='/register'  element={  <Registration /> } />
-        <Route path='/racecourse'  element={  <RaceCourse /> } />
-        <Route path='/about'  element={  <About /> } />
-        <Route path='/policies'  element={  <Policy /> } />
-        <Route path='/termscondition'  element={  <TermsAndCondition /> } />
-        <Route path='/result'  element={  <Result /> } />
-        <Route path='/competition'  element={  <Competition /> } />
-        <Route path='/sponsor'  element={  <Sponsor /> } />
-        <Route path='/statistics'  element={  <Stats /> } />
-        <Route path='/horse'  element={  <Horse /> } />
-        <Route path='/trainer'  element={  <Trainer /> } />
-        <Route path='/jockey'  element={  <Jockey /> } />
-        <Route path='/owner'  element={  <Owner /> } />
-        <Route path='/horsedetail'  element={  <HorseDetail /> } />
-        <Route path='/ownerdetail'  element={  <OwnerDetail /> } />
-        <Route path='/querytool'  element={  <QueryTool /> } />
-        <Route path='/jockeydetail'  element={  <JockeyDetail /> } />
-        <Route path='/trainerdetail'  element={  <TrainerDetail /> } />
-        <Route path='/blogdetails'  element={  <BlogDetails /> } />
-        <Route path='/competitionmodal'  element={  <CompetitionModal /> } />
-        <Route path='/testpedigree'  element={  <TestPedigree /> } />
-        <Route path="*" element={<NotFound />} />
+      <ToastContainer />
+      {userIsDesktop ? <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' exact element={<Home />} />
+            <Route path='/blogdetails' element={<BlogDetails />} />
+            <Route path="/racecard" element={<RaceCard />} />
+            <Route path={'/racedetail'} element={<Home />} />
+            <Route path={'/racedetails'} element={<RaceDetails />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Registration />} />
+            <Route path='/racecourse' element={<RaceCourse />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/policies' element={<Policy />} />
+            <Route path='/termscondition' element={<TermsAndCondition />} />
+            <Route path='/result' element={<Result />} />
+            <Route path='/competition' element={<Competition />} />
+            <Route path='/sponsor' element={<Sponsor />} />
+            <Route path='/statistics' element={<Stats />} />
+            <Route path='/horse' element={<Horse />} />
+            <Route path='/trainer' element={<Trainer />} />
+            <Route path='/jockey' element={<Jockey />} />
+            <Route path='/owner' element={<Owner />} />
+            <Route path='/horsedetail' element={<HorseDetail />} />
+            <Route path='/ownerdetail' element={<OwnerDetail />} />
+            <Route path='/querytool' element={<QueryTool />} />
+            <Route path='/jockeydetail' element={<JockeyDetail />} />
+            <Route path='/trainerdetail' element={<TrainerDetail />} />
 
-        {/* Protected Routes */}
-        <Route element={<ProtectedRoute />}>
-          <Route path='/dashboard'  element={  <Dashboard /> } />
-          <Route path='/myprofile'  element={  <MyProfile /> } />
-          <Route path='/myselection'  element={  <MySelection /> } />
-          <Route path='/winnerlist'  element={  <WinnerList/> } />
-          <Route path='/userProfile'  element={  <Profile /> } />
-          <Route path='/changepassword' element={<ChangePassword />} />
-          <Route path='/myresult' element={ <UserResult /> }/>
-          <Route path='/tracker' element={ <MyTracker /> }/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-    </Provider> : <h1 style={{
-      display:'flex',
-      justifyContent:'center',
-      alignItem:'center'    }}>Not Available in this device</h1>}
-   
+            <Route path='/competitionmodal' element={<CompetitionModal />} />
+            <Route path='/testpedigree' element={<TestPedigree />} />
+            <Route path="*" element={<NotFound />} />
+
+            {/* Protected Routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/myprofile' element={<MyProfile />} />
+              <Route path='/myselection' element={<MySelection />} />
+              <Route path='/winnerlist' element={<WinnerList />} />
+              <Route path='/userProfile' element={<Profile />} />
+              <Route path='/changepassword' element={<ChangePassword />} />
+              <Route path='/myresult' element={<UserResult />} />
+              <Route path='/tracker' element={<MyTracker />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider> : <h1 style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItem: 'center'
+      }}>Not Available in this device</h1>}
+
     </>
   );
 }

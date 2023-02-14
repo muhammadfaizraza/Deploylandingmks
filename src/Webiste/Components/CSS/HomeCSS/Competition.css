@@ -1,4 +1,4 @@
-.HomeRightSection{
+.HomeRightSection {
     height: fit-content;
     max-height: 700px;
     background: #EFEFEF;
@@ -6,48 +6,56 @@
     overflow: auto;
     min-height: 700px;
 }
-.HomeRightLeaderBoader{
-        /* height: 700px; */
-        max-height: 720px;
-        background: #EFEFEF;
-        border-radius: 20px;
-        overflow: auto;
-        margin-top: 2rem;
-        height: fit-content;
+
+.HomeRightLeaderBoader {
+    /* height: 700px; */
+    max-height: 720px;
+    background: #EFEFEF;
+    border-radius: 20px;
+    overflow: auto;
+    margin-top: 2rem;
+    height: fit-content;
 }
+
 .react-reveal.RaceCardDetail {
     flex: 2;
 }
-.Competition{
+
+.Competition {
     margin: auto;
 }
-.CompetitionHeader{
+
+.CompetitionHeader {
     width: 88%;
     margin: auto;
     display: flex;
     margin-top: 1rem;
     justify-content: space-between;
 }
-.CompetitionHeader h2{
+
+.CompetitionHeader h2 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(1rem, 10vw, 2rem); 
+    font-size: clamp(1rem, 10vw, 2rem);
     text-transform: uppercase;
 }
-.CompetitionHeader img{
+
+.CompetitionHeader img {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(1rem, 10vw, 2rem); 
+    font-size: clamp(1rem, 10vw, 2rem);
     line-height: 24px;
 }
-.AccordionHeader{
+
+.AccordionHeader {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-.AccordionHeader > p:nth-child(1){
+
+.AccordionHeader>p:nth-child(1) {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -56,7 +64,8 @@
     color: #000000;
     padding-top: 10px;
 }
-.AccordionHeader > p:nth-child(2){
+
+.AccordionHeader>p:nth-child(2) {
     font-style: normal;
     font-weight: 300;
     font-size: 15.5949px;
@@ -64,17 +73,20 @@
     color: #000000;
     padding-top: 10px;
 }
-.AccordionHeader11{
+
+.AccordionHeader11 {
     border-radius: 10px;
 }
-.AccordionHeader11 button{
+
+.AccordionHeader11 button {
     border-radius: 20px !important;
 }
-.accordion-button::after{
+
+.accordion-button::after {
     display: none !important;
 }
 
-.CompetitionData{
+.CompetitionData {
     width: 100%;
     margin: auto;
     height: -moz-fit-content;
@@ -83,6 +95,7 @@
     max-width: 630px;
     margin-bottom: 25px;
 }
+
 .LeaderData {
     width: 100%;
     margin: auto;
@@ -92,38 +105,46 @@
     height: 550px;
     margin-bottom: 25px;
 }
+
 .accordion-item:last-of-type .accordion-button.collapsed {
     border-radius: 30px;
-    
+
 }
-.accordion-button{
+
+.accordion-button {
     border-radius: 30px;
 }
-.Competitionitem{
+
+.Competitionitem {
     border-radius: 21px;
     margin: 8px;
 }
-.Competition_Matches{
+
+.Competition_Matches {
     display: flex;
     justify-content: space-between;
     color: #fff;
 }
+
 .accordion-body {
     background: #19469D;
-   
+
 }
+
 .accordion-item {
-    background-color: #EFEFEF ; 
-     border: none; 
+    background-color: #EFEFEF;
+    border: none;
 }
+
 .accordion-button:focus {
     box-shadow: none;
 }
 
-.CastCompetitionCategory{
+.CastCompetitionCategory {
     display: flex;
 }
-.CastCompetitionCategory > input {
+
+.CastCompetitionCategory>input {
     margin: 5px;
     height: 15px;
     width: 25px;
@@ -133,6 +154,12 @@
     background: #989693 !important;
 } */
 
-.racecardlottie{
+.racecardlottie {
     width: 100% !important;
+}
+
+.Competitiontrophy {
+    display: flex;
+    justify-content: space-around;
+    overflow: scroll !important;
 }

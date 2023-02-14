@@ -621,25 +621,54 @@ strong {
     margin: 0 5px;
 }
 
-.ShowPreviousHistory{
+.ShowPreviousHistory {
     border: none !important;
     /* border-bottom: 1px solid black !important; */
     margin: auto;
     background: transparent;
     width: 100%;
     font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 9px;
-line-height: 11px;
-/* identical to box height */
+    font-style: normal;
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 11px;
+    /* identical to box height */
 
-text-decoration-line: underline;
+    text-decoration-line: underline;
 
-color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .RaceAndHorseModelDataCSS .card {
     border-radius: 15px;
     border: none;
 }
+
+.raceName h5 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 17px 15px;
+
+}
+
+.raceName {
+    display: block;
+}
+
+.itemsraces>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12.8px;
+    line-height: 17px;
+    color: #000000;
+    margin: 5px 10px;
+}
+
+.RaceNav {
+    background: rgb(25, 70, 157) !important;
+
+}
+
