@@ -375,3 +375,11 @@ flex: 9;
     width: 50%;
     margin: auto;
 }
+
+.RaceAndHorseModelDataCSSFlex11 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    /* height: 89rem; */
+    overflow: auto;
+}
