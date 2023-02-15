@@ -94,16 +94,20 @@ border-radius: 0px 20px 0px 0px;
     height: 100%;
 }
 .sponsorimg{
-    object-fit: cover; 
-    position: relative;
-    height: 515px;
     color: #fff;
+    height: 515px;
+    object-fit: cover;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
 }
 .first-txt{
     position: absolute;
-    padding: 55px;
-    top: 25%;
-    left: 18%;
+    /* padding: 55px; */
+    /* top: 25%; */
+    /* left: 18%; */
     height: 120px;
     font-family: 'Inter';
     font-style: normal;
