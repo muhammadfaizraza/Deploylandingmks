@@ -863,7 +863,7 @@ const RaceCardDetail = () => {
                                                       textAlign: "end",
                                                     }}
                                                   >
-                                                    {data.EquipmentData1 === undefined ? <>N/A</> : data.EquipmentData1.NameEn} OR:
+                                                    {data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameEn} OR:
                                                     {data.JockeyOnRaceData1 === null ? (
                                                       <>N/A</>
                                                     ) : data.Rating === undefined ? (
