@@ -338,7 +338,7 @@ const CardPrint = () => {
                                 textAlign: "end",
                               }}
                             >
-                              {data.EquipmentData1 === undefined ? (
+                              {data.EquipmentData1 === null ? (
                                 <>N/A</>
                               ) : (
                                 data.EquipmentData1.NameEn
