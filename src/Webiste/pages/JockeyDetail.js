@@ -50,7 +50,7 @@ const JockeyDetail = (data) => {
                     color: "#19469D",
                   }}
                 >
-                  {cookiedata === "en" ? (data.data.NameEn ? data.data.NameEn : "N/A") : (data.data.NameAr ? data.data.NameAr : "N/A")}
+                  {cookiedata === "en" ? (data.data.JockeyOnRaceData1 ? data.data.JockeyOnRaceData1.NameEn : "N/A") : (data.data.JockeyOnRaceData1 ? data.data.JockeyOnRaceData1.NameAr : "N/A")}
                 </p>
                 <p
                   style={{
@@ -58,8 +58,8 @@ const JockeyDetail = (data) => {
                     marginLeft: '20px'
                   }}
                 >
-                  {data.data.DOB === null ? <>No Data</> : <><Moment fromNow ago>
-                    {data.data.DOB}
+                  {data.data.JockeyOnRaceData1.DOB === null ? <>No Data</> : <><Moment fromNow ago>
+                    {data.data.JockeyOnRaceData1.DOB}
                   </Moment></>}
 
                 </p>

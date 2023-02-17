@@ -35,5 +35,5 @@ export default getPredictionRaceSlice.reducer;
 export const fetchPredictionRace = createAsyncThunk('/PredictionRaceget/fetch', async() => {
         const res = await axios.get(`${window.env.API_URL}/raceprediction`);
     const PredictionRaceData = res.data;
-    return PredictionRaceData.data;
+    return PredictionRaceData.result;
 })
