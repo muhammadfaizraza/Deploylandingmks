@@ -26,8 +26,8 @@ const Prediction = () => {
             MatchData.map((item) => {
               return(
                 <div className="MatchDataPredict">
-                  {/* <h3>{item.name}</h3> */}
-                  <h6>{t('live_prediction')}</h6>
+                  <h3>{item.name}</h3>
+                  {/* <h6>{t('live_prediction')}</h6> */}
                   <span className="PredictionFlex">
                     <p> {t("Race")}{item.raceNo}</p>
                     <p>{item.totalRunner} {t("Runner")}</p>

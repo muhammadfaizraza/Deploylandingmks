@@ -12,12 +12,13 @@ const Auth = () => {
   const { userInfo, token } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (token) {
+    if (userInfo === null) {
       dispatch(getUserDetails());
     }
-    console.log(userInfo, "agaya");
-  }, [token, dispatch]);
+  }, [userInfo, dispatch]);
+
   function Redirect() {
     navigate("/dashboard");
   }

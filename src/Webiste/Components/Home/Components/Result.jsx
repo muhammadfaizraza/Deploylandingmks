@@ -73,6 +73,7 @@ const Result = () => {
                         )}{" "}
                         {t("Runner")}
                       </p>
+                      {/* <p>Distance</p> */}
                     </span>
                   </div>
                   <div className="customers12">
@@ -82,7 +83,7 @@ const Result = () => {
                       <p>{t("Win")}</p>
                       <p>{t("Place")}</p>
                       <p>
-                        {t("OffTime")}:<b></b>
+                        {t("OffTime")}:{raceresult.RaceResultData[0].RaceTime}h<b></b>
                       </p>
                     </span>
                   </div>
@@ -101,9 +102,8 @@ const Result = () => {
                           return (
                             <tr key={data._id}>
                               <td>{index + 1}</td>
-                              <td>{cookiedata === "en" ? <>{data.HorseIDData.NameEn}</> : <>{data.HorseIDData.NameAr}</>}</td>
+                              <td>{cookiedata === "en" ? <>{data.HorseIDData.NameEn}({data.FinalPositionDataHorse.Rank})</> : <>{data.HorseIDData.NameAr}({data.FinalPositionDataHorse.Rank})</>}</td>
                               <td>{data.CumulativeDistance}</td>
-
                               <td>
                                 {data.HorseIDData.HorseStatus === true ? <>Yes</> : <>No</>}
                               </td>

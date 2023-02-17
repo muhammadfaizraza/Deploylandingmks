@@ -50,10 +50,10 @@ const Footer = () => {
                     <h5 className="text-white mb-3">{t('Quicklinks')}</h5>
                     <ul className="list-unstyled text-muted text-bold">
                         <li ><p><b>{t('Quicklinks')}</b></p></li>
-                        <Link to='/racecard' className="LinkStyle">
+                        <Link to='/' className="LinkStyle">
                         <li><p>{t('race_card')}</p></li>
                         </Link>
-                        <Link to='/horse' className="LinkStyle">
+                        <Link to='/' className="LinkStyle">
                            <li><p>{t('Horses')}</p></li>
                         </Link>
                         <Link to='/competition' className="LinkStyle">
