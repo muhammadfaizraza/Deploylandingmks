@@ -37,7 +37,7 @@ const Graph = () => {
       <div className='chartclass'>
       <Doughnut data={data}  />
       </div>
-    <p className='chartmatch'>Riverina Paceway</p>
+    {/* <p className='chartmatch'>Riverina Paceway</p> */}
     </div>
   </>
   )

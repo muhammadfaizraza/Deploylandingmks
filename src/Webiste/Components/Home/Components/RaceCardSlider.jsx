@@ -230,7 +230,7 @@ const RaceCardSlider = () => {
                       </p>{" "}
                     </span>
                     <span className="singleracecardbtn">
-                      <button>FORM</button>
+                      <button>{t("From")}</button>
                     </span>
                   </div>
                 );

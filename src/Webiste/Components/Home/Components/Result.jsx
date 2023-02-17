@@ -41,6 +41,7 @@ const Result = () => {
     );
   }
 
+
   return (
     <>
       <div className="resultCard">
@@ -58,11 +59,11 @@ const Result = () => {
             <>
               <div className="livedatacard">
                 <div key={raceresult._id}>
-                  <p className="result_match_name">{raceresult.MeetingCode}</p>
+                  <p className="result_match_name">{cookiedata === "en" ? <>{raceresult.RaceNameModelData === null ? <></> : raceresult.RaceNameModelData.NameEn}</> : <>{raceresult.RaceNameModelData === null ? <></> : raceresult.RaceNameModelData.NameAr}</>}</p>
                   <div className="live_result_data">
                     <span className="result_match_left">
                       <p className="result_match_raceNo">
-                        Race {raceresult.WeatherDegree}
+                        {t("Race")} {raceresult.WeatherDegree}
                       </p>
                       <p className="result_match_totalRunner">
                         {raceresult.RaceResultData.length === undefined ? (
@@ -70,7 +71,7 @@ const Result = () => {
                         ) : (
                           raceresult.RaceResultData.length
                         )}{" "}
-                        Runner
+                        {t("Runner")}
                       </p>
                     </span>
                   </div>
@@ -88,19 +89,19 @@ const Result = () => {
                   <div className="customers13">
                     <table className="customers1">
                                         
-                  {/* <thead className='resulttablehome'>
-                      <th>Positions</th>
-                      <th>Win</th>
-                      <th>Win</th>
-                      <th>Place</th>
-                      <th>Off Time </th>
+                  {/* <thead >
+                      <th>{t("Positions")}</th>
+                      <th>{t("Results")}</th>
+                      <th>{t("Win")}</th>
+                      <th>{t("Place")}</th>
+                      <th>{t("OffTime")}</th>
                     </thead> */}
                       {raceresult.RaceResultData.slice(0, 3).map(
                         (data, index) => {
                           return (
                             <tr key={data._id}>
                               <td>{index + 1}</td>
-                              <td>{data.HorseIDData.NameEn}</td>
+                              <td>{cookiedata === "en" ? <>{data.HorseIDData.NameEn}</> : <>{data.HorseIDData.NameAr}</>}</td>
                               <td>{data.CumulativeDistance}</td>
 
                               <td>

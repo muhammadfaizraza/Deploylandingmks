@@ -407,6 +407,25 @@ const RaceCardDetail = () => {
                             )}
                           </p>
                         </div>
+                        <p
+                      style={{
+                        padding: "5px",
+                        marginTop:'-20px'
+
+                      }}
+                    >
+                      {cookiedata === "en" ? (
+                        singlerace.HorseKindinRaceData === undefined ? (
+                          <>N/A</>
+                        ) : (
+                          singlerace.HorseKindinRaceData.NameEn
+                        )
+                      ) : singlerace.HorseKindinRaceData === undefined ? (
+                        <>N/A</>
+                      ) : (
+                        (singlerace.HorseKindinRaceData.NameAr)
+                      )}
+                    </p>
                       </span>
                       <span className="itemraces_right">
                         <p
@@ -454,24 +473,7 @@ const RaceCardDetail = () => {
 
                     </div>
                     <div className="hosekindSection">                    
-                    <p
-                      style={{
-                        padding: "5px",
-                        textTransform: 'lowercase'
-                      }}
-                    >
-                      {cookiedata === "en" ? (
-                        singlerace.HorseKindinRaceData === undefined ? (
-                          <>N/A</>
-                        ) : (
-                          singlerace.HorseKindinRaceData.NameEn
-                        )
-                      ) : singlerace.HorseKindinRaceData === undefined ? (
-                        <>N/A</>
-                      ) : (
-                        (singlerace.HorseKindinRaceData.NameAr)
-                      )}
-                    </p>
+                    
                     </div>
                     <p>
                       <b>{t("Description")}</b> :
@@ -503,7 +505,7 @@ const RaceCardDetail = () => {
                   </div>
                   <div className="Competitiontrophy">
                     <div className="Trophydata">
-                      <span>1st</span>
+                      <span>{t('1st')}</span>
                       <span>
                         <img src={img1} alt="" />
                       </span>
@@ -512,7 +514,7 @@ const RaceCardDetail = () => {
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>2nd</span>
+                      <span>{t('2nd')}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
@@ -521,7 +523,7 @@ const RaceCardDetail = () => {
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>3rd</span>
+                      <span>{t('3rd')}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
@@ -530,7 +532,7 @@ const RaceCardDetail = () => {
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>4th</span>
+                      <span>{t('4th')}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
@@ -539,7 +541,7 @@ const RaceCardDetail = () => {
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>5th</span>
+                      <span>{t('5th')}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
@@ -548,7 +550,7 @@ const RaceCardDetail = () => {
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>6th</span>
+                      <span>{t('6th')}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
@@ -645,7 +647,7 @@ const RaceCardDetail = () => {
                                                       <Moment fromNow ago>
                                                         {data.HorseModelIdData1.DOB}
                                                       </Moment>{" "}
-                                                      {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} H ({data.HorseModelIdData1.Height})
+                                                      {/* {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} H ({data.HorseModelIdData1.Height}) */}
                                                     </p>
                                                   </div>
                                                   <div
@@ -660,17 +662,17 @@ const RaceCardDetail = () => {
                                                       <b>
                                                         :
                                                         {cookiedata === "en" ? (
-                                                          data.HorseModelIdData1.DamEn ===
-                                                            undefined ? (
+                                                          data.HorseModelIdData1.DamData ===
+                                                            null ? (
                                                             <>N/A</>
                                                           ) : (
                                                             data.HorseModelIdData1.NameEn
                                                           )
-                                                        ) : data.HorseModelIdData1.Dam ===
-                                                          undefined ? (
+                                                        ) : data.HorseModelIdData1.DamData ===
+                                                          null ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.DamAr
+                                                          data.HorseModelIdData1.NameAr
                                                         )}
                                                       </b>
                                                     </p>
@@ -863,7 +865,8 @@ const RaceCardDetail = () => {
                                                       textAlign: "end",
                                                     }}
                                                   >
-                                                    {data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameEn} OR:
+                                                    {cookiedata === "en" ? <>{data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameEn}</> : <>{data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameAr}</>}
+                                                     {t("OR")}:
                                                     {data.JockeyOnRaceData1 === null ? (
                                                       <>N/A</>
                                                     ) : data.Rating === undefined ? (
@@ -980,15 +983,14 @@ const RaceCardDetail = () => {
                                                 </div>
                                                 <div className="uaecareer">
                                                   <p>
-                                                    UAE Career: 47 (2 - 8 - 4)
+                                                    {t("UAECareer")}: 47 (2 - 8 - 4)
                                                   </p>
                                                   <p>
-                                                    Lifetime: 47 (2 - 8 - 4)
+                                                    {t("Lifetime")}: 47 (2 - 8 - 4)
                                                   </p>
-                                                  <p>Turf :47 (2 - 8 - 4) </p>
-                                                  <p>Durt :47 (2 - 8 - 4) </p>
-                                                  <p>Dist: 47 (2 - 8 - 4) </p>
-                                                  <p>AW :47 (2 - 8 - 4) </p>
+                                                  <p>{t("Turf")} :47 (2 - 8 - 4) </p>
+                                                  <p>{t("Dirt")} :47 (2 - 8 - 4) </p>
+                                                  <p>{t("AW")} :47 (2 - 8 - 4) </p>
                                                 </div>
                                               </div>
                                               <div
@@ -1144,21 +1146,20 @@ const RaceCardDetail = () => {
                                                     <table className="customers">
                                                       <thead>
                                                         <tr>
-                                                          <th>Date</th>
-                                                          <th>Cr</th>
-                                                          <th>Dist</th>
-                                                          <th>TC</th>
-                                                          <th>Type</th>
-                                                          <th>Dts</th>
-                                                          <th>time</th>
-                                                          <th>Jockey</th>
-                                                          <th>Wgt</th>
-                                                          <th>FP</th>
-                                                          <th>Les</th>
-                                                          <th>RS</th>
-                                                          <th>BtBy</th>
-                                                          <th>Kgs</th>
-                                                          <th>Draw</th>
+                                                          <th>{t("Date")}</th>
+                                                          <th>{t("Cr")}</th>
+                                                          <th>{t("Dist")}</th>
+                                                          <th>{t("TC")}</th>
+                                                          <th>{t("Type")}</th>
+                                                          <th>{t("Dts")}</th>
+                                                          <th>{t("time")}</th>
+                                                          <th>{t("Wgt")}</th>
+                                                          <th>{t("FP")}</th>
+                                                          <th>{t("Les")}</th>
+                                                          <th>{t("RS")}</th>
+                                                          <th>{t("BtBy")}</th>
+                                                          <th>{t("Kgs")}</th>
+                                                          <th>{t("Draw")}</th>
                                                         </tr>
                                                       </thead>
 

@@ -1,8 +1,22 @@
 import { MatchData } from "../../../data/data"
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
+import {fetchPredictionRace} from '../../../redux/getReducer/getPredictionSlice'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+
 const Prediction = () => {
 
   const {t} = useTranslation();
+  const { data: PredictionRace } = useSelector((state) => state.PredictionRace);
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(fetchPredictionRace());
+  }, []);
+
+  console.log(PredictionRace,'PredictionRace')
+
   return (
     <>
       <div className="PredictionCard">
@@ -12,11 +26,12 @@ const Prediction = () => {
             MatchData.map((item) => {
               return(
                 <div className="MatchDataPredict">
-                  <h3>{item.name}</h3>
+                  {/* <h3>{item.name}</h3> */}
+                  <h6>{t('live_prediction')}</h6>
                   <span className="PredictionFlex">
-                    <p> Race{item.raceNo}</p>
-                    <p>{item.totalRunner} Runners</p>
-                    <p>{item.time} min</p>
+                    <p> {t("Race")}{item.raceNo}</p>
+                    <p>{item.totalRunner} {t("Runner")}</p>
+                    <p>{item.time} {t("min")}</p>
                   </span>
                   <div className="playerPredictTable">
                   {
