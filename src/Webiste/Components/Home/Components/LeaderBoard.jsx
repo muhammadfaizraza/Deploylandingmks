@@ -3,8 +3,13 @@ import {LeaderBoard1} from '../../../data/data'
 import flag from '../../../assets/United Arab Emirates.png'
 import Accordion from 'react-bootstrap/Accordion';
 import { useTranslation } from 'react-i18next';
+import Cookies from "js-cookie";
+
+
 const LeaderBoard = () => {
   const {t} = useTranslation();
+    const cookiedata = Cookies.get("i18next");
+
   return (
     <>
       <div className='Competition'>
@@ -21,7 +26,7 @@ const LeaderBoard = () => {
               <Accordion.Item eventKey={item.id}>
                 <Accordion.Header className='AccordionHeader11'>
                   <div className='AccordionHeader'>
-                    <p>Competition One</p>
+                    <p>{t("LeaderBoard")}</p>
                     <p></p>
                   </div>
                 </Accordion.Header>
@@ -30,7 +35,7 @@ const LeaderBoard = () => {
                     item.matches.map((data) => {
                       return(
                         <div className='Competition_Matches'>
-                          <p>{data.name}</p>
+                          <p>{cookiedata === "en" ? <>{data.name}</> : <>{data.namear}</>}</p>
                          
                         </div>
                       )

@@ -102,5 +102,13 @@
   "Track Owner": "مالك المسار",
   "cast": "يقذف",
   "Search": "يبحث",
-  "LOGIN/REGISTER": "دخولتسجيل"
+  "LOGIN/REGISTER": "دخولتسجيل",
+  "Card":"بطاقة",
+  "Predictor":"المتنبئ",
+  "Draw":"يرسم",
+  "Summary":"ملخص",
+  "TrackRecord":"رقم قياسي  ",
+  "Printout":"اطبع",
+  "ShowHistory":"عرض التاريخ  ",
+  "LeaderBoard":"ليدربورد"
 }

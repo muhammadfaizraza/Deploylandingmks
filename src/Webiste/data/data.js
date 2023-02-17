@@ -206,39 +206,47 @@ export const LeaderBoard1 = [
         matches :  [
             {
                 id:'4.25',
-                name: 'Winner Name'
+                name: 'Winner Name',
+                namear: 'اسم المسابقة'
             },
             {
                 id:'4.25 ',
-                name: 'Competition Name'
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
             },
             {
                 id:'3.54',
-                name: 'Competition Name'
-            },
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        },
             {
                 id:'4.34',
-                name: 'Competition Name'
-            },
+               name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        },
             {
                 id:'5.11',
-                name: 'Competition Name'
-            }
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+             }
             ,
             {
                 id:'6.24',
-                name: 'Competition Name'
-            }
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        }
             ,
             {
                 id:'4.32',
-                name: 'Competition Name'
-            }
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        }
             ,
             {
                 id:'4.32',
-                name: 'Competition Name'
-            }
+                 name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        }
         ]
     },
     {
@@ -248,125 +256,50 @@ export const LeaderBoard1 = [
         matches :  [
             {
                 id:'4.25',
-                name: 'Winner Name'
+                name: 'Winner Name',
+                namear: 'اسم المسابقة'
             },
             {
                 id:'4.25 ',
-                name: 'Competition Name'
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
             },
             {
                 id:'3.54',
-                name: 'Competition Name'
-            },
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        },
             {
                 id:'4.34',
-                name: 'Competition Name'
-            },
+               name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        },
             {
                 id:'5.11',
-                name: 'Competition Name'
-            }
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+             }
             ,
             {
                 id:'6.24',
-                name: 'Competition Name'
-            }
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        }
             ,
             {
                 id:'4.32',
-                name: 'Competition Name'
-            }
+                name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        }
             ,
             {
                 id:'4.32',
-                name: 'Competition Name'
-            }
+                 name: 'Competition Name',
+                namear: 'اسم المسابقة'
+                        }
         ]
     },
-    {
-        id:'3',
-        name:'Competition Three',
-        raceNo:'01',
-        matches :  [
-            {
-                id:'4.25',
-                name: 'Winner Name'
-            },
-            {
-                id:'4.25 ',
-                name: 'Competition Name'
-            },
-            {
-                id:'3.54',
-                name: 'Competition Name'
-            },
-            {
-                id:'4.34',
-                name: 'Competition Name'
-            },
-            {
-                id:'5.11',
-                name: 'Competition Name'
-            }
-            ,
-            {
-                id:'6.24',
-                name: 'Competition Name'
-            }
-            ,
-            {
-                id:'4.32',
-                name: 'Competition Name'
-            }
-            ,
-            {
-                id:'4.32',
-                name: 'Competition Name'
-            }
-        ]
-    },
-    {
-        id:'4',
-        name:'Competition Four',
-        raceNo:'01',
-        matches :  [
-            {
-                id:'4.25',
-                name: 'Winner Name'
-            },
-            {
-                id:'4.25 ',
-                name: 'Competition Name'
-            },
-            {
-                id:'3.54',
-                name: 'Competition Name'
-            },
-            {
-                id:'4.34',
-                name: 'Competition Name'
-            },
-            {
-                id:'5.11',
-                name: 'Competition Name'
-            }
-            ,
-            {
-                id:'6.24',
-                name: 'Competition Name'
-            }
-            ,
-            {
-                id:'4.32',
-                name: 'Competition Name'
-            }
-            ,
-            {
-                id:'4.32',
-                name: 'Competition Name'
-            }
-        ]
-    }
+    
    
 ]
 export const BlogData = [

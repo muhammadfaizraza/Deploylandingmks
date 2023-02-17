@@ -370,6 +370,10 @@ const CardPrint = () => {
                                       ) : (
                                         data.JockeyOnRaceData1.NameEn
                                       )
+                                    ) : data.JockeyOnRaceData1 === null ? (
+                                      <>N/A</>
+                                    ) : data.JockeyOnRaceData1 === undefined ? (
+                                      <>N/A</>
                                     ) : (
                                       data.JockeyOnRaceData1.NameAr
                                     )}

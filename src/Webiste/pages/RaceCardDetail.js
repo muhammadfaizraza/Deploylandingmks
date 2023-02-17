@@ -332,7 +332,7 @@ const RaceCardDetail = () => {
                               }`,
                           }}
                         >
-                          <p>Race 1</p>
+                          <p>{t("Race")} {singlerace.RaceNumber}</p>
                           <Moment add={{ hours: 12 }} format="mm:ss">
                             {singlerace.DayNTime}
                           </Moment>
@@ -435,7 +435,7 @@ const RaceCardDetail = () => {
                         </span>
                         <div className="Favourite">
                           <div>
-                            <p>Favourite</p>
+                            <p>{t('Favourite')}</p>
                             <br />
                             {/* <div
                               style={{
@@ -495,7 +495,7 @@ const RaceCardDetail = () => {
                           singlerace.FifthPrice +
                           singlerace.SixthPrice}
                       </b>
-                      {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}
+                      {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}
 
                     </p>
 
@@ -508,7 +508,7 @@ const RaceCardDetail = () => {
                         <img src={img1} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FirstPrice}   {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.FirstPrice}   {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -517,7 +517,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.SecondPrice} {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.SecondPrice} {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -526,7 +526,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.ThirdPrice}    {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.ThirdPrice}    {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -535,7 +535,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FourthPrice} {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.FourthPrice} {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -544,7 +544,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FifthPrice}    {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.FifthPrice}    {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
                       </div>
                     </div>
                     <div className="Trophydata">
@@ -553,7 +553,7 @@ const RaceCardDetail = () => {
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.SixthPrice}    {singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</h6>
+                        <h6>{singlerace.SixthPrice}    {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
                       </div>
                     </div>
                   </div>
@@ -566,7 +566,7 @@ const RaceCardDetail = () => {
                   >
                     <Tab
                       eventKey="Card"
-                      title="Card"
+                      title={t("Card")}
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
@@ -897,8 +897,14 @@ const RaceCardDetail = () => {
                                                               data.JockeyOnRaceData1.NameEn
                                                             )
                                                           ) : (
-                                                            data.JockeyOnRaceData1.NameAr
-                                                          )}
+                                                            data.JockeyOnRaceData1 === null ? (
+                                                              <>N/A</>
+                                                            ) : data.JockeyOnRaceData1 ===
+                                                              undefined ? (
+                                                              <>N/A</>
+                                                            ) : (
+                                                              data.JockeyOnRaceData1.NameAr
+                                                            )                                                          )}
                                                         </b>
                                                       </p>
                                                       <p>
@@ -1128,7 +1134,7 @@ const RaceCardDetail = () => {
                                                 }
                                               </div>
                                               <CustomToggle eventKey={index}>
-                                                <button className="showMore" onClick={() => showHorseHistory(data.HorseModelIdData1._id)}>   Show History </button>
+                                                <button className="showMore" onClick={() => showHorseHistory(data.HorseModelIdData1._id)}> {t("ShowHistory")}</button>
                                               </CustomToggle>
                                             </Card.Header>
                                             <Accordion.Collapse eventKey={index}>
@@ -1346,7 +1352,7 @@ const RaceCardDetail = () => {
                     </Tab>
                     <Tab
                       eventKey="Predictor"
-                      title="Predictor"
+                      title= {t("Predictor")}
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
@@ -1355,7 +1361,7 @@ const RaceCardDetail = () => {
                     </Tab>
                     <Tab
                       eventKey="Draw"
-                      title="Draw"
+                      title={t("Draw")}
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
@@ -1364,7 +1370,7 @@ const RaceCardDetail = () => {
                     </Tab>
                     <Tab
                       eventKey="Summary"
-                      title="Summary"
+                      title={t("Summary")}
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
@@ -1373,7 +1379,7 @@ const RaceCardDetail = () => {
                     </Tab>
                     <Tab
                       eventKey="Track Record"
-                      title="Track Record"
+                      title={t("TrackRecord")}
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
@@ -1382,7 +1388,7 @@ const RaceCardDetail = () => {
                     </Tab>
                     <Tab
                       eventKey="Printout"
-                      title="Printout"
+                      title={t("Printout")}
                       tabClassName="profile-tabitem"
                     >
                       <PrintOut />
