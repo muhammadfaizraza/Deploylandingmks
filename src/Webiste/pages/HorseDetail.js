@@ -112,7 +112,7 @@ const HorseDetail = (data) => {
             >
               {data.data.DOB === null ? <>No Data</> : <><Moment fromNow ago>
                 {data.data.DOB}
-              </Moment></>} GR H (242)
+              </Moment></>} {data.data.CapColorData1 ? <>{data.data.CapColorData1.NameEn}</> : <></> } 
 
             </p>
           </span>

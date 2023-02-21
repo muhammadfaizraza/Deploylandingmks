@@ -243,7 +243,9 @@ const RaceDetails = () => {
                       <div className="inner_itemraces">
                         <span className="itemraces_left">
                           <span className="race">
-                            <p>Race 1</p>
+                          <p>{t("Race")} {singlerace.RaceNumber}</p>
+                          <p> {singlerace.StartTime}</p>
+                            
                           </span>
 
                           <img

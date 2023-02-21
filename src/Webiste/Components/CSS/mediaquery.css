@@ -2048,8 +2048,8 @@
     }
 
     .RaceDetailHeader {
-        width: 94%;
-        margin: 0 15px;
+        width: 98%;
+        margin: 0 5px;
     }
 
     .middlebanner section h3 {
@@ -2223,8 +2223,15 @@
     }
 
     .first-txt {
-        top: 20%;
-        left: 5rem;
+        position: absolute;
+        height: 120px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25.4118px;
+        line-height: 60px;
+        text-align: center;
+        color: rgb(75, 73, 73);
     }
 
     .sponsor {
@@ -2519,6 +2526,7 @@
         height: -moz-fit-content;
         height: fit-content;
         min-height: 430px;
+        max-height: 550px;
     }
 
     .itemraces_right .Favourite {
@@ -2630,7 +2638,7 @@
 
     .RaceDetailHeader {
         max-height: 700px;
-        margin-top: 35px;
+        margin-top: 30px;
     }
 
     .customers2 th {
@@ -2691,6 +2699,8 @@
     ul.mb-3.RaceNavItem.nav.nav-tabs {
 
         overflow-x: auto;
+        margin-left: 0 !important;
+        justify-content: space-evenly;
     }
 
     .modal-content {

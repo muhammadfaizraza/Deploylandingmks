@@ -82,7 +82,6 @@ const Result = (data) => {
   const handleCloseJockey = () => setShowJockey(false);
   const handleShowJockey = async (data) => {
     setmodaldataJockey(data)
-    console.log('horse data', data)
     await setShowJockey(true)
   }; 
   const runCallback = (cb) => {
@@ -113,6 +112,9 @@ const Result = (data) => {
   //   }
   // }
   // DataOne();
+
+
+  console.log('horse data', singlerace)
 
   const showHorseHistory = async (horseid) => {
 
@@ -172,7 +174,7 @@ const Result = (data) => {
     <>
       <Zoom>
             <div className="RaceCardDetail">
-                {singlerace? (
+                {singlerace.length !== 0 ? (
                   <div className="RaceDetailHeader">
                     <div>
                       <div className="colorheader">
@@ -180,12 +182,12 @@ const Result = (data) => {
                           <span className="racenameflex">
                             <p>
                               {cookiedata === "en" ? (
-                                singlerace.RaceCourseData === null ? (
+                                singlerace.RaceCourseData ? (
                                   <>N/A</>
                                 ) : (
                                   singlerace.RaceCourseData.TrackNameEn
                                 )
-                              ) : singlerace.RaceCourseData === null ? (
+                              ) : singlerace.RaceCourseData? (
                                 <>N/A</>
                               ) : (
                                 singlerace.RaceCourseData.TrackNameAr
@@ -367,7 +369,10 @@ const Result = (data) => {
                             <span className="resultimagebox"></span>
                             <span className="resultimagebox"></span>
                             <span className="resultimagevideo">
+                              <a href={singlerace.RaceResultData[0].VideoLink} target="_blank">
                               <img src={arrow2} alt="img" />
+                              </a>
+                              
                               <p>Watch Now</p>
                             </span>
                           </div>

@@ -144,7 +144,7 @@ const HorseDetail = (data) => {
                   </Moment>
                 </>
               )}{" "}
-              GR H (242)
+              {data.data.CapColorData1 ? <>{data.data.CapColorData1.NameEn}</> : <></> }
             </p>
           </span>
           <span

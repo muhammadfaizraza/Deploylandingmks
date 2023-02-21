@@ -220,12 +220,13 @@ const RaceCardSlider = () => {
                         </p>
                       </div>
                       <p className="racetime">
-                        <Moment
+                        {/* <Moment
                           date={item.StartTime}
                           format="hh:mm"
                           trim
                           durationFromNow
-                        ></Moment>
+                        ></Moment> */}
+                        {item.StartTime}
                         m
                       </p>{" "}
                     </span>
