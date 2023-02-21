@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import Fade from "react-reveal/Fade";
+import Language from "./Language";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -86,6 +87,7 @@ const Header = () => {
                 <Link to="/sponsor" className="LinkStyle">
                   <p>{t("sponsors")}</p>
                 </Link>
+                <Language />
               </span>
             </Fade>
           ) : null}

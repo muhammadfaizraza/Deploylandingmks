@@ -88,3 +88,12 @@ button#dropdownMenuButton1 {
 /* .TooltipTracker{
     background-color: #19469D !important;
 } */
+
+button#dropdownMenuButton2 {
+    text-decoration: none;
+    color: #fff;
+    margin-top: -20px;
+}
+button#dropdownMenuButton2:active{
+    border: none;
+}

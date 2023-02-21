@@ -1956,7 +1956,8 @@
 
     .imgDiv img {
 
-        width: 102%;
+        width: 100%;
+        height: 400px;
 
     }
 
@@ -1975,7 +1976,7 @@
     .aboutData {
         margin-right: 100px;
         padding-top: 100px;
-        width: 107%;
+        width: 100%;
     }
 
     .aboutData p {
@@ -2001,9 +2002,24 @@
     }
 
     .middlebanner section {
-        left: 15.1%;
-        width: 70.7%;
+            /* left: 15.1%; */
+    margin: auto !important;
+    width: 90.7% !important;
+    height: 590px;
     }
+
+    .bannerAbout {
+    width: 88% !important;
+    margin: 0px auto;
+    margin-top: 0px;
+}
+
+
+
+.aboutCard>img {
+    float: right;
+    /* margin: 2rem; */
+}
 
     .middlebanner section p {
         font-size: 13px;
@@ -2306,7 +2322,25 @@
         border-radius: 0px 0px 50px 0px;
 
     }
+    ul.dropdown-menu.show {
+        border: none;
+        background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 100.94%) !important;
+        width: 103%;
+        transform: none !important;
+        text-align: center;
+        border-radius: 0px 0px 130px 0px;
+        margin-left: -10px !important;
+    }
 
+    .btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn:active {
+        border-color: none !important;
+        box-shadow:none !important;
+    }
+    .btn:hover{
+        border-color: none !important;
+        box-shadow:none !important;
+
+    }
     .BlogCard {
         height: 400px;
         overflow: hidden;
@@ -2473,6 +2507,7 @@
 
     .aboutpagesection {
         display: block;
+        width: 100%;
     }
 
     .mobilecompetition {

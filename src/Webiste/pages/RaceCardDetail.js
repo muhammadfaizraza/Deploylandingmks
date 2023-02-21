@@ -1399,54 +1399,160 @@ const RaceCardDetail = () => {
                                                           <th>{t("Draw")}</th>
                                                           <th></th>
                                                           <th></th>
-
                                                         </tr>
                                                       </thead>
                                                     </table>
-                                                    {
-                                                        History === undefined ? <>N/A</> : <>
-                                                        {
-                                                          History.map((item) => {
-                                                            return(
-                                                              <div className="BodyNew1" key={index}>
-                                                    <table className="customers2">
-                                                      <thead>
-                                                        <tr>
-                                                          <th><Moment format="D MMM YYYY" withTitle></Moment></th>
-                                                          <th>Wol (T)</th>
-                                                          
-                                                          <th>{item.Distance}</th>
-                                                          <th>Wol (T)</th>
-                                                          <th>D</th>
-                                                          <th>{item.PrizeWin}</th>
-                                                          <th>{item.RaceTime}</th>
-                                                          <th>{item.JockeyOnRaceDataResult === null ? <></> : <>{item.JockeyOnRaceDataResult.MaximumJockeyWeight}</>}</th>
-                                                          <th>{item.FinalPositionDataHorse === null ? <></> : <>{cookiedata === "en" ? <>{item.FinalPositionDataHorse.NameEn}</> : <>{item.FinalPositionDataHorse.NameAr}</>}</>} </th>
-                                                          <th>{item.CumulativeDistance}</th>
-                                                          {/* <th>6</th> */}
-                                                          <th>16.25</th>
-                                                          <th>{item.BeatenByData === null ? <></> : <>{cookiedata === "en" ? <>{item.BeatenByData.NameEn}</> : <>{item.BeatenByData.NameAr}</>}</>}</th>
-                                                          <th>{item.Distance}</th>
-                                                          <th>58</th>
+                                                   
+                                                  </div>
+                                                  {History === undefined ? (
+                                                      <>N/A</>
+                                                    ) : (
+                                                      <>
+                                                        {History.map((item) => {
+                                                          return (
+                                                            <div
+                                                              className="BodyNew1"
+                                                              key={index}
+                                                            >
+                                                              <table className="customers2">
+                                                                <thead>
+                                                                  <tr>
+                                                                    <th>
+                                                                      <Moment
+                                                                        format="D MMM YYYY"
+                                                                        withTitle
+                                                                      ></Moment>
+                                                                    </th>
+                                                                    <th>
+                                                                      Wol (T)
+                                                                    </th>
 
-                                                          <th>
-                                                            <a href={item.VideoLink} target="_blank">
-                                                            <img
-                                                              src={arrow1}
-                                                              alt=""
-                                                            />
-                                                            </a>
-                                                          </th>
-                                                        </tr>
-                                                      </thead>
-                                                    </table>
-                                                  </div>
-                                                            )
-                                                          })
-                                                        }
-                                                        </>
-                                                      }
-                                                  </div>
+                                                                    <th>
+                                                                      {
+                                                                        item.Distance
+                                                                      }
+                                                                    </th>
+                                                                    <th>
+                                                                      Wol (T)
+                                                                    </th>
+                                                                    <th>D</th>
+                                                                    <th>
+                                                                      {
+                                                                        item.PrizeWin
+                                                                      }
+                                                                    </th>
+                                                                    <th>
+                                                                      {
+                                                                        item.RaceTime
+                                                                      }
+                                                                    </th>
+                                                                    <th>
+                                                                      {item.JockeyOnRaceDataResult ===
+                                                                      null ? (
+                                                                        <></>
+                                                                      ) : (
+                                                                        <>
+                                                                          {
+                                                                            item
+                                                                              .JockeyOnRaceDataResult
+                                                                              .MaximumJockeyWeight
+                                                                          }
+                                                                        </>
+                                                                      )}
+                                                                    </th>
+                                                                    <th>
+                                                                      {item.FinalPositionDataHorse ===
+                                                                      null ? (
+                                                                        <></>
+                                                                      ) : (
+                                                                        <>
+                                                                          {cookiedata ===
+                                                                          "en" ? (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .FinalPositionDataHorse
+                                                                                  .NameEn
+                                                                              }
+                                                                            </>
+                                                                          ) : (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .FinalPositionDataHorse
+                                                                                  .NameAr
+                                                                              }
+                                                                            </>
+                                                                          )}
+                                                                        </>
+                                                                      )}{" "}
+                                                                    </th>
+                                                                    <th>
+                                                                      {
+                                                                        item.CumulativeDistance
+                                                                      }
+                                                                    </th>
+                                                                    {/* <th>6</th> */}
+                                                                    <th>
+                                                                      16.25
+                                                                    </th>
+                                                                    <th>
+                                                                      {item.BeatenByData ===
+                                                                      null ? (
+                                                                        <></>
+                                                                      ) : (
+                                                                        <>
+                                                                          {cookiedata ===
+                                                                          "en" ? (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .BeatenByData
+                                                                                  .NameEn
+                                                                              }
+                                                                            </>
+                                                                          ) : (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .BeatenByData
+                                                                                  .NameAr
+                                                                              }
+                                                                            </>
+                                                                          )}
+                                                                        </>
+                                                                      )}
+                                                                    </th>
+                                                                    <th>
+                                                                      {
+                                                                        item.Distance
+                                                                      }
+                                                                    </th>
+                                                                    <th>58</th>
+
+                                                                    <th>
+                                                                      <a
+                                                                        href={
+                                                                          item.VideoLink
+                                                                        }
+                                                                        target="_blank"
+                                                                      >
+                                                                        <img
+                                                                          src={
+                                                                            arrow1
+                                                                          }
+                                                                          alt=""
+                                                                        />
+                                                                      </a>
+                                                                    </th>
+                                                                  </tr>
+                                                                </thead>
+                                                              </table>
+                                                            </div>
+                                                          );
+                                                        })}
+                                                      </>
+                                                    )}
 
                                                   {/* <>
                                                   {

@@ -309,7 +309,7 @@
     display: none;
 }
 
-.accordion-collapse.collapse.show {
+/* .accordion-collapse.collapse.show {
     height: fit-content !important;
     min-height: 16rem;
-}
+} */
