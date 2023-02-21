@@ -316,7 +316,7 @@ const RaceCardDetail = () => {
                           style={{
                             backgroundColor: `${singlerace.RaceStatus === "Cancel"
                               ? "#000000"
-                              : singlerace.RaceStatus === "End"
+                              : singlerace.RaceStatus === "Completed"
                                 ? "#FF0000"
                                 : singlerace.RaceStatus === "Live"
                                   ? "#5EC30F"

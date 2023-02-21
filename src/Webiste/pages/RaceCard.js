@@ -167,7 +167,7 @@ const RaceCourse = () => {
                                   {t("Distance")} :{" "}
                                   {data.TrackLengthData.TrackLength === null ? <>N/A</> : data.TrackLengthData.TrackLength}
                                 </p>
-                                <p> {cookiedata === "en" ? data.RaceTypeModelData.NameEn : data.RaceTypeModelData.NameAr} </p>
+                                {/* <p> {cookiedata === "en" ? (data.RaceTypeModelData.NameEn === null ? <></> : data.RaceTypeModelData.NameEn) : (data.RaceTypeModelData.NameAr === null ? <></> : data.RaceTypeModelData.NameAr)} </p> */}
                                 <p>{t("Surface")} : {cookiedata === "en" ? !data.GroundData ? <>N/A</> : data.GroundData.NameEn : !data.GroundData ? <>N/A</> : data.GroundData.NameAr}</p>
                                 <p>{t("Going")} : {cookiedata === "en" ? !data.RaceKindData ? <>N/A</> : data.RaceKindData.NameEn : !data.GroundData ? <>N/A</> : data.RaceKindData.NameAr}</p>
 

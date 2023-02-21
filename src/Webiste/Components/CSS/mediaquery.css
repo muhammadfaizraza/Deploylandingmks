@@ -2032,6 +2032,9 @@
         width: 100% !important;
         margin: auto;
     }
+    .owner {
+      font-size: 15px;
+    }
 
     .resracenameflex>img {
         margin: 26px 20px 0 0;
