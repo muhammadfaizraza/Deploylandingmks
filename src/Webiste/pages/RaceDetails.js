@@ -267,10 +267,44 @@ const RaceDetails = () => {
                               width: "60%",
                             }}
                           >
-                            <p>{singlerace.RaceTypeModelData.NameEn}</p>
-                            <p>{singlerace.RaceKindData.NameEn}</p>
+                            <p>
+                            {cookiedata === "en" ? (
+                              singlerace.RaceKindData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.RaceKindData.NameEn
+                              )
+                            ) : singlerace.RaceKindData === undefined ? (
+                              <>N/A</>
+                            ) : (
+                              singlerace.RaceKindData.NameAr
+                            )}
+                            </p>
+                            <p>
+                            {cookiedata === "en" ? (
+                              singlerace.RaceTypeModelData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.RaceTypeModelData.NameEn
+                              )
+                            ) : singlerace.RaceTypeModelData === undefined ? (
+                              <>N/A</>
+                            ) : (
+                              singlerace.RaceTypeModelData.NameAr
+                            )}
+                            </p>
                             <p className="h6">
-                              {singlerace.HorseKindinRaceData.NameEn}
+                            {cookiedata === "en" ? (
+                            singlerace.HorseKindinRaceData === undefined ? (
+                              <>N/A</>
+                            ) : (
+                              singlerace.HorseKindinRaceData.NameEn
+                            )
+                          ) : singlerace.HorseKindinRaceData === undefined ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.HorseKindinRaceData.NameAr
+                          )}
                             </p>
                           </div>
                         </span>
@@ -307,21 +341,26 @@ const RaceDetails = () => {
                         </span>
 
                         <div className="mt-4 mx-3">
-                          <p>Favourite</p>
+                        <p>{t("Favourite")}</p>
                           <br />
                         </div>
                       </div>
                       <div className="itemsraces">
-                        <p>
-                          <b>DESCRIPTION</b> :{singlerace.DescriptionEn}
-                        </p>
+                      <p>
+                      <b>{t("Description")}</b> :
+                      {cookiedata === "en" ? (
+                        <>{singlerace.DescriptionEn}</>
+                      ) : (
+                        <>{singlerace.DescriptionAr}</>
+                      )}
+                    </p>
                       </div>
                     </div>
                   </div>
                   <div className="prizecard">
                     <div className="prizecardheaders">
                       <p>
-                        Total Prize:
+                      {t("Total Prize")}:
                         <b className="mx-2">
                           {singlerace.FirstPrice +
                             singlerace.SecondPrice +
@@ -330,111 +369,195 @@ const RaceDetails = () => {
                             singlerace.FifthPrice +
                             singlerace.SixthPrice}
                         </b>
-                        {singlerace.CurrencyData === undefined ? (
-                          <>N/A</>
-                        ) : (
-                          singlerace.CurrencyData.NameEn
-                        )}
+                        {cookiedata === "en" ? (
+                        <>
+                          {singlerace.CurrencyData === undefined ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.CurrencyData.NameEn
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          {singlerace.CurrencyData === undefined ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.CurrencyData.NameAr
+                          )}
+                        </>
+                      )}
                       </p>
                     </div>
                     <ScrollContainer className="scroll-container">
                       <div>
                         <div className="Competitiontrophy">
                           <div className="Trophydata">
-                            <span>1st</span>
+                          <span>{t("1st")}</span>
                             <span>
                               <img src={img1} alt="" />
                             </span>
 
                             <div className="Trophydata_P">
-                              <h6>
-                                {singlerace.FirstPrice}{" "}
-                                {singlerace.CurrencyData === undefined ? (
-                                  <></>
-                                ) : (
-                                  singlerace.CurrencyData.NameEn
-                                )}
-                              </h6>
+                            <h6>
+                          {singlerace.FirstPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
-                            <span>2nd</span>
+                          <span>{t("2nd")}</span>
                             <span>
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>
-                                {singlerace.SecondPrice}
-                                {singlerace.CurrencyData === undefined ? (
-                                  <></>
-                                ) : (
-                                  singlerace.CurrencyData.NameEn
-                                )}
-                              </h6>
+                            <h6>
+                          {singlerace.SecondPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
-                            <span>3rd</span>
+                          <span>{t("3rd")}</span>
                             <span>
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>
-                                {singlerace.ThirdPrice}{" "}
-                                {singlerace.CurrencyData === undefined ? (
-                                  <></>
-                                ) : (
-                                  singlerace.CurrencyData.NameEn
-                                )}
-                              </h6>
+                            <h6>
+                          {singlerace.ThirdPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
-                            <span>4th</span>
+                          <span>{t("4th")}</span>
                             <span>
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>
-                                {singlerace.FourthPrice}{" "}
-                                {singlerace.CurrencyData === undefined ? (
-                                  <></>
-                                ) : (
-                                  singlerace.CurrencyData.NameEn
-                                )}
-                              </h6>
+                            <h6>
+                          {singlerace.FourthPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
-                            <span>5th</span>
+                          <span>{t("5th")}</span>
                             <span>
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>
-                                {singlerace.FifthPrice}{" "}
-                                {singlerace.CurrencyData === undefined ? (
-                                  <></>
-                                ) : (
-                                  singlerace.CurrencyData.NameEn
-                                )}
-                              </h6>
+                            <h6>
+                          {singlerace.FifthPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                             </div>
                           </div>
                           <div className="Trophydata">
-                            <span>6th</span>
+                          <span>{t("6th")}</span>
                             <span>
                               <img src={img} alt="" />
                             </span>
                             <div className="Trophydata_P">
-                              <h6>
-                                {singlerace.SixthPrice}{" "}
-                                {singlerace.CurrencyData === undefined ? (
-                                  <></>
-                                ) : (
-                                  singlerace.CurrencyData.NameEn
-                                )}
-                              </h6>
+                            <h6>
+                          {singlerace.SixthPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                             </div>
                           </div>
                         </div>
@@ -449,7 +572,7 @@ const RaceDetails = () => {
                     >
                       <Tab
                         eventKey="Card"
-                        title="Card"
+                        title={t("Card")}
                         tabClassName="profile-tabitem"
                       >
                         <div className="RaceDetailCard">
@@ -604,14 +727,28 @@ const RaceDetails = () => {
                                                         textAlign: "end",
                                                       }}
                                                     >
-                                                      {data.EquipmentData1 ===
+                                                      {cookiedata === "en" ? (
+                                                      <>
+                                                        {data.EquipmentData1 ===
                                                         null ? (
-                                                        <>N/A</>
-                                                      ) : (
-                                                        data.EquipmentData1
-                                                          .NameEn
-                                                      )}{" "}
-                                                      OR:
+                                                          <>N/A</>
+                                                        ) : (
+                                                          data.EquipmentData1
+                                                            .NameEn
+                                                        )}
+                                                      </>
+                                                    ) : (
+                                                      <>
+                                                        {data.EquipmentData1 ===
+                                                        null ? (
+                                                          <>N/A</>
+                                                        ) : (
+                                                          data.EquipmentData1
+                                                            .NameAr
+                                                        )}
+                                                      </>
+                                                    )}
+                                                       {t("OR")}:
                                                       {data.JockeyOnRaceData1 ===
                                                         null ? (
                                                         <>N/A</>
@@ -719,12 +856,13 @@ const RaceDetails = () => {
                                                           .DOB
                                                       }
                                                     </Moment>{" "}
-                                                    GR H (
+                                                    {/* {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} */}
+                                                    {/* GR H (
                                                     {
                                                       data.HorseModelIdData1
                                                         .Height
                                                     }
-                                                    )
+                                                    ) */}
                                                   </p>
                                                 </div>
                                                 <div
@@ -1106,7 +1244,7 @@ const RaceDetails = () => {
                                                     }
                                                   >
                                                     {" "}
-                                                    Show History{" "}
+                                                    {t("ShowHistory")}
                                                   </button>
                                                 </CustomToggle>
                                               </Card.Header>
@@ -1117,139 +1255,161 @@ const RaceDetails = () => {
                                                   <ScrollContainer>
                                                     <div className="mycardclass1">
                                                       <div className="BodyNew">
-                                                        <table className="customers">
-                                                          <thead>
-                                                            <tr>
-                                                              <th>Date</th>
-                                                              <th>Cr</th>
-                                                              <th>Dist</th>
-                                                              <th>TC</th>
-                                                              <th>Type</th>
-                                                              <th>Dts</th>
-                                                              <th>time</th>
-                                                              <th>Jockey</th>
-                                                              <th>Wgt</th>
-                                                              <th>FP</th>
-                                                              <th>Les</th>
-                                                              <th>RS</th>
-                                                              <th>BtBy</th>
-                                                              <th>Kgs</th>
-                                                              <th>Draw</th>
-                                                            </tr>
-                                                          </thead>
-
-                                                          {History !==
-                                                            undefined ? (
-                                                            History.map(
-                                                              (
-                                                                history,
-                                                                index
-                                                              ) => (
-                                                                <tbody>
+                                                      <table className="customers">
+                                                      <thead>
+                                                        <tr>
+                                                          <th>{t("Date")}</th>
+                                                          <th>{t("Cr")}</th>
+                                                          <th>{t("Dist")}</th>
+                                                          <th>{t("TC")}</th>
+                                                          <th>{t("Type")}</th>
+                                                          <th>{t("Dts")}</th>
+                                                          <th>{t("time")}</th>
+                                                          <th>{t("Wgt")}</th>
+                                                          <th>{t("FP")}</th>
+                                                          <th>{t("Les")}</th>
+                                                          <th>{t("RS")}</th>
+                                                          <th>{t("BtBy")}</th>
+                                                          <th>{t("Kgs")}</th>
+                                                          <th>{t("Draw")}</th>
+                                                          <th></th>
+                                                          <th></th>
+                                                        </tr>
+                                                      </thead>
+                                                    </table>
+                                                      </div>
+                                                      {History === undefined ? (
+                                                      <>N/A</>
+                                                    ) : (
+                                                      <>
+                                                        {History.map((item) => {
+                                                          return (
+                                                            <div
+                                                              className="BodyNew1"
+                                                              key={index}
+                                                            >
+                                                              <table className="customers2">
+                                                                <thead>
                                                                   <tr>
-                                                                    <td>
+                                                                    <th>
+                                                                      <Moment
+                                                                        format="D MMM YYYY"
+                                                                        withTitle
+                                                                      ></Moment>
+                                                                    </th>
+                                                                    <th>
+                                                                      Wol (T)
+                                                                    </th>
+
+                                                                    <th>
                                                                       {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
+                                                                        item.Distance
                                                                       }
-                                                                    </td>
-                                                                    <td>
+                                                                    </th>
+                                                                    <th>
+                                                                      Wol (T)
+                                                                    </th>
+                                                                    <th>D</th>
+                                                                    <th>
                                                                       {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
+                                                                        item.PrizeWin
                                                                       }
-                                                                    </td>
-                                                                    <td>
+                                                                    </th>
+                                                                    <th>
                                                                       {
-                                                                        history.Distance
+                                                                        item.RaceTime
                                                                       }
-                                                                    </td>
-                                                                    <td>
+                                                                    </th>
+                                                                    <th>
+                                                                      {item.JockeyOnRaceDataResult ===
+                                                                      null ? (
+                                                                        <></>
+                                                                      ) : (
+                                                                        <>
+                                                                          {
+                                                                            item
+                                                                              .JockeyOnRaceDataResult
+                                                                              .MaximumJockeyWeight
+                                                                          }
+                                                                        </>
+                                                                      )}
+                                                                    </th>
+                                                                    <th>
+                                                                      {item.FinalPositionDataHorse ===
+                                                                      null ? (
+                                                                        <></>
+                                                                      ) : (
+                                                                        <>
+                                                                          {cookiedata ===
+                                                                          "en" ? (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .FinalPositionDataHorse
+                                                                                  .NameEn
+                                                                              }
+                                                                            </>
+                                                                          ) : (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .FinalPositionDataHorse
+                                                                                  .NameAr
+                                                                              }
+                                                                            </>
+                                                                          )}
+                                                                        </>
+                                                                      )}{" "}
+                                                                    </th>
+                                                                    <th>
                                                                       {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
+                                                                        item.CumulativeDistance
                                                                       }
-                                                                    </td>
-                                                                    <td>
+                                                                    </th>
+                                                                    {/* <th>6</th> */}
+                                                                    <th>
+                                                                      16.25
+                                                                    </th>
+                                                                    <th>
+                                                                      {item.BeatenByData ===
+                                                                      null ? (
+                                                                        <></>
+                                                                      ) : (
+                                                                        <>
+                                                                          {cookiedata ===
+                                                                          "en" ? (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .BeatenByData
+                                                                                  .NameEn
+                                                                              }
+                                                                            </>
+                                                                          ) : (
+                                                                            <>
+                                                                              {
+                                                                                item
+                                                                                  .BeatenByData
+                                                                                  .NameAr
+                                                                              }
+                                                                            </>
+                                                                          )}
+                                                                        </>
+                                                                      )}
+                                                                    </th>
+                                                                    <th>
                                                                       {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
+                                                                        item.Distance
                                                                       }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .BeatenByData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
-                                                                      {
-                                                                        history
-                                                                          .HorseIDData
-                                                                          .NameEn
-                                                                      }
-                                                                    </td>
-                                                                    <td>
+                                                                    </th>
+                                                                    <th>58</th>
+
+                                                                    <th>
                                                                       <a
                                                                         href={
-                                                                          history
-                                                                            .HorseIDData
-                                                                            .VideoLink
+                                                                          item.VideoLink
                                                                         }
+                                                                        target="_blank"
                                                                       >
                                                                         <img
                                                                           src={
@@ -1258,17 +1418,15 @@ const RaceDetails = () => {
                                                                           alt=""
                                                                         />
                                                                       </a>
-                                                                    </td>
+                                                                    </th>
                                                                   </tr>
-                                                                </tbody>
-                                                              )
-                                                            )
-                                                          ) : (
-                                                            <></>
-                                                          )}
-                                                        </table>
-                                                      </div>
-
+                                                                </thead>
+                                                              </table>
+                                                            </div>
+                                                          );
+                                                        })}
+                                                      </>
+                                                    )}
 
                                                     </div>
                                                   </ScrollContainer>
@@ -1288,7 +1446,7 @@ const RaceDetails = () => {
                       </Tab>
                       <Tab
                         eventKey="Predictor"
-                        title="Predictor"
+                        title={t("Predictor")}
                         tabClassName="profile-tabitem"
                       >
                         <div className="RaceDetailCard">
@@ -1297,7 +1455,7 @@ const RaceDetails = () => {
                       </Tab>
                       <Tab
                         eventKey="Draw"
-                        title="Draw"
+                        title={t("Draw")}
                         tabClassName="profile-tabitem"
                       >
                         <div className="RaceDetailCard">
@@ -1306,7 +1464,7 @@ const RaceDetails = () => {
                       </Tab>
                       <Tab
                         eventKey="Summary"
-                        title="Summary"
+                        title={t("Summary")}
                         tabClassName="profile-tabitem"
                       >
                         <div className="RaceDetailCard">
@@ -1315,7 +1473,7 @@ const RaceDetails = () => {
                       </Tab>
                       <Tab
                         eventKey="Track Record"
-                        title="Track Record"
+                        title={t("TrackRecord")}
                         tabClassName="profile-tabitem"
                       >
                         <div className="RaceDetailCard">
@@ -1324,7 +1482,7 @@ const RaceDetails = () => {
                       </Tab>
                       <Tab
                         eventKey="Printout"
-                        title="Printout"
+                        title={t("Printout")}
                         tabClassName="profile-tabitem"
                       >
                         <PrintOut />
