@@ -32,7 +32,7 @@ const Prediction = () => {
                   <h3>{cookiedata === "en" ? <>{PredictionRace.RaceToBePredictData.RaceNameModelData.NameEn}</>:<>{PredictionRace.RaceToBePredictData.RaceNameModelData.NameAr}</>}</h3>
                   <span className="PredictionFlex">
                     <p> {t("Race")}-{PredictionRace.RaceToBePredictData.RaceNumber}</p>
-                    <p>{PredictionRace.RaceToBePredictData.RacehorsesData ? <>{PredictionRace.RaceToBePredictData.RacehorsesData[0].TotalRunners}</> : <></>} {t("Runner")}</p>
+                    <p>{PredictionRace.RaceToBePredictData.RacehorsesData ? <>{PredictionRace.RaceToBePredictData.RacehorsesData.length === 0 ? <>N/A</>:<>{PredictionRace.RaceToBePredictData.RacehorsesData[0].TotalRunners}</>}</> : <></>} {t("Runner")}</p>
                     {/* <p> {t("min")}</p> */}
                   </span>
                   <div className="playerPredictTable">

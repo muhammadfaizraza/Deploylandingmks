@@ -208,14 +208,14 @@ const RaceCardSlider = () => {
                       >
                         <p className="raceNo">
                           {" "}
-                          {t("Race")} {item.RaceNumber}-{" "}
+                          {t("Race")} {item.RaceNumber} - {" "}
                         </p>
                         <p className="racedistance">
                           {item.TrackLengthData === null ? (
                             <>No Data</>
                           ) : (
                             item.TrackLengthData.TrackLength
-                          )}
+                          ) }
                           m
                         </p>
                       </div>

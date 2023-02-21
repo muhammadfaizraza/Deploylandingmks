@@ -10,77 +10,80 @@ import Animate from "../../../assets/loader.json"
 import Lottie from 'lottie-react';
 
 const Search = () => {
-  // const [item, SearchData] = useState("");
-  // const [Data, setData] = useState([]);
-  // const [Data2, setData2] = useState([]);
-  // const [Data3, setData3] = useState([]);
-  // const [Data4, setData4] = useState([]);
+  const [item, SearchData] = useState("");
+  const [Data, setData] = useState([]);
+  const [Data2, setData2] = useState([]);
+  const [Data3, setData3] = useState([]);
+  const [Data4, setData4] = useState([]);
 
-  // const [LoaderData, setLoaderData] = useState(false);
+  const [LoaderData, setLoaderData] = useState(false);
 
-  // const [show, setShow] = useState(false);
-  // const [modaldata, setmodaldata] = useState();
-  // const handleClose = () => setShow(false);
-  // const handleShow = async (data) => {
-  //   setmodaldata(data);
-  //   SearchData('')
-  //   await setShow(true);
-  // };
+  const [show, setShow] = useState(false);
+  const [modaldata, setmodaldata] = useState();
+  const handleClose = () => setShow(false);
+  const handleShow = async (data) => {
+    setmodaldata(data);
+    SearchData('')
+    await setShow(true);
+  };
 
-  // const [showJocley, setShowJockey] = useState(false);
-  // const [modaldataJockey, setmodaldataJockey] = useState();
-  // const handleCloseJockey = () => setShowJockey(false);
-  // const handleShowJocley = async (data) => {
-  //   setmodaldataJockey(data);
-  //   SearchData('')
-  //   await setShowJockey(true);
-  // };
+  const [showJocley, setShowJockey] = useState(false);
+  const [modaldataJockey, setmodaldataJockey] = useState();
+  const handleCloseJockey = () => setShowJockey(false);
+  const handleShowJocley = async (data) => {
+    setmodaldataJockey(data);
+    SearchData('')
+    await setShowJockey(true);
+  };
 
-  // const [showtrainer, setShowtrainer] = useState(false);
-  // const [modaldatatrainer, setmodaldatatrainer] = useState();
-  // const handleClosetrainer = () => setShowtrainer(false);
-  // const handleShowtrainer = async (data) => {
-  //   setmodaldatatrainer(data);
-  //   SearchData('')
-  //   await setShowtrainer(true);
-  // };
-
-
-  // const [showowner, setShowowner] = useState(false);
-  // const [modaldataowner, setmodaldataowner] = useState();
-  // const handleCloseowner = () => setShowowner(false);
-  // const handleShowowner = async (data) => {
-  //   setmodaldataowner(data);
-  //   SearchData('')
-  //   await setShowowner(true);
-  // };
+  const [showtrainer, setShowtrainer] = useState(false);
+  const [modaldatatrainer, setmodaldatatrainer] = useState();
+  const handleClosetrainer = () => setShowtrainer(false);
+  const handleShowtrainer = async (data) => {
+    setmodaldatatrainer(data);
+    SearchData('')
+    await setShowtrainer(true);
+  };
 
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       setLoaderData(true)
-  //       const res = await axios.post(
-  //         `${window.env.API_URL}/searchhorse_trainer_jockey`,
-  //         { Query: item }
-  //       );
-  //       setData(res.data.data1);
-  //       setData2(res.data.data2);
-  //       setData3(res.data.data3);
-  //       setData4(res.data.data4);
-  //       setLoaderData(false);
+  const [showowner, setShowowner] = useState(false);
+  const [modaldataowner, setmodaldataowner] = useState();
+  const handleCloseowner = () => setShowowner(false);
+  const handleShowowner = async (data) => {
+    setmodaldataowner(data);
+    SearchData('')
+    await setShowowner(true);
+  };
 
-  //       if (item === "") {
-  //         setData([]);
-  //         setData2([]);
-  //         setData3([]);
-  //         setData4([]);
-  //       }
-  //     } catch (err) {
-       
-  //     }
-  //   })();
-  // }, [item]);
+
+  useEffect(() => {
+    if(item !== ""){
+      (async () => {
+        try {
+          setLoaderData(true)
+          const res = await axios.post(
+            `${window.env.API_URL}/searchhorse_trainer_jockey`,
+            { Query: item }
+          );
+          setData(res.data.data1);
+          setData2(res.data.data2);
+          setData3(res.data.data3);
+          setData4(res.data.data4);
+          setLoaderData(false);
+  
+          if (item === "") {
+            setData([]);
+            setData2([]);
+            setData3([]);
+            setData4([]);
+          }
+        } catch (err) {
+         
+        }
+      })();
+    }
+   
+  }, [item]);
 
  
 
@@ -89,11 +92,11 @@ const Search = () => {
       <div className="searchbox">
         <input
           type="text"
-          // onChange={(event) => SearchData(event.target.value)}
+          onChange={(event) => SearchData(event.target.value)}
         />
         <i className="fa fa-search icon11"></i>
       </div>
-      {/* <div className={item === "" ? "searchchild1" : "searchchild"}>
+      <div className={item === "" ? "searchchild1" : "searchchild"}>
         <div className="searchdatalist ">
           <div className="row">
             <div className="col-sm">
@@ -224,7 +227,7 @@ const Search = () => {
           <OwnerDetail data={modaldataowner} />
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
-      </Modal> */}
+      </Modal>
     </div>
   );
 };

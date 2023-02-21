@@ -32,7 +32,6 @@ import HorseDetail from "./RaceCardHorse";
 import JockeyDetail from "./JockeyDetail";
 import { Modal } from "react-bootstrap";
 
-
 //.....................Function for Toggle History..........................//
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -55,32 +54,27 @@ const RaceCardDetail = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
 
-
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
   const [Disable, setDisable] = useState(false);
-  const [History, setHistory] = useState([])
-
+  const [History, setHistory] = useState([]);
 
   const [show, setShow] = useState(false);
-  const [modaldata, setmodaldata] = useState()
+  const [modaldata, setmodaldata] = useState();
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
-    setmodaldata(data)
-    console.log('horse data', data)
-    await setShow(true)
-  };  
-
+    setmodaldata(data);
+    console.log("horse data", data);
+    await setShow(true);
+  };
 
   const [showJockey, setShowJockey] = useState(false);
-  const [modaldataJockey, setmodaldataJockey] = useState()
+  const [modaldataJockey, setmodaldataJockey] = useState();
   const handleCloseJockey = () => setShowJockey(false);
   const handleShowJockey = async (data) => {
-    setmodaldataJockey(data)
-    console.log('horse data', data)
-    await setShowJockey(true)
-  }; 
-
-
+    setmodaldataJockey(data);
+    console.log("horse data", data);
+    await setShowJockey(true);
+  };
 
   const handleCloseTri = () => setShowtri(false);
   const [showtri, setShowtri] = useState(false);
@@ -100,10 +94,8 @@ const RaceCardDetail = () => {
 
   const { id } = state;
 
-
   useEffect(() => {
     dispatch(fetchsinglerace({ id }));
-
   }, [dispatch, id]);
 
   if (status === STATUSES.LOADING) {
@@ -126,28 +118,27 @@ const RaceCardDetail = () => {
       </h2>
     );
   }
-  // Track 
+  // Track
 
   const handleTrack = async (Id) => {
-
     try {
       await axios.post(
-        `/trackhorse`, { Horse: Id }, {
-        withCredentials: true,
-        headers: { 'Content-Type': 'multipart/form-data' },
-      }
+        `/trackhorse`,
+        { Horse: Id },
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "multipart/form-data" },
+        }
       );
 
-
-      toast('Tracked Success')
+      toast("Tracked Success");
 
       // navigate('/tracker')
     } catch (error) {
       const err = error.response.data.message;
-      toast(err)
+      toast(err);
     }
   };
-
 
   const myPara = {
     fontWeight: "400",
@@ -211,7 +202,7 @@ const RaceCardDetail = () => {
 
   const pickClick = async (event, compid, horseid) => {
     event.preventDefault();
-    console.log(horseid, 'horse')
+    console.log(horseid, "horse");
     try {
       setDisable(true);
       const response = await axios.post(
@@ -219,10 +210,9 @@ const RaceCardDetail = () => {
         { Horse: horseid },
         {
           withCredentials: true,
-
         }
       );
-      console.log(response.data.message, 'response')
+      console.log(response.data.message, "response");
       const msgdata = response.data.message;
       toast(msgdata);
       setDisable(false);
@@ -245,23 +235,18 @@ const RaceCardDetail = () => {
     return cb();
   };
   const showHorseHistory = async (horseid) => {
-
-    const res =
-      await
-        axios.get(`${window.env.API_URL}/horsehistory/${horseid}`)
-    setHistory(res.data.data)
-
-
-  }
-  // let sortedProducts = singlerace ? (singlerace.RacehorsesData === undefined ? <></> : singlerace.RacehorsesData.sort((p1,p2) => 
+    const res = await axios.get(
+      `${window.env.API_URL}/horsehistory/${horseid}`
+    );
+    setHistory(res.data.data);
+  };
+  // let sortedProducts = singlerace ? (singlerace.RacehorsesData === undefined ? <></> : singlerace.RacehorsesData.sort((p1,p2) =>
   // p1.HorseNo > p2.HorseNo ? 1 : p1.HorseNo < p2.HorseNo ? -1 : 0
   // )):<></>
-  
 
   // .RacehorsesData.sort((p1, p2) =>
   //  p1.HorseNo > p2.HorseNo ? 1 : p1.HorseNo < p2.HorseNo ? -1 : 0
-  // );   
-
+  // );
 
   return (
     <>
@@ -314,25 +299,29 @@ const RaceCardDetail = () => {
                         <span
                           className="race"
                           style={{
-                            backgroundColor: `${singlerace.RaceStatus === "Cancel"
-                              ? "#000000"
-                              : singlerace.RaceStatus === "Completed"
+                            backgroundColor: `${
+                              singlerace.RaceStatus === "Cancel"
+                                ? "#000000"
+                                : singlerace.RaceStatus === "Completed"
                                 ? "#FF0000"
                                 : singlerace.RaceStatus === "Live"
-                                  ? "#5EC30F"
-                                  : "#FF9900"
-                              }`,
-                            color: `${singlerace.RaceStatus === "Cancel"
-                              ? "#ffff"
-                              : singlerace.RaceStatus === "End"
+                                ? "#5EC30F"
+                                : "#FF9900"
+                            }`,
+                            color: `${
+                              singlerace.RaceStatus === "Cancel"
+                                ? "#ffff"
+                                : singlerace.RaceStatus === "End"
                                 ? "#00000"
                                 : singlerace.RaceStatus === "Live"
-                                  ? "#00000"
-                                  : "#000000"
-                              }`,
+                                ? "#00000"
+                                : "#000000"
+                            }`,
                           }}
                         >
-                          <p>{t("Race")} {singlerace.RaceNumber}</p>
+                          <p>
+                            {t("Race")} {singlerace.RaceNumber}
+                          </p>
                           <Moment add={{ hours: 12 }} format="mm:ss">
                             {singlerace.DayNTime}
                           </Moment>
@@ -408,24 +397,23 @@ const RaceCardDetail = () => {
                           </p>
                         </div>
                         <p
-                      style={{
-                        padding: "5px",
-                        marginTop:'-20px'
-
-                      }}
-                    >
-                      {cookiedata === "en" ? (
-                        singlerace.HorseKindinRaceData === undefined ? (
-                          <>N/A</>
-                        ) : (
-                          singlerace.HorseKindinRaceData.NameEn
-                        )
-                      ) : singlerace.HorseKindinRaceData === undefined ? (
-                        <>N/A</>
-                      ) : (
-                        (singlerace.HorseKindinRaceData.NameAr)
-                      )}
-                    </p>
+                          style={{
+                            padding: "5px",
+                            marginTop: "-20px",
+                          }}
+                        >
+                          {cookiedata === "en" ? (
+                            singlerace.HorseKindinRaceData === undefined ? (
+                              <>N/A</>
+                            ) : (
+                              singlerace.HorseKindinRaceData.NameEn
+                            )
+                          ) : singlerace.HorseKindinRaceData === undefined ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.HorseKindinRaceData.NameAr
+                          )}
+                        </p>
                       </span>
                       <span className="itemraces_right">
                         <p
@@ -454,7 +442,7 @@ const RaceCardDetail = () => {
                         </span>
                         <div className="Favourite">
                           <div>
-                            <p>{t('Favourite')}</p>
+                            <p>{t("Favourite")}</p>
                             <br />
                             {/* <div
                               style={{
@@ -470,11 +458,8 @@ const RaceCardDetail = () => {
                           </div>
                         </div>
                       </span>
-
                     </div>
-                    <div className="hosekindSection">                    
-                    
-                    </div>
+                    <div className="hosekindSection"></div>
                     <p>
                       <b>{t("Description")}</b> :
                       {cookiedata === "en" ? (
@@ -497,65 +482,192 @@ const RaceCardDetail = () => {
                           singlerace.FifthPrice +
                           singlerace.SixthPrice}
                       </b>
-                      {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}
-
+                      {cookiedata === "en" ? (
+                        <>
+                          {singlerace.CurrencyData === undefined ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.CurrencyData.NameEn
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          {singlerace.CurrencyData === undefined ? (
+                            <>N/A</>
+                          ) : (
+                            singlerace.CurrencyData.NameAr
+                          )}
+                        </>
+                      )}
                     </p>
-
-
                   </div>
                   <div className="Competitiontrophy">
                     <div className="Trophydata">
-                      <span>{t('1st')}</span>
+                      <span>{t("1st")}</span>
                       <span>
                         <img src={img1} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FirstPrice}   {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
+                        <h6>
+                          {singlerace.FirstPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>{t('2nd')}</span>
+                      <span>{t("2nd")}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.SecondPrice} {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
+                        <h6>
+                          {singlerace.SecondPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>{t('3rd')}</span>
+                      <span>{t("3rd")}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.ThirdPrice}    {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
+                        <h6>
+                          {singlerace.ThirdPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>{t('4th')}</span>
+                      <span>{t("4th")}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FourthPrice} {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
+                        <h6>
+                          {singlerace.FourthPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>{t('5th')}</span>
+                      <span>{t("5th")}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.FifthPrice}    {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
+                        <h6>
+                          {singlerace.FifthPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                       </div>
                     </div>
                     <div className="Trophydata">
-                      <span>{t('6th')}</span>
+                      <span>{t("6th")}</span>
                       <span>
                         <img src={img} alt="" />
                       </span>
                       <div className="Trophydata_P">
-                        <h6>{singlerace.SixthPrice}    {cookiedata === 'en' ? <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameEn}</> : <>{singlerace.CurrencyData === undefined ? <>N/A</> : singlerace.CurrencyData.NameAr}</>}</h6>
+                        <h6>
+                          {singlerace.SixthPrice}{" "}
+                          {cookiedata === "en" ? (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameEn
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {singlerace.CurrencyData === undefined ? (
+                                <>N/A</>
+                              ) : (
+                                singlerace.CurrencyData.NameAr
+                              )}
+                            </>
+                          )}
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -574,10 +686,9 @@ const RaceCardDetail = () => {
                       <div className="RaceDetailCard">
                         <div className="forfexclass">
                           <div>
-                            <Accordion defaultActiveKey={0}>
+                            <Accordion defaultActiveKey={10}>
                               <div className="RaceAndHorseModelDataCSSFlex">
-                                {singlerace.RacehorsesData ===
-                                  undefined ? (
+                                {singlerace.RacehorsesData === undefined ? (
                                   <div className="NAclass">N/A</div>
                                 ) : (
                                   singlerace.RacehorsesData.map(
@@ -589,20 +700,33 @@ const RaceCardDetail = () => {
                                               <div className="cardracesAccordion">
                                                 <div className="cardraces1">
                                                   <img
-                                                    src={data.HorseModelIdData1.HorseImage ? data.HorseModelIdData1.HorseImage : Defaultimg}
+                                                    src={
+                                                      data.HorseModelIdData1
+                                                        .HorseImage
+                                                        ? data.HorseModelIdData1
+                                                            .HorseImage
+                                                        : Defaultimg
+                                                    }
                                                     alt=""
                                                   />
                                                   <span className="cardraces1box">
                                                     <p>
                                                       <Moment format="DD-MM-YY">
-                                                        {data.HorseModelIdData1.DOB}
+                                                        {
+                                                          data.HorseModelIdData1
+                                                            .DOB
+                                                        }
                                                       </Moment>
                                                     </p>
-                                                    
+
                                                     <h3>{data.HorseNo}</h3>
-                                                    <p style={{
-                                                      float: "right"
-                                                    }}>({data.GateNo})</p>
+                                                    <p
+                                                      style={{
+                                                        float: "right",
+                                                      }}
+                                                    >
+                                                      ({data.GateNo})
+                                                    </p>
                                                   </span>
                                                 </div>
 
@@ -621,15 +745,21 @@ const RaceCardDetail = () => {
                                                         color: "#19469D",
                                                       }}
                                                     >
-                                                      <span  onClick={() =>
-                                                              handleShow(data)} style={
-                                                                {
-                                                                  cursor:'pointer'
-                                                                }
-                                                              }>
+                                                      <span
+                                                        onClick={() =>
+                                                          handleShow(data)
+                                                        }
+                                                        style={{
+                                                          cursor: "pointer",
+                                                        }}
+                                                      >
                                                         {cookiedata === "en"
-                                                          ? data.HorseModelIdData1.NameEn
-                                                          : data.HorseModelIdData1.NameAr}
+                                                          ? data
+                                                              .HorseModelIdData1
+                                                              .NameEn
+                                                          : data
+                                                              .HorseModelIdData1
+                                                              .NameAr}
                                                       </span>
                                                     </p>
                                                     {/* <img
@@ -645,7 +775,10 @@ const RaceCardDetail = () => {
 
                                                     <p style={myPara}>
                                                       <Moment fromNow ago>
-                                                        {data.HorseModelIdData1.DOB}
+                                                        {
+                                                          data.HorseModelIdData1
+                                                            .DOB
+                                                        }
                                                       </Moment>{" "}
                                                       {/* {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} H ({data.HorseModelIdData1.Height}) */}
                                                     </p>
@@ -662,17 +795,23 @@ const RaceCardDetail = () => {
                                                       <b>
                                                         :
                                                         {cookiedata === "en" ? (
-                                                          data.HorseModelIdData1.DamData ===
-                                                            null ? (
+                                                          data.HorseModelIdData1
+                                                            .DamData ===
+                                                          null ? (
                                                             <>N/A</>
                                                           ) : (
-                                                            data.HorseModelIdData1.NameEn
+                                                            data
+                                                              .HorseModelIdData1
+                                                              .NameEn
                                                           )
-                                                        ) : data.HorseModelIdData1.DamData ===
+                                                        ) : data
+                                                            .HorseModelIdData1
+                                                            .DamData ===
                                                           null ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.NameAr
+                                                          data.HorseModelIdData1
+                                                            .NameAr
                                                         )}
                                                       </b>
                                                     </p>
@@ -681,17 +820,23 @@ const RaceCardDetail = () => {
                                                       <b>
                                                         :
                                                         {cookiedata === "en" ? (
-                                                          data.HorseModelIdData1.SireNameEn ===
-                                                            undefined ? (
+                                                          data.HorseModelIdData1
+                                                            .SireNameEn ===
+                                                          undefined ? (
                                                             <>N/A</>
                                                           ) : (
-                                                            data.HorseModelIdData1.SireNameEn
+                                                            data
+                                                              .HorseModelIdData1
+                                                              .SireNameEn
                                                           )
-                                                        ) : data.HorseModelIdData1.SireNameAr ===
+                                                        ) : data
+                                                            .HorseModelIdData1
+                                                            .SireNameAr ===
                                                           undefined ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.SireNameAr
+                                                          data.HorseModelIdData1
+                                                            .SireNameAr
                                                         )}
                                                       </b>
                                                     </p>
@@ -704,18 +849,23 @@ const RaceCardDetail = () => {
                                                       >
                                                         :
                                                         {cookiedata === "en" ? (
-                                                          data.HorseModelIdData1.GSireNameEn ===
-                                                            undefined ? (
+                                                          data.HorseModelIdData1
+                                                            .GSireNameEn ===
+                                                          undefined ? (
                                                             <>N/A</>
                                                           ) : (
-                                                            data.HorseModelIdData1.GSireNameEn
-
+                                                            data
+                                                              .HorseModelIdData1
+                                                              .GSireNameEn
                                                           )
-                                                        ) : data.HorseModelIdData1.GSireNameEn ===
+                                                        ) : data
+                                                            .HorseModelIdData1
+                                                            .GSireNameEn ===
                                                           undefined ? (
                                                           <>N/A</>
                                                         ) : (
-                                                          data.HorseModelIdData1.GSireNameAr
+                                                          data.HorseModelIdData1
+                                                            .GSireNameAr
                                                         )}
                                                       </b>
                                                     </p>
@@ -747,7 +897,7 @@ const RaceCardDetail = () => {
                                                     >
                                                       {cookiedata === "en" ? (
                                                         data.OwnerOnRaceData1 ===
-                                                          undefined ? (
+                                                        undefined ? (
                                                           <>N/A</>
                                                         ) : (
                                                           data.OwnerOnRaceData1
@@ -772,15 +922,22 @@ const RaceCardDetail = () => {
                                                     >
                                                       (8 - 3 - 2 - 8 - 4)
                                                     </p>
-
                                                   </div>
 
                                                   <div className="trainerbreader_section">
                                                     <img
                                                       src={
-                                                        data.JockeyOnRaceData1 === null ? <></> : (data.JockeyOnRaceData1.image === null
-                                                          ? Defaultimg : data.JockeyOnRaceData1
-                                                          .image)
+                                                        data.JockeyOnRaceData1 ===
+                                                        null ? (
+                                                          <></>
+                                                        ) : data
+                                                            .JockeyOnRaceData1
+                                                            .image === null ? (
+                                                          Defaultimg
+                                                        ) : (
+                                                          data.JockeyOnRaceData1
+                                                            .image
+                                                        )
                                                       }
                                                       alt=""
                                                       className="trainerbreader_image"
@@ -794,15 +951,13 @@ const RaceCardDetail = () => {
                                                           }}
                                                         >
                                                           {cookiedata ===
-                                                            "en" ? (
-                                                            data.TrainerOnRaceData1
-                                                              ===
-                                                              undefined ? (
+                                                          "en" ? (
+                                                            data.TrainerOnRaceData1 ===
+                                                            undefined ? (
                                                               <>N/A</>
                                                             ) : (
                                                               data
                                                                 .TrainerOnRaceData1
-
                                                                 .NameEn
                                                             )
                                                           ) : data.TrainerOnRaceData1 ===
@@ -811,7 +966,6 @@ const RaceCardDetail = () => {
                                                           ) : (
                                                             data
                                                               .TrainerOnRaceData1
-
                                                               .NameAr
                                                           )}
                                                         </b>
@@ -824,19 +978,27 @@ const RaceCardDetail = () => {
                                                           }}
                                                         >
                                                           {cookiedata ===
-                                                            "en" ? (
-                                                            data.HorseModelIdData1.BreederData ===
-                                                              undefined ? (
+                                                          "en" ? (
+                                                            data
+                                                              .HorseModelIdData1
+                                                              .BreederData ===
+                                                            undefined ? (
                                                               <>N/A</>
                                                             ) : (
-                                                              data.HorseModelIdData1.BreederData
+                                                              data
+                                                                .HorseModelIdData1
+                                                                .BreederData
                                                                 .NameEn
                                                             )
-                                                          ) : data.HorseModelIdData1.BreederData ===
+                                                          ) : data
+                                                              .HorseModelIdData1
+                                                              .BreederData ===
                                                             undefined ? (
                                                             <>N/A</>
                                                           ) : (
-                                                            data.HorseModelIdData1.BreederData
+                                                            data
+                                                              .HorseModelIdData1
+                                                              .BreederData
                                                               .NameAr
                                                           )}
                                                         </b>
@@ -865,11 +1027,33 @@ const RaceCardDetail = () => {
                                                       textAlign: "end",
                                                     }}
                                                   >
-                                                    {cookiedata === "en" ? <>{data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameEn}</> : <>{data.EquipmentData1 === null ? <>N/A</> : data.EquipmentData1.NameAr}</>}
-                                                     {t("OR")}:
-                                                    {data.JockeyOnRaceData1 === null ? (
+                                                    {cookiedata === "en" ? (
+                                                      <>
+                                                        {data.EquipmentData1 ===
+                                                        null ? (
+                                                          <>N/A</>
+                                                        ) : (
+                                                          data.EquipmentData1
+                                                            .NameEn
+                                                        )}
+                                                      </>
+                                                    ) : (
+                                                      <>
+                                                        {data.EquipmentData1 ===
+                                                        null ? (
+                                                          <>N/A</>
+                                                        ) : (
+                                                          data.EquipmentData1
+                                                            .NameAr
+                                                        )}
+                                                      </>
+                                                    )}
+                                                    {t("OR")}:
+                                                    {data.JockeyOnRaceData1 ===
+                                                    null ? (
                                                       <>N/A</>
-                                                    ) : data.Rating === undefined ? (
+                                                    ) : data.Rating ===
+                                                      undefined ? (
                                                       <>0</>
                                                     ) : (
                                                       data.Rating
@@ -877,12 +1061,14 @@ const RaceCardDetail = () => {
                                                   </p>
                                                   <div className="cardracesjockey">
                                                     <div className="cardracesjockeyleft">
-                                                      <p  onClick={() =>
-                                                              handleShowJockey(data)} style={
-                                                                {
-                                                                  cursor:'pointer'
-                                                                }
-                                                              }>
+                                                      <p
+                                                        onClick={() =>
+                                                          handleShowJockey(data)
+                                                        }
+                                                        style={{
+                                                          cursor: "pointer",
+                                                        }}
+                                                      >
                                                         J
                                                         <b
                                                           style={{
@@ -890,31 +1076,36 @@ const RaceCardDetail = () => {
                                                           }}
                                                         >
                                                           {cookiedata ===
-                                                            "en" ? (
-                                                            data.JockeyOnRaceData1 === null ? (
+                                                          "en" ? (
+                                                            data.JockeyOnRaceData1 ===
+                                                            null ? (
                                                               <>N/A</>
                                                             ) : data.JockeyOnRaceData1 ===
                                                               undefined ? (
                                                               <>N/A</>
                                                             ) : (
-                                                              data.JockeyOnRaceData1.NameEn
+                                                              data
+                                                                .JockeyOnRaceData1
+                                                                .NameEn
                                                             )
+                                                          ) : data.JockeyOnRaceData1 ===
+                                                            null ? (
+                                                            <>N/A</>
+                                                          ) : data.JockeyOnRaceData1 ===
+                                                            undefined ? (
+                                                            <>N/A</>
                                                           ) : (
-                                                            data.JockeyOnRaceData1 === null ? (
-                                                              <>N/A</>
-                                                            ) : data.JockeyOnRaceData1 ===
-                                                              undefined ? (
-                                                              <>N/A</>
-                                                            ) : (
-                                                              data.JockeyOnRaceData1.NameAr
-                                                            )                                                          )}
+                                                            data
+                                                              .JockeyOnRaceData1
+                                                              .NameAr
+                                                          )}
                                                         </b>
                                                       </p>
                                                       <p>
-                                                        {data.JockeyOnRaceData1 === null ? (
+                                                        {data.JockeyOnRaceData1 ===
+                                                        null ? (
                                                           <>N/A</>
-                                                        ) : data
-                                                          .JockeyRaceWeight ===
+                                                        ) : data.JockeyRaceWeight ===
                                                           undefined ? (
                                                           <>N/A</>
                                                         ) : (
@@ -936,14 +1127,17 @@ const RaceCardDetail = () => {
                                                     </div>
                                                     <img
                                                       src={
-                                                        data.JockeyOnRaceData1 === null ? (
+                                                        data.JockeyOnRaceData1 ===
+                                                        null ? (
                                                           <>N/A</>
-                                                        ) : data.JockeyOnRaceData1
-                                                          .image ===
+                                                        ) : data
+                                                            .JockeyOnRaceData1
+                                                            .image ===
                                                           undefined ? (
                                                           <>N/A</>
-                                                        ) : data.JockeyOnRaceData1
-                                                          .image ? (
+                                                        ) : data
+                                                            .JockeyOnRaceData1
+                                                            .image ? (
                                                           data.JockeyOnRaceData1
                                                             .image
                                                         ) : (
@@ -964,15 +1158,17 @@ const RaceCardDetail = () => {
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div>
-
-
-                                              </div>
+                                              <div></div>
                                               <div>
                                                 <div className="pmclass">
                                                   <p>
                                                     PM: AED{" "}
-                                                    <b>{data.HorseModelIdData1.PurchasePrice}</b>
+                                                    <b>
+                                                      {
+                                                        data.HorseModelIdData1
+                                                          .PurchasePrice
+                                                      }
+                                                    </b>
                                                   </p>
                                                   <p>
                                                     BTO: AED <b>55,000</b>
@@ -983,20 +1179,29 @@ const RaceCardDetail = () => {
                                                 </div>
                                                 <div className="uaecareer">
                                                   <p>
-                                                    {t("UAECareer")}: 47 (2 - 8 - 4)
+                                                    {t("UAECareer")}: 47 (2 - 8
+                                                    - 4)
                                                   </p>
                                                   <p>
-                                                    {t("Lifetime")}: 47 (2 - 8 - 4)
+                                                    {t("Lifetime")}: 47 (2 - 8 -
+                                                    4)
                                                   </p>
-                                                  <p>{t("Turf")} :47 (2 - 8 - 4) </p>
-                                                  <p>{t("Dirt")} :47 (2 - 8 - 4) </p>
-                                                  <p>{t("AW")} :47 (2 - 8 - 4) </p>
+                                                  <p>
+                                                    {t("Turf")} :47 (2 - 8 - 4){" "}
+                                                  </p>
+                                                  <p>
+                                                    {t("Dirt")} :47 (2 - 8 - 4){" "}
+                                                  </p>
+                                                  <p>
+                                                    {t("AW")} :47 (2 - 8 - 4){" "}
+                                                  </p>
                                                 </div>
                                               </div>
                                               <div
                                                 style={{
                                                   display: "flex",
-                                                  justifyContent: "space-between"
+                                                  justifyContent:
+                                                    "space-between",
                                                 }}
                                               >
                                                 {singlerace
@@ -1008,7 +1213,7 @@ const RaceCardDetail = () => {
                                                     {singlerace
                                                       .CompetitionRacesPointsModelData[0]
                                                       .CompetitionCategory ===
-                                                      "pick" ? (
+                                                    "pick" ? (
                                                       <button
                                                         style={btnNew1}
                                                         onClick={(event) =>
@@ -1124,22 +1329,54 @@ const RaceCardDetail = () => {
                                             {t("Pick Six")}
                                             </button> */}
 
-                                                {data.HorseModelIdData1.TrackHorses && data.HorseModelIdData1.TrackHorses.length > 0 ?
-                                                  <div div className="trackBtn">
-                                                    <button className="w-100 px-10" style={btnNew1} onClick={() => handleTrack(data.HorseModelIdData1._id)}>Track Horse</button>
-                                                  </div>
-                                                  :
-                                                  <></>
+                                                {
+                                                  data.HorseModelIdData1
+                                                    .TrackHorses &&
+                                                  data.HorseModelIdData1
+                                                    .TrackHorses.length > 0 ? (
+                                                    <div
+                                                      div
+                                                      className="trackBtn"
+                                                    >
+                                                      <button
+                                                        className="w-100 px-10"
+                                                        style={btnNew1}
+                                                        onClick={() =>
+                                                          handleTrack(
+                                                            data
+                                                              .HorseModelIdData1
+                                                              ._id
+                                                          )
+                                                        }
+                                                      >
+                                                        Track Horse
+                                                      </button>
+                                                    </div>
+                                                  ) : (
+                                                    <></>
+                                                  )
                                                   // <div div className="trackBtn">
                                                   //   <button className="w-100 px-10" style={btnNew1}>UnTrack Horse</button>
                                                   // </div>
                                                 }
                                               </div>
                                               <CustomToggle eventKey={index}>
-                                                <button className="showMore" onClick={() => showHorseHistory(data.HorseModelIdData1._id)}> {t("ShowHistory")}</button>
+                                                <button
+                                                  className="showMore"
+                                                  onClick={() =>
+                                                    showHorseHistory(
+                                                      data.HorseModelIdData1._id
+                                                    )
+                                                  }
+                                                >
+                                                  {" "}
+                                                  {t("ShowHistory")}
+                                                </button>
                                               </CustomToggle>
                                             </Card.Header>
-                                            <Accordion.Collapse eventKey={index}>
+                                            <Accordion.Collapse
+                                              eventKey={index}
+                                            >
                                               <Card.Body>
                                                 <div className="mycardclass1">
                                                   <div className="BodyNew">
@@ -1160,88 +1397,56 @@ const RaceCardDetail = () => {
                                                           <th>{t("BtBy")}</th>
                                                           <th>{t("Kgs")}</th>
                                                           <th>{t("Draw")}</th>
+                                                          <th></th>
+                                                          <th></th>
+
                                                         </tr>
                                                       </thead>
+                                                    </table>
+                                                    {
+                                                        History === undefined ? <>N/A</> : <>
+                                                        {
+                                                          History.map((item) => {
+                                                            return(
+                                                              <div className="BodyNew1" key={index}>
+                                                    <table className="customers2">
+                                                      <thead>
+                                                        <tr>
+                                                          <th><Moment format="D MMM YYYY" withTitle></Moment></th>
+                                                          <th>Wol (T)</th>
+                                                          
+                                                          <th>{item.Distance}</th>
+                                                          <th>Wol (T)</th>
+                                                          <th>D</th>
+                                                          <th>{item.PrizeWin}</th>
+                                                          <th>{item.RaceTime}</th>
+                                                          <th>{item.JockeyOnRaceDataResult === null ? <></> : <>{item.JockeyOnRaceDataResult.MaximumJockeyWeight}</>}</th>
+                                                          <th>{item.FinalPositionDataHorse === null ? <></> : <>{cookiedata === "en" ? <>{item.FinalPositionDataHorse.NameEn}</> : <>{item.FinalPositionDataHorse.NameAr}</>}</>} </th>
+                                                          <th>{item.CumulativeDistance}</th>
+                                                          {/* <th>6</th> */}
+                                                          <th>16.25</th>
+                                                          <th>{item.BeatenByData === null ? <></> : <>{cookiedata === "en" ? <>{item.BeatenByData.NameEn}</> : <>{item.BeatenByData.NameAr}</>}</>}</th>
+                                                          <th>{item.Distance}</th>
+                                                          <th>58</th>
 
-                                                      {
-                                                        History !== undefined ?
-
-                                                          History.map((history, index) => (
-                                                            // <tbody>
-
-                                                            //   <tr>
-
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.Distance}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.BeatenByData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-                                                            //       {history.HorseIDData.NameEn}
-                                                            //     </td>
-                                                            //     <td>
-
-                                                            //       <a href={history.HorseIDData.VideoLink}>
-                                                            //         <img
-                                                            //           src={arrow1}
-                                                            //           alt=""
-                                                            //         />
-                                                            //       </a>
-
-                                                            //     </td>
-
-                                                            //   </tr>
-
-
-
-                                                            // </tbody>
-
-                                                            <></>
-
-
-                                                          ))
-                                                          : <></>
-                                                      }
-
-
+                                                          <th>
+                                                            <a href={item.VideoLink} target="_blank">
+                                                            <img
+                                                              src={arrow1}
+                                                              alt=""
+                                                            />
+                                                            </a>
+                                                          </th>
+                                                        </tr>
+                                                      </thead>
                                                     </table>
                                                   </div>
-
-
+                                                            )
+                                                          })
+                                                        }
+                                                        </>
+                                                      }
+                                                  </div>
 
                                                   {/* <>
                                                   {
@@ -1282,7 +1487,6 @@ const RaceCardDetail = () => {
                                                     })
                                                   }
                                                   </> */}
-
 
                                                   {/* <div className="BodyNew2">
                                                     <table className="customers2">
@@ -1353,7 +1557,7 @@ const RaceCardDetail = () => {
                     </Tab>
                     <Tab
                       eventKey="Predictor"
-                      title= {t("Predictor")}
+                      title={t("Predictor")}
                       tabClassName="profile-tabitem"
                     >
                       <div className="RaceDetailCard">
@@ -1400,8 +1604,7 @@ const RaceCardDetail = () => {
             </div>
           ) : (
             <div className="NAclass">Loading ...</div>
-          )
-          }
+          )}
           {/* <Modal
             show={show}
             onHide={handleClose}
@@ -1417,32 +1620,35 @@ const RaceCardDetail = () => {
             </Modal.Footer>
           </Modal> */}
 
-        <Modal show={show} onHide={handleClose} size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered>
-        <Modal.Header className="popupheader" closeButton >
-        </Modal.Header>
-        <Modal.Body>
-          <HorseDetail data={modaldata} />
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            <Modal.Header className="popupheader" closeButton></Modal.Header>
+            <Modal.Body>
+              <HorseDetail data={modaldata} />
+            </Modal.Body>
+            <Modal.Footer></Modal.Footer>
+          </Modal>
 
-
-      <Modal show={showJockey} onHide={handleCloseJockey} size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered>
-        <Modal.Header className="popupheader" closeButton >
-        </Modal.Header>
-        <Modal.Body>
-          <JockeyDetail data={modaldataJockey} />
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
-        </div >
-      </Zoom >
+          <Modal
+            show={showJockey}
+            onHide={handleCloseJockey}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            <Modal.Header className="popupheader" closeButton></Modal.Header>
+            <Modal.Body>
+              <JockeyDetail data={modaldataJockey} />
+            </Modal.Body>
+            <Modal.Footer></Modal.Footer>
+          </Modal>
+        </div>
+      </Zoom>
       {/* <Footer />
       <CopyRight /> */}
     </>
