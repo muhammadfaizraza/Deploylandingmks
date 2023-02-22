@@ -19,8 +19,6 @@ const Draw = () => {
     <div className="drawchart">
       <Chart
       chartType="Bar"
-      width="517px"
-      height="315px"
       data={data}
       options={options}
       />

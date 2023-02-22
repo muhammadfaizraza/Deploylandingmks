@@ -1491,7 +1491,9 @@ const RaceDetails = () => {
               </div>
             </>
           ) : (
-            <div className="NAclass">No Data</div>
+            <div className="NAclass">
+              <Lottie animationData={Animate} loop={true} className="load" />
+            </div>
           )}
           
         </div>

@@ -1899,6 +1899,14 @@
 
 @media (max-width: 471px) and (min-width: 360px) {
 
+    .drawchart {
+        width: 375px !important;
+        height: 430px;
+        margin: auto;
+    }
+    div#reactgooglegraph-1 {
+        width: 360px !important;
+    }
     .racepageheadflex {
         display: block;
     }
@@ -2206,6 +2214,7 @@
 
     .Homelayout {
         margin-top: 10px;
+        overflow: hidden;
     }
 
     .Addington {
@@ -2674,6 +2683,7 @@
     .RaceDetailHeader {
         max-height: 700px;
         margin-top: 30px;
+        overflow-x: hidden;
     }
 
     .customers2 th {
