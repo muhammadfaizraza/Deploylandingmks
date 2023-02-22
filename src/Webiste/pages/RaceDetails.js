@@ -246,17 +246,19 @@ const RaceDetails = () => {
                             
                           </span>
 
-                          <img
-                            className="sponsor"
-                            src={
-                              singlerace.SponsorData === null ? (
-                                <></>
-                              ) : (
-                                singlerace.SponsorData.image
-                              )
-                            }
-                            alt=""
-                          />
+                          {
+                          singlerace.SponsorData ? <img
+                          className="sponsor"
+                          src={
+                            singlerace.SponsorData.image === null ? (
+                              Defaultimg
+                            ) : (
+                              singlerace.SponsorData.image
+                            )
+                          }
+                          alt=""
+                        />:<></>
+                        }
                         </span>
                         <span className="itemraces_center">
                           <div
