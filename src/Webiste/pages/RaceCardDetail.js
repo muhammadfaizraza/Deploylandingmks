@@ -53,7 +53,6 @@ const RaceCardDetail = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { state } = useLocation();
-
   const { data: singlerace, status } = useSelector((state) => state.singlerace);
   const [Disable, setDisable] = useState(false);
   const [History, setHistory] = useState([]);
@@ -72,16 +71,11 @@ const RaceCardDetail = () => {
   const handleCloseJockey = () => setShowJockey(false);
   const handleShowJockey = async (data) => {
     setmodaldataJockey(data);
-    console.log("horse data", data);
     await setShowJockey(true);
   };
 
-  const handleCloseTri = () => setShowtri(false);
   const [showtri, setShowtri] = useState(false);
 
-  const handleShowTri = async (data) => {
-    await setShowtri(true);
-  };
 
   const [PositionNumber, setPositionNumber] = useState("1");
 
@@ -147,21 +141,8 @@ const RaceCardDetail = () => {
     paddingLeft: "3px",
   };
 
-  const btnNew = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "13px 10px",
-    gap: "10px",
-    width: "112px",
-    height: "24px",
-    background: "#19469D",
-    borderRadius: "10px",
-    border: "none",
-    color: "#fff",
-    marginLeft: "10px",
-  };
+  
+
   const btnNew1 = {
     display: "flex",
     flexDirection: "row",
@@ -326,7 +307,7 @@ const RaceCardDetail = () => {
                             {singlerace.DayNTime}
                           </Moment>
                         </span>
-                        {/* 
+                        
                         <img
                           className="sponsor"
                           src={
@@ -336,7 +317,7 @@ const RaceCardDetail = () => {
                               singlerace.SponsorData.image
                           }
                           alt=""
-                        /> */}
+                        />
                       </span>
                       <span className="itemraces_center">
                         <h5>
