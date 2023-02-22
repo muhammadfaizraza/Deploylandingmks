@@ -56,7 +56,7 @@ const CardPrint = () => {
     <div className="RaceDetailCard">
       <div className="forfexclass">
         <Accordion defaultActiveKey="0">
-          <div className="RaceAndHorseModelDataCSSFlex11">
+          <div className="RaceAndHorseModelDataCSSFlex">
             {singlerace.RacehorsesData === undefined ? (
               <div className="NAclass">N/A</div>
             ) : (

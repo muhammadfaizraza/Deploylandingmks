@@ -309,15 +309,16 @@ const RaceCardDetail = () => {
                         </span>
                         
                         <img
-                          className="sponsor"
-                          src={
-                            singlerace.SponsorData.image === undefined
-                              ? Defaultimg
-                              :
-                              singlerace.SponsorData.image
-                          }
-                          alt=""
-                        />
+                            className="sponsor"
+                            src={
+                              singlerace.SponsorData === null ? (
+                                <></>
+                              ) : (
+                                singlerace.SponsorData.image
+                              )
+                            }
+                            alt=""
+                          />
                       </span>
                       <span className="itemraces_center">
                         <h5>

@@ -2746,4 +2746,7 @@
     .RaceCardDetail {
         width: 99%;
     }
+    svg {
+        width: 300px;
+    }
 }
