@@ -304,11 +304,23 @@ const RaceCardDetail = () => {
                             {t("Race")} {singlerace.RaceNumber}
                           </p>
                           <Moment add={{ hours: 12 }} format="mm:ss">
-                            {singlerace.DayNTime}
+                            {singlerace.StartTime}
                           </Moment>
                         </span>
-                        
-                        <img
+                        {
+                          singlerace.SponsorData ? <img
+                          className="sponsor"
+                          src={
+                            singlerace.SponsorData.image === null ? (
+                              Defaultimg
+                            ) : (
+                              singlerace.SponsorData.image
+                            )
+                          }
+                          alt=""
+                        />:<></>
+                        }
+                        {/* <img
                             className="sponsor"
                             src={
                               singlerace.SponsorData === null ? (
@@ -318,7 +330,7 @@ const RaceCardDetail = () => {
                               )
                             }
                             alt=""
-                          />
+                          /> */}
                       </span>
                       <span className="itemraces_center">
                         <h5>

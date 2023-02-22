@@ -29,12 +29,26 @@ const Match = () => {
     dispatch(fetchCourse());
   }, []);
 
+  const [userIsDesktop, setUserIsDesktop] = useState(true);
+
+  useEffect(() => {
+    window.innerWidth > 440 ? setUserIsDesktop(true) : setUserIsDesktop(false);
+  }, [userIsDesktop]);
+
   function HandleJockey(id) {
-    navigate("/racedetail", {
-      state: {
-        id: id,
-      },
-    });
+    if (userIsDesktop === true) {
+      navigate("/racedetail", {
+        state: {
+          id: id,
+        },
+      });
+    } else {
+      navigate("/racedetails", {
+        state: {
+          id: id,
+        },
+      });
+    }
   }
 
   // const datedata = moment.utc(value).format('YYYY-MM-DD')
