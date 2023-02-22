@@ -36,7 +36,7 @@ const Header = () => {
             <Link to="/result" className="LinkStyle">
               <p>{t("result")}</p>
             </Link>
-            <Link to="/racecourse" className="LinkStyle">
+            <Link to="/" className="LinkStyle">
               <p>{t("race_course")}</p>
             </Link>
             <Link to="/competition" className="LinkStyle">
