@@ -3,19 +3,12 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate,NavLink  } from 'react-router-dom'
 import { userLogin } from '../redux/postReducer/UserPost'
-import {useform} from 'react-hook-form'
-import {BsEyeFill} from 'react-icons/bs'
 import { toast } from 'react-toastify';
 import ForgetPassword from '../Components/Reuseable/ForgetPassword'
 import { Modal } from "react-bootstrap";
-import Layout from '../Components/Reuseable/layout'
 import '../Components/CSS/registration.css'
-import Footer from '../Components/Reuseable/Footer';
-import Copyrights from '../Components/Reuseable/Copyrights';
 import {useTranslation} from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { FaBars } from 'react-icons/fa';
-import Fade from 'react-reveal/Fade';
 
 const Login = () => {
   const { loading, userInfo, error ,success} = useSelector((state) => state.user)

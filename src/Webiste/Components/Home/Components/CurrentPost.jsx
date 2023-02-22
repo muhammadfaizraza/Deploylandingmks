@@ -6,7 +6,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
 import { BsCalendarDate } from "react-icons/bs";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Bounce, Fade } from "react-reveal";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
@@ -69,7 +69,7 @@ const Match = () => {
         style={{
           margin: "100px",
         }}
-      ></h2>
+      >Loading</h2>
     );
   }
 
@@ -99,7 +99,7 @@ const Match = () => {
             <div className=" newpost">
               <Bounce bottom>
                 <div className="Currentpostdiv">
-                  {/* {racecourse.length === 0 || racecourse === undefined ? (
+                  {racecourse.length === 0 || racecourse === undefined ? (
                     <></>
                   ) : (
                     racecourse.map((item, ind) => {
@@ -188,7 +188,7 @@ const Match = () => {
                         </>
                       );
                     })
-                  )} */}
+                  )}
                 </div>
               </Bounce>
             </div>
@@ -197,7 +197,7 @@ const Match = () => {
             <div className=" newpost">
               <Bounce bottom>
                 <div className="Currentpostdiv">
-                  {/* {racecourse.length === 0 || racecourse === undefined ? (
+                {racecourse.length === 0 || racecourse === undefined ? (
                     <></>
                   ) : (
                     racecourse.map((item, ind) => {
@@ -251,14 +251,7 @@ const Match = () => {
                                         )}
                                       </p>
                                       <p>
-                                        {" "}
-                                        <Moment
-                                          add={{ hours: 12 }}
-                                          format="hh:mm"
-                                        >
-                                          {item.DayNTime}
-                                        </Moment>
-                                        min
+                                      
                                       </p>
                                     </div>
                                   </Accordion.Header>
@@ -293,7 +286,7 @@ const Match = () => {
                         </>
                       );
                     })
-                  )} */}
+                  )}
                 </div>
               </Bounce>
             </div>

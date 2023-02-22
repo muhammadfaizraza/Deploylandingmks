@@ -8,10 +8,9 @@ import { useSelector } from "react-redux";
 const Predictor = ({ RaceId }) => {
   const { data: predictor, status } = useSelector((state) => state.predictor);
 
-  console.log(predictor, "done");
   useEffect(() => {
     fetchPredictor(RaceId);
-  }, []);
+  }, [RaceId]);
 
   return (
     <ScrollContainer className="scroll-container">

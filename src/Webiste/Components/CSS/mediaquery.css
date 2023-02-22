@@ -1951,8 +1951,8 @@
 
     .raceStatus {
         margin: 0 -5px;
-        justify-content: start;
-    }
+        justify-content: flex-start;
+        }
 
     .imgDiv img {
 

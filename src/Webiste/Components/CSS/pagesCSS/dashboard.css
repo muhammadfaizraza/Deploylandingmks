@@ -167,7 +167,7 @@ input#floatingInput {
 }
 .spanForm {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   font-size: 2rem;
   margin-top: -52px;
   font-weight: 100;
@@ -237,7 +237,7 @@ margin-right: 50px;
 .ButtonSection {
 
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 27px;
   margin-top: 4rem;
 
@@ -262,7 +262,7 @@ border-radius: 20px;
 .RaceButtonDiv {
 
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 30px;
   margin-top: 5rem;
 
@@ -303,7 +303,7 @@ input::file-selector-button {
 
   .spanForm {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     font-size: 2rem;
     margin-top: -52px;
     font-weight: 100;

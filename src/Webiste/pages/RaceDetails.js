@@ -17,8 +17,6 @@ import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import Zoom from "react-reveal/Zoom";
 import { Modal } from "react-bootstrap";
-import Competition from "../Components/Competition/Competition";
-import TriCompetition from "../Components/Competition/TriCompetition";
 import Card from "react-bootstrap/Card";
 import img from "../assets/image 10.png";
 import img1 from "../assets/image 10 (1).png";
@@ -1495,35 +1493,7 @@ const RaceDetails = () => {
           ) : (
             <div className="NAclass">No Data</div>
           )}
-          <Modal
-            show={show}
-            onHide={handleClose}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Modal.Header closeButton></Modal.Header>
-            <Modal.Body>
-              <Competition />
-            </Modal.Body>
-            <Modal.Footer>
-              {/* <button onClick={handleClose}>Close</button> */}
-            </Modal.Footer>
-          </Modal>
-
-          <Modal
-            show={showtri}
-            onHide={handleCloseTri}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Modal.Header closeButton></Modal.Header>
-            <Modal.Body>
-              <TriCompetition />
-            </Modal.Body>
-            <Modal.Footer></Modal.Footer>
-          </Modal>
+          
         </div>
       </Zoom>
     </>

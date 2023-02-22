@@ -27,7 +27,7 @@
 }
 
 span h6 {
-    justify-content: end;
+    justify-content: flex-end;
     text-align: end;
     position: relative;
     bottom: 115px;

@@ -7,7 +7,6 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import 'bootstrap/dist/js/bootstrap.js'
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './Webiste/Components/CSS/mediaquery.css'
 import Lottie from 'lottie-react';
 import Animate from './Webiste/assets/loader.json'
 

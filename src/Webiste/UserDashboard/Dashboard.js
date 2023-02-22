@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from "../Components/Reuseable/Header"
 import Auth from "../Components/Reuseable/Auth"
-import '../../Webiste/Components/CSS/pagesCSS/dashboard.css'
 import Search from '../Components/Home/Components/Search';
 import Tracker from '../Components/Home/Components/Tracker';
 import Notification from '../Components/Home/Components/Notification';

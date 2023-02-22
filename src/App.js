@@ -32,7 +32,6 @@ import MyTracker from './Webiste/UserDashboard/Tracker';
 import JockeyDetail from './Webiste/pages/JockeyDetail';
 import TrainerDetail from './Webiste/pages/TrainerDetail';
 import { useState, useEffect } from "react";
-import CompetitionModal from './Webiste/Components/Competition/Competition';
 import MySelection from './Webiste/UserDashboard/MySelection';
 import MyProfile from './Webiste/UserDashboard/MyProfile';
 import WinnerList from './Webiste/UserDashboard/WinnerList';
@@ -85,7 +84,6 @@ function App() {
             <Route path='/jockeydetail' element={<JockeyDetail />} />
             <Route path='/trainerdetail' element={<TrainerDetail />} />
 
-            <Route path='/competitionmodal' element={<CompetitionModal />} />
             <Route path='/testpedigree' element={<TestPedigree />} />
             <Route path="*" element={<NotFound />} />
 
