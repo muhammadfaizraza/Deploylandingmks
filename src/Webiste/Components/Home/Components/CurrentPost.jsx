@@ -99,7 +99,7 @@ const Match = () => {
             <div className=" newpost">
               <Bounce bottom>
                 <div className="Currentpostdiv">
-                  {racecourse.length === 0 || racecourse === undefined ? (
+                  {/* {racecourse.length === 0 || racecourse === undefined ? (
                     <></>
                   ) : (
                     racecourse.map((item, ind) => {
@@ -153,14 +153,7 @@ const Match = () => {
                                         )}
                                       </p>
                                       <p>
-                                        {/* {" "}
-                                        <Moment
-                                          add={{ hours: 12 }}
-                                          format="hh:mm"
-                                        >
-                                          {item.DayNTime}
-                                        </Moment> */}
-                                        {/* min */}
+                                      
                                       </p>
                                     </div>
                                   </Accordion.Header>
@@ -195,7 +188,7 @@ const Match = () => {
                         </>
                       );
                     })
-                  )}
+                  )} */}
                 </div>
               </Bounce>
             </div>
@@ -204,7 +197,7 @@ const Match = () => {
             <div className=" newpost">
               <Bounce bottom>
                 <div className="Currentpostdiv">
-                  {racecourse.length === 0 || racecourse === undefined ? (
+                  {/* {racecourse.length === 0 || racecourse === undefined ? (
                     <></>
                   ) : (
                     racecourse.map((item, ind) => {
@@ -258,14 +251,14 @@ const Match = () => {
                                         )}
                                       </p>
                                       <p>
-                                        {/* {" "}
+                                        {" "}
                                         <Moment
                                           add={{ hours: 12 }}
                                           format="hh:mm"
                                         >
                                           {item.DayNTime}
                                         </Moment>
-                                        min */}
+                                        min
                                       </p>
                                     </div>
                                   </Accordion.Header>
@@ -300,7 +293,7 @@ const Match = () => {
                         </>
                       );
                     })
-                  )}
+                  )} */}
                 </div>
               </Bounce>
             </div>
