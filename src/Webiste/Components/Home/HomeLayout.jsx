@@ -22,6 +22,7 @@ import ScrollContainer from 'react-indiana-drag-scroll'
 import Prediction from "./Components/Prediction";
 import Graph from "./Components/Graph";
 import LeaderBoard from "./Components/LeaderBoard";
+import TodayRaceCard from "../../pages/TodayRaceCard";
 
 
 
@@ -61,7 +62,9 @@ const {pathname} = useLocation();
           </div>
           <div className="newabc">
           <div className="xyz">{
-            pathname === '/' ? <HomeCenterSection /> : <RaceCardDetail/>
+            pathname === '/' ? <HomeCenterSection /> : (
+              pathname === '/mkscard' ? <TodayRaceCard /> : <RaceCardDetail />
+            )
           }
          <div className="aab">
          <HomeRightSection />

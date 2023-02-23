@@ -70,7 +70,7 @@
 
 }
 
-@media (max-width: 1619px) and (min-width: 1490px) {
+@media (max-width: 1620px) and (min-width: 1490px) {
     button.slick-arrow.slick-next {
         width: 25px;
         height: 124px;
@@ -1908,7 +1908,7 @@
         width: 360px !important;
     }
     .racepageheadflex {
-        display: block;
+        display: flex;
     }
 
     .RaceCard {
@@ -1954,7 +1954,7 @@
     }
 
     .raceStatusitem {
-        margin: -44px 7px 45px 12px
+        margin: 2px 0px 4px 6px;
     }
 
     .raceStatus {

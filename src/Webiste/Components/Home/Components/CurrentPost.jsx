@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../../CSS/HomeCSS/blogs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCourse, STATUSES } from "../../../redux/getReducer/getRaceCourse";
+import { fetchRaceCourseToday } from "../../../redux/getReducer/getRaceCourseToday";
+
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
@@ -13,7 +15,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import moment from 'moment';
+import moment from "moment";
 import DefaulImg from "../../../assets/default.png";
 
 const Match = () => {
@@ -24,9 +26,13 @@ const Match = () => {
   const [value, onChange] = useState(new Date());
   const [DayData, setDayData] = useState([]);
   const { data: racecourse, status } = useSelector((state) => state.racecourse);
+  const { data: RaceCourseRaceToday } = useSelector(
+    (state) => state.RaceCourseRaceToday
+  );
 
   useEffect(() => {
     dispatch(fetchCourse());
+    dispatch(fetchRaceCourseToday());
   }, []);
 
   const [userIsDesktop, setUserIsDesktop] = useState(true);
@@ -51,6 +57,22 @@ const Match = () => {
     }
   }
 
+  console.log(RaceCourseRaceToday, "RaceCourseRaceToday");
+  function HandleCard(cardid) {
+    if (userIsDesktop === true) {
+      navigate("/mkscard", {
+        state: {
+          cardid: cardid,
+        },
+      });
+    } else {
+      navigate("/mkscards", {
+        state: {
+          cardid: cardid,
+        },
+      });
+    }
+  }
   // const datedata = moment.utc(value).format('YYYY-MM-DD')
 
   // useEffect(() => {
@@ -83,7 +105,9 @@ const Match = () => {
         style={{
           margin: "100px",
         }}
-      >Loading</h2>
+      >
+        Loading
+      </h2>
     );
   }
 
@@ -110,6 +134,108 @@ const Match = () => {
           className="mb-4 "
         >
           <Tab eventKey="home" title={t("current")}>
+            <div className=" newpost">
+              <Bounce bottom>
+                <div className="Currentpostdiv">
+                  {RaceCourseRaceToday.length === 0 ||
+                  RaceCourseRaceToday === undefined ? (
+                    <></>
+                  ) : (
+                    RaceCourseRaceToday.map((item, ind) => {
+                      return (
+                        <>
+                          <div className="Currentpostheader">
+                            <h2>
+                              {" "}
+                              {cookiedata === "en" ? (
+                                item.NationalityDataRaceCourse === null ? (
+                                  <>N/A</>
+                                ) : (
+                                  item.NationalityDataRaceCourse.NameEn
+                                )
+                              ) : item.NationalityDataRaceCourse === null ? (
+                                <>N/A</>
+                              ) : (
+                                item.NationalityDataRaceCourse.NameAr
+                              )}
+                            </h2>
+                            {/* <img
+                              src={
+                                item.NationalityDataRaceCourse.image
+                                  ? item.NationalityDataRaceCourse.image
+                                  : DefaulImg
+                              }
+                              alt=""
+                              style={{
+                                width: "50px",
+                                heigth: "50px",
+                              }}
+                            /> */}
+                          </div>
+                          <div className="CompetitionData">
+                            <Accordion>
+                              <div className="Competitionitem">
+                              <Accordion.Item eventKey={item._id}>
+                                      <Accordion.Header>
+                                        <div className="AccordionHeader">
+                                          <p
+                                            onClick={() => HandleCard(item._id)}
+                                          >
+                                            {cookiedata === "en" ? (
+                                              item.TrackNameEn === null ? (
+                                                <>N/A</>
+                                              ) : (
+                                                item.TrackNameEn
+                                              )
+                                            ) : item.TrackNameAr === null ? (
+                                              <>N/A</>
+                                            ) : (
+                                              item.TrackNameAr
+                                            )}
+                                          </p>
+                                          <p></p>
+                                        </div>
+                                      </Accordion.Header>
+                                      {item.RaceCourseData.map((name, ind) => (
+                                        <Accordion.Body>
+                                          <div
+                                            onClick={() =>
+                                              HandleJockey(name._id)
+                                            }
+                                            className="Competition_Matches"
+                                          >
+                                            <p>
+                                              {cookiedata === "en" ? (
+                                                name.RaceNameModelData ===
+                                                null ? (
+                                                  <>N/A</>
+                                                ) : (
+                                                  name.RaceNameModelData.NameEn
+                                                )
+                                              ) : name.RaceNameModelData ===
+                                                null ? (
+                                                <>N/A</>
+                                              ) : (
+                                                name.RaceNameModelData.NameAr
+                                              )}
+                                            </p>
+                                            <p>{ind + 1}</p>
+                                          </div>
+                                        </Accordion.Body>
+                                      ))}
+                                    </Accordion.Item>
+                              </div>
+                            </Accordion>
+                          </div>
+                        </>
+                      );
+                    })
+                  )}
+                </div>
+              </Bounce>
+            </div>
+          </Tab>
+          <Tab eventKey="ante" title={t("ante_post")} className="Ante_Post">
             <div className=" newpost">
               <Bounce bottom>
                 <div className="Currentpostdiv">
@@ -166,115 +292,12 @@ const Match = () => {
                                           item.TrackNameAr
                                         )}
                                       </p>
-                                      <p>
-                                      
-                                      </p>
+                                      <p></p>
                                     </div>
                                   </Accordion.Header>
                                   {item.RaceCourseData.map((name, ind) => (
                                     <Accordion.Body>
-                                      <div
-                                        onClick={() => HandleJockey(name._id)}
-                                        className="Competition_Matches"
-                                      >
-                                        <p>
-                                          {cookiedata === "en" ? (
-                                            name.RaceNameModelData === null ? (
-                                              <>N/A</>
-                                            ) : (
-                                              name.RaceNameModelData.NameEn
-                                            )
-                                          ) : name.RaceNameModelData ===
-                                            null ? (
-                                            <>N/A</>
-                                          ) : (
-                                            name.RaceNameModelData.NameAr
-                                          )}
-                                        </p>
-                                        <p>{ind + 1}</p>
-                                      </div>
-                                    </Accordion.Body>
-                                  ))}
-                                </Accordion.Item>
-                              </div>
-                            </Accordion>
-                          </div>
-                        </>
-                      );
-                    })
-                  )}
-                </div>
-              </Bounce>
-            </div>
-          </Tab>
-          <Tab eventKey="ante" title={t("ante_post")} className="Ante_Post">
-            <div className=" newpost">
-              <Bounce bottom>
-                <div className="Currentpostdiv">
-                {racecourse.length === 0 || racecourse === undefined ? (
-                    <></>
-                  ) : (
-                    racecourse.map((item, ind) => {
-                      return (
-                        <>
-                          <div className="Currentpostheader">
-                            <h2>
-                              {" "}
-                              {cookiedata === "en" ? (
-                                item.NationalityDataRaceCourse === null ? (
-                                  <>N/A</>
-                                ) : (
-                                  item.NationalityDataRaceCourse.NameEn
-                                )
-                              ) : item.NationalityDataRaceCourse === null ? (
-                                <>N/A</>
-                              ) : (
-                                item.NationalityDataRaceCourse.NameAr
-                              )}
-                            </h2>
-                            <img
-                              src={
-                                item.NationalityDataRaceCourse.image
-                                  ? item.NationalityDataRaceCourse.image
-                                  : DefaulImg
-                              }
-                              alt=""
-                              style={{
-                                width: "50px",
-                                heigth: "50px",
-                              }}
-                            />
-                          </div>
-                          <div className="CompetitionData">
-                            <Accordion>
-                              <div className="Competitionitem" key={item._id}>
-                                <Accordion.Item eventKey={item._id}>
-                                  <Accordion.Header>
-                                    <div className="AccordionHeader">
-                                      <p>
-                                        {cookiedata === "en" ? (
-                                          item.TrackNameEn === null ? (
-                                            <>N/A</>
-                                          ) : (
-                                            item.TrackNameEn
-                                          )
-                                        ) : item.TrackNameAr === null ? (
-                                          <>N/A</>
-                                        ) : (
-                                          item.TrackNameAr
-                                        )}
-                                      </p>
-                                      <p>
-                                      
-                                      </p>
-                                    </div>
-                                  </Accordion.Header>
-                                  {item.RaceCourseData.map((name, ind) => (
-                                    <Accordion.Body>
-                                      <div
-                                        onClick={() => HandleJockey(name._id)}
-                                        className="Competition_Matches"
-                                      >
+                                      <div className="Competition_Matches">
                                         <p>
                                           {cookiedata === "en" ? (
                                             name.RaceNameModelData === null ? (

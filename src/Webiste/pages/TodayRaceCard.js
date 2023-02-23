@@ -1,89 +1,72 @@
+//.....................Import..........................//
 import React, { useEffect, useState } from "react";
+import Zoom from "react-reveal/Zoom";
+import { useLocation ,useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchCourse,
-  STATUSES,
-} from "../../Webiste/redux/getReducer/getRaceCourse";
-import {
-  fetchRace,
-} from "../../Webiste/redux/getReducer/getCard";
-import "../Components/CSS/RaceCardCSS/racecard.css";
-
-import Layout from "../Components/Reuseable/layout";
-import Footer from "../Components/Reuseable/Footer";
-import CopyRight from "../Components/Reuseable/Copyrights";
-import Lottie from "lottie-react";
-import Animate from "../assets/loader.json";
-// import RaceCardDetailPopup from "../Components/Home/Popup/RaceDetails";
-import { Modal } from "react-bootstrap";
+import { fetchRace, STATUSES } from "../redux/getReducer/getCard";
+import Cookies from "js-cookie";
 import Moment from "react-moment";
 import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
+import Header from "../Components/Reuseable/Header";
 
-
-const RaceCourse = () => {
-  const cookiedata = Cookies.get("i18next");
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const { data: racecourse, status } = useSelector((state) => state.racecourse);
+const RaceCardDetail = () => {
+  const { state } = useLocation();
   const { data: Card } = useSelector((state) => state.Card);
+  const { cardid } = state;
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const cookiedata = Cookies.get("i18next");
+  const navigate = useNavigate();
 
-  let id = 'b96c57f6-2c08-408e-8596-69615f5579ac'
-  const [modaldata, setmodaldata] = useState();
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = async (data) => {
-    setmodaldata(data);
-    console.log(data, 'data')
-    // await setShow(true);
-  };
+  function DataOne() {
+    if (!state) {
+      return (window.location.href = "https://mksracing.vercel.app/");
+    }
+  }
+  DataOne();
 
   useEffect(() => {
-    dispatch(fetchCourse());
-    dispatch(fetchRace({id}));
-
+    dispatch(fetchRace({cardid}));
   }, []);
 
+  const [userIsDesktop, setUserIsDesktop] = useState(true);
 
-  console.log(Card,'Card')
+  useEffect(() => {
+    window.innerWidth > 440 ? setUserIsDesktop(true) : setUserIsDesktop(false);
+  }, [userIsDesktop]);
 
-  if (status === STATUSES.LOADING) {
+  console.log(userIsDesktop,'userIsDesktop')
 
-
-    return <div className="py-4 text-center">
-      <div >
-        <Lottie animationData={Animate} loop={true} className="load" />
-      </div>
-    </div>
+  function HandleJockey(id) {
+    if (userIsDesktop === true) {
+      navigate("/racedetail", {
+        state: {
+          id: id,
+        },
+      });
+    } else {
+      navigate("/racedetails", {
+        state: {
+          id: id,
+        },
+      });
+    }
   }
-
-  if (status === STATUSES.ERROR) {
     return (
-      <h2
-        style={{
-          margin: "100px",
-        }}
-      >
-        Something went wrong!
-      </h2>
-    );
-  }
-
-  console.log(racecourse, 'asaracecourse')
-
-  return (
     <>
-      <Layout />
-      {Card.length === 0 ? (
+    {
+      userIsDesktop === false ?  <Header /> : <></>
+    }
+      
+      <Zoom>
+        <div className="RaceCardDetail">
+        {Card.length === 0 ? (
         <>
           <div className="NAclass">No Data</div>
         </>
       ) : (
         <>
-          <h2>
-            {" "}
-            <div className="RaceCard">
+           <div className="RaceCard">
               {Card.map((item, ind) => {
                 const { RaceStatus } = item;
                 return (
@@ -92,12 +75,12 @@ const RaceCourse = () => {
                       <div className="racepageheadflex">
                         <div className="racepagename">
                           <span>
-                            {cookiedata === "en" ? item.RaceCourseData.TrackNameEn : item.RaceCourseData.TrackNameAr}
+                            {cookiedata === "en" ? item.TrackNameEn : item.TrackNameAr}
                             {/* {item.raceName} */}
                           </span>
                           <p>
-                          <Moment format="YYYY/MM/DD">
-                          {cookiedata === "en" ? item.Day : item.Day}
+                          <Moment local>
+                          {/* {cookiedata === "en" ? item.Day : item.Day} */}
                          </Moment>
                             </p>
                         </div>
@@ -130,14 +113,20 @@ const RaceCourse = () => {
                         </div>
                       </div>
                     </div>
-                    {item.RaceNameModelData.length === 0 ? (
+                    {item.RaceCourseData.length === 0 ? (
                       <>
                         <h6 style={{ textAlign: 'center' }}> There is No race in this racecouse </h6>{" "}
                       </>
                     ) : (
-                      <div className="racepagesection" >
-                          <div className="racepageitem">
-                            <div>
+                      <>
+                      {
+                        item.RaceCourseData.map((data) => {
+                          return(
+                            <>
+                            <div className="racepagesection" >
+                          <div className="racepageitem" onClick={() => HandleJockey(data._id)}>
+                            <div >
+                              
                               <div className="RaceDetailsName">
 
                                 <span
@@ -148,9 +137,9 @@ const RaceCourse = () => {
                                   }}
                                 >
 
-                                  <h5>{t("Race")} {item.RaceNumber}</h5>
+                                  <h5>{t("Race")} {data.RaceNumber}</h5>
                                 </span>
-                                <h6>{cookiedata === "en" ? item.RaceNameModelData.NameEn : item.RaceNameModelData.NameAr}</h6>
+                                <h6>{cookiedata === "en" ? data.RaceNameModelData.NameEn : data.RaceNameModelData.NameAr}</h6>
                                 <br />
                               </div>
                               <div className="RaceDesc">
@@ -162,19 +151,20 @@ const RaceCourse = () => {
                                     whiteSpace: "nowrap",
                                   }}
                                 >
-                                  {cookiedata === "en" ? item.HorseKindinRaceData.NameEn : item.HorseKindinRaceData.NameAr}
+                                  {cookiedata === "en" ? data.HorseKindinRaceData.NameEn : data.HorseKindinRaceData.NameAr}
                                 </p>
+                                {/* <p>{data.RacehorsesData[0].TotalRunners} Runners</p> */}
                               </div>
                               <div className="racedown">
                                 {/* <p>Distance : {item.RaceCourseData === null ? <></> : <>{item.RaceCourseData.TrackLength}</>}</p> */}
 
                                 <p>
                                   {t("Distance")} :{" "}
-                                  {item.TrackLengthData.TrackLength === null ? <>N/A</> : item.TrackLengthData.TrackLength}
+                                  {data.TrackLengthData.TrackLength === null ? <>N/A</> : data.TrackLengthData.TrackLength}
                                 </p>
                                 {/* <p> {cookiedata === "en" ? (data.RaceTypeModelData.NameEn === null ? <></> : data.RaceTypeModelData.NameEn) : (data.RaceTypeModelData.NameAr === null ? <></> : data.RaceTypeModelData.NameAr)} </p> */}
-                                <p>{t("Surface")} : {cookiedata === "en" ? !item.GroundData ? <>N/A</> : item.GroundData.NameEn : !item.GroundData ? <>N/A</> : item.GroundData.NameAr}</p>
-                                <p>{t("Going")} : {cookiedata === "en" ? !item.RaceKindData ? <>N/A</> : item.RaceKindData.NameEn : !item.GroundData ? <>N/A</> : item.RaceKindData.NameAr}</p>
+                                <p>{t("Surface")} : {cookiedata === "en" ? !data.GroundData ? <>N/A</> : data.GroundData.NameEn : !data.GroundData ? <>N/A</> : data.GroundData.NameAr}</p>
+                                <p>{t("Going")} : {cookiedata === "en" ? !data.RaceKindData ? <>N/A</> : data.RaceKindData.NameEn : !data.GroundData ? <>N/A</> : data.RaceKindData.NameAr}</p>
 
                               </div>{" "}
                             </div>
@@ -195,7 +185,7 @@ const RaceCourse = () => {
                                 color: " rgba(0, 0, 0, 0.5)",
                               }}
                             >
-                              {/* {item.runner} */}
+                              {/* {item.RacehorsesData[0].TotalRunners} */}
                             </span>
                             <br />
 
@@ -203,24 +193,27 @@ const RaceCourse = () => {
                               <span
                                 className="racestatusclass"
                                 style={{
-                                  backgroundColor: `${item.RaceStatus === "Cancel"
-                                    ? "#000000"
-                                    : RaceStatus === "End"
+                                  backgroundColor: `${
+                                    data.RaceStatus === "Cancel"
+                                      ? "#000000"
+                                      : data.RaceStatus === "Completed"
                                       ? "#FF0000"
-                                      : RaceStatus === "Live"
-                                        ? "#5EC30F"
-                                        : "#FF9900"
-                                    }`,
-                                  color: `${RaceStatus === "Cancel"
-                                    ? "#ffff"
-                                    : RaceStatus === "End"
+                                      : data.RaceStatus === "Live"
+                                      ? "#5EC30F"
+                                      : "#FF9900"
+                                  }`,
+                                  color: `${
+                                    data.RaceStatus === "Cancel"
+                                      ? "#ffff"
+                                      : data.RaceStatus === "End"
                                       ? "#00000"
-                                      : RaceStatus === "Live"
-                                        ? "#00000"
-                                        : "#000000"
-                                    }`,
+                                      : data.RaceStatus === "Live"
+                                      ? "#00000"
+                                      : "#000000"
+                                  }`,
                                 }}
                               >
+                                <p className="StartTimeCards">{data.StartTime}</p>
                                 {/* <p className="racestatusclasstime"><Moment format="hh:mm:ss" className="racestatusclasstime">{item.DayNTime}</Moment></p> */}
                               </span>
                               <div>
@@ -269,42 +262,30 @@ const RaceCourse = () => {
                                     color: "#000",
                                   }}
                                 >
-                                  {/* {item.runner} */}
+                                 {/* Non Runners */}
+
                                 </p>
                               </div>
                             </div>
                           </div>
                         </div>
+                            </>
+                          )
+                        })
+                      }
+                      </>
                     )}
                   </React.Fragment>
                 );
               })}
             </div>
-          </h2>
         </>
       )}
-      <Footer />
-      <CopyRight />
-      <Modal
-        show={show}
-        onHide={handleClose}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <h2>Color  </h2>
-        </Modal.Header>
-        <Modal.Body>
-          {/* <RaceCardDetailPopup data={modaldata} /> */}
-        </Modal.Body>
-        <Modal.Footer>
-          <button onClick={handleClose} className="modalClosebtn">
-            Close
-          </button>
-        </Modal.Footer>
-      </Modal>
+        </div>
+      </Zoom>
+
     </>
   );
 };
-export default RaceCourse;
+
+export default RaceCardDetail;

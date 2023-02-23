@@ -48,7 +48,7 @@ const Slider = () => {
               <Carousel.Item interval={2000}>
                <a href={item.Url} target='_blank'>
                <ReactImageAppear 
-                className="d-block w-100 slideimg1"
+                className="d-block  slideimg1"
                 src={item.image}
                 alt="First slide"
                 animation="zoomIn"

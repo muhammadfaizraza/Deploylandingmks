@@ -415,7 +415,10 @@ td {
     width: 100%;
     margin-top: 10px;
 }
-
+.RaceDesc {
+    display: flex;
+    justify-content: space-between;
+}
 .itemraces_center {
     margin-top: 20px;
     flex: 2;

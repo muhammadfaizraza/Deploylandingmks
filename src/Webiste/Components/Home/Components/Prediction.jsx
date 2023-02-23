@@ -11,15 +11,11 @@ const Prediction = () => {
   const { data: PredictionRace } = useSelector((state) => state.PredictionRace);
   const dispatch = useDispatch();
   const cookiedata = Cookies.get('i18next')
-
-
   useEffect(() => {
     dispatch(fetchPredictionRace());
   }, []);
 
-  console.log(PredictionRace.length,'PredictionRace')
-  console.log(PredictionRace,'PredictionRace')
-
+  
   return (
     <>
       <div className="PredictionCard">

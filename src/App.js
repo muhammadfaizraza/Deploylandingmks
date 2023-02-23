@@ -43,6 +43,7 @@ import TestPedigree from './Webiste/pages/Test';
 import Owner from './Webiste/pages/Owner';
 import Moment from 'react-moment';
 import NotFound from './Webiste/pages/NotFound';
+import TodayRaceCard from './Webiste/pages/TodayRaceCard';
 
 
 function App() {
@@ -64,6 +65,9 @@ function App() {
             <Route path="/racecard" element={<RaceCard />} />
             <Route path={'/racedetail'} element={<Home />} />
             <Route path={'/racedetails'} element={<RaceDetails />} />
+             <Route path={'/mkscard'} element={<Home />} />
+             <Route path={'/mkscards'} element={<TodayRaceCard />} />
+
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Registration />} />
             <Route path='/racecourse' element={<RaceCourse />} />
@@ -83,6 +87,7 @@ function App() {
             <Route path='/querytool' element={<QueryTool />} />
             <Route path='/jockeydetail' element={<JockeyDetail />} />
             <Route path='/trainerdetail' element={<TrainerDetail />} />
+            {/* <Route path='/mkscard' element={<TodayRaceCard />} /> */}
 
             <Route path='/testpedigree' element={<TestPedigree />} />
             <Route path="*" element={<NotFound />} />

@@ -28,6 +28,7 @@ import getPredictor from "./getReducer/Predictor"
 import getHorseHistory from './getReducer/getHorseHistory';
 import getRaceResultAnnounced from './getReducer/getRaceResultAnnounced';
 import getPredictionSlice from './getReducer/getPredictionSlice';
+import getRaceCourseToday from './getReducer/getRaceCourseToday';
 
 const store = configureStore({
     reducer: {
@@ -59,7 +60,8 @@ const store = configureStore({
         predictor: getPredictor,
         horseHistory: getHorseHistory,
         raceresultDeclared:getRaceResultAnnounced,
-        PredictionRace: getPredictionSlice
+        PredictionRace: getPredictionSlice,
+        RaceCourseRaceToday:getRaceCourseToday
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
