@@ -10,7 +10,7 @@ import {
   fetchJockey,
   STATUSES,
 } from "../../Webiste/redux/getReducer/getJockeySlice";
-import { useNavigate } from "react-router-dom";
+
 import Cookies from "js-cookie";
 import JockeyDetail from "./JockeyDetail";
 import { Modal } from "react-bootstrap";
@@ -28,7 +28,7 @@ const Trainer = () => {
 
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState('');
-  const navigate = useNavigate();
+
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState()
   const handleClose = () => setShow(false);
@@ -52,10 +52,7 @@ const Trainer = () => {
   }, [dispatch, pageNumber, searchKeyword]);
 
 
-  const HandleJockey = (Id) => {
-    Cookies.set('sjockey', Id)
-    navigate('/jockeydetail')
-  };
+
 
   if (status === STATUSES.LOADING) {
     return (

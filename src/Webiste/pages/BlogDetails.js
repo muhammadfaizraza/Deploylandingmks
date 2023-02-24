@@ -17,7 +17,7 @@ const BlogDetails = () => {
   useEffect(() => {
     dispatch(fetchNews());
     console.log(allnews, "news");
-  }, [])
+  }, [allnews, dispatch])
   if (status === STATUSES.LOADING) {
     return (
       <h2

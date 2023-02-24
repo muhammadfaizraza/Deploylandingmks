@@ -10,33 +10,32 @@ import {
   fetchowner,
   STATUSES,
 } from "../../Webiste/redux/getReducer/getOwnerSlice";
-import { useNavigate } from "react-router-dom";
+
 import Cookies from "js-cookie";
 import { Modal } from "react-bootstrap";
-import Lottie from 'lottie-react';
-import Animate from '../assets/loader.json'
+import Lottie from "lottie-react";
+import Animate from "../assets/loader.json";
 import OwnerDetail from "./OwnerDetail";
 import { useTranslation } from "react-i18next";
-import DefaultImg from "../assets/default.png"
+import DefaultImg from "../assets/default.png";
 import Pagination from "./Pagination";
 
 const Owner = () => {
   const { t } = useTranslation();
-  const cookiedata = Cookies.get('i18next')
+  const cookiedata = Cookies.get("i18next");
   const [pageNumber, setPageNumber] = useState(1);
-  const [searchKeyword, setSearchKeyword] = useState('');
-  const navigate = useNavigate();
+  const [searchKeyword, setSearchKeyword] = useState("");
+
   const [show, setShow] = useState(false);
-  const [modaldata, setmodaldata] = useState()
+  const [modaldata, setmodaldata] = useState();
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
-    setmodaldata(data)
-    await setShow(true)
+    setmodaldata(data);
+    await setShow(true);
   };
   const dispatch = useDispatch();
   const { data: owner, status } = useSelector((state) => state.owner);
 
-  
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
   const [TotalData, setTotalData] = useState();
@@ -48,21 +47,11 @@ const Owner = () => {
 
   useEffect(() => {
     dispatch(fetchowner({ pageNumber, searchKeyword }));
-    setTotalData(owner.length)
-  }, [dispatch, pageNumber, searchKeyword]);
-
-
-  console.log(TotalData,'TotalData')
-  const HandleJockey = (Id) => {
-    Cookies.set('sjockey', Id)
-    navigate('/jockeydetail')
-  };
+    setTotalData(owner.length);
+  }, [dispatch, owner.length, pageNumber, searchKeyword]);
 
   if (status === STATUSES.LOADING) {
-    return (
-
-      <Lottie animationData={Animate} loop={true} className="load" />
-    );
+    return <Lottie animationData={Animate} loop={true} className="load" />;
   }
   if (status === STATUSES.ERROR) {
     return (
@@ -99,56 +88,98 @@ const Owner = () => {
               </tr>
               {currentPosts.map((item) => {
                 return (
-                  <tr onClick={() => handleShow(item)
-                  } style={{
-                    cursor: 'pointer'
-                  }}>
-                    <td >{cookiedata === "en" ? (item.NameEn ? item.NameEn : "N/A") : (item.NameAr ? item.NameAr : "N/A")} </td>
-                    <td><Moment fromNow ago>
-                      {item.DOB}
-                    </Moment></td>
-                    <td>{cookiedata === "en" ? (item.TitleEn ? item.TitleEn : "N/A") : (item.TitleAr ? item.TitleAr : "N/A")}</td>
-                    <td>{cookiedata === "en" ? (item.ShortEn ? item.ShortEn : "N/A") : (item.ShortAr ? item.ShortAr : "N/A")}</td>
-                    <td> {item.RegistrationDate} </td>
-                    <td>{cookiedata === "en" ? (item.OwnerDataNationalityData.NameEn ? item.OwnerDataNationalityData.NameEn : "N/A") : (item.OwnerDataNationalityData.NameAr ? item.OwnerDataNationalityData.NameAr : "N/A")}</td>
+                  <tr
+                    onClick={() => handleShow(item)}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
                     <td>
-                      <img src={item.image ? item.image : DefaultImg} alt="" style={{
-                        height: '30px',
-                        width: '30px'
-                      }} />
+                      {cookiedata === "en"
+                        ? item.NameEn
+                          ? item.NameEn
+                          : "N/A"
+                        : item.NameAr
+                          ? item.NameAr
+                          : "N/A"}{" "}
+                    </td>
+                    <td>
+                      <Moment fromNow ago>
+                        {item.DOB}
+                      </Moment>
+                    </td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.TitleEn
+                          ? item.TitleEn
+                          : "N/A"
+                        : item.TitleAr
+                          ? item.TitleAr
+                          : "N/A"}
+                    </td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.ShortEn
+                          ? item.ShortEn
+                          : "N/A"
+                        : item.ShortAr
+                          ? item.ShortAr
+                          : "N/A"}
+                    </td>
+                    <td> {item.RegistrationDate} </td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.OwnerDataNationalityData.NameEn
+                          ? item.OwnerDataNationalityData.NameEn
+                          : "N/A"
+                        : item.OwnerDataNationalityData.NameAr
+                          ? item.OwnerDataNationalityData.NameAr
+                          : "N/A"}
+                    </td>
+                    <td>
+                      <img
+                        src={item.image ? item.image : DefaultImg}
+                        alt=""
+                        style={{
+                          height: "30px",
+                          width: "30px",
+                        }}
+                      />
                     </td>
                   </tr>
                 );
               })}
             </table>
-
           </div>
         </div>
         <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={TotalData}
-            paginate={paginate}
-            currentPage={currentPage}
-            TotalPages={10}
-          />
+          postsPerPage={postsPerPage}
+          totalPosts={TotalData}
+          paginate={paginate}
+          currentPage={currentPage}
+          TotalPages={10}
+        />
 
-        <Modal show={show} onHide={handleClose} size="lg"
+        <Modal
+          show={show}
+          onHide={handleClose}
+          size="lg"
           aria-labelledby="contained-modal-title-vcenter"
-          centered>
-          <Modal.Header className="popupheader" closeButton >
+          centered
+        >
+          <Modal.Header className="popupheader" closeButton>
             <h3>Owner Detail</h3>
           </Modal.Header>
           <Modal.Body>
             <OwnerDetail data={modaldata} />
           </Modal.Body>
-          <Modal.Footer>
-          </Modal.Footer>
+          <Modal.Footer></Modal.Footer>
         </Modal>
       </div>
       <Footer />
       <CoptRight />
     </>
-  )
-}
+  );
+};
 
-export default Owner
+export default Owner;

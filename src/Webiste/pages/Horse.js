@@ -44,7 +44,7 @@ const Horse = () => {
 
   useEffect(() => {
     dispatch(fetchHorse());
-  }, [])
+  }, [dispatch])
   if (status === STATUSES.LOADING) {
     return (
       <div>
@@ -126,14 +126,14 @@ const Horse = () => {
               }
             </table>
           </div>
-        
+
         </div>
         <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={horse.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+          postsPerPage={postsPerPage}
+          totalPosts={horse.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
       </div>
       <Modal show={show} onHide={handleClose} size="lg"
         aria-labelledby="contained-modal-title-vcenter"

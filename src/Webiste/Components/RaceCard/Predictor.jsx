@@ -6,8 +6,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const Predictor = ({ RaceId }) => {
-  const { data: predictor, status } = useSelector((state) => state.predictor);
-
   useEffect(() => {
     fetchPredictor(RaceId);
   }, [RaceId]);

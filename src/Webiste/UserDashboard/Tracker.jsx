@@ -27,8 +27,6 @@ const WinnerList = () => {
     dispatch(fetchsingleUser());
   }, [dispatch]);
 
-  console.log(singleUser, "asadasds1");
-
   if (status === STATUSES.LOADING) {
     return <Lottie animationData={Animate} className="load" />;
   }

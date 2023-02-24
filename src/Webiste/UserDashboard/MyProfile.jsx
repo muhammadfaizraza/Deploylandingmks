@@ -8,73 +8,65 @@ import Tracker from "../Components/Home/Components/Tracker";
 import { Form } from "react-bootstrap";
 import { FloatingLabel } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-date-picker";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getUserDetails } from "../redux/postReducer/UserPost";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
-import { fetchnationality, STATUSES } from "../redux/getReducer/getNationality";
-import Select from "react-select";
-import { Country_Name, Country_NameAr } from "../Components/Reuseable/Country";
-import Moment from 'react-moment';
+import { Country_Name } from "../Components/Reuseable/Country";
 
 const MyProfile = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
+
   const dispatch = useDispatch();
-  const { userInfo, token } = useSelector((state) => state.user);
-  
+  const { userInfo } = useSelector((state) => state.user);
+
   useEffect(() => {
     if (userInfo === null) {
       dispatch(getUserDetails());
     }
   }, [userInfo, dispatch]);
-  const onSelectFile = e => {
-    setPassportPicture(e.target.files[0])
-}
+  const onSelectFile = (e) => {
+    setPassportPicture(e.target.files[0]);
+  };
   const [PassportPicture, setPassportPicture] = useState();
   const [NationalityID, setNationalityID] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
   const [Error, setError] = useState("");
 
-  const ProfileId = Cookies.get("id")
-  
-
+  const ProfileId = Cookies.get("id");
 
   const [state1, setState] = useState({
-		FirstName: '',
-    LastName:'',
-    PassportNo:'',
-    PhoneNumber:'',
-    PassportPicture:'',
-    Email: '',
-    NationalityID:'',
-    Address:'',
-    DOB:'',
-	});
+    FirstName: "",
+    LastName: "",
+    PassportNo: "",
+    PhoneNumber: "",
+    PassportPicture: "",
+    Email: "",
+    NationalityID: "",
+    Address: "",
+    DOB: "",
+  });
 
   useEffect(() => {
-		if (userInfo) {
-			setState({
-				FirstName: userInfo.data.FirstName,
+    if (userInfo) {
+      setState({
+        FirstName: userInfo.data.FirstName,
         LastName: userInfo.data.LastName,
-				PassportNo: userInfo.data.PassportNo,
+        PassportNo: userInfo.data.PassportNo,
         PhoneNumber: userInfo.data.PhoneNumber,
         Email: userInfo.data.Email,
         NationalityID: userInfo.data.NationalityID,
-				Address: userInfo.data.Address,
+        Address: userInfo.data.Address,
         DOB: userInfo.data.DOB,
-			});
-		} else {
-		}
-	}, [userInfo]);
- 
-
+      });
+    } else {
+    }
+  }, [userInfo]);
 
   const UpdateProfile = async (e) => {
     e.preventDefault();
@@ -91,7 +83,7 @@ const MyProfile = () => {
       formData.append("Address", state1.Address);
       formData.append("PassportPicture", PassportPicture);
 
-      const response = await axios.put(
+      await axios.put(
         `${window.env.API_URL}/updatesubscriber/${ProfileId}`,
         formData
       );
@@ -102,10 +94,7 @@ const MyProfile = () => {
     }
   };
   const date = new Date(state1.DOB);
-    console.log(date.toDateString(),'dadadada')
-  //  if(password !== confirmpassword){
-  //   setError('Password Should be matched')
-  //  }
+
   return (
     <Fragment>
       <div className="d-flex">
@@ -133,7 +122,6 @@ const MyProfile = () => {
                   setState({ ...state1, FirstName: e.target.value })
                 }
                 name="Name"
-               
               >
                 <Form.Control
                   type="text"
@@ -199,9 +187,7 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label="Email"
                 className="mb-3"
-                onChange={(e) =>
-                  setState({ ...state1, Email: e.target.value })
-                }
+                onChange={(e) => setState({ ...state1, Email: e.target.value })}
               >
                 <Form.Control
                   type="text"
@@ -218,9 +204,6 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label=""
                 className="mb-3 floatingInputAr"
-                // onChange={(e) => setNameAr(e.target.value)}
-                //                   name="Name"
-                //                   value={NameAr}
                 style={{ direction: "rtl" }}
               >
                 <Form.Control type="text" placeholder="" />
@@ -233,9 +216,7 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label="Date Of Birth"
                 className="mb-3"
-                onChange={(e) =>
-                  setState({ ...state1, DOB: e.target.value })
-                }
+                onChange={(e) => setState({ ...state1, DOB: e.target.value })}
               >
                 <Form.Control
                   type="text"
@@ -253,9 +234,6 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label=""
                 className="mb-3 floatingInputAr"
-                // onChange={(e) => setNameAr(e.target.value)}
-                //                   name="Name"
-                //                   value={NameAr}
                 style={{ direction: "rtl" }}
               >
                 <Form.Control type="text" placeholder="" />
@@ -287,9 +265,6 @@ const MyProfile = () => {
                 controlId="floatingInput"
                 label="اسم"
                 className="mb-3 floatingInputAr"
-                // onChange={(e) => setNameAr(e.target.value)}
-                //                   name="Name"
-                //                   value={NameAr}
                 style={{ direction: "rtl" }}
               >
                 <Form.Control type="number" placeholder="اسم" />
@@ -313,23 +288,7 @@ const MyProfile = () => {
               >
                 <Form.Control type="file" />
               </FloatingLabel>
-
-              {/* <span className="spanForm"> |</span> */}
             </div>
-{/* 
-            <div className="col-sm">
-              <FloatingLabel
-                controlId="floatingInput"
-                label="اسم"
-                className="mb-3 floatingInputAr"
-                // onChange={(e) => setNameAr(e.target.value)}
-                //                   name="Name"
-                //                   value={NameAr}
-                style={{ direction: "rtl" }}
-              >
-                <Form.Control type="text" placeholder="اسم" />
-              </FloatingLabel>
-            </div> */}
           </div>
           <div className="row mainrow">
             <div className="col-sm">
@@ -338,7 +297,6 @@ const MyProfile = () => {
                 id="exampleFormControlSelect1"
                 onChange={(e) => setNationalityID(e.target.value)}
                 name="country"
-                
                 required
               >
                 {Country_Name.map((item) => {
@@ -351,25 +309,6 @@ const MyProfile = () => {
               </select>
               {/* <span className="spanForm">|</span> */}
             </div>
-{/* 
-            <div className="col-sm">
-              <select
-                class="form-control control1"
-                id="exampleFormControlSelect1"
-                onChange={(e) => setNationalityID(e.target.value)}
-                name="country"
-                required
-              >
-                {Country_Name.map((item) => {
-                  return (
-                    <option key={item.country_id} name="country">
-                      {item.country_name}
-                    </option>
-                  );
-                })}
-              </select>
-              <span className="spanForm">|</span>
-            </div> */}
           </div>
           <div className="row mainrow">
             <div className="col-sm">
@@ -387,23 +326,7 @@ const MyProfile = () => {
                   placeholder="User Name"
                 />
               </FloatingLabel>
-
-              {/* <span className="spanForm"> |</span> */}
             </div>
-
-            {/* <div className="col-sm">
-              <FloatingLabel
-                controlId="floatingInput"
-                label="اسم"
-                className="mb-3 floatingInputAr"
-                // onChange={(e) => setNameAr(e.target.value)}
-                //                   name="Name"
-                //                   value={NameAr}
-                style={{ direction: "rtl" }}
-              >
-                <Form.Control type="text" placeholder="اسم" />
-              </FloatingLabel>
-            </div> */}
           </div>
           <div className="row mainrow">
             <div className="col-sm">
@@ -413,27 +336,13 @@ const MyProfile = () => {
                 className="mb-3"
                 onChange={(e) => setpassword(e.target.value)}
               >
-                <Form.Control type="password"
-                value={password}
-                placeholder="Password" />
+                <Form.Control
+                  type="password"
+                  value={password}
+                  placeholder="Password"
+                />
               </FloatingLabel>
-
-              {/* <span className="spanForm"> |</span> */}
             </div>
-{/* 
-            <div className="col-sm">
-              <FloatingLabel
-                controlId="floatingInput"
-                label="اسم"
-                className="mb-3 floatingInputAr"
-                // onChange={(e) => setNameAr(e.target.value)}
-                //                   name="Name"
-                //                   value={NameAr}
-                style={{ direction: "rtl" }}
-              >
-                <Form.Control type="text" placeholder="اسم" />
-              </FloatingLabel>
-            </div> */}
           </div>
           <div className="row mainrow">
             <div className="col-sm">
@@ -442,29 +351,15 @@ const MyProfile = () => {
                 label="Re-type Password"
                 className="mb-3"
                 onChange={(e) => setconfirmpassword(e.target.value)}
-
-              
               >
-                <Form.Control type="password" value={confirmpassword} placeholder="Re-type Password" />
+                <Form.Control
+                  type="password"
+                  value={confirmpassword}
+                  placeholder="Re-type Password"
+                />
               </FloatingLabel>
-
-              {/* <span className="spanForm"> |</span> */}
             </div>
             <p>{Error}</p>
-            {/* 
-            <div className="col-sm">
-              <FloatingLabel
-                controlId="floatingInput"
-                label="اسم"
-                className="mb-3 floatingInputAr"
-                // onChange={(e) => setNameAr(e.target.value)}
-                //                   name="Name"
-                //                   value={NameAr}
-                style={{ direction: "rtl" }}
-              >
-                <Form.Control type="text" placeholder="اسم" />
-              </FloatingLabel>
-            </div> */}
           </div>
 
           <div className="ButtonSection">

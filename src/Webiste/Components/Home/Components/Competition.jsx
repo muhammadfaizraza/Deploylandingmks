@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "../../CSS/HomeCSS/Competition.css";
-import { RaceCourse } from "../../../data/data";
-import flag from "../../../assets/United Arab Emirates.png";
 import Accordion from "react-bootstrap/Accordion";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,11 +22,15 @@ const Competition = () => {
   );
   useEffect(() => {
     dispatch(fetchcompetition());
-  }, []);
+  }, [dispatch]);
   if (status === STATUSES.LOADING) {
     return (
       <div>
-        <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
+        <Lottie
+          animationData={Animate}
+          loop={true}
+          className="Lottie compLottie"
+        />
       </div>
     );
   }
@@ -61,51 +63,60 @@ const Competition = () => {
         </div>
         <div className="CompetitionData">
           <Accordion defaultActiveKey="1">
-            { competition === undefined ? "N/A":
-            competition.map((item) => {
-              return (
-                <div className="Competitionitem" key={item._id}>
-                  <Accordion.Item eventKey={item._id}>
-                    <Accordion.Header className="AccordionHeader11">
-                      <div className="AccordionHeader">
-                        <p>{cookiedata === "en" ? <>{item.NameEn}</> : <>{item.NameAr}</>}
-                        
-                        {/* {cookiedata === "en" ? <>{item.NameEn}</>:<>{item.NameAr}</>  } */}
-                        
-                        </p>
-                        <p>{item.CompetitionRacesPointsModelData.length} Races</p>
-                      </div>
-                    </Accordion.Header>
-                    <Accordion.Body>
-                      {item.CompetitionRacesPointsModelData.map((data,index) => {
-                        return (
-                          <div
-                            className="Competition_Matches"
-                            onClick={() => HandleJockey(data._id)}
-                          >
+            {competition === undefined
+              ? "N/A"
+              : competition.map((item) => {
+                  return (
+                    <div className="Competitionitem" key={item._id}>
+                      <Accordion.Item eventKey={item._id}>
+                        <Accordion.Header className="AccordionHeader11">
+                          <div className="AccordionHeader">
                             <p>
-                            {cookiedata === "en" ? (
-                                data.RaceNameModelData === undefined ? (
-                                  <>N/A</>
-                                ) : (
-                                  data.RaceNameModelData.NameEn
-                                )
-                              ) : data.RaceNameModelData === undefined ? (
-                                <>N/A</>
+                              {cookiedata === "en" ? (
+                                <>{item.NameEn}</>
                               ) : (
-                                data.RaceNameModelData.NameAr
+                                <>{item.NameAr}</>
                               )}
-                            
+
+                              {/* {cookiedata === "en" ? <>{item.NameEn}</>:<>{item.NameAr}</>  } */}
                             </p>
-                            <p>{index + 1}</p>
+                            <p>
+                              {item.CompetitionRacesPointsModelData.length}{" "}
+                              Races
+                            </p>
                           </div>
-                        );
-                      })}
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </div>
-              );
-            })}
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          {item.CompetitionRacesPointsModelData.map(
+                            (data, index) => {
+                              return (
+                                <div
+                                  className="Competition_Matches"
+                                  onClick={() => HandleJockey(data._id)}
+                                >
+                                  <p>
+                                    {cookiedata === "en" ? (
+                                      data.RaceNameModelData === undefined ? (
+                                        <>N/A</>
+                                      ) : (
+                                        data.RaceNameModelData.NameEn
+                                      )
+                                    ) : data.RaceNameModelData === undefined ? (
+                                      <>N/A</>
+                                    ) : (
+                                      data.RaceNameModelData.NameAr
+                                    )}
+                                  </p>
+                                  <p>{index + 1}</p>
+                                </div>
+                              );
+                            }
+                          )}
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    </div>
+                  );
+                })}
           </Accordion>
         </div>
       </div>

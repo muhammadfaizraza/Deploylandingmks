@@ -3,13 +3,13 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { BsFillCaretRightFill } from "react-icons/bs";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Cookies from "js-cookie";
 import Moment from "react-moment";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import { fetchPedigree, STATUSES } from "../redux/getReducer/getPedigree";
+import { fetchPedigree } from "../redux/getReducer/getPedigree";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultImg from "../assets/default.png"
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 const HorseDetail = (data) => {
   const { t } = useTranslation()
   const cookiedata = Cookies.get('i18next');
-  const token = Cookies.get("token");
+
 
   const navigate = useNavigate();
   const btnNew1 = {
@@ -36,21 +36,11 @@ const HorseDetail = (data) => {
     margin: '6px'
   };
 
-  function authHeader() {
-    // return authorization header with basic auth credentials
 
-    if (token) {
-      return { Authorization: `Bearer ${token}` };
-    } else {
-      return (
-        console.log('data')
-      )
-    }
-  }
 
   const handleTrack = async (Id) => {
     try {
-      const res = await axios.post(
+      await axios.post(
         `/trackhorse`, { Horse: Id }, {
         withCredentials: true,
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -67,12 +57,12 @@ const HorseDetail = (data) => {
 
   const id = data.data._id
 
-  const { data: Pedigree, status } = useSelector((state) => state.Pedigree);
+  const { data: Pedigree } = useSelector((state) => state.Pedigree);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPedigree({ id }));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <div className="RaceDetailCard">

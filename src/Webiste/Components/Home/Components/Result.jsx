@@ -15,18 +15,11 @@ const Result = () => {
   const { data: raceresult, status } = useSelector((state) => state.raceresult);
   const cookiedata = Cookies.get("i18next");
 
-
   useEffect(() => {
     dispatch(fetchraceresult());
-  }, []);
+  }, [dispatch]);
   if (status === STATUSES.LOADING) {
-    return (
-      <h2
-        style={{
-          margin: "100px",
-        }}
-      ></h2>
-    );
+    return <></>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -40,7 +33,6 @@ const Result = () => {
       </h2>
     );
   }
-
 
   return (
     <>
@@ -59,7 +51,25 @@ const Result = () => {
             <>
               <div className="livedatacard">
                 <div key={raceresult._id}>
-                  <p className="result_match_name">{cookiedata === "en" ? <>{raceresult.RaceNameModelData === null ? <></> : raceresult.RaceNameModelData.NameEn}</> : <>{raceresult.RaceNameModelData === null ? <></> : raceresult.RaceNameModelData.NameAr}</>}</p>
+                  <p className="result_match_name">
+                    {cookiedata === "en" ? (
+                      <>
+                        {raceresult.RaceNameModelData === null ? (
+                          <></>
+                        ) : (
+                          raceresult.RaceNameModelData.NameEn
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {raceresult.RaceNameModelData === null ? (
+                          <></>
+                        ) : (
+                          raceresult.RaceNameModelData.NameAr
+                        )}
+                      </>
+                    )}
+                  </p>
                   <div className="live_result_data">
                     <span className="result_match_left">
                       <p className="result_match_raceNo">
@@ -83,14 +93,14 @@ const Result = () => {
                       <p>{t("Win")}</p>
                       <p>{t("Place")}</p>
                       <p>
-                        {t("OffTime")}:{raceresult.RaceResultData[0].RaceTime}h<b></b>
+                        {t("OffTime")}:{raceresult.RaceResultData[0].RaceTime}h
+                        <b></b>
                       </p>
                     </span>
                   </div>
                   <div className="customers13">
                     <table className="customers1">
-                                        
-                  {/* <thead >
+                      {/* <thead >
                       <th>{t("Positions")}</th>
                       <th>{t("Results")}</th>
                       <th>{t("Win")}</th>
@@ -102,10 +112,26 @@ const Result = () => {
                           return (
                             <tr key={data._id}>
                               <td>{index + 1}</td>
-                              <td>{cookiedata === "en" ? <>{data.HorseIDData.NameEn}({data.FinalPositionDataHorse.Rank})</> : <>{data.HorseIDData.NameAr}({data.FinalPositionDataHorse.Rank})</>}</td>
+                              <td>
+                                {cookiedata === "en" ? (
+                                  <>
+                                    {data.HorseIDData.NameEn}(
+                                    {data.FinalPositionDataHorse.Rank})
+                                  </>
+                                ) : (
+                                  <>
+                                    {data.HorseIDData.NameAr}(
+                                    {data.FinalPositionDataHorse.Rank})
+                                  </>
+                                )}
+                              </td>
                               <td>{data.CumulativeDistance}</td>
                               <td>
-                                {data.HorseIDData.HorseStatus === true ? <>Yes</> : <>No</>}
+                                {data.HorseIDData.HorseStatus === true ? (
+                                  <>Yes</>
+                                ) : (
+                                  <>No</>
+                                )}
                               </td>
                               <td
                                 style={{

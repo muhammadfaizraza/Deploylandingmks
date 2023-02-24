@@ -5,10 +5,10 @@ import {
   fetchSponsor,
   STATUSES,
 } from "../../../redux/getReducer/getSponsorSlice";
-import img from "../../../assets/Rectangle 19.png";
+
 import Cookies from "js-cookie";
 import Carousel from "react-bootstrap/Carousel";
-import ReactImageAppear from "react-image-appear";
+
 import DefaultImg from "../../../assets/default.png";
 const Sponsor = () => {
   const dispatch = useDispatch();
@@ -20,15 +20,7 @@ const Sponsor = () => {
   }, []);
 
   if (status === STATUSES.LOADING) {
-    return (
-      <h2
-        style={{
-          margin: "100px",
-        }}
-      >
-        
-      </h2>
-    );
+    return <></>;
   }
 
   if (status === STATUSES.ERROR) {
@@ -49,7 +41,7 @@ const Sponsor = () => {
           {sponsor.map((item) => {
             return (
               <Carousel.Item interval={2000}>
-                <a href={item.Url} target="_blank">
+                <a href={item.Url} target="_">
                   <div className="sponsorimg">
                     <img src={item.image ? item.image : DefaultImg} alt="" />
                     <h2 className="first-txt">

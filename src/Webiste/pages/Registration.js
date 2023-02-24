@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Country_Name, Country_NameAr } from "../Components/Reuseable/Country";
 import { fetchnationality } from "../redux/getReducer/getNationality";
-import { useSelector , useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 
 const RegisterScreen = () => {
@@ -58,7 +58,7 @@ const RegisterScreen = () => {
     return () => URL.revokeObjectURL(objectUrl);
   }, [PassportPicture]);
 
-  console.log(nationality,'NationalityID')
+
   const RegisterUser = async (e) => {
     e.preventDefault();
     try {
@@ -78,17 +78,17 @@ const RegisterScreen = () => {
         `${window.env.API_URL}/register`,
         formData
       );
-      console.log(response.success, "response");
+
       toast("Successfuly Registered");
       navigate("/login");
     } catch (error) {
       toast(error.response.data.message);
-      console.log(error.response.data.message, "error");
+
     }
   };
   useEffect(() => {
     dispatch(fetchnationality());
-  },[dispatch])
+  }, [dispatch])
   var today = new Date();
 
   return (
@@ -170,7 +170,7 @@ const RegisterScreen = () => {
               placeholder="Date of Birth"
               name="DOB"
               max="2023-01-"
-                            onChange={(e) => setDOB(e.target.value)}
+              onChange={(e) => setDOB(e.target.value)}
               value={DOB}
               required
             />
@@ -199,11 +199,11 @@ const RegisterScreen = () => {
               <option >Select Nationality</option>
               {nationality.map((item) => {
                 return (
-                 <>
-                  <option key={item._id} value={item._id} defaultValue={item._id} name="country">
-                    {item.NameEn}
-                  </option>
-                 </>
+                  <>
+                    <option key={item._id} value={item._id} defaultValue={item._id} name="country">
+                      {item.NameEn}
+                    </option>
+                  </>
                 );
               })}
             </select>

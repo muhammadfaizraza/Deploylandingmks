@@ -3,7 +3,6 @@ import "../../CSS/HomeCSS/blogs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCourse, STATUSES } from "../../../redux/getReducer/getRaceCourse";
 import { fetchRaceCourseToday } from "../../../redux/getReducer/getRaceCourseToday";
-
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
@@ -12,10 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { Bounce, Fade } from "react-reveal";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
-import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import moment from "moment";
 import DefaulImg from "../../../assets/default.png";
 import Animate from "../../../assets/loader.json";
 import Lottie from "lottie-react";
@@ -35,7 +32,7 @@ const Match = () => {
   useEffect(() => {
     dispatch(fetchCourse());
     dispatch(fetchRaceCourseToday());
-  }, []);
+  }, [dispatch]);
 
   const [userIsDesktop, setUserIsDesktop] = useState(true);
 
@@ -59,7 +56,6 @@ const Match = () => {
     }
   }
 
-  console.log(RaceCourseRaceToday, "RaceCourseRaceToday");
   function HandleCard(cardid) {
     if (userIsDesktop === true) {
       navigate("/mkscard", {
@@ -75,37 +71,16 @@ const Match = () => {
       });
     }
   }
-  // const datedata = moment.utc(value).format('YYYY-MM-DD')
-
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const res = await axios.get(
-  //         `${window.env.API_URL}/GetRaceWithStartTime/${datedata}`,
-  //       );
-  //       setDayData(res.data.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   })();
-  // }, [value]);
-
-  // const submit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     await axios.post(`${window.env.API_URL}/GetRaceWithStartTime`, value);
-
-  //   } catch (error) {
-  //     const err = error.response.data.message;
-
-  //   }
-  // };
 
   if (status === STATUSES.LOADING) {
     return (
       <div>
-      <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
-    </div>
+        <Lottie
+          animationData={Animate}
+          loop={true}
+          className="Lottie compLottie"
+        />
+      </div>
     );
   }
 
@@ -124,7 +99,7 @@ const Match = () => {
   return (
     <div className="match">
       {racecourse === undefined ? (
-        <h2></h2>
+        <></>
       ) : (
         <Tabs
           defaultActiveKey="home"
@@ -173,55 +148,50 @@ const Match = () => {
                           <div className="CompetitionData">
                             <Accordion>
                               <div className="Competitionitem">
-                              <Accordion.Item eventKey={item._id}>
-                                      <Accordion.Header>
-                                        <div className="AccordionHeader">
-                                          <p
-                                            onClick={() => HandleCard(item._id)}
-                                          >
-                                            {cookiedata === "en" ? (
-                                              item.TrackNameEn === null ? (
-                                                <>N/A</>
-                                              ) : (
-                                                item.TrackNameEn
-                                              )
-                                            ) : item.TrackNameAr === null ? (
+                                <Accordion.Item eventKey={item._id}>
+                                  <Accordion.Header>
+                                    <div className="AccordionHeader">
+                                      <p onClick={() => HandleCard(item._id)}>
+                                        {cookiedata === "en" ? (
+                                          item.TrackNameEn === null ? (
+                                            <>N/A</>
+                                          ) : (
+                                            item.TrackNameEn
+                                          )
+                                        ) : item.TrackNameAr === null ? (
+                                          <>N/A</>
+                                        ) : (
+                                          item.TrackNameAr
+                                        )}
+                                      </p>
+                                      <p></p>
+                                    </div>
+                                  </Accordion.Header>
+                                  {item.RaceCourseData.map((name, ind) => (
+                                    <Accordion.Body>
+                                      <div
+                                        onClick={() => HandleJockey(name._id)}
+                                        className="Competition_Matches"
+                                      >
+                                        <p>
+                                          {cookiedata === "en" ? (
+                                            name.RaceNameModelData === null ? (
                                               <>N/A</>
                                             ) : (
-                                              item.TrackNameAr
-                                            )}
-                                          </p>
-                                          <p></p>
-                                        </div>
-                                      </Accordion.Header>
-                                      {item.RaceCourseData.map((name, ind) => (
-                                        <Accordion.Body>
-                                          <div
-                                            onClick={() =>
-                                              HandleJockey(name._id)
-                                            }
-                                            className="Competition_Matches"
-                                          >
-                                            <p>
-                                              {cookiedata === "en" ? (
-                                                name.RaceNameModelData ===
-                                                null ? (
-                                                  <>N/A</>
-                                                ) : (
-                                                  name.RaceNameModelData.NameEn
-                                                )
-                                              ) : name.RaceNameModelData ===
-                                                null ? (
-                                                <>N/A</>
-                                              ) : (
-                                                name.RaceNameModelData.NameAr
-                                              )}
-                                            </p>
-                                            <p>{ind + 1}</p>
-                                          </div>
-                                        </Accordion.Body>
-                                      ))}
-                                    </Accordion.Item>
+                                              name.RaceNameModelData.NameEn
+                                            )
+                                          ) : name.RaceNameModelData ===
+                                            null ? (
+                                            <>N/A</>
+                                          ) : (
+                                            name.RaceNameModelData.NameAr
+                                          )}
+                                        </p>
+                                        <p>{ind + 1}</p>
+                                      </div>
+                                    </Accordion.Body>
+                                  ))}
+                                </Accordion.Item>
                               </div>
                             </Accordion>
                           </div>

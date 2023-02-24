@@ -52,10 +52,9 @@ const Owner = () => {
   useEffect(() => {
     dispatch(fetchraceresultDeclared());
     setTotalData(raceresultDeclared.length);
-  }, [dispatch, pageNumber, searchKeyword]);
+  }, [dispatch, pageNumber, raceresultDeclared.length, searchKeyword]);
 
-  console.log(TotalData, "TotalData");
- 
+
 
   if (status === STATUSES.LOADING) {
     return <Lottie animationData={Animate} loop={true} className="load" />;
@@ -93,7 +92,7 @@ const Owner = () => {
                     <td>
                       {cookiedata === "en" ? (
                         item.RaceNameModelData === null ||
-                        item.RaceNameModelData === undefined ? (
+                          item.RaceNameModelData === undefined ? (
                           <>N/A</>
                         ) : (
                           item.RaceNameModelData.NameEn

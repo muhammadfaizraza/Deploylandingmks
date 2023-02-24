@@ -10,20 +10,19 @@ import {
   fetchTrainer,
   STATUSES,
 } from "../../Webiste/redux/getReducer/getTrainerSlice";
-import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import TrainerDetail from "./TrainerDetail";
 import { Modal } from "react-bootstrap";
 import Lottie from "lottie-react";
 import Animate from "../assets/loader.json";
 import { useTranslation } from "react-i18next";
-import DefaultImg from "../assets/default.png"
+import DefaultImg from "../assets/default.png";
 import Pagination from "./Pagination";
 
 const Trainer = () => {
-  const { t } = useTranslation()
-  const cookiedata = Cookies.get('i18next')
-  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const cookiedata = Cookies.get("i18next");
+
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState();
   const [TotalData, setTotalData] = useState();
@@ -45,19 +44,11 @@ const Trainer = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   useEffect(() => {
     dispatch(fetchTrainer());
-    setTotalData(trainer.length)
-  }, [dispatch]);
-
-
+    setTotalData(trainer.length);
+  }, [dispatch, trainer.length]);
 
   if (status === STATUSES.LOADING) {
-    return (
-      <Lottie
-        animationData={Animate}
-        loop={true}
-        className="load"
-      />
-    );
+    return <Lottie animationData={Animate} loop={true} className="load" />;
   }
   if (status === STATUSES.ERROR) {
     return (
@@ -103,19 +94,64 @@ const Trainer = () => {
                       cursor: "pointer",
                     }}
                   >
-                    <td>{cookiedata === "en" ? (item.NameEn ? item.NameEn : "N/A") : (item.NameAr ? item.NameAr : "N/A")}</td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.NameEn
+                          ? item.NameEn
+                          : "N/A"
+                        : item.NameAr
+                          ? item.NameAr
+                          : "N/A"}
+                    </td>
 
-                    <td>{cookiedata === "en" ? (item.ShortNameEn ? item.ShortNameEn : "N/A") : (item.ShortNameAr ? item.ShortNameAr : "N/A")}</td>
-                    <td>{cookiedata === "en" ? (item.TitleEn ? item.TitleEn : "N/A") : (item.TitleAr ? item.TitleAr : "N/A")}</td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.ShortNameEn
+                          ? item.ShortNameEn
+                          : "N/A"
+                        : item.ShortNameAr
+                          ? item.ShortNameAr
+                          : "N/A"}
+                    </td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.TitleEn
+                          ? item.TitleEn
+                          : "N/A"
+                        : item.TitleAr
+                          ? item.TitleAr
+                          : "N/A"}
+                    </td>
 
                     <td>
                       <Moment fromNow ago>
                         {item.DOB}
                       </Moment>
                     </td>
-                    <td><Moment format="YYYY/MM/DD">  {item.TrainerLicenseDate} </Moment></td>
-                    <td>{cookiedata === "en" ? (item.RemarksEn ? item.RemarksEn : "N/A") : (item.RemarksAr ? item.RemarksAr : "N/A")}</td>
-                    <td>{cookiedata === "en" ? (item.DetailEn ? item.DetailEn : "N/A") : (item.DetailAr ? item.DetailAr : "N/A")}</td>
+                    <td>
+                      <Moment format="YYYY/MM/DD">
+                        {" "}
+                        {item.TrainerLicenseDate}{" "}
+                      </Moment>
+                    </td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.RemarksEn
+                          ? item.RemarksEn
+                          : "N/A"
+                        : item.RemarksAr
+                          ? item.RemarksAr
+                          : "N/A"}
+                    </td>
+                    <td>
+                      {cookiedata === "en"
+                        ? item.DetailEn
+                          ? item.DetailEn
+                          : "N/A"
+                        : item.DetailAr
+                          ? item.DetailAr
+                          : "N/A"}
+                    </td>
                     <td>
                       {item.TrainerNationalityData === null ? (
                         <>N/A</>
@@ -141,12 +177,12 @@ const Trainer = () => {
           </div>
         </div>
         <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={TotalData}
-            paginate={paginate}
-            currentPage={currentPage}
-            TotalPages={10}
-          />
+          postsPerPage={postsPerPage}
+          totalPosts={TotalData}
+          paginate={paginate}
+          currentPage={currentPage}
+          TotalPages={10}
+        />
         <Modal
           show={show}
           onHide={handleClose}
@@ -154,8 +190,7 @@ const Trainer = () => {
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
-          <Modal.Header className="popupheader" closeButton>
-          </Modal.Header>
+          <Modal.Header className="popupheader" closeButton></Modal.Header>
           <Modal.Body>
             <TrainerDetail data={modaldata} />
           </Modal.Body>

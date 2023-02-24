@@ -1,5 +1,5 @@
 import "../Components/CSS/pagesCSS/about.css";
-import React, { useEffect } from "react";
+
 import "../Components/CSS/pagesCSS/horse.css";
 import ListGroup from "react-bootstrap/ListGroup";
 import Tab from "react-bootstrap/Tab";

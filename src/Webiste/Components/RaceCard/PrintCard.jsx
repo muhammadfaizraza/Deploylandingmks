@@ -1,10 +1,5 @@
 import Accordion from "react-bootstrap/Accordion";
-import { RaceCardData } from "../../data/data";
-import shirt from "../../assets/image 5.png";
-import pic from "../../assets/Ellipse 7.png";
-import ScrollContainer from "react-indiana-drag-scroll";
 import { useSelector } from "react-redux";
-import arrow1 from "../../assets/image 3 (Traced).png";
 import Moment from "react-moment";
 import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
@@ -50,7 +45,7 @@ const CardPrint = () => {
   };
   const { t } = useTranslation();
 
-  const { data: singlerace, status } = useSelector((state) => state.singlerace);
+  const { data: singlerace } = useSelector((state) => state.singlerace);
   const cookiedata = Cookies.get("i18next");
   return (
     <div className="RaceDetailCard">
