@@ -9,6 +9,7 @@ import { Modal } from "react-bootstrap";
 import '../Components/CSS/registration.css'
 import {useTranslation} from 'react-i18next';
 import { Link } from 'react-router-dom';
+import Header from '../Components/Reuseable/Header'
 
 const Login = () => {
   const { loading, userInfo, error ,success} = useSelector((state) => state.user)
@@ -58,8 +59,9 @@ console.log(error)
   // 
   return (
     <div className='mainlogin'>
+      <Header/>
      {/* <Layout /> */}
-     <div className='headerlayout'>
+     {/* <div className='headerlayout'>
      <div className={
         !show ? 'header' : 'header1'
       }>
@@ -103,7 +105,7 @@ console.log(error)
           </NavLink>
           </div>
       </div>
-     </div>
+     </div> */}
     
    <div className='registrationform'>
    <form onSubmit={handleSubmit(submitForm)}>
