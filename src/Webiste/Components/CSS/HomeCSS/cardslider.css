@@ -61,14 +61,14 @@ justify-content: space-evenly;
     justify-content: space-around;
     align-items: baseline;
 }
-.clubname{
-font-family: 'Inter';
-font-style: normal;
- font-weight: 400;
-font-size: 14px;
-line-height: 7px;
-color: #000000;
-padding: 1.5rem 0rem 0rem 1.3rem;
+.clubname {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 7px;
+    color: #000000;
+    padding: 1.5rem 0rem 0rem 0.7rem;
 }
 .owner{
 font-family: 'Inter';
@@ -76,7 +76,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 17px;
 line-height: 8px;
-padding-left: 1.3rem;
+padding-left: 12px;
 }
 .raceNo{
 
@@ -102,7 +102,22 @@ padding-left: 1.3rem;
     
     color: rgba(0, 0, 0, 0.5);
 }
-.racetime{
+
+
+.racetime {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21.4333px;
+    line-height: 28px;
+    margin-left: 0px;
+    color: #FF9900;
+    width: 90px;
+    height: 30px;
+    overflow: hidden;
+    transition: 0.4s linear all;
+}
+/* .racetime{
     font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
@@ -114,7 +129,7 @@ width: 66px;
 height: 30px;
 overflow: hidden;
 transition: 0.4s linear all;
-}
+} */
 /* .racetime:hover{
     transition: 0.4s linear all;
     margin-bottom: 20px;

@@ -226,7 +226,7 @@ const RaceCardSlider = () => {
                           trim
                           durationFromNow
                         ></Moment> */}
-                        {item.StartTime}
+                       {item.StartTime.slice(0, 5)}
                         m
                       </p>{" "}
                     </span>
