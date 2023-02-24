@@ -35,7 +35,7 @@ export const {setowner , setStatus} = getOwnerSlice.actions;
 export default getOwnerSlice.reducer;
 
 export const fetchowner = createAsyncThunk('/Ownerget/fetch', async({ pageNumber , searchKeyword }) => {
-    const res = await axios.get(`${window.env.API_URL}/Ownerget?keyword=${ searchKeyword }&page=${ pageNumber }&limit=${''}`);
+    const res = await axios.get(`${window.env.API_URL}/Ownerget?keyword=${ searchKeyword }&page=${ pageNumber }&limit=20`);
     const jockeyData = res.data;
     return jockeyData.data;
 })  

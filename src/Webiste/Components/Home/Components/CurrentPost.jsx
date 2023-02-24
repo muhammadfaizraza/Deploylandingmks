@@ -151,7 +151,9 @@ const Match = () => {
                                 <Accordion.Item eventKey={item._id}>
                                   <Accordion.Header>
                                     <div className="AccordionHeader">
-                                      <p onClick={() => HandleCard(item._id)}>
+                                      <p
+                                      //  onClick={() => HandleCard(item._id)}
+                                       >
                                         {cookiedata === "en" ? (
                                           item.TrackNameEn === null ? (
                                             <>N/A</>
@@ -170,7 +172,7 @@ const Match = () => {
                                   {item.RaceCourseData.map((name, ind) => (
                                     <Accordion.Body>
                                       <div
-                                        onClick={() => HandleJockey(name._id)}
+                                        // onClick={() => HandleJockey(name._id)}
                                         className="Competition_Matches"
                                       >
                                         <p>
