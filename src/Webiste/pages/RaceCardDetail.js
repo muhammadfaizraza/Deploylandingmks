@@ -303,7 +303,7 @@ const RaceCardDetail = () => {
                           <p>
                             {t("Race")} {singlerace.RaceNumber}
                           </p>
-                          <p> {singlerace.StartTime.slice(0, 5)}</p>
+                          <p> {singlerace.StartTime}</p>
                         </span>
                         {
                           singlerace.SponsorData ? <img
