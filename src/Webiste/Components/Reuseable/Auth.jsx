@@ -15,8 +15,10 @@ const Auth = () => {
   const { userInfo, token } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
+
+
   useEffect(() => {
-    if (userInfo === null) {
+    if ( token !== null && userInfo === null) {
       dispatch(getUserDetails());
     } 
   }, [userInfo, dispatch]);

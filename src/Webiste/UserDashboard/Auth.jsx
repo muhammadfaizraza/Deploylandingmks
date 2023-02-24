@@ -14,11 +14,11 @@ const Auth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userInfo === null) {
+    if ( token !== null && userInfo === null) {
       dispatch(getUserDetails());
-    }
+    } 
   }, [userInfo, dispatch]);
-
+  
   function Redirect() {
     navigate("/dashboard");
   }
