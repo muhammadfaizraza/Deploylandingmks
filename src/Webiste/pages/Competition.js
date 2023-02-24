@@ -4,6 +4,8 @@ import Footer from '../Components/Reuseable/Footer.jsx';
 import CoptRight from '../Components/Reuseable/Copyrights'
 
 const Competition = () => {
+
+  
   return (
     <>
     <Layout/>

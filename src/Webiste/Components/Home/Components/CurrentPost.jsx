@@ -17,6 +17,8 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import moment from "moment";
 import DefaulImg from "../../../assets/default.png";
+import Animate from "../../../assets/loader.json";
+import Lottie from "lottie-react";
 
 const Match = () => {
   const navigate = useNavigate();
@@ -101,13 +103,9 @@ const Match = () => {
 
   if (status === STATUSES.LOADING) {
     return (
-      <h2
-        style={{
-          margin: "100px",
-        }}
-      >
-        Loading
-      </h2>
+      <div>
+      <Lottie animationData={Animate} loop={true} className="Lottie compLottie" />
+    </div>
     );
   }
 
