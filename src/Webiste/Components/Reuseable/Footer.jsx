@@ -53,7 +53,7 @@ const Footer = () => {
                         <Link to='/' className="LinkStyle">
                         <li><p>{t('race_card')}</p></li>
                         </Link>
-                        <Link to='/' className="LinkStyle">
+                        <Link to='/horse' className="LinkStyle">
                            <li><p>{t('Horses')}</p></li>
                         </Link>
                         <Link to='/competition' className="LinkStyle">
