@@ -1898,7 +1898,95 @@
 }
 
 @media (max-width: 471px) and (min-width: 360px) {
+    .searchbox {
+        display: flex;
+        width: 240px;
+    }
+    .form {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+    }
+    .arabic1{
+        display: none !important;
+    }
+    .mainrow {
+        margin-left: 5px !important;
+    }
+    .DashboardCard {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin: 16px 0px  !important;
+        justify-content: center;
+    }
+    .OngoingRaces {
+        width: 165.35px !important;
+        height: 139.19px !important;
+        
+    }
+    .userHeader {
+        width: 100% !important;
+        margin: 4px 0px !important;
+        height: 60px !important;
+    }
 
+    .userHeader>h3 {
+        margin-top: 20px !important;
+        font-size: 15.5949px;
+        padding: 20px 30px !important;
+    }
+    .div_maintb {
+        margin-left: 0px !important;
+        width: 100%;
+    }
+
+    .rightlayoutinner {
+        gap: 5px !important;
+    }
+    .GenerateReports{
+        width: 165.35px !important;
+        height: 139.19px !important;
+    }
+    .GenerateReports h3{
+        display: none;
+    }
+
+    .div_maintb th:nth-child(1), .div_maintb td:nth-child(1) {
+        padding-right: 45px !important;
+    }
+    .winnerRow {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    .userHeader2 {
+        width: 100% !important;
+        margin: 10px 0px !important;
+    }
+    .compDetail {
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        width: 100% !important;
+
+    }
+    .compDetail h5 {
+        left: 0px !important; 
+    }
+    .ButtonTracker {
+        margin-left: 0px !important;
+    }
+    .SubmitButton {
+        width: 100px !important;
+        margin: 10px 10px !important;
+        font-size: 12px;
+    }
+    .userHeader2 > h6 {
+        padding: 19px 20px !important;
+    }
+    .updateButton{
+        width: 100px !important;
+        margin: 10px 10px !important;
+        font-size: 12px;
+    }
     .drawchart {
         width: 375px !important;
         height: 430px;
@@ -2049,7 +2137,7 @@
     }
 
     .buttonRegister {
-        margin: 15px;
+        margin: 15px !important;
     }
 
     .registrationform>form {

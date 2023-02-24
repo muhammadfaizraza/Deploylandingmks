@@ -5,7 +5,20 @@ import CoptRight from '../Components/Reuseable/Copyrights'
 
 const Competition = () => {
 
-  
+  // var now = new Date()
+  // let century = 20;
+  // let user_age = 18;
+ 
+  // let year = now.getFullYear();
+  // let month = now.getMonth();
+  // let day = now.getDay();
+  // function CheckAge(a,b){
+  // let dateofbirth = year - (a,b);
+  // console.log(dateofbirth + "-" + month + "-"+day, 'dateofbirth')
+  // }
+  // CheckAge(century,user_age);
+
+
   return (
     <>
     <Layout/>

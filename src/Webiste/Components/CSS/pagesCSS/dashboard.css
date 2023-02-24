@@ -155,16 +155,7 @@ input#floatingInput {
   font-weight: 300;
   font-size: 14px;
 }
-.mainrow {
-  margin-top: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  height: 57.43px;
-  border-radius: 20px;
-  width: 96%;
 
-
-
-}
 .spanForm {
   display: flex;
   justify-content: flex-end;

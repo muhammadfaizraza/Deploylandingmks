@@ -133,7 +133,7 @@ const MyProfile = () => {
               <span className="spanForm"> |</span>
             </div>
 
-            <div className="col-sm">
+            <div className="col-sm arabic1">
               <FloatingLabel
                 controlId="floatingInput"
                 label="اسم"
@@ -167,7 +167,7 @@ const MyProfile = () => {
               <span className="spanForm"> |</span>
             </div>
 
-            <div className="col-sm">
+            <div className="col-sm arabic1">
               <FloatingLabel
                 controlId="floatingInput"
                 label="اسم"
@@ -199,7 +199,7 @@ const MyProfile = () => {
               <span className="spanForm"> |</span>
             </div>
 
-            <div className="col-sm">
+            <div className="col-sm arabic1">
               <FloatingLabel
                 controlId="floatingInput"
                 label=""
@@ -229,7 +229,7 @@ const MyProfile = () => {
               <span className="spanForm"> |</span>
             </div>
 
-            <div className="col-sm">
+            <div className="col-sm arabic1">
               <FloatingLabel
                 controlId="floatingInput"
                 label=""
@@ -260,7 +260,7 @@ const MyProfile = () => {
               <span className="spanForm"> |</span>
             </div>
 
-            <div className="col-sm">
+            <div className="col-sm arabic1">
               <FloatingLabel
                 controlId="floatingInput"
                 label="اسم"
