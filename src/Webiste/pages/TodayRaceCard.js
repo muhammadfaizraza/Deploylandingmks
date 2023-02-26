@@ -143,16 +143,16 @@ const RaceCardDetail = () => {
                                           <br />
                                         </div>
                                         <div className="RaceDesc">
-                                          <p
-                                            style={{
-                                              maxWidth: "400px",
-                                              overflow: "hidden",
-                                              textOverflow: "ellipsis",
-                                              whiteSpace: "nowrap",
-                                            }}
-                                          >
-                                            {cookiedata === "en" ? data.HorseKindinRaceData.NameEn : data.HorseKindinRaceData.NameAr}
-                                          </p>
+//                                           <p
+//                                             style={{
+//                                               maxWidth: "400px",
+//                                               overflow: "hidden",
+//                                               textOverflow: "ellipsis",
+//                                               whiteSpace: "nowrap",
+//                                             }}
+//                                           >
+//                                             {cookiedata === "en" ? data.HorseKindinRaceData.NameEn : data.HorseKindinRaceData.NameAr}
+//                                           </p>
                                           {/* <p>{data.RacehorsesData[0].TotalRunners} Runners</p> */}
                                         </div>
                                         <div className="racedown">
