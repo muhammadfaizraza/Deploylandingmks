@@ -1394,12 +1394,14 @@ const RaceCardDetail = () => {
                                                                 <tr>
                                                                   <th>
                                                                     <Moment
-                                                                      format="D MMM YYYY"
-                                                                      withTitle
-                                                                    ></Moment>
+                                                                      format="YYYY/MM/DD"
+                                                                      
+                                                                    >
+                                                                      {item.RaceResultData.Day}
+                                                                    </Moment>
                                                                   </th>
                                                                   <th>
-                                                                    Wol (T)
+                                                                  {item.RaceResultData.RaceCourseData.TrackNameEn}
                                                                   </th>
 
                                                                   <th>

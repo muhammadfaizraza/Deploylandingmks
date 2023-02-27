@@ -278,7 +278,10 @@
         line-height: 30px;
         color: #C4C4C4;
     }
-
+    .itemraces_center>h5 {
+        font-size: 15px;
+        line-height: 24px;
+    }
     button#uncontrolled-tab-example-tab-home {
         width: 95px;
     }
@@ -314,13 +317,16 @@
     }
 
     .racetime {
-        font-size: 19.4333px;
+        font-size: 17.4333px;
         margin-left: -25px;
         color: #FF9900;
-        width: 50px;
+        width: 66px;
         height: 30px;
     }
-
+    .customers12>span {
+        margin-top: 0px;
+        font-size: 14px;
+    }
     .clubname {
         padding: 1.5rem 0rem 0rem 1rem;
     }
@@ -342,7 +348,7 @@
     }
 
     .racedisc {
-        height: 178px;
+        height: fit-content;
     }
 
     .innerCardBlogs {

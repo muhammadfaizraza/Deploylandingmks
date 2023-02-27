@@ -572,13 +572,12 @@ strong {
 .race_trainerbreader>p {
     font-style: normal;
 
-    font-size: 12px;
+    font-size: 10px;
     line-height: 6px;
 
-    margin-left: 10px;
-
-    color: #000000;
-}
+    margin-left: 12px;
+    width: 100%;
+    color: #000000;}
 
 .trainerbreader_section {
     display: flex;

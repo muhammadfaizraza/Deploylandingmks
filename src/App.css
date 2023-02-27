@@ -21,7 +21,9 @@ body::-webkit-scrollbar-thumb {
 .HomeRightSection::-webkit-scrollbar {
   width: 0.1em;
 }
-
+.Competitiontrophy::-webkit-scrollbar {
+  width: 0.1em;
+}
 .RaceDetailHeader::-webkit-scrollbar {
   width: 0.1em;
 }
