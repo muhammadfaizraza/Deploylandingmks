@@ -28,7 +28,7 @@ const RaceCourse = () => {
 
     useEffect(() => {
         dispatch(fetchCourse());
-    }, []);
+    }, [dispatch]);
 
 
 

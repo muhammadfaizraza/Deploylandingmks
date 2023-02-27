@@ -16,7 +16,6 @@ import '../CSS/HomeCSS/section.css';
 import '../CSS/HomeCSS/Home.css';
 import RaceCardDetail from "../../pages/RaceCardDetail";
 import { useLocation } from "react-router-dom";
-import Bounce from 'react-reveal/Fade';
 import Competition from "./Components/Competition";
 import ScrollContainer from 'react-indiana-drag-scroll'
 import Prediction from "./Components/Prediction";

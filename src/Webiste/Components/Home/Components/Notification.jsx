@@ -1,7 +1,6 @@
 import notificationIcon from "../../../assets/Notification.png";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 
 const Notification = () => {

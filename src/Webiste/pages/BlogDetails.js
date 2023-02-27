@@ -13,10 +13,10 @@ const BlogDetails = () => {
   const { state } = useLocation()
   const { blogs } = state
 
-  console.log(blogs, "hahha")
+
   useEffect(() => {
     dispatch(fetchNews());
-    console.log(allnews, "news");
+
   }, [allnews, dispatch])
   if (status === STATUSES.LOADING) {
     return (

@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import '../../CSS/HomeCSS/blogs.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAds, STATUSES } from "../../../redux/getReducer/getAdsSlice";
-import img from '../../../assets/Rectangle 19.png'
+
 import Cookies from "js-cookie";
 
 const Ads = () => {
@@ -13,7 +13,7 @@ const Ads = () => {
 
   useEffect(() => {
     dispatch(fetchAds());
-  },[])
+  },[dispatch])
   if (status === STATUSES.LOADING) {
     return (
       <h2

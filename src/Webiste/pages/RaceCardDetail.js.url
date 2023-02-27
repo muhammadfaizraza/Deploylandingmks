@@ -165,7 +165,7 @@ const RaceCardDetail = () => {
 
   const pickClick = async (event, compid, horseid) => {
     event.preventDefault();
-    console.log(horseid,'horse')
+    
     try {
       setDisable(true);
       const response = await axios.post(
@@ -176,7 +176,7 @@ const RaceCardDetail = () => {
          
         }
       );
-      console.log(response.data.message,'response')
+ 
       const msgdata = response.data.message;
       toast(msgdata);
       setDisable(false);

@@ -3,7 +3,7 @@ import horse from "../../assets/horse.png";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { fetchPredictor } from "../../redux/getReducer/Predictor";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+
 
 const Predictor = ({ RaceId }) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const Predictor = ({ RaceId }) => {
     <ScrollContainer className="scroll-container">
       <div>
         {RaceCardData.map((item) => {
-          return (
+          return (  
             <div className="predictor">
               {item.predictor.map((predict) => {
                 const { name, position, score } = predict;

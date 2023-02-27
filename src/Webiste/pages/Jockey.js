@@ -141,15 +141,15 @@ const Trainer = () => {
             </table>
 
           </div>
-          
+
         </div>
         <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={100}
-            paginate={paginate}
-            currentPage={currentPage}
-            TotalPages={10}
-          />
+          postsPerPage={postsPerPage}
+          totalPosts={100}
+          paginate={paginate}
+          currentPage={currentPage}
+          TotalPages={10}
+        />
         <Modal show={show} onHide={handleClose} size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered>

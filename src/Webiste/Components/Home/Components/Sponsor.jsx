@@ -17,7 +17,7 @@ const Sponsor = () => {
 
   useEffect(() => {
     dispatch(fetchSponsor());
-  }, []);
+  }, [dispatch]);
 
   if (status === STATUSES.LOADING) {
     return <></>;

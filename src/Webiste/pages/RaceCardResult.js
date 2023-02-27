@@ -55,7 +55,7 @@ const Result = (data) => {
 
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState()
-
+  const handleClose = () => setShow(false);
   const handleShow = async (data) => {
     setmodaldata(data)
 
@@ -525,17 +525,7 @@ const Result = (data) => {
                                                         : data.HorseModelIdData1.NameAr}
                                                     </span>
                                                   </p>
-                                                  {/* <img
-                                                      src={
-                                                        data.HorseModelIdData1.NationalityData
-                                                          .image
-                                                          ? data.HorseModelIdData1.NationalityData
-                                                              .image
-                                                          : Defaultimg
-                                                      }
-                                                      alt=""
-                                                    /> */}
-
+                                               
                                                   <p style={myPara}>
                                                     <Moment fromNow ago>
                                                       {data.HorseModelIdData1.DOB}
@@ -737,15 +727,7 @@ const Result = (data) => {
                                                   </div>
                                                 </div>
                                               </div>
-                                              {/* <div className="cardraces3">
-                                          <div>
-                                            <p style={myPara1}>{singlerace.Horses.map((data) => data.GSire)}</p>
-                                            <p style={myPara1}>56kg</p>
-                                          </div>
-                                          <div>
-                                            <img src={singlerace.Owner.map((data) => data.image)} alt="" />
-                                          </div>
-                                        </div> */}
+                                     
 
                                               <div className="cardraces4">
                                                 <p

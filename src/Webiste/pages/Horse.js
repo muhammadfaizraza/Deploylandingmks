@@ -23,7 +23,7 @@ const Horse = () => {
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
     setmodaldata(data)
-    console.log('horse data', data)
+  
     await setShow(true)
   };
 

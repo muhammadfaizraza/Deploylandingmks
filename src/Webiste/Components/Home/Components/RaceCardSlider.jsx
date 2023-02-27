@@ -23,7 +23,6 @@ const RaceCardSlider = () => {
     dispatch(fetchRace());
   }, [dispatch]);
 
-  const d = new Date();
 
   const [userIsDesktop, setUserIsDesktop] = useState(true);
 

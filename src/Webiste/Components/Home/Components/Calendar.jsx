@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade';
 
 const Calendar1 = () => {
     const [value, onChange] = useState(new Date());
-    console.log(value,'value')
+   
   return (
     <>
     <Fade>

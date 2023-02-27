@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import Layout from "../Components/Reuseable/layout";
 import "../Components/CSS/registration.css";
-import Footer from "../Components/Reuseable/Footer";
-import Copyrights from "../Components/Reuseable/Copyrights";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { Country_Name, Country_NameAr } from "../Components/Reuseable/Country";
 import { fetchnationality } from "../redux/getReducer/getNationality";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -16,18 +13,6 @@ const RegisterScreen = () => {
   const { data: nationality } = useSelector((state) => state.nationality);
   const dispatch = useDispatch();
 
-  // let AllNationality =
-  //   nationality === undefined ? (
-  //     <></>
-  //   ) : (
-  //     nationality.map(function (item) {
-  //       return {
-  //         id: item._id,
-  //         value: item.NameEn,
-  //         label: item.NameEn
-  //       };
-  //     })
-  //   );
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [PassportNo, setPassportNo] = useState("");
@@ -74,7 +59,7 @@ const RegisterScreen = () => {
       formData.append("DOB", DOB);
       formData.append("PassportPicture", PassportPicture);
 
-      const response = await axios.post(
+       await axios.post(
         `${window.env.API_URL}/register`,
         formData
       );
@@ -89,7 +74,7 @@ const RegisterScreen = () => {
   useEffect(() => {
     dispatch(fetchnationality());
   }, [dispatch])
-  var today = new Date();
+ 
 
   return (
     <>

@@ -9,12 +9,10 @@ import {
   fetchraceresultDeclared,
   STATUSES,
 } from "../../Webiste/redux/getReducer/getRaceResultAnnounced";
-import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { Modal } from "react-bootstrap";
 import Lottie from "lottie-react";
 import Animate from "../assets/loader.json";
-import OwnerDetail from "./OwnerDetail";
 import { useTranslation } from "react-i18next";
 import Pagination from "./Pagination";
 import ResultDetail from './RaceCardResult'
@@ -24,7 +22,7 @@ const Owner = () => {
   const cookiedata = Cookies.get("i18next");
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState("");
-  const navigate = useNavigate();
+
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState();
   const handleClose = () => setShow(false);

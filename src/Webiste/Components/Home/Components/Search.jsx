@@ -55,7 +55,7 @@ const Search = () => {
     await setShowowner(true);
   };
 
-  console.log(Data3,'Data3')
+
 
   useEffect(() => {
     if(item !== ""){

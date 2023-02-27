@@ -16,7 +16,6 @@ import DefaultImg from "../assets/default.png"
 const JockeyDetail = (data) => {
   const { t } = useTranslation()
 
-  console.log(data, ' jockey Data')
 
   const cookiedata = Cookies.get('i18next')
 

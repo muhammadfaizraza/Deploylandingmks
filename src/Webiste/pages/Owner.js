@@ -74,7 +74,7 @@ const Owner = () => {
         </div>
         <div className="aboutpagesection">
           <div className="horseTable">
-            {/* <input type='text' value={searchKeyword} placeholder='Search' onChange={e => setSearchKeyword(e.target.value)}/> */}
+
 
             <table id="customers">
               <tr>
