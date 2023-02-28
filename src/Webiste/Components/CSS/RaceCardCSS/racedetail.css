@@ -690,3 +690,27 @@ strong {
     line-height: 10px;
     font-size: 15px;
 }
+
+.nonrunner {
+    position: absolute;
+    height: 220px;
+    background: rgb(209, 211, 211);
+    opacity: 0.4;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    color: #496394;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -15px;
+    font-weight: bolder;
+    /* letter-spacing: 10px; */
+}
+
+.card-header {
+    position: relative;
+}
+/* .nonrunner span {
+    transform: skew(-15deg, 15deg);
+} */

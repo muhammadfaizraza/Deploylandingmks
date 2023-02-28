@@ -686,7 +686,11 @@ const RaceCardDetail = () => {
                                       return (
                                         <div className="RaceAndHorseModelDataCSS">
                                           <Card>
+                                           
                                             <Card.Header>
+                                            <>{data.HorseRunningStatus === false ? <div className="nonrunner">
+                                              <span>Non Runner</span>
+                                            </div> : <></>}</>
                                               <div className="cardracesAccordion">
                                                 <div className="cardraces1">
                                                   <img
