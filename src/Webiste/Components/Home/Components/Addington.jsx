@@ -11,7 +11,7 @@ const Addington = () => {
           <img src={horse} alt='' />
           <p className='Addingtonname'>{t('addington')}</p>
           <p  className='Addingtontimer'>
-            <Counter />
+            {/* <Counter /> */}
           </p>
         </div>
       </div>

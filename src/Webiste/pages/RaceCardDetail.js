@@ -347,7 +347,7 @@ const RaceCardDetail = () => {
                           style={{
                             display: "flex",
                             justifyContent: "start",
-                            width: "60%",
+                            // width: "60%",
                           }}
                         >
                           <p
@@ -1401,11 +1401,11 @@ const RaceCardDetail = () => {
                                                                       format="YYYY/MM/DD"
                                                                       
                                                                     >
-                                                                      {item.RaceResultData.Day}
+                                                                      {item.RaceResultData === null ? <></> : item.RaceResultData.Day}
                                                                     </Moment>
                                                                   </th>
                                                                   <th>
-                                                                  {item.RaceResultData.RaceCourseData.TrackNameEn}
+                                                                  {item.RaceResultData === null ? <></> : item.RaceResultData.RaceCourseData.TrackNameEn}
                                                                   </th>
 
                                                                   <th>

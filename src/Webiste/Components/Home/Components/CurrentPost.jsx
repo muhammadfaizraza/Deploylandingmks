@@ -16,6 +16,7 @@ import "react-calendar/dist/Calendar.css";
 import DefaulImg from "../../../assets/default.png";
 import Animate from "../../../assets/loader.json";
 import Lottie from "lottie-react";
+import flagimg from "../../../assets/United Arab Emirates.png";
 
 const Match = () => {
   const navigate = useNavigate();
@@ -132,18 +133,18 @@ const Match = () => {
                                 item.NationalityDataRaceCourse.NameAr
                               )}
                             </h2>
-                            {/* <img
+                            <img
                               src={
                                 item.NationalityDataRaceCourse.image
                                   ? item.NationalityDataRaceCourse.image
-                                  : DefaulImg
+                                  : flagimg
                               }
                               alt=""
                               style={{
                                 width: "50px",
                                 heigth: "50px",
                               }}
-                            /> */}
+                            />
                           </div>
                           <div className="CompetitionData">
                             <Accordion>

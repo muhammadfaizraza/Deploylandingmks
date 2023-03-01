@@ -283,11 +283,16 @@
         line-height: 24px;
     }
     button#uncontrolled-tab-example-tab-home {
-        width: 95px;
-    }
+        width: 93px;
+        font-size: 17px;
 
+    }
+    button#uncontrolled-tab-example-tab-contact {
+        width: 60px;
+    }
     button#uncontrolled-tab-example-tab-ante {
-        width: 118px;
+        width: 116px;
+        font-size: 17px;
     }
 
     .singleracecard {

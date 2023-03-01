@@ -322,3 +322,10 @@ p.StartTimeCards {
     line-height: 9px;
     color: #FFFFFF;
 }
+
+.racepageitem:hover .RaceDetailsName {
+    color: #19469D;
+}
+.racepageitem:hover {
+scale: 1.01;
+}

@@ -94,7 +94,7 @@ const Result = () => {
                       {/* <p>Distance</p> */}
                     </span>
                   </div>
-                  <div className="customers12">
+                  {/* <div className="customers12">
                     <span>
                       <p>{t("Positions")}</p>
                       <p>{t("Results")}</p>
@@ -105,16 +105,16 @@ const Result = () => {
                         <b></b>
                       </p>
                     </span>
-                  </div>
+                  </div> */}
                   <div className="customers13">
                     <table className="customers1">
-                      {/* <thead >
+                      <thead >
                       <th>{t("Positions")}</th>
                       <th>{t("Results")}</th>
                       <th>{t("Win")}</th>
                       <th>{t("Place")}</th>
-                      <th>{t("OffTime")}</th>
-                    </thead> */}
+                      <th>{t("OffTime")}:{raceresult.RaceResultData[0].RaceTime}h</th>
+                    </thead>
                       {raceresult.RaceResultData.slice(0, 3).map(
                         (data, index) => {
                           return (
