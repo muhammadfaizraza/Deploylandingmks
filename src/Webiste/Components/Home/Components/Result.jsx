@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect , useState} from "react";
 import "../../CSS/HomeCSS/result.css";
-
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,13 +7,22 @@ import {
   STATUSES,
 } from "../../../redux/getReducer/getRaceResult";
 import Cookies from "js-cookie";
+import ResultScreen from '../../../pages/RaceCardResult'
+import { Modal } from "react-bootstrap";
+
 
 const Result = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { data: raceresult, status } = useSelector((state) => state.raceresult);
   const cookiedata = Cookies.get("i18next");
-
+  const [show, setShow] = useState(false);
+  const [modaldata, setmodaldata] = useState();
+  const handleClose = () => setShow(false);
+  const handleShow1 = async (data) => {
+    setmodaldata(data);
+    await setShow(true);
+  };
   useEffect(() => {
     dispatch(fetchraceresult());
   }, [dispatch]);
@@ -49,8 +57,8 @@ const Result = () => {
             </h3>
           ) : (
             <>
-              <div className="livedatacard">
-                <div key={raceresult._id}>
+              <div className="livedatacard" onClick={() => handleShow1(raceresult._id)}>
+                <div >
                   <p className="result_match_name">
                     {cookiedata === "en" ? (
                       <>
@@ -139,7 +147,7 @@ const Result = () => {
                                   justifyContent: "space-evenly",
                                 }}
                               >
-                                <p>Forecast (7-5)</p> <p>76.43</p>
+                                {/* <p>Forecast (7-5)</p> <p>76.43</p> */}
                               </td>
                             </tr>
                           );
@@ -152,7 +160,23 @@ const Result = () => {
             </>
           )}
         </div>
+
       </div>
+      <Modal
+          show={show}
+          onHide={handleClose}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header className="popupheader" closeButton>
+            {/* <h3>Result Detail</h3> */}
+          </Modal.Header>
+          <Modal.Body>
+            <ResultScreen data={modaldata} />
+          </Modal.Body>
+          <Modal.Footer></Modal.Footer>
+        </Modal>
     </>
   );
 };

@@ -78,6 +78,7 @@ const Result = (data) => {
   const runCallback = (cb) => {
     return cb();
   };
+
   const btnNew1 = {
     display: "flex",
     flexDirection: "row",
@@ -151,6 +152,7 @@ const Result = (data) => {
       </form>
     );
   }
+  console.log(singlerace,'data')
 
   return (
     <>
@@ -342,7 +344,7 @@ const Result = (data) => {
                     <div className="resultimages">
                       <span className="resultimagesRunningTime">
                         <p>Running Time</p>
-                        <h4>02:52:31</h4>
+                        <h4>{singlerace.RaceResultData[0].RaceTime}</h4>
                       </span>
                       <span className="resultimagebox"></span>
                       <span className="resultimagebox"></span>
@@ -480,7 +482,7 @@ const Result = (data) => {
                                                   fontSize: "19.6px",
                                                   lineHeight: "24px",
                                                   color: "#19469D",
-                                                }}>{index + 1}st</p>
+                                                }}>{data.HorseNo}</p>
                                                 <img
                                                   src={data.HorseModelIdData1.HorseImage ? data.HorseModelIdData1.HorseImage : Defaultimg}
                                                   alt=""
