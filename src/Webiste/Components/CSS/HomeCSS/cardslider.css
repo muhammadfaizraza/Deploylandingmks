@@ -22,7 +22,7 @@ justify-content: space-evenly;
 }
 .singleracecard{
     box-sizing: border-box;
-    width: 235px !important;
+    width: 250px !important;
     height: 124px;
     cursor: pointer;
     background: #FFFFFF;
@@ -45,7 +45,7 @@ justify-content: space-evenly;
     border-radius: 10px;
 }
 .singleracecard:hover{
-    height: 144px;
+    height: 155px;
 }
 .singleracecard:hover > .singleracecardbtn{
     margin-top: -15px;
@@ -66,17 +66,17 @@ justify-content: space-evenly;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 7px;
-    color: #000000;
-    padding: 1.5rem 0rem 0rem 0.7rem;
-}
+    line-height: 1px;
+        color: #000000;
+        padding: 17px 5px 0px 17px;
+    }
 .owner{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 15px;
-    padding-left: 12px;
+    font-size: 14px !important;
+    line-height: 14px;
+    padding: 5px 5px 0px 17px;
 }
 .raceNo{
 

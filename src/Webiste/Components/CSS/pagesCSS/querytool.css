@@ -57,8 +57,9 @@ border-radius: 18px;
     text-align: center;
 }
 p.searchname {
-    line-height: 15px;
+    line-height: 12px;
     cursor: pointer;
+    font-size: 12px;
 }
 .searchparent{
     position: relative;

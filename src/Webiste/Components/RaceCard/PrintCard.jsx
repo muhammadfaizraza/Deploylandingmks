@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
+import Defaultimg from "../../assets/Frame.png";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -62,16 +63,19 @@ const CardPrint = () => {
                       <Card.Header>
                         <div className="cardracesAccordion">
                           <div className="cardraces1">
-                            <img
-                              src={
-                                data.HorseModelIdData1.HorseImage ? (
-                                  data.HorseModelIdData1.HorseImage
-                                ) : (
-                                  <></>
-                                )
-                              }
-                              alt=""
-                            />
+                          {
+                          singlerace.SponsorData ? <img
+                            className="sponsor"
+                            src={
+                              singlerace.SponsorData.image === null ? (
+                                Defaultimg
+                              ) : (
+                                singlerace.SponsorData.image
+                              )
+                            }
+                            alt=""
+                          /> : <></>
+                        }
                             <span className="cardraces1box">
                               <p>
                                 <Moment format="DD-MM-YY">

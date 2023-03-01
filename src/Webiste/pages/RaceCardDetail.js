@@ -689,7 +689,7 @@ const RaceCardDetail = () => {
                                            
                                             <Card.Header>
                                             <>{data.HorseRunningStatus === false ? <div className="nonrunner">
-                                              <span>Non Runner</span>
+                                              <span>{cookiedata === "en" ? <>Non Runner</> : <>غير عداء</>}</span>
                                             </div> : <></>}</>
                                               <div className="cardracesAccordion">
                                                 <div className="cardraces1">

@@ -167,10 +167,9 @@ const Result = (data) => {
                       <p>
                         {cookiedata === "en" ? (
                           singlerace.RaceCourseData ? (
-                            <>N/A</>
-                          ) : (
                             singlerace.RaceCourseData.TrackNameEn
-                          )
+                          ) : 
+                          <></>
                         ) : singlerace.RaceCourseData ? (
                           <>N/A</>
                         ) : (

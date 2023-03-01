@@ -1018,7 +1018,7 @@
     }
 
     .slidercards {
-        width: 75% !important;
+        width: 85% !important;
     }
 
     .sponsor img {
@@ -1026,7 +1026,27 @@
         object-fit: cover;
         height: 100%;
     }
+    .AdsCard {
+        position: inherit;
+    }
 
+    .Currentpostheader {
+        width: 80%;
+    }
+    .adscardmapping img {
+        height: 300px !important;
+        object-fit: contain;
+    }
+
+    .CompetitionData {
+        width: 85%;
+        margin: auto;
+        height: -moz-fit-content;
+        height: fit-content;
+        overflow: auto;
+        max-width: 100% !important;
+        margin-bottom: 25px;
+    }
     .first-txt {
         padding: 110px;
         width: 140px;
@@ -1036,15 +1056,28 @@
         font-size: 58.4118px;
         line-height: 80px;
     }
-
+    .CompetitionHeader {
+        width: 80%;
+    }
     .middlesectioninner {
         display: none;
     }
-
+    .Competition {
+        margin: auto;
+        background: #EFEFEF;
+        border-radius: 20px;
+    }
     .aab {
         display: none;
     }
-
+    .presictData {
+        width: 85%;
+        margin: auto;
+    }
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
     .newabc {
         width: 98%;
     }
