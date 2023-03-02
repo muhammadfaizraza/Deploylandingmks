@@ -19,6 +19,7 @@ import Animate from '../assets/loader.json'
 import { useTranslation } from "react-i18next";
 import Defaultimg from "../assets/default.png"
 import Pagination from "./Pagination";
+import axios from "axios";
 
 
 const Trainer = () => {
@@ -26,8 +27,9 @@ const Trainer = () => {
   const cookiedata = Cookies.get('i18next')
 
 
-  const [pageNumber, setPageNumber] = useState(1);
-  const [searchKeyword, setSearchKeyword] = useState('');
+
+  const [TotalCount, setTotalCount] = useState()
+  const [TotalPages, setTotalPages] = useState()
 
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState()
@@ -40,17 +42,29 @@ const Trainer = () => {
   const { data: jockey, status } = useSelector((state) => state.jockey);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [postsPerPage] = useState(11);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = jockey.slice(indexOfFirstPost, indexOfLastPost);
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  useEffect(() => {
-    dispatch(fetchJockey({ pageNumber, searchKeyword }));
-  }, [dispatch, pageNumber, searchKeyword]);
+  const GetSearch = async () => {
 
+    const response = await axios.get(
+      `${window.env.API_URL}/SearchJockey`
+    );
+
+
+    setTotalCount(response.data.totalcount)
+    const TotalPagesData = response.data.totalPages;
+    setTotalPages(TotalPagesData)
+
+  };
+
+
+  useEffect(() => {
+    dispatch(fetchJockey({ currentPage }));
+    GetSearch({ currentPage })
+  }, [currentPage, dispatch]);
 
 
 
@@ -83,7 +97,6 @@ const Trainer = () => {
         </div>
         <div className="aboutpagesection">
           <div className="horseTable">
-            {/* <input type='text' value={searchKeyword} placeholder='Search' onChange={e => setSearchKeyword(e.target.value)}/> */}
 
             <table id="customers">
               <tr>
@@ -101,7 +114,7 @@ const Trainer = () => {
                 <th>{t("Nationality")}</th>
                 <th>{t("Image")}</th>
               </tr>
-              {currentPosts.map((item) => {
+              {jockey.map((item) => {
                 return (
                   <tr onClick={() => handleShow(item)
                   } style={{
@@ -145,10 +158,10 @@ const Trainer = () => {
         </div>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={100}
+          totalPosts={TotalCount}
           paginate={paginate}
           currentPage={currentPage}
-          TotalPages={10}
+          TotalPages={TotalPages}
         />
         <Modal show={show} onHide={handleClose} size="lg"
           aria-labelledby="contained-modal-title-vcenter"

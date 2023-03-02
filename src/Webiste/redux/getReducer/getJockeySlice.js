@@ -34,8 +34,8 @@ const getJockeySlice = createSlice({
 export const { setJockey, setStatus } = getJockeySlice.actions;
 export default getJockeySlice.reducer;
 
-export const fetchJockey = createAsyncThunk('/SearchJockey/fetch', async ({ pageNumber, searchKeyword }) => {
-    const res = await axios.get(`${window.env.API_URL}/SearchJockey?keyword=${searchKeyword}&page=${pageNumber}&limit=10`);
+export const fetchJockey = createAsyncThunk('/SearchJockey/fetch', async ({ pageNumber, searchKeyword, currentPage }) => {
+    const res = await axios.get(`${window.env.API_URL}/SearchJockey?keyword=${searchKeyword}&page=${currentPage}`);
     const jockeyData = res.data;
     return jockeyData.data;
 })  

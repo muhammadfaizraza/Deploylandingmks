@@ -1,172 +1,207 @@
 #customers {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #customers tr:hover {background-color: #ddd;}
-  
-  #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #19469D;
-    color: white;
-  }
-  .horseTable{
-    width: 90%;
-    margin-inline: auto;
-  }
 
-  /* Horse form data */
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  .horseheader1{
-    padding: 1rem;
-    box-sizing: border-box;
-    /* width: 688px; */
-    height: 187px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 18px;
-    display: flex;
-  }
-  .horseshirt{
+#customers>tr {
+  border: none;
+  text-align: center;
+}
+
+#customers>tr>th {
+
+  padding: 20px 16px !important;
+  text-align: center;
+  background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
+  color: white;
+  border-radius: 10px;
+}
+
+#customers>tr>td {
+
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers>tr>th {
+
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers>tr:hover {
+  background-color: #ddd;
+}
+
+
+
+.horseTable {
+  width: 90%;
+  margin-inline: auto;
+}
+
+/* Horse form data */
+
+.horseheader1 {
+  padding: 1rem;
+  box-sizing: border-box;
+  /* width: 688px; */
+  height: 187px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  display: flex;
+}
+
+.horseshirt {
   margin: 10px;
-  }
-  .horsecardtop{
-    box-sizing: border-box;
-    width: 60px;
-    text-align: center;
-    height: 98px;
-    border: 1px dashed rgba(0, 0, 0, 0.1);
-    border-radius: 8.07692px;
-  }
-  .horsecenterdata {
-    flex: 3 1;
-    margin-left: 20px;
-}
-  .horseimage{
-    box-sizing: border-box;
-    width: 157px;
-    height: 131px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 18px;
-  }
-  .horsebody{
-    background-color: #19469D;
-  }
-  .horsebodyitem{
-    background: #A5A5A5;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 18px;
-    height: 55px;
-    padding: 10px;
-  }
-  .horsebodyitem1{
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 18px;
-    height: 55px;
-    padding: 10px;
-  }
-  .horsehistorylist{
-    width: 688px;
-    height: 50px;
-  }
-  .horses1{
-    margin-left: 20px;
-  }
-  .Pedigree{
-    height: fit-content;
-    background-color: #fff;
-  }
-  .wrapper{
-    display: flex;
-    justify-content: center;
-  }
-  .sire{
-    box-sizing: border-box;
-    width: 229px;
-    height: 200px;   
-    background: #078BE6;
-    border: 1px solid #D9D9D9;
-    border-radius: 18px;
-  }
-  .dam{
-    box-sizing: border-box;
-    width: 229px;
-    height: 200px;   
-    background: #CD4CCF;
-    border: 1px solid #D9D9D9;
-    border-radius: 18px;
-  }
-  .gsire{
-    width: 230px;
-    height: 100px;
-    background: #078BE6;
-    border: 1px solid #D9D9D9;
-    border-radius: 18px;
-  }
-  .gdam{
-    width: 230px;
-    height: 100px;  
-    background: #CD4CCF;
-    border: 1px solid #D9D9D9;
-    border-radius: 18px;
-  }
-  .ggsire{
-    box-sizing: border-box;
-    width: 229px;
-    height: 50px;
-    background: #078BE6;
-    border: 1px solid #D9D9D9;
-    border-radius: 18px;
-  }
-  .ggdam{
-    box-sizing: border-box;
-    width: 229px;
-    height: 50px;
-    background: #CD4CCF;
-    border: 1px solid #D9D9D9;
-    border-radius: 18px;
-  }
-  .horseTable > input{
-    margin: 20px;
-    float: right;
-  }
-
-  .horsebodyitemfirst > p{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 18px;
-    color: #FFFFFF;
-    padding: 6px;
-  }
-
-  .horseimage img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
 
-.horserecord{
+.horsecardtop {
+  box-sizing: border-box;
+  width: 60px;
+  text-align: center;
+  height: 98px;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+  border-radius: 8.07692px;
+}
+
+.horsecenterdata {
+  flex: 3 1;
+  margin-left: 20px;
+}
+
+.horseimage {
+  box-sizing: border-box;
+  width: 157px;
+  height: 131px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+}
+
+.horsebody {
+  background-color: #19469D;
+}
+
+.horsebodyitem {
+  background: #A5A5A5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  height: 55px;
+  padding: 10px;
+}
+
+.horsebodyitem1 {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  height: 55px;
+  padding: 10px;
+}
+
+.horsehistorylist {
+  width: 688px;
+  height: 50px;
+}
+
+.horses1 {
+  margin-left: 20px;
+}
+
+.Pedigree {
+  height: fit-content;
+  background-color: #fff;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.sire {
+  box-sizing: border-box;
+  width: 229px;
+  height: 200px;
+  background: #078BE6;
+  border: 1px solid #D9D9D9;
+  border-radius: 18px;
+}
+
+.dam {
+  box-sizing: border-box;
+  width: 229px;
+  height: 200px;
+  background: #CD4CCF;
+  border: 1px solid #D9D9D9;
+  border-radius: 18px;
+}
+
+.gsire {
+  width: 230px;
+  height: 100px;
+  background: #078BE6;
+  border: 1px solid #D9D9D9;
+  border-radius: 18px;
+}
+
+.gdam {
+  width: 230px;
+  height: 100px;
+  background: #CD4CCF;
+  border: 1px solid #D9D9D9;
+  border-radius: 18px;
+}
+
+.ggsire {
+  box-sizing: border-box;
+  width: 229px;
+  height: 50px;
+  background: #078BE6;
+  border: 1px solid #D9D9D9;
+  border-radius: 18px;
+}
+
+.ggdam {
+  box-sizing: border-box;
+  width: 229px;
+  height: 50px;
+  background: #CD4CCF;
+  border: 1px solid #D9D9D9;
+  border-radius: 18px;
+}
+
+.horseTable>input {
+  margin: 20px;
+  float: right;
+}
+
+.horsebodyitemfirst>p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #FFFFFF;
+  padding: 6px;
+}
+
+.horseimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.horserecord {
   display: flex;
   justify-content: space-between;
   color: #fff;
   font-weight: 500;
-font-size: 12px;
-line-height: 15px;
-padding-top: 10px;
+  font-size: 12px;
+  line-height: 15px;
+  padding-top: 10px;
 }
-.horserecord > h6{
+
+.horserecord>h6 {
   color: #000;
 }
 
@@ -175,7 +210,8 @@ padding-top: 10px;
   width: 100%;
 }
 
-.customers6 td, .customers6 th {
+.customers6 td,
+.customers6 th {
   border: transparent;
   padding: 8px;
   background-color: #5EC40F;
@@ -183,8 +219,9 @@ padding-top: 10px;
 }
 
 .RaceNav.HorseNav {
-background-color: #19469D;
+  background-color: #19469D;
 }
+
 .customers6 th {
   padding-top: 20px;
 
@@ -193,22 +230,26 @@ background-color: #19469D;
   color: #000;
   width: 15.5%;
 }
-.popupheader{
+
+.popupheader {
   background: linear-gradient(180deg, #078BE6 0%, #19469D 100%), #19469D;
   color: #fff;
   font-family: inter;
 }
 
-.horsedetailimage{
+.horsedetailimage {
   display: flex;
 }
-.horsedetailimage img{
+
+.horsedetailimage img {
   width: 30px;
   height: 30px;
 }
-.horseshirtimage{
+
+.horseshirtimage {
   width: 100px;
 }
+
 .horsefoal {
   font-weight: 400;
   font-size: 32.7337px;
@@ -222,7 +263,7 @@ p.racestatusclasstime {
   font-size: 12px !important;
 }
 
-.pedigreeclass{
+.pedigreeclass {
   display: flex;
   justify-content: center;
   align-items: center;

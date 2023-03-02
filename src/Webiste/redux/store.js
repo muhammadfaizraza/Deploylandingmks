@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import getAdsSlice from './getReducer/getAdsSlice';
 import getHorseSlice from './getReducer/getHorseSlice';
 import getNewsSlice from './getReducer/getNewsSlice';
@@ -59,9 +59,9 @@ const store = configureStore({
         Pedigree: getPedigree,
         predictor: getPredictor,
         horseHistory: getHorseHistory,
-        raceresultDeclared:getRaceResultAnnounced,
+        raceresultDeclared: getRaceResultAnnounced,
         PredictionRace: getPredictionSlice,
-        RaceCourseRaceToday:getRaceCourseToday
+        RaceCourseRaceToday: getRaceCourseToday
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
