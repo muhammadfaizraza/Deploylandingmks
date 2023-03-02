@@ -23,7 +23,7 @@ const Horse = () => {
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
     setmodaldata(data)
-  
+
     await setShow(true)
   };
 
@@ -33,9 +33,7 @@ const Horse = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = horse.slice(indexOfFirstPost, indexOfLastPost);
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 
@@ -91,9 +89,9 @@ const Horse = () => {
 
               </tr>
               {
-                currentPosts === undefined ? <></> : <>
+                horse === undefined ? <></> : <>
                   {
-                    currentPosts.map((item) => {
+                    horse.map((item) => {
                       return (
                         <React.Fragment>
                           <tr onClick={() => handleShow(item)
