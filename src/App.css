@@ -1,5 +1,5 @@
 * {
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
 body::-webkit-scrollbar {
@@ -21,15 +21,19 @@ body::-webkit-scrollbar-thumb {
 .HomeRightSection::-webkit-scrollbar {
   width: 0.1em;
 }
+
 .Competitiontrophy::-webkit-scrollbar {
   width: 0.1em;
 }
+
 .RaceDetailHeader::-webkit-scrollbar {
   width: 0.1em;
 }
+
 .RaceAndHorseModelDataCSSFlex::-webkit-scrollbar {
   width: 0.1em;
 }
+
 .LeaderData::-webkit-scrollbar {
   width: 0.1em;
 }
@@ -59,17 +63,15 @@ body::-webkit-scrollbar-thumb {
   flex: 0 1 auto;
   width: 9px;
   height: 9px;
-  opacity: .5;
-  transition: opacity .6s ease;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
   border-radius: 50% !important;
   color: rgb(53, 53, 53) !important;
-
 }
 
 a {
   color: #000;
   text-decoration: none;
-
 }
 
 .mobiledata {
@@ -97,9 +99,7 @@ a {
 }
 
 .searchLottie {
-
   height: 100px !important;
-
 }
 
 .homeLottie {
@@ -111,7 +111,6 @@ a {
 
 .compLottie {
   height: 200px;
-
 }
 
 .slideLottie {
@@ -119,11 +118,8 @@ a {
 }
 
 .trackerTab {
-
-
   margin-bottom: 39px !important;
   margin-left: 67px !important;
-
 }
 
 /* .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
@@ -140,11 +136,11 @@ a {
 }
 
 .trackerTab button#noanim-tab-example-tab-1 {
-  background: linear-gradient(89.98deg, #4E4E4E 23.67%, #979695 97.94%);
+  background: linear-gradient(89.98deg, #4e4e4e 23.67%, #979695 97.94%);
 }
 
 .trackerTab button#noanim-tab-example-tab-2 {
-  background: linear-gradient(89.98deg, #4E4E4E 23.67%, #979695 97.94%);
+  background: linear-gradient(89.98deg, #4e4e4e 23.67%, #979695 97.94%);
   margin: 0 20px;
 }
 
@@ -160,14 +156,13 @@ a {
   justify-content: center;
   align-items: center;
   width: 400px;
-
 }
-
 
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .paginationItem {
@@ -204,7 +199,6 @@ a {
   border: 1px solid #888;
   color: #888;
   pointer-events: none;
-
 }
 
 .prev.disabled,
