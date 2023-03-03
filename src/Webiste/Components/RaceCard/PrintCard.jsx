@@ -79,7 +79,7 @@ const CardPrint = () => {
                             <span className="cardraces1box">
                               <p>
                                 <Moment format="DD-MM-YY">
-                                  {data.HorseModelIdData1.DOB}
+                                  {data.HorseModelIdData1 ? data.HorseModelIdData1.DOB : <></>}
                                 </Moment>
                               </p>
 
@@ -111,8 +111,8 @@ const CardPrint = () => {
                               >
                                 <span>
                                   {cookiedata === "en"
-                                    ? data.HorseModelIdData1.NameEn
-                                    : data.HorseModelIdData1.NameAr}
+                                    ? (data.HorseModelIdData1 ? data.HorseModelIdData1.NameEn : <></>)
+                                    :( data.HorseModelIdData1 ?  data.HorseModelIdData1.NameAr : <></>)}
                                 </span>
                               </p>
                               {/* <img
@@ -128,14 +128,13 @@ const CardPrint = () => {
 
                               <p style={myPara}>
                                 <Moment fromNow ago>
-                                  {data.HorseModelIdData1.DOB}
+                                  {data.HorseModelIdData1 ? data.HorseModelIdData1.DOB : <></>}
                                 </Moment>{" "}
                                 {data.CapColorData1 === null ? (
                                   <></>
                                 ) : (
                                   data.CapColorData1.NameEn
                                 )}{" "}
-                                H ({data.HorseModelIdData1.Height})
                               </p>
                             </div>
                             <div
@@ -146,66 +145,37 @@ const CardPrint = () => {
                               }}
                             >
                               <p style={myPara}>
-                                {t("Dam")}
-                                <b>
-                                  :
-                                  {cookiedata === "en" ? (
-                                    data.HorseModelIdData1.DamEn ===
-                                    undefined ? (
-                                      <>N/A</>
-                                    ) : (
-                                      data.HorseModelIdData1.NameEn
-                                    )
-                                  ) : data.HorseModelIdData1.Dam ===
-                                    undefined ? (
-                                    <>N/A</>
-                                  ) : (
-                                    data.HorseModelIdData1.DamAr
-                                  )}
-                                </b>
-                              </p>
-                              <p style={myPara}>
-                                {t("Sire")}
-                                <b>
-                                  :
-                                  {cookiedata === "en" ? (
-                                    data.HorseModelIdData1.SireNameEn ===
-                                    undefined ? (
-                                      <>N/A</>
-                                    ) : (
-                                      data.HorseModelIdData1.SireNameEn
-                                    )
-                                  ) : data.HorseModelIdData1.SireNameAr ===
-                                    undefined ? (
-                                    <>N/A</>
-                                  ) : (
-                                    data.HorseModelIdData1.SireNameAr
-                                  )}
-                                </b>
-                              </p>
-                              <p style={myPara}>
-                                {t("GSire")}
-                                <b
-                                  style={{
-                                    marginLeft: "12px",
-                                  }}
-                                >
-                                  :
-                                  {cookiedata === "en" ? (
-                                    data.HorseModelIdData1.GSireNameEn ===
-                                    undefined ? (
-                                      <>N/A</>
-                                    ) : (
-                                      data.HorseModelIdData1.GSireNameEn
-                                    )
-                                  ) : data.HorseModelIdData1.GSireNameEn ===
-                                    undefined ? (
-                                    <>N/A</>
-                                  ) : (
-                                    data.HorseModelIdData1.GSireNameAr
-                                  )}
-                                </b>
-                              </p>
+                                                    {t("Dam")}
+                                                    <b>
+                                                      :
+                                                      {cookiedata === "en" ? (
+                                                        data.HorseModelIdData1 ? data.HorseModelIdData1.NameEn : <></>
+                                                        
+                                                      ) : data.HorseModelIdData1 ? data.HorseModelIdData1.NameAr : <></>}
+                                                    </b>
+                                                  </p>
+                                                  <p style={myPara}>
+                                                    {t("Sire")}
+                                                    <b>
+                                                      :
+                                                      {cookiedata === "en" ? (
+                                                          data.HorseModelIdData1 ?   data.HorseModelIdData1.SireNameEn : <></>
+                                                      ) : data.HorseModelIdData1 ? data.HorseModelIdData1.SireNameAr : <></>}
+                                                    </b>
+                                                  </p>
+                                                  <p style={myPara}>
+                                                    {t("GSire")}
+                                                    <b
+                                                      style={{
+                                                        marginLeft: "12px",
+                                                      }}
+                                                    >
+                                                      :
+                                                      {cookiedata === "en" ? (
+                                                        data.HorseModelIdData1 ? data.HorseModelIdData1.GSireNameEn : <></>
+                                                      ) : data.HorseModelIdData1 ? data.HorseModelIdData1.GSireNameAr : <></>}
+                                                    </b>
+                                                  </p>
                             </div>
                             <div
                               style={{
@@ -292,7 +262,7 @@ const CardPrint = () => {
                                   </b>
                                 </p>
                                 <p>
-                                  B
+                                  {/* B
                                   <b
                                     style={{
                                       marginLeft: "12px",
@@ -312,7 +282,7 @@ const CardPrint = () => {
                                     ) : (
                                       data.HorseModelIdData1.BreederData.NameAr
                                     )}
-                                  </b>
+                                  </b> */}
                                 </p>
                               </div>
                             </div>
@@ -431,7 +401,7 @@ const CardPrint = () => {
                           <div className="pmclass">
                             <p>
                               PM: AED{" "}
-                              <b>{data.HorseModelIdData1.PurchasePrice}</b>
+                              <b>{data.HorseModelIdData1 ? data.HorseModelIdData1.PurchasePrice : <></>}</b>
                             </p>
                             <p>
                               BTO: AED <b>55,000</b>
@@ -455,7 +425,7 @@ const CardPrint = () => {
                             justifyContent: "space-between",
                           }}
                         >
-                          {singlerace.CompetitionRacesPointsModelData.length ===
+                          {/* {singlerace.CompetitionRacesPointsModelData.length ===
                           0 ? (
                             <></>
                           ) : (
@@ -471,26 +441,11 @@ const CardPrint = () => {
                                 </button>
                               ) : (
                                 <>
-                                  {/* {!showtri ? (
-                                                          <button
-                                                            style={btnNew}
-                                                            onClick={() =>
-                                                              handleShowTri()
-                                                            }
-                                                          >
-                                                            {
-                                                              singlerace
-                                                                .CompetitionRacesPointsModelData[0]
-                                                                .CompetitionCategory
-                                                            }
-                                                          </button>
-                                                        ) : (
-                                                          <></>
-                                                        )} */}
+                                  
                                 </>
                               )}
                             </>
-                          )}
+                          )} */}
 
                           {/* <button
                                               style={btnNew1}
@@ -503,7 +458,7 @@ const CardPrint = () => {
                                             {t("Pick Six")}
                                             </button> */}
 
-                          {
+                          {/* {
                             data.HorseModelIdData1.TrackHorses &&
                             data.HorseModelIdData1.TrackHorses.length > 0 ? (
                               <div div className="trackBtn">
@@ -514,10 +469,8 @@ const CardPrint = () => {
                             ) : (
                               <></>
                             )
-                            // <div div className="trackBtn">
-                            //   <button className="w-100 px-10" style={btnNew1}>UnTrack Horse</button>
-                            // </div>
-                          }
+                            
+                          } */}
                         </div>
                         <CustomToggle eventKey="0">
                           <button className="showMore"> Show History </button>

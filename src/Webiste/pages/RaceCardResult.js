@@ -670,7 +670,7 @@ const Result = (data) => {
                                                         )}
                                                       </b>
                                                     </p>
-                                                    <p>
+                                                    {/* <p>
                                                       B
                                                       <b
                                                         style={{
@@ -694,7 +694,7 @@ const Result = (data) => {
                                                             .NameAr
                                                         )}
                                                       </b>
-                                                    </p>
+                                                    </p> */}
                                                   </div>
                                                 </div>
                                               </div>
@@ -811,7 +811,7 @@ const Result = (data) => {
                                               <div className="pmclass">
                                                 <p>
                                                   PM: AED{" "}
-                                                  <b>{data.HorseModelIdData1.PurchasePrice}</b>
+                                                  <b>{data.HorseModelIdData1 ? data.HorseModelIdData1.PurchasePrice : <></>}</b>
                                                 </p>
                                                 <p>
                                                   BTO: AED <b>55,000</b>
@@ -839,7 +839,7 @@ const Result = (data) => {
                                                 justifyContent: "space-between"
                                               }}
                                             >
-                                              {singlerace
+                                              {/* {singlerace
                                                 .CompetitionRacesPointsModelData
                                                 .length === 0 ? (
                                                 <></>
@@ -862,22 +862,7 @@ const Result = (data) => {
                                                     </button>
                                                   ) : (
                                                     <>
-                                                      {/* {!showtri ? (
-                                                          <button
-                                                            style={btnNew}
-                                                            onClick={() =>
-                                                              handleShowTri()
-                                                            }
-                                                          >
-                                                            {
-                                                              singlerace
-                                                                .CompetitionRacesPointsModelData[0]
-                                                                .CompetitionCategory
-                                                            }
-                                                          </button>
-                                                        ) : (
-                                                          <></>
-                                                        )} */}
+                                                      
                                                       {showtri ? (
                                                         <span>
                                                           <form
@@ -931,7 +916,7 @@ const Result = (data) => {
                                                     </>
                                                   )}
                                                 </>
-                                              )}
+                                              )} */}
 
                                               {/* <button
                                               style={btnNew1}
@@ -944,16 +929,16 @@ const Result = (data) => {
                                             {t("Pick Six")}
                                             </button> */}
 
-                                              {data.HorseModelIdData1.TrackHorses && data.HorseModelIdData1.TrackHorses.length > 0 ?
+                                              {/* {data.HorseModelIdData1.TrackHorses && data.HorseModelIdData1.TrackHorses.length > 0 ? <></>:<></>} */}
                                                 <div div className="trackBtn">
                                                   {/* <button className="w-100 px-10" style={btnNew1} onClick={() => handleTrack(data.HorseModelIdData1._id)}>Track Horse</button> */}
                                                 </div>
-                                                :
+                                                
                                                 <></>
-                                                // <div div className="trackBtn">
-                                                //   <button className="w-100 px-10" style={btnNew1}>UnTrack Horse</button>
-                                                // </div>
-                                              }
+                                                 {/* <div div className="trackBtn">
+                                                   <button className="w-100 px-10" style={btnNew1}>UnTrack Horse</button>
+                                                 </div> */}
+                                              
                                             </div>
                                             <CustomToggle eventKey={index}>
                                               <button className="showMore" onClick={() => showHorseHistory(data.HorseModelIdData1._id)}>   Show History </button>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect , useState} from "react";
 import "../../CSS/HomeCSS/result.css";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,8 +7,9 @@ import {
   STATUSES,
 } from "../../../redux/getReducer/getRaceResult";
 import Cookies from "js-cookie";
-import ResultScreen from "../../../pages/RaceCardResult";
+import ResultScreen from '../../../pages/RaceCardResult'
 import { Modal } from "react-bootstrap";
+
 
 const Result = () => {
   const { t } = useTranslation();
@@ -41,7 +42,6 @@ const Result = () => {
     );
   }
 
-  console.log(raceresult,'raceresult')
   return (
     <>
       <div className="resultCard">
@@ -57,11 +57,8 @@ const Result = () => {
             </h3>
           ) : (
             <>
-              <div
-                className="livedatacard"
-                // onClick={() => handleShow1(raceresult._id)}
-              >
-                <div>
+              <div className="livedatacard" onClick={() => handleShow1(raceresult._id)}>
+                <div >
                   <p className="result_match_name">
                     {cookiedata === "en" ? (
                       <>
@@ -94,21 +91,30 @@ const Result = () => {
                         )}{" "}
                         {t("Runner")}
                       </p>
+                      {/* <p>Distance</p> */}
                     </span>
                   </div>
-
+                  {/* <div className="customers12">
+                    <span>
+                      <p>{t("Positions")}</p>
+                      <p>{t("Results")}</p>
+                      <p>{t("Win")}</p>
+                      <p>{t("Place")}</p>
+                      <p>
+                        {t("OffTime")}:{raceresult.RaceResultData[0].RaceTime}h
+                        <b></b>
+                      </p>
+                    </span>
+                  </div> */}
                   <div className="customers13">
                     <table className="customers1">
-                      <thead>
-                        <th>{t("Positions")}</th>
-                        <th>{t("Results")}</th>
-                        <th>{t("Win")}</th>
-                        <th>{t("Place")}</th>
-                        <th>
-                          {t("OffTime")}:{raceresult.RaceResultData[0].RaceTime}
-                          h
-                        </th>
-                      </thead>
+                      <thead >
+                      <th>{t("Positions")}</th>
+                      <th>{t("Results")}</th>
+                      <th>{t("Win")}</th>
+                      <th>{t("Place")}</th>
+                      <th>{t("OffTime")}:{raceresult.RaceResultData[0].RaceTime}h</th>
+                    </thead>
                       {raceresult.RaceResultData.slice(0, 3).map(
                         (data, index) => {
                           return (
@@ -117,17 +123,23 @@ const Result = () => {
                               <td>
                                 {cookiedata === "en" ? (
                                   <>
-                                   
+                                    {data.HorseIDData ? data.HorseIDData.NameEn : <></>}(
+                                    {data.FinalPositionDataHorse.Rank})
                                   </>
                                 ) : (
                                   <>
-                                   
+                                    {data.HorseIDData ? data.HorseIDData.NameAr : <></>}(
+                                    {data.FinalPositionDataHorse.Rank})
                                   </>
                                 )}
                               </td>
                               <td>{data.CumulativeDistance}</td>
                               <td>
-                                
+                                {data.HorseIDData ? data.HorseIDData.HorseStatus === true ? (
+                                  <>Yes</>
+                                ) : (
+                                  <>No</>
+                                ) : <></>}
                               </td>
                               <td
                                 style={{
@@ -148,22 +160,23 @@ const Result = () => {
             </>
           )}
         </div>
+
       </div>
       <Modal
-        show={show}
-        onHide={handleClose}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header className="popupheader" closeButton>
-          {/* <h3>Result Detail</h3> */}
-        </Modal.Header>
-        <Modal.Body>
-          <ResultScreen data={modaldata} />
-        </Modal.Body>
-        <Modal.Footer></Modal.Footer>
-      </Modal>
+          show={show}
+          onHide={handleClose}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header className="popupheader" closeButton>
+            {/* <h3>Result Detail</h3> */}
+          </Modal.Header>
+          <Modal.Body>
+            <ResultScreen data={modaldata} />
+          </Modal.Body>
+          <Modal.Footer></Modal.Footer>
+        </Modal>
     </>
   );
 };
