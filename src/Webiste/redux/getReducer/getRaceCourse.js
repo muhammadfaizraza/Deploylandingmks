@@ -14,7 +14,7 @@ const getRaceCourse = createSlice({
         data: [],
         status: STATUSES.IDLE,
     },
- 
+
     extraReducers: (builder) => {
         builder
             .addCase(fetchCourse.pending, (state, action) => {
@@ -35,7 +35,7 @@ export default getRaceCourse.reducer;
 
 export const fetchCourse = createAsyncThunk('CourseGet/fetch', async () => {
     const res = await axios.get(`${window.env.API_URL}/getracecourse?page=${'1'}&keyword= `)
-    const data =  res.data;
+    const data = res.data;
     return data.data;
 });
 

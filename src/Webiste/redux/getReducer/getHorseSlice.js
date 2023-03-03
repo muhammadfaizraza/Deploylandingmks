@@ -32,8 +32,8 @@ const getHorseSlice = createSlice({
 export const { setHorse, setStatus } = getHorseSlice.actions;
 export default getHorseSlice.reducer;
 
-export const fetchHorse = createAsyncThunk('/horseget/fetch', async () => {
-    const res = await axios.get(`${window.env.API_URL}SearchHorse?size=10`);
+export const fetchHorse = createAsyncThunk('/horseget/fetch', async ({ currentPage }) => {
+    const res = await axios.get(`${window.env.API_URL}SearchHorse?page=${currentPage}`);
     const horseData = res.data;
     return horseData.data;
 })

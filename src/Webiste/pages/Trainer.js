@@ -18,6 +18,7 @@ import Animate from "../assets/loader.json";
 import { useTranslation } from "react-i18next";
 import DefaultImg from "../assets/default.png";
 import Pagination from "./Pagination";
+import axios from "axios";
 
 const Trainer = () => {
   const { t } = useTranslation();
@@ -25,7 +26,6 @@ const Trainer = () => {
 
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState();
-  const [TotalData, setTotalData] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = async (data) => {
@@ -36,16 +36,31 @@ const Trainer = () => {
   const { data: trainer, status } = useSelector((state) => state.trainer);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [postsPerPage] = useState(11);
+  const [TotalCount, setTotalCount] = useState()
+  const [TotalPages, setTotalPages] = useState()
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = trainer.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const GetSearch = async () => {
+
+    const response = await axios.get(
+      `${window.env.API_URL}/SearchTrainer`
+    );
+
+
+    setTotalCount(response.data.totalcount)
+    const TotalPagesData = response.data.totalPages;
+    setTotalPages(TotalPagesData)
+
+  };
+
+
   useEffect(() => {
-    dispatch(fetchTrainer());
-    setTotalData(trainer.length);
-  }, [dispatch, trainer.length]);
+    dispatch(fetchTrainer({ currentPage }));
+    GetSearch({ currentPage })
+  }, [currentPage, dispatch]);
+
 
   if (status === STATUSES.LOADING) {
     return <Lottie animationData={Animate} loop={true} className="load" />;
@@ -86,7 +101,7 @@ const Trainer = () => {
                 <th>{t("Nationality")}</th>
                 <th>{t("Image")}</th>
               </tr>
-              {currentPosts.map((item) => {
+              {trainer.map((item) => {
                 return (
                   <tr
                     onClick={() => handleShow(item)}
@@ -129,9 +144,9 @@ const Trainer = () => {
                       </Moment>
                     </td>
                     <td>
-                      <Moment format="YYYY/MM/DD">
+                      <Moment fromNow ago>
                         {" "}
-                        {item.TrainerLicenseDate}{" "}
+                        {item.TrainerLicenseDate}
                       </Moment>
                     </td>
                     <td>
@@ -178,10 +193,10 @@ const Trainer = () => {
         </div>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={TotalData}
+          totalPosts={TotalCount}
           paginate={paginate}
           currentPage={currentPage}
-          TotalPages={10}
+          TotalPages={TotalPages}
         />
         <Modal
           show={show}

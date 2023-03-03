@@ -33,8 +33,8 @@ const getTrainerSlice = createSlice({
 export const { setTrainer, setStatus } = getTrainerSlice.actions;
 export default getTrainerSlice.reducer;
 
-export const fetchTrainer = createAsyncThunk('/trainerget/fetch', async () => {
-    const res = await axios.get(`${window.env.API_URL}/trainerget?keyword=&page=1&limit=20`);
+export const fetchTrainer = createAsyncThunk('/SearchTrainer/fetch', async ({ currentPage }) => {
+    const res = await axios.get(`${window.env.API_URL}/SearchTrainer?&page=${currentPage}`);
     const trainerData = res.data;
     return trainerData.data;
 })

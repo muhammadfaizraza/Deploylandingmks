@@ -14,6 +14,7 @@ import Moment from "react-moment";
 import Lottie from 'lottie-react';
 import Animate from '../assets/loader.json'
 import Pagination from "./Pagination";
+import axios from "axios";
 const Horse = () => {
 
   const { t } = useTranslation();
@@ -31,7 +32,9 @@ const Horse = () => {
   const { data: horse, status } = useSelector((state) => state.horse);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [TotalCount, setTotalCount] = useState()
+  const [TotalPages, setTotalPages] = useState()
+  const [postsPerPage] = useState(11);
 
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -40,9 +43,26 @@ const Horse = () => {
 
   const cookiedata = Cookies.get('i18next')
 
+
+  const GetSearch = async () => {
+
+    const response = await axios.get(
+      `${window.env.API_URL}/SearchHorse`
+    );
+
+
+    setTotalCount(response.data.totalcount)
+    const TotalPagesData = response.data.totalPages;
+    setTotalPages(TotalPagesData)
+
+  };
+
+
   useEffect(() => {
-    dispatch(fetchHorse());
-  }, [dispatch])
+    dispatch(fetchHorse({ currentPage }));
+    GetSearch({ currentPage })
+  }, [currentPage, dispatch]);
+
   if (status === STATUSES.LOADING) {
     return (
       <div>
@@ -128,9 +148,10 @@ const Horse = () => {
         </div>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={horse.length}
+          totalPosts={TotalCount}
           paginate={paginate}
           currentPage={currentPage}
+          TotalPages={TotalPages}
         />
       </div>
       <Modal show={show} onHide={handleClose} size="lg"

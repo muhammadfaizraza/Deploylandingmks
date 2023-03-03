@@ -19,12 +19,15 @@ import OwnerDetail from "./OwnerDetail";
 import { useTranslation } from "react-i18next";
 import DefaultImg from "../assets/default.png";
 import Pagination from "./Pagination";
+import axios from "axios";
 
 const Owner = () => {
   const { t } = useTranslation();
   const cookiedata = Cookies.get("i18next");
   const [pageNumber, setPageNumber] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [TotalCount, setTotalCount] = useState()
+  const [TotalPages, setTotalPages] = useState()
 
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState();
@@ -37,18 +40,31 @@ const Owner = () => {
   const { data: owner, status } = useSelector((state) => state.owner);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(8);
+  const [postsPerPage] = useState(11);
   const [TotalData, setTotalData] = useState();
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = owner.slice(indexOfFirstPost, indexOfLastPost);
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const GetSearch = async () => {
+
+    const response = await axios.get(
+      `${window.env.API_URL}/SearchOwner`
+    );
+
+
+    setTotalCount(response.data.totalcount)
+    const TotalPagesData = response.data.totalPages;
+    setTotalPages(TotalPagesData)
+
+  };
+
   useEffect(() => {
-    dispatch(fetchowner({ pageNumber, searchKeyword }));
-    setTotalData(owner.length);
-  }, [dispatch, owner.length, pageNumber, searchKeyword]);
+    dispatch(fetchowner({ currentPage }));
+    GetSearch({ currentPage })
+  }, [currentPage, dispatch]);
+
+
 
   if (status === STATUSES.LOADING) {
     return <Lottie animationData={Animate} loop={true} className="load" />;
@@ -86,7 +102,7 @@ const Owner = () => {
                 <th>{t("Nationality")}</th>
                 <th>{t("Image")}</th>
               </tr>
-              {currentPosts.map((item) => {
+              {owner.map((item) => {
                 return (
                   <tr
                     onClick={() => handleShow(item)}
@@ -154,10 +170,10 @@ const Owner = () => {
         </div>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={TotalData}
+          totalPosts={TotalCount}
           paginate={paginate}
           currentPage={currentPage}
-          TotalPages={10}
+          TotalPages={TotalPages}
         />
 
         <Modal
