@@ -1,5 +1,4 @@
 import horse from '../../../assets/image 4.png'
-import Counter from './Counter'
 import {useTranslation} from 'react-i18next';
 
 const Addington = () => {
