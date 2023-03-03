@@ -41,6 +41,7 @@ const Result = () => {
     );
   }
 
+  console.log(raceresult,'raceresult')
   return (
     <>
       <div className="resultCard">
@@ -58,7 +59,7 @@ const Result = () => {
             <>
               <div
                 className="livedatacard"
-                onClick={() => handleShow1(raceresult._id)}
+                // onClick={() => handleShow1(raceresult._id)}
               >
                 <div>
                   <p className="result_match_name">

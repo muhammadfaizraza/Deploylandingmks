@@ -483,13 +483,13 @@ const Result = (data) => {
                                                   color: "#19469D",
                                                 }}>{data.HorseNo}</p>
                                                 <img
-                                                  src={data.HorseModelIdData1.HorseImage ? data.HorseModelIdData1.HorseImage : Defaultimg}
+                                                  src={data.HorseModelIdData1 ? data.HorseModelIdData1.HorseImage : Defaultimg}
                                                   alt=""
                                                 />
                                                 <span className="cardraces1box">
                                                   <p>
                                                     <Moment format="DD-MM-YY">
-                                                      {data.HorseModelIdData1.DOB}
+                                                      {data.HorseModelIdData1 ? data.HorseModelIdData1.DOB : <></>}
                                                     </Moment>
                                                   </p>
 
@@ -522,16 +522,16 @@ const Result = (data) => {
                                                         }
                                                       }>
                                                       {cookiedata === "en"
-                                                        ? data.HorseModelIdData1.NameEn
-                                                        : data.HorseModelIdData1.NameAr}
+                                                        ? (data.HorseModelIdData1 ? data.HorseModelIdData1.NameEn : <></>)
+                                                        : (data.HorseModelIdData1 ? data.HorseModelIdData1.NameAr : <></>)}
                                                     </span>
                                                   </p>
                                                
                                                   <p style={myPara}>
                                                     <Moment fromNow ago>
-                                                      {data.HorseModelIdData1.DOB}
+                                                    {data.HorseModelIdData1 ? data.HorseModelIdData1.DOB : <></>}
                                                     </Moment>{" "}
-                                                    {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} H ({data.HorseModelIdData1.Height})
+                                                    {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} 
                                                   </p>
                                                 </div>
                                                 <div
@@ -546,18 +546,9 @@ const Result = (data) => {
                                                     <b>
                                                       :
                                                       {cookiedata === "en" ? (
-                                                        data.HorseModelIdData1.DamEn ===
-                                                          undefined ? (
-                                                          <>N/A</>
-                                                        ) : (
-                                                          data.HorseModelIdData1.NameEn
-                                                        )
-                                                      ) : data.HorseModelIdData1.Dam ===
-                                                        undefined ? (
-                                                        <>N/A</>
-                                                      ) : (
-                                                        data.HorseModelIdData1.DamAr
-                                                      )}
+                                                        data.HorseModelIdData1 ? data.HorseModelIdData1.NameEn : <></>
+                                                        
+                                                      ) : data.HorseModelIdData1 ? data.HorseModelIdData1.NameAr : <></>}
                                                     </b>
                                                   </p>
                                                   <p style={myPara}>
@@ -565,18 +556,8 @@ const Result = (data) => {
                                                     <b>
                                                       :
                                                       {cookiedata === "en" ? (
-                                                        data.HorseModelIdData1.SireNameEn ===
-                                                          undefined ? (
-                                                          <>N/A</>
-                                                        ) : (
-                                                          data.HorseModelIdData1.SireNameEn
-                                                        )
-                                                      ) : data.HorseModelIdData1.SireNameAr ===
-                                                        undefined ? (
-                                                        <>N/A</>
-                                                      ) : (
-                                                        data.HorseModelIdData1.SireNameAr
-                                                      )}
+                                                          data.HorseModelIdData1 ?   data.HorseModelIdData1.SireNameEn : <></>
+                                                      ) : data.HorseModelIdData1 ? data.HorseModelIdData1.SireNameAr : <></>}
                                                     </b>
                                                   </p>
                                                   <p style={myPara}>
@@ -588,19 +569,8 @@ const Result = (data) => {
                                                     >
                                                       :
                                                       {cookiedata === "en" ? (
-                                                        data.HorseModelIdData1.GSireNameEn ===
-                                                          undefined ? (
-                                                          <>N/A</>
-                                                        ) : (
-                                                          data.HorseModelIdData1.GSireNameEn
-
-                                                        )
-                                                      ) : data.HorseModelIdData1.GSireNameEn ===
-                                                        undefined ? (
-                                                        <>N/A</>
-                                                      ) : (
-                                                        data.HorseModelIdData1.GSireNameAr
-                                                      )}
+                                                        data.HorseModelIdData1 ? data.HorseModelIdData1.GSireNameEn : <></>
+                                                      ) : data.HorseModelIdData1 ? data.HorseModelIdData1.GSireNameAr : <></>}
                                                     </b>
                                                   </p>
                                                 </div>
