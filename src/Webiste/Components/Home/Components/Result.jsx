@@ -123,23 +123,17 @@ const Result = () => {
                               <td>
                                 {cookiedata === "en" ? (
                                   <>
-                                    {data.HorseIDData.NameEn}(
-                                    {data.FinalPositionDataHorse.Rank})
+                                   
                                   </>
                                 ) : (
                                   <>
-                                    {data.HorseIDData.NameAr}(
-                                    {data.FinalPositionDataHorse.Rank})
+                                   
                                   </>
                                 )}
                               </td>
                               <td>{data.CumulativeDistance}</td>
                               <td>
-                                {data.HorseIDData.HorseStatus === true ? (
-                                  <>Yes</>
-                                ) : (
-                                  <>No</>
-                                )}
+                                
                               </td>
                               <td
                                 style={{
