@@ -38,11 +38,12 @@ import RaceDetails from "./Webiste/pages/RaceDetails";
 import BlogDetails from "./Webiste/pages/BlogDetails";
 import Policy from "./Webiste/pages/Policy";
 import TermsAndCondition from "./Webiste/pages/TermsAndCondition";
-
 import Owner from "./Webiste/pages/Owner";
 import Moment from "react-moment";
 import NotFound from "./Webiste/pages/NotFound";
 import TodayRaceCard from "./Webiste/pages/TodayRaceCard";
+import "./style.css";
+
 
 function App() {
   const [userIsDesktop, setUserIsDesktop] = useState(true);
