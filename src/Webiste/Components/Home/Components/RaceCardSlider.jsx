@@ -23,7 +23,6 @@ const RaceCardSlider = () => {
     dispatch(fetchRace());
   }, [dispatch]);
 
-
   const [userIsDesktop, setUserIsDesktop] = useState(true);
 
   useEffect(() => {
@@ -77,7 +76,7 @@ const RaceCardSlider = () => {
         settings: {
           slidesToShow: 5,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: false,
           dots: false,
         },
       },
