@@ -56,7 +56,7 @@ const Header = () => {
           </div>
 
           {show ? (
-            <Fade right>
+            <Fade top>
               {" "}
               <span className="mobiledropdown">
                 <Link to="/login" className="LinkStyle">

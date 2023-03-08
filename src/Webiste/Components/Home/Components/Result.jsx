@@ -148,7 +148,13 @@ const Result = () => {
                                     ) : (
                                       <></>
                                     )}
-                                    ({data.FinalPositionDataHorse.Rank})
+                                    (
+                                    {data.FinalPositionDataHorse ? (
+                                      data.FinalPositionDataHorse.Rank
+                                    ) : (
+                                      <></>
+                                    )}
+                                    )
                                   </>
                                 )}
                               </td>
