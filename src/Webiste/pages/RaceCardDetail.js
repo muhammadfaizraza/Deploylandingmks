@@ -229,6 +229,12 @@ const RaceCardDetail = () => {
   //  p1.HorseNo > p2.HorseNo ? 1 : p1.HorseNo < p2.HorseNo ? -1 : 0
   // );
 
+  let starttime = singlerace.StartTime;
+  let newtime = new Date(starttime);
+  let gethour = newtime.getHours();
+  let getminute = newtime.getMinutes()
+ 
+
   return (
     <>
       <Zoom>
@@ -252,7 +258,7 @@ const RaceCardDetail = () => {
                           singlerace.RaceCourseData.TrackNameAr
                         )}
                       </p>
-                      <img src={flag} alt="" />
+                      {/* <img src={flag} alt="" /> */}
                     </span>
                     <p className="itemtime">
                       <Moment format="D MMM YYYY" withTitle>
@@ -301,7 +307,7 @@ const RaceCardDetail = () => {
                           <p>
                             {t("Race")} {singlerace.RaceNumber}
                           </p>
-                          <p> {singlerace.StartTime}</p>
+                          <p> {`${gethour}:${getminute}`}</p>
                         </span>
                         {
                           singlerace.SponsorData ? <img
