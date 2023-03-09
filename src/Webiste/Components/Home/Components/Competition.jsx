@@ -81,13 +81,13 @@ const Competition = () => {
                               {/* {cookiedata === "en" ? <>{item.NameEn}</>:<>{item.NameAr}</>  } */}
                             </p>
                             <p>
-                              {item.CompetitionRacesPointsModelData.length}{" "}
-                              Races
+                              {/* {item.CompetitionRacesPointsModelData.length}{" "}
+                              Races */}
                             </p>
                           </div>
                         </Accordion.Header>
                         <Accordion.Body>
-                          {item.CompetitionRacesPointsModelData.map(
+                          {item.CompetitionDataOfRace.map(
                             (data, index) => {
                               return (
                                 <div

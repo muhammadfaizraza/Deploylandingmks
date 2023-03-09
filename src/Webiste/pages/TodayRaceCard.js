@@ -211,7 +211,7 @@ const RaceCardDetail = () => {
                                               }`,
                                           }}
                                         >
-                                          <p className="StartTimeCards">{data.StartTime.slice(11, 16)}</p>
+                                          <p className="StartTimeCards">{data.StartTime.slice(11,  16)}</p>
                                           {/* <p className="racestatusclasstime"><Moment format="hh:mm:ss" className="racestatusclasstime">{item.StartTime}</Moment></p> */}
                                         </span>
                                         <div>
