@@ -87,7 +87,7 @@ const Competition = () => {
                           </div>
                         </Accordion.Header>
                         <Accordion.Body>
-                          {item.CompetitionDataOfRace.map(
+                          {/* {item.CompetitionDataOfRace.map(
                             (data, index) => {
                               return (
                                 <div
@@ -111,7 +111,7 @@ const Competition = () => {
                                 </div>
                               );
                             }
-                          )}
+                          )} */}
                         </Accordion.Body>
                       </Accordion.Item>
                     </div>
