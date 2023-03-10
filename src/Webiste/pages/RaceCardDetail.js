@@ -1204,7 +1204,7 @@ const RaceCardDetail = () => {
                                                     "space-between",
                                                 }}
                                               >
-                                                {singlerace
+                                                {/* {singlerace
                                                   .CompetitionRacesPointsModelData
                                                   .length === 0 ? (
                                                   <></>
@@ -1301,7 +1301,7 @@ const RaceCardDetail = () => {
                                                       </>
                                                     )}
                                                   </>
-                                                )}
+                                                )} */}
 
                                                 {/* <button
                                               style={btnNew1}
