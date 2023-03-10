@@ -380,7 +380,7 @@ const Result = (data) => {
                           singlerace.SixthPrice}
                       </b>
                     </p>
-                    {singlerace.CompetitionRacesPointsModelData.length >
+                    {/* {singlerace.CompetitionRacesPointsModelData.length >
                       0 ? (
                       <div
                         style={{
@@ -390,7 +390,7 @@ const Result = (data) => {
                       ></div>
                     ) : (
                       <></>
-                    )}
+                    )} */}
                   </div>
                   <div className="Competitiontrophy">
                     <div className="Trophydata">
