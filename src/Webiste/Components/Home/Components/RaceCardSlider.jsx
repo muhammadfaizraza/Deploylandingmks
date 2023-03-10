@@ -197,7 +197,7 @@ const RaceCardSlider = () => {
                           trim
                           durationFromNow
                         ></Moment> */}
-                        {item.StartTime.slice(0, 5)}m
+                        {item.StartTime.slice(11, 16)}m
                       </p>{" "}
                     </span>
                     <span className="singleracecardbtn">
