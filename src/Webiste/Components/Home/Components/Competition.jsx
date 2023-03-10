@@ -87,31 +87,29 @@ const Competition = () => {
                           </div>
                         </Accordion.Header>
                         <Accordion.Body>
-                          {/* {item.CompetitionDataOfRace.map(
-                            (data, index) => {
-                              return (
-                                <div
-                                  className="Competition_Matches"
-                                  onClick={() => HandleJockey(data._id)}
-                                >
-                                  <p>
-                                    {cookiedata === "en" ? (
-                                      data.RaceNameModelData === undefined ? (
-                                        <>N/A</>
-                                      ) : (
-                                        data.RaceNameModelData.NameEn
-                                      )
-                                    ) : data.RaceNameModelData === undefined ? (
+                          {item.CompetitionDataOfRace.map((data, index) => {
+                            return (
+                              <div
+                                className="Competition_Matches"
+                                onClick={() => HandleJockey(data._id)}
+                              >
+                                <p>
+                                  {cookiedata === "en" ? (
+                                    data.RaceNameModelData === undefined ? (
                                       <>N/A</>
                                     ) : (
-                                      data.RaceNameModelData.NameAr
-                                    )}
-                                  </p>
-                                  <p>{index + 1}</p>
-                                </div>
-                              );
-                            }
-                          )} */}
+                                      data.RaceNameModelData.NameEn
+                                    )
+                                  ) : data.RaceNameModelData === undefined ? (
+                                    <>N/A</>
+                                  ) : (
+                                    data.RaceNameModelData.NameAr
+                                  )}
+                                </p>
+                                <p>{index + 1}</p>
+                              </div>
+                            );
+                          })}
                         </Accordion.Body>
                       </Accordion.Item>
                     </div>

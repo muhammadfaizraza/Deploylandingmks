@@ -229,11 +229,11 @@ const RaceCardDetail = () => {
   //  p1.HorseNo > p2.HorseNo ? 1 : p1.HorseNo < p2.HorseNo ? -1 : 0
   // );
 
-  let starttime = singlerace.StartTime;
+  let starttime = singlerace.StartTime
   let newtime = new Date(starttime);
   let gethour = newtime.getHours();
   let getminute = newtime.getMinutes()
- 
+
 
   return (
     <>
@@ -692,11 +692,11 @@ const RaceCardDetail = () => {
                                       return (
                                         <div className="RaceAndHorseModelDataCSS">
                                           <Card>
-                                           
+
                                             <Card.Header>
-                                            <>{data.HorseRunningStatus === false ? <div className="nonrunner">
-                                              <span>{cookiedata === "en" ? <>Non Runner</> : <>غير عداء</>}</span>
-                                            </div> : <></>}</>
+                                              <>{data.HorseRunningStatus === false ? <div className="nonrunner">
+                                                <span>{cookiedata === "en" ? <>Non Runner</> : <>غير عداء</>}</span>
+                                              </div> : <></>}</>
                                               <div className="cardracesAccordion">
                                                 <div className="cardraces1">
                                                   <img
@@ -1405,13 +1405,13 @@ const RaceCardDetail = () => {
                                                                   <th>
                                                                     <Moment
                                                                       format="YYYY/MM/DD"
-                                                                      
+
                                                                     >
                                                                       {item.RaceResultData === null ? <></> : item.RaceResultData.Day}
                                                                     </Moment>
                                                                   </th>
                                                                   <th>
-                                                                  {item.RaceResultData === null ? <></> : item.RaceResultData.RaceCourseData.TrackNameEn}
+                                                                    {item.RaceResultData === null ? <></> : item.RaceResultData.RaceCourseData.TrackNameEn}
                                                                   </th>
 
                                                                   <th>
