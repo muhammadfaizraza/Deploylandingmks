@@ -1,7 +1,6 @@
 //.....................Import..........................//
 import React, { useEffect, useState } from "react";
 import "../Components/CSS/RaceCardCSS/racedetail.css";
-import flag from "../assets/United Arab Emirates.png";
 import Defaultimg from "../assets/Frame.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchsinglerace, STATUSES } from "../redux/getReducer/getSingleRace";
@@ -74,7 +73,7 @@ const RaceCardDetail = () => {
     await setShowJockey(true);
   };
 
-  const [showtri, setShowtri] = useState(false);
+
 
 
   const [PositionNumber, setPositionNumber] = useState("1");
@@ -322,17 +321,7 @@ const RaceCardDetail = () => {
                             alt=""
                           /> : <></>
                         }
-                        {/* <img
-                            className="sponsor"
-                            src={
-                              singlerace.SponsorData === null ? (
-                                <></>
-                              ) : (
-                                singlerace.SponsorData.image
-                              )
-                            }
-                            alt=""
-                          /> */}
+
                       </span>
                       <span className="itemraces_center">
                         <h5>

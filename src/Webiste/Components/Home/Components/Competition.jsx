@@ -91,19 +91,23 @@ const Competition = () => {
                             return (
                               <div
                                 className="Competition_Matches"
-                                onClick={() => HandleJockey(data._id)}
+                                onClick={() => HandleJockey(data.Race)}
                               >
                                 <p>
                                   {cookiedata === "en" ? (
-                                    data.RaceNameModelData === undefined ? (
+                                    data.RaceDataOfCompetition
+                                      .RaceNameModelData === undefined ? (
                                       <>N/A</>
                                     ) : (
-                                      data.RaceNameModelData.NameEn
+                                      data.RaceDataOfCompetition
+                                        .RaceNameModelData.NameEn
                                     )
-                                  ) : data.RaceNameModelData === undefined ? (
+                                  ) : data.RaceDataOfCompetition
+                                      .RaceNameModelData === undefined ? (
                                     <>N/A</>
                                   ) : (
-                                    data.RaceNameModelData.NameAr
+                                    data.RaceDataOfCompetition.RaceNameModelData
+                                      .NameAr
                                   )}
                                 </p>
                                 <p>{index + 1}</p>

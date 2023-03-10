@@ -152,7 +152,7 @@ const Result = (data) => {
       </form>
     );
   }
-  console.log(singlerace,'data')
+  console.log(singlerace, 'data')
 
   return (
     <>
@@ -168,8 +168,8 @@ const Result = (data) => {
                         {cookiedata === "en" ? (
                           singlerace.RaceCourseData ? (
                             singlerace.RaceCourseData.TrackNameEn
-                          ) : 
-                          <></>
+                          ) :
+                            <></>
                         ) : singlerace.RaceCourseData ? (
                           <>N/A</>
                         ) : (
@@ -343,7 +343,7 @@ const Result = (data) => {
                     <div className="resultimages">
                       <span className="resultimagesRunningTime">
                         <p>Running Time</p>
-                        <h4>{singlerace.RaceResultData[0].RaceTime}</h4>
+                        <h4>{singlerace.RaceResultData.RaceTime ? singlerace.RaceResultData[0].RaceTime : "N/A"}</h4>
                       </span>
                       <span className="resultimagebox"></span>
                       <span className="resultimagebox"></span>
@@ -526,12 +526,12 @@ const Result = (data) => {
                                                         : (data.HorseModelIdData1 ? data.HorseModelIdData1.NameAr : <></>)}
                                                     </span>
                                                   </p>
-                                               
+
                                                   <p style={myPara}>
                                                     <Moment fromNow ago>
-                                                    {data.HorseModelIdData1 ? data.HorseModelIdData1.DOB : <></>}
+                                                      {data.HorseModelIdData1 ? data.HorseModelIdData1.DOB : <></>}
                                                     </Moment>{" "}
-                                                    {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} 
+                                                    {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn}
                                                   </p>
                                                 </div>
                                                 <div
@@ -547,7 +547,7 @@ const Result = (data) => {
                                                       :
                                                       {cookiedata === "en" ? (
                                                         data.HorseModelIdData1 ? data.HorseModelIdData1.NameEn : <></>
-                                                        
+
                                                       ) : data.HorseModelIdData1 ? data.HorseModelIdData1.NameAr : <></>}
                                                     </b>
                                                   </p>
@@ -556,7 +556,7 @@ const Result = (data) => {
                                                     <b>
                                                       :
                                                       {cookiedata === "en" ? (
-                                                          data.HorseModelIdData1 ?   data.HorseModelIdData1.SireNameEn : <></>
+                                                        data.HorseModelIdData1 ? data.HorseModelIdData1.SireNameEn : <></>
                                                       ) : data.HorseModelIdData1 ? data.HorseModelIdData1.SireNameAr : <></>}
                                                     </b>
                                                   </p>
@@ -698,7 +698,7 @@ const Result = (data) => {
                                                   </div>
                                                 </div>
                                               </div>
-                                     
+
 
                                               <div className="cardraces4">
                                                 <p
@@ -930,15 +930,15 @@ const Result = (data) => {
                                             </button> */}
 
                                               {/* {data.HorseModelIdData1.TrackHorses && data.HorseModelIdData1.TrackHorses.length > 0 ? <></>:<></>} */}
-                                                <div div className="trackBtn">
-                                                  {/* <button className="w-100 px-10" style={btnNew1} onClick={() => handleTrack(data.HorseModelIdData1._id)}>Track Horse</button> */}
-                                                </div>
-                                                
-                                                <></>
-                                                 {/* <div div className="trackBtn">
+                                              <div div className="trackBtn">
+                                                {/* <button className="w-100 px-10" style={btnNew1} onClick={() => handleTrack(data.HorseModelIdData1._id)}>Track Horse</button> */}
+                                              </div>
+
+                                              <></>
+                                              {/* <div div className="trackBtn">
                                                    <button className="w-100 px-10" style={btnNew1}>UnTrack Horse</button>
                                                  </div> */}
-                                              
+
                                             </div>
                                             <CustomToggle eventKey={index}>
                                               <button className="showMore" onClick={() => showHorseHistory(data.HorseModelIdData1._id)}>   Show History </button>

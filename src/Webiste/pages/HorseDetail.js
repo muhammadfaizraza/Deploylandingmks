@@ -93,7 +93,7 @@ const HorseDetail = (data) => {
 
               {cookiedata === 'en' ? (data.data === null ? <></> : data.data.NameEn) : (data.data === null ? <></> : data.data.NameAr)}
             </p>
-            <img src={data.data.NationalityData.image ? data.data.NationalityData.image : DefaultImg} alt="" style={{ height: "18px", margin: "0px 10px" }} />
+            <img src={data.data.NationalityData ? data.data.NationalityData.image : DefaultImg} alt="" style={{ height: "18px", margin: "0px 10px" }} />
             <p
               style={{
                 fontSize: "12px",
@@ -102,7 +102,7 @@ const HorseDetail = (data) => {
             >
               {data.data.DOB === null ? <>No Data</> : <><Moment fromNow ago>
                 {data.data.DOB}
-              </Moment></>} {data.data.CapColorData1 ? <>{data.data.CapColorData1.NameEn}</> : <></> } 
+              </Moment></>} {data.data.CapColorData1 ? <>{data.data.CapColorData1.NameEn}</> : <></>}
 
             </p>
           </span>

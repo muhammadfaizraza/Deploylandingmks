@@ -208,7 +208,7 @@ const RaceCardSlider = () => {
               })}
             </Slider>
           ) : (
-            <p>No Race Available</p>
+            <p className="noDataFound">No Race Available</p>
           )}
         </div>
       </div>
