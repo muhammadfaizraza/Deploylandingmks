@@ -2,7 +2,7 @@
   "name": "mkslanding",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000/api/v1/",
+  "proxy": "https://sumairroudani.com/api/v1/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
