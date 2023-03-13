@@ -306,7 +306,7 @@ const RaceCardDetail = () => {
                           <p>
                             {t("Race")} {singlerace.RaceNumber}
                           </p>
-                          <p> {new Date(singlerace.StartTime).toLocaleTimeString().slice(0,4)}m</p>
+                          <p> {new Date(singlerace.StartTime).toLocaleTimeString().slice(0, 4)}m</p>
                         </span>
                         {
                           singlerace.SponsorData ? <img
@@ -416,14 +416,7 @@ const RaceCardDetail = () => {
                           {/* <img src={weather} alt="" /> */}
                         </p>
                         <span className="distance">
-                          <p>
-                            {singlerace.TrackLengthData === undefined ? (
-                              <>N/A</>
-                            ) : (
-                              singlerace.TrackLengthData.TrackLength
-                            )}
-                            m a{singlerace.WeatherDegree}F
-                          </p>
+                          <img src={singlerace.TrackLengthData && singlerace.TrackLengthData.RaceCourseImage} alt="" />
                         </span>
                         <div className="Favourite">
                           <div>
@@ -466,24 +459,25 @@ const RaceCardDetail = () => {
                           singlerace.FourthPrice +
                           singlerace.FifthPrice +
                           singlerace.SixthPrice}
+
+                        {cookiedata === "en" ? (
+                          <>
+                            {singlerace.CurrencyData === undefined ? (
+                              <>N/A</>
+                            ) : (
+                              singlerace.CurrencyData.NameEn
+                            )}
+                          </>
+                        ) : (
+                          <>
+                            {singlerace.CurrencyData === undefined ? (
+                              <>N/A</>
+                            ) : (
+                              singlerace.CurrencyData.NameAr
+                            )}
+                          </>
+                        )}
                       </b>
-                      {cookiedata === "en" ? (
-                        <>
-                          {singlerace.CurrencyData === undefined ? (
-                            <>N/A</>
-                          ) : (
-                            singlerace.CurrencyData.NameEn
-                          )}
-                        </>
-                      ) : (
-                        <>
-                          {singlerace.CurrencyData === undefined ? (
-                            <>N/A</>
-                          ) : (
-                            singlerace.CurrencyData.NameAr
-                          )}
-                        </>
-                      )}
                     </p>
                   </div>
                   <div className="Competitiontrophy">
@@ -627,34 +621,36 @@ const RaceCardDetail = () => {
                         </h6>
                       </div>
                     </div>
-                    <div className="Trophydata">
-                      <span>{t("6th")}</span>
-                      <span>
-                        <img src={img} alt="" />
-                      </span>
-                      <div className="Trophydata_P">
-                        <h6>
-                          {singlerace.SixthPrice}{" "}
-                          {cookiedata === "en" ? (
-                            <>
-                              {singlerace.CurrencyData === undefined ? (
-                                <>N/A</>
-                              ) : (
-                                singlerace.CurrencyData.NameEn
-                              )}
-                            </>
-                          ) : (
-                            <>
-                              {singlerace.CurrencyData === undefined ? (
-                                <>N/A</>
-                              ) : (
-                                singlerace.CurrencyData.NameAr
-                              )}
-                            </>
-                          )}
-                        </h6>
+                    {
+                      singlerace.SixthPrice === 0 ? < ></> : <div className="Trophydata">
+                        <span>{t("6th")}</span>
+                        <span>
+                          <img src={img} alt="" />
+                        </span>
+                        <div className="Trophydata_P">
+                          <h6>
+                            {singlerace.SixthPrice}{" "}
+                            {cookiedata === "en" ? (
+                              <>
+                                {singlerace.CurrencyData === undefined ? (
+                                  <>N/A</>
+                                ) : (
+                                  singlerace.CurrencyData.NameEn
+                                )}
+                              </>
+                            ) : (
+                              <>
+                                {singlerace.CurrencyData === undefined ? (
+                                  <>N/A</>
+                                ) : (
+                                  singlerace.CurrencyData.NameAr
+                                )}
+                              </>
+                            )}
+                          </h6>
+                        </div>
                       </div>
-                    </div>
+                    }
                   </div>
                 </div>
                 <div className="RaceNav">
