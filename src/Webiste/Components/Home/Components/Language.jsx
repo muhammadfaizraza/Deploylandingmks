@@ -51,7 +51,7 @@ const Language = () => {
                     })}
                     onClick={() => {
                       i18next.changeLanguage(code);
-                      window.location.reload();
+                      // window.location.reload();
                     }}
                   >
                     {name}
