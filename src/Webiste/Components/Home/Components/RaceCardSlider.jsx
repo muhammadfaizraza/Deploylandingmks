@@ -128,14 +128,20 @@ const RaceCardSlider = () => {
     ],
   };
   const cookiedata = Cookies.get("i18next");
-
+  let racetime = racecard.map((item) => {
+    return( item.StartTime )
+  })
+  const datetime = new Date(racetime[0]).toLocaleTimeString();
+  console.log(datetime)
+  // const datenow = datetime.toLocaleTimeString();
+console.log(racetime,'racetime')
   return (
     <>
       <div className="RaceCardSlider">
         <div className="slidercards">
           {racecard.length > 0 ? (
             <Slider {...settings}>
-              {racecard.map((item) => {
+              {racecard.map((item,i) => {
                 return (
                   <div
                     className="singleracecard"
@@ -197,7 +203,9 @@ const RaceCardSlider = () => {
                           trim
                           durationFromNow
                         ></Moment> */}
-                        {item.StartTime.slice(11, 16)}m
+                        {/* {item.StartTime.slice(11, 16)}m */}
+                        {/* {datenow} */}
+                        {new Date(racetime[i]).toLocaleTimeString().slice(0,4)}m
                       </p>{" "}
                     </span>
                     <span className="singleracecardbtn">
