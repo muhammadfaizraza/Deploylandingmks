@@ -350,7 +350,7 @@ const Result = (data) => {
                       <span className="resultimagebox"></span>
                       <span className="resultimagebox"></span>
                       <span className="resultimagevideo">
-                        <a href={singlerace.RaceResultData[0].VideoLink} target="_">
+                        <a href={singlerace.RaceResultData[0].VideoLink ? singlerace.RaceResultData[0].VideoLink : ""} target="_">
                           <img src={arrow2} alt="img" />
                         </a>
 

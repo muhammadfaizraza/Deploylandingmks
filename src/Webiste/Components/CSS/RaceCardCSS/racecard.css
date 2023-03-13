@@ -335,3 +335,8 @@ p.StartTimeCards {
 p.noDataFound {
     text-align: center;
 }
+
+.close {
+    color: #fff !important;
+    opacity: 1;
+}

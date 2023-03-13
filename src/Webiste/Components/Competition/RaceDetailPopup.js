@@ -721,13 +721,14 @@ const RaceCardDetail = () => {
           ) : (
             <div className="NAclass">No Data</div>)}
           <Modal
+
             show={show}
             onHide={handleClose}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
           >
-            <Modal.Header closeButton></Modal.Header>
+            <Modal.Header closeButton ></Modal.Header>
             <Modal.Body>
               <Competition data={CastData} />
             </Modal.Body>

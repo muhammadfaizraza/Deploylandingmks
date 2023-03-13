@@ -746,16 +746,7 @@ const RaceCardDetail = () => {
                                                             .NameAr}
                                                       </span>
                                                     </p>
-                                                    {/* <img
-                                                      src={
-                                                        data.HorseModelIdData1.NationalityData
-                                                          .image
-                                                          ? data.HorseModelIdData1.NationalityData
-                                                              .image
-                                                          : Defaultimg
-                                                      }
-                                                      alt=""
-                                                    /> */}
+                                              
 
                                                     <p style={myPara}>
                                                       <Moment fromNow ago>
@@ -764,7 +755,6 @@ const RaceCardDetail = () => {
                                                             .DOB
                                                         }
                                                       </Moment>{" "}
-                                                      {/* {data.CapColorData1 === null ? <></> : data.CapColorData1.NameEn} H ({data.HorseModelIdData1.Height}) */}
                                                     </p>
                                                   </div>
                                                   <div

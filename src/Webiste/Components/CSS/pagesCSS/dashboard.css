@@ -4,11 +4,9 @@
 }
 
 .GenerateReports {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #19469D;
+  color: #003bad !important;
   font-family: 'Inter';
+  text-align: center;
   font-style: normal;
   font-weight: 300;
   font-size: 20px;
@@ -16,7 +14,12 @@
   height: 246.19px;
   border-radius: 20px;
   border: 3px solid rgba(0, 0, 0, 0.2);
+}
 
+.GenerateReports p {
+  text-align: center;
+  margin-top: 85px;
+  color: #19469D;
 }
 
 .OngoingRaces {
@@ -46,13 +49,14 @@
 
 .GenerateReports h3 {
   position: relative;
-  left: 147px;
+  left: 115px;
   top: 0px;
-  color: #979695;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 300;
   font-size: 47px;
+  color: #979695;
+
 }
 
 .DashboardCard {
@@ -260,7 +264,7 @@ input#floatingInput {
   border-radius: 20px;
   color: white;
   border: none;
-  margin: 22px 10px;
+
 }
 
 
@@ -282,7 +286,7 @@ input#floatingInput {
   border-radius: 20px;
   color: white;
   border: none;
-  margin-right: 0.8rem;
+
 }
 
 
@@ -762,7 +766,12 @@ input.react-date-picker__inputGroup__input.react-date-picker__inputGroup__day::p
 }
 
 .ButtonTracker {
-  margin-left: 45px;
+  /* margin-left: 45px; */
+  margin: 27px 38px 30px;
+}
+
+.ButtonTracker>button {
+  margin: 0 10px;
 }
 
 .trackerhead {

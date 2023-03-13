@@ -415,10 +415,12 @@ td {
     width: 100%;
     margin-top: 10px;
 }
+
 .RaceDesc {
     display: flex;
     justify-content: space-between;
 }
+
 .itemraces_center {
     margin-top: 20px;
     flex: 2;
@@ -577,7 +579,8 @@ strong {
 
     margin-left: 12px;
     width: 100%;
-    color: #000000;}
+    color: #000000;
+}
 
 .trainerbreader_section {
     display: flex;
@@ -711,6 +714,24 @@ strong {
 .card-header {
     position: relative;
 }
+
 /* .nonrunner span {
     transform: skew(-15deg, 15deg);
 } */
+
+.distance img {
+
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10.76px;
+    width: 152px;
+    height: 77px;
+
+
+    border-radius: 20px;
+}

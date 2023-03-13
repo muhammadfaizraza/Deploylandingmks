@@ -157,7 +157,7 @@ const Horse = () => {
       <Modal show={show} onHide={handleClose} size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered>
-        <Modal.Header className="popupheader" closeButton >
+        <Modal.Header className="popupheader" closeButton  >
         </Modal.Header>
         <Modal.Body>
           <HorseDetail data={modaldata} />
