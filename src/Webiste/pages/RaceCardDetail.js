@@ -30,6 +30,7 @@ import Card from "react-bootstrap/Card";
 import HorseDetail from "./RaceCardHorse";
 import JockeyDetail from "./JockeyDetail";
 import { Modal } from "react-bootstrap";
+import RaceNumbers from "../Components/Reuseable/RaceNumbers";
 
 //.....................Function for Toggle History..........................//
 function CustomToggle({ children, eventKey }) {
@@ -230,8 +231,7 @@ const RaceCardDetail = () => {
 
   let starttime = singlerace.StartTime
   let newtime = new Date(starttime);
-  let gethour = newtime.getHours();
-  let getminute = newtime.getMinutes()
+
 
 
   return (
@@ -268,15 +268,7 @@ const RaceCardDetail = () => {
                     <Moment filter={toUpperCaseFilter}> {singlerace.DayNTime}
                           </Moment>  </p> */}
                   </div>
-                  {/* <div className="racestatuscolor">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                 
-                  </div> */}
+                  {/* <RaceNumbers id={singlerace.RaceCourseData === undefined ? "" : singlerace.RaceCourseData._id} /> */}
                 </div>
                 <div className="racedisc">
                   <div className="itemraces">
@@ -746,7 +738,7 @@ const RaceCardDetail = () => {
                                                             .NameAr}
                                                       </span>
                                                     </p>
-                                              
+
 
                                                     <p style={myPara}>
                                                       <Moment fromNow ago>

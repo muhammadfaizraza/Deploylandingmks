@@ -4,4 +4,4 @@ window.env = {
 
 // window.env = {
 //   "API_URL": "http://localhost:4000/api/v1/"
-// };
+// }; 

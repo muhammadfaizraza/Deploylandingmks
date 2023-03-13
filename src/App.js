@@ -45,6 +45,7 @@ import TodayRaceCard from "./Webiste/pages/TodayRaceCard";
 import "./style.css";
 
 
+
 function App() {
   const [userIsDesktop, setUserIsDesktop] = useState(true);
   useEffect(() => {
@@ -70,6 +71,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Registration />} />
               <Route path="/racecourse" element={<RaceCourse />} />
+
               <Route path="/about" element={<About />} />
               <Route path="/policies" element={<Policy />} />
               <Route path="/termscondition" element={<TermsAndCondition />} />
