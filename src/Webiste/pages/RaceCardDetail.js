@@ -306,7 +306,7 @@ const RaceCardDetail = () => {
                           <p>
                             {t("Race")} {singlerace.RaceNumber}
                           </p>
-                          <p> {`${gethour}:${getminute}`}</p>
+                          <p> {new Date(singlerace.StartTime).toLocaleTimeString().slice(0,4)}m</p>
                         </span>
                         {
                           singlerace.SponsorData ? <img
@@ -690,10 +690,9 @@ const RaceCardDetail = () => {
                                                 <div className="cardraces1">
                                                   <img
                                                     src={
-                                                      data.HorseModelIdData1
-                                                        .HorseImage
-                                                        ? data.HorseModelIdData1
-                                                          .HorseImage
+                                                      data.CapColorData1
+                                                        ? data.CapColorData1
+                                                          .OwnerSilkColor
                                                         : Defaultimg
                                                     }
                                                     alt=""
